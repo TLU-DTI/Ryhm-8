@@ -1,9 +1,79 @@
 <script lang="ts">
+  import ActionCard from '$lib/UI/ActionCard/ActionCard.svelte';
+  import CardHand from '$lib/UI/CardHand/CardHand.svelte';
+  import EndTurn from '$lib/UI/EndTurn/EndTurn.svelte';
+  import Manager from '$lib/UI/Manager/Manager.svelte';
+  import Objective from '$lib/UI/Objective/Objective.svelte';
+  import RiskLog from '$lib/UI/RiskLog/RiskLog.svelte';
+  import Settings from '$lib/UI/Settings/Settings.svelte';
+  import Timeline from '$lib/UI/Timeline/Timeline.svelte';
 </script>
 
-<h1>Welcome to SvelteKit</h1>
+<div class="flex">
+  <!-- Column 1 -->
+  <div class="w-[22vw]">
+    <div class="h-[44vh] bg-blue-300">
+      <Objective />
+    </div>
 
-<button class="bg-sky-700 px-4 py-2 text-white hover:bg-sky-800 sm:px-8 sm:py-3">Click</button>
+    <div class="h-[10vh]"></div>
+
+    <div class="h-[46vh] bg-blue-500">
+      <RiskLog />
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <div class="w-[4vw]">
+    <div class="h-[100vh]"></div>
+  </div>
+
+  <!-- Column 2 -->
+  <div class="w-[48vw]">
+    <div class="h-[12vh] bg-yellow-200">
+      <Timeline />
+    </div>
+
+    <div class="h-[4vh]"></div>
+
+    <div class="h-[44vh] bg-yellow-400">
+      <CardHand />
+    </div>
+
+    <div class="h-[4vh]"></div>
+
+    <div class="h-[36vh] bg-yellow-500">
+      <ActionCard />
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <div class="w-[1vw]">
+    <div class="h-[100vh]"></div>
+  </div>
+
+  <!-- Column 3 -->
+  <div class="w-[25vw]">
+    <div class="h-[10vh] bg-red-200">
+      <Settings />
+    </div>
+
+    <div class="h-[6vh]"></div>
+
+    <div class="h-[24vh] bg-red-300">
+      <Manager />
+    </div>
+
+    <div class="h-[42vh]"></div>
+    <div class="h-[2vh]"></div>
+
+    <div class="h-[10vh] bg-red-600">
+      <EndTurn />
+    </div>
+
+    <div class="h-[6vh]"></div>
+  </div>
+</div>
 
 <style lang="scss">
 </style>
