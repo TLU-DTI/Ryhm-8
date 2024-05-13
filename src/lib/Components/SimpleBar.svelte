@@ -35,7 +35,6 @@
   const style = styleProp ?? (classProp ? undefined : 'height:100%');
 </script>
 
-/** eslint-disable svelte/no-unused-svelte-ignore */
 <div class={classProp} bind:this={element} {style}>
   <div class="simplebar-wrapper">
     <div class="simplebar-height-auto-observer-wrapper">
@@ -64,11 +63,11 @@
   @import 'simplebar/dist/simplebar.css';
 
   .simplebar-scrollbar::before {
-    background-color: #6e78b3;
+    background-color: var(--scrollbar-color);
   }
 
   .simplebar-track {
-    background-color: #4d4f6b;
+    background-color: var(--scrollbar-track);
     border-radius: 10px;
   }
 </style>

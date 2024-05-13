@@ -2,3 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --first-border-color: #6e78b3;
+    --second-border-color: #40406b;
+
+    --first-background-color: #414666;
+    --second-background-color: #282844;
+
+    --text-normal-color: #ffffff;
+    --text-good-color: #9acb28;
+    --text-bad-color: #d9354a;
+
+    --scrollbar-color: #6e78b3;
+    --scrollbar-track: #4d4f6b;
+
+    --risk-card-header-color: #ff9e00;
+
+    --timeline-progress-color: #d175ff;
+
+    --risk-log-background-color: #363859;
+
+    --endturn-color-default: #c9c9c9;
+    --endturn-color-active: #51f06c;
+
+    --objectives-bar-color: #d4f8ea;
+    --objectives-bar-color-1: #ea593c;
+    --objectives-bar-color-2: #f9bd00;
+    --objectives-bar-color-3: #a6dc21;
+    --objectives-bar-color-4: #3fa400;
+
+  }
+}
