@@ -8,7 +8,7 @@
   }, 1e3);
 </script>
 
-<div class="relative size-full content-center text-center">
+<div class="size-full content-center text-center">
   <SimpleBar>
     <div>
       {#each logs as log}

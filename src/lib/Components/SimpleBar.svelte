@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { SimpleBarOptions } from 'simplebar-core';
   import SimpleBar from 'simplebar';
-  import { onDestroy, onMount, type Snippet } from 'svelte';
+  import { type Snippet } from 'svelte';
 
   let {
     children,
@@ -27,11 +27,11 @@
 
   let simplebar: SimpleBar;
 
-  onMount(() => {
+  $effect(() => {
     simplebar = new SimpleBar(element as HTMLDivElement, options);
-  });
-  onDestroy(() => simplebar?.unMount());
 
+    return () => simplebar?.unMount();
+  });
   const style = styleProp ?? (classProp ? undefined : 'height:100%');
 </script>
 

@@ -1,3 +1,7 @@
-<div class="size-full content-center text-center">
-  <p>Project Timeline</p>
+<script lang="ts">
+  import TimelineSVG from '$lib/assets/Timeline.svg';
+</script>
+
+<div class="size-full">
+  <img src={TimelineSVG} alt="" />
 </div>

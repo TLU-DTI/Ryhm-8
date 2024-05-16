@@ -11,20 +11,22 @@
     --second-background-color: #282844;
 
     --text-normal-color: #ffffff;
-    --text-good-color: #9acb28;
-    --text-bad-color: #d9354a;
-
+    
     --scrollbar-color: #6e78b3;
     --scrollbar-track: #4d4f6b;
-
+    
     --risk-card-header-color: #ff9e00;
+    --risk-card-good-text-color: #9acb28;
+    --risk-card-bad-text-color: #d9354a;
 
     --timeline-progress-color: #d175ff;
 
     --risk-log-background-color: #363859;
 
+    --endturn-color: #c9c9c9;
     --endturn-color-default: #c9c9c9;
     --endturn-color-active: #51f06c;
+    --endturn-border-radius: 1.7rem;
 
     --objectives-bar-color: #d4f8ea;
     --objectives-bar-color-1: #ea593c;

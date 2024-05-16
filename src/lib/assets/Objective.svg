@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 542 781.38">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #edfdeb;
+        font-family: ChangaOne, 'Changa One';
+        font-size: 35.67px;
+        isolation: isolate;
+        letter-spacing: .02em;
+      }
+
+      .cls-2 {
+        stroke-width: 10px;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2, .cls-3, .cls-6 {
+        fill: none;
+      }
+
+      .cls-2, .cls-4, .cls-5, .cls-6 {
+        stroke: #6e78b3;
+      }
+
+      .cls-7 {
+        fill: #414666;
+      }
+
+      .cls-7, .cls-8 {
+        stroke-width: 0px;
+      }
+
+      .cls-3 {
+        stroke: #40406b;
+        stroke-width: 6px;
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-4, .cls-5 {
+        stroke-width: 2px;
+      }
+
+      .cls-8 {
+        fill: #282844;
+      }
+
+      .cls-5 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-6 {
+        stroke-width: 5px;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="-709.95" y1="548.63" x2="-605.48" y2="548.63" gradientTransform="translate(562.63 -408.64) rotate(-90) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b2f1e8"/>
+      <stop offset="1" stop-color="#f7ffec"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="940.92" y1="548.63" x2="1045.39" y2="548.63" gradientTransform="translate(562.63 -416.02) rotate(90)" xlink:href="#linear-gradient"/>
+  </defs>
+  <g id="Objectives">
+    <g id="side_stuff" data-name="side stuff">
+      <polygon class="cls-5" points="27 301.31 1 288.48 1 250.92 1 247.22 1 209.66 27 196.83 27 301.31"/>
+      <polygon class="cls-4" points="27 524.89 1 537.69 1 575.29 1 579 1 616.57 27 629.36 27 524.89"/>
+    </g>
+    <g id="Top">
+      <path id="bg" class="cls-7" d="M425,58.38H143.63c7.62-18,15.24-36,22.87-54h236.63c7.29,18,14.58,36,21.87,54Z"/>
+      <polygon id="border" class="cls-6" points="425.4 60.38 403.52 2.5 288.63 2.5 278.59 2.5 165.42 2.5 141.86 60.38 425.4 60.38"/>
+      <text class="cls-1" transform="translate(194.53 40.95)"><tspan x="0" y="0">Objectives</tspan></text>
+    </g>
+    <g id="Outer">
+      <rect id="bg-2" data-name="bg" class="cls-7" x="34" y="66.38" width="499" height="707" rx="45.3" ry="45.3"/>
+      <rect id="border-2" data-name="border" class="cls-2" x="31" y="62.38" width="506" height="714" rx="50.01" ry="50.01"/>
+    </g>
+    <g id="Inner">
+      <rect id="bg-3" data-name="bg" class="cls-8" x="55" y="90.38" width="457" height="660" rx="27.9" ry="27.9"/>
+      <rect id="border-3" data-name="border" class="cls-3" x="53" y="88.38" width="461" height="664" rx="31.7" ry="31.7"/>
+    </g>
+  </g>
+</svg>

@@ -7,71 +7,80 @@
   import RiskLog from '$lib/UI/RiskLog/RiskLog.svelte';
   import Settings from '$lib/UI/Settings/Settings.svelte';
   import Timeline from '$lib/UI/Timeline/Timeline.svelte';
+
+  import Background from '$lib/assets/Background.jpg';
+  import BackgroundFilter from '$lib/assets/Background-filter.svg';
 </script>
 
-<div class="flex">
-  <!-- Column 1 -->
-  <div class="w-[22vw]">
-    <div class="h-[44vh] bg-blue-300">
-      <Objective />
+<div
+  style:background-repeat="no-repeat;"
+  style:background-image="url({BackgroundFilter}), url({Background})"
+  style:background-size="cover;"
+>
+  <div class="flex">
+    <!-- Column 1 -->
+    <div class="w-[22vw]">
+      <div class="relative h-[50vh] bg-blue-300">
+        <Objective />
+      </div>
+
+      <div class="h-[4vh]"></div>
+
+      <div class="relative h-[46vh] bg-blue-500">
+        <RiskLog />
+      </div>
     </div>
 
-    <div class="h-[10vh]"></div>
-
-    <div class="h-[46vh] bg-blue-500">
-      <RiskLog />
-    </div>
-  </div>
-
-  <!-- Divider -->
-  <div class="w-[4vw]">
-    <div class="h-[100vh]"></div>
-  </div>
-
-  <!-- Column 2 -->
-  <div class="w-[48vw]">
-    <div class="h-[12vh] bg-yellow-200">
-      <Timeline />
+    <!-- Divider -->
+    <div class="w-[4vw]">
+      <div class="h-[100vh]"></div>
     </div>
 
-    <div class="h-[4vh]"></div>
+    <!-- Column 2 -->
+    <div class="w-[48vw]">
+      <div class="relative h-[12vh]">
+        <Timeline />
+      </div>
 
-    <div class="h-[44vh] bg-yellow-400">
-      <CardHand />
+      <div class="h-[4vh]"></div>
+
+      <div class="relative h-[44vh] bg-yellow-400">
+        <CardHand />
+      </div>
+
+      <div class="h-[4vh]"></div>
+
+      <div class="relative h-[36vh] bg-yellow-500">
+        <ActionCard />
+      </div>
     </div>
 
-    <div class="h-[4vh]"></div>
-
-    <div class="h-[36vh] bg-yellow-500">
-      <ActionCard />
-    </div>
-  </div>
-
-  <!-- Divider -->
-  <div class="w-[1vw]">
-    <div class="h-[100vh]"></div>
-  </div>
-
-  <!-- Column 3 -->
-  <div class="w-[25vw]">
-    <div class="h-[10vh] bg-red-200">
-      <Settings />
+    <!-- Divider -->
+    <div class="w-[1vw]">
+      <div class="h-[100vh]"></div>
     </div>
 
-    <div class="h-[6vh]"></div>
+    <!-- Column 3 -->
+    <div class="w-[25vw]">
+      <div class="relative h-[10vh] bg-red-200">
+        <Settings />
+      </div>
 
-    <div class="h-[24vh] bg-red-300">
-      <Manager />
+      <div class="h-[6vh]"></div>
+
+      <div class="relative h-[24vh] bg-red-300">
+        <Manager />
+      </div>
+
+      <div class="h-[42vh]"></div>
+      <div class="h-[2vh]"></div>
+
+      <div class="relative h-[10vh] bg-red-600">
+        <EndTurn />
+      </div>
+
+      <div class="h-[6vh]"></div>
     </div>
-
-    <div class="h-[42vh]"></div>
-    <div class="h-[2vh]"></div>
-
-    <div class="h-[10vh] bg-red-600">
-      <EndTurn />
-    </div>
-
-    <div class="h-[6vh]"></div>
   </div>
 </div>
 
