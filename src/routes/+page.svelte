@@ -7,19 +7,12 @@
   import RiskLog from '$lib/UI/RiskLog/RiskLog.svelte';
   import Settings from '$lib/UI/Settings/Settings.svelte';
   import Timeline from '$lib/UI/Timeline/Timeline.svelte';
-
-  import Background from '$lib/assets/Background.jpg';
-  import BackgroundFilter from '$lib/assets/Background-filter.svg';
 </script>
 
-<div
-  style:background-repeat="no-repeat;"
-  style:background-image="url({BackgroundFilter}), url({Background})"
-  style:background-size="cover;"
->
+<div class="wrapper">
   <div class="flex">
     <!-- Column 1 -->
-    <div class="w-[22vw]">
+    <div class="w-[19vw]">
       <div class="relative h-[50vh] bg-blue-300">
         <Objective />
       </div>
@@ -32,13 +25,13 @@
     </div>
 
     <!-- Divider -->
-    <div class="w-[4vw]">
+    <div class="w-[7vw]">
       <div class="h-[100vh]"></div>
     </div>
 
     <!-- Column 2 -->
     <div class="w-[48vw]">
-      <div class="relative h-[12vh]">
+      <div class="relative h-[10vh]">
         <Timeline />
       </div>
 
@@ -50,7 +43,7 @@
 
       <div class="h-[4vh]"></div>
 
-      <div class="relative h-[36vh] bg-yellow-500">
+      <div class="relative h-[38vh] bg-yellow-500">
         <ActionCard />
       </div>
     </div>
@@ -85,4 +78,9 @@
 </div>
 
 <style lang="scss">
+  .wrapper {
+    background-repeat: no-repeat;
+    background-image: url('/assets/bg/filter.svg'), url('/assets/bg/bg.jpg');
+    background-size: cover;
+  }
 </style>

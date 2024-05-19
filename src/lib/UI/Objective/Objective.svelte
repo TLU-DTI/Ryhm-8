@@ -1,7 +1,11 @@
 <script lang="ts">
-  import ObjectiveSVG from '$lib/assets/Objective.svg';
+  //import ObjectiveSVG from '$lib/assets/Objective2.svg';
+  import ObjectiveSvg from './ObjectiveSVG.svelte';
 </script>
 
-<div class="size-full content-center">
-  <img class="h-[inherit]" src={ObjectiveSVG} alt="" />
+<div class="size-full">
+  <ObjectiveSvg />
 </div>
+
+<style>
+</style>

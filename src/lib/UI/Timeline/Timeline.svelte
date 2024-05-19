@@ -1,7 +1,7 @@
 <script lang="ts">
-  import TimelineSVG from '$lib/assets/Timeline.svg';
+  import TimelineSvg from './TimelineSVG.svelte';
 </script>
 
 <div class="size-full">
-  <img src={TimelineSVG} alt="" />
+  <TimelineSvg />
 </div>
