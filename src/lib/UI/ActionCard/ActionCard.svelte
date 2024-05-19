@@ -1,6 +1,6 @@
 <script>
   import SimpleBar from '$lib/Components/SimpleBar.svelte';
-  import CardTest from './Card_Test.svelte';
+  import CardTest from './CardTest.svelte';
 </script>
 
 <div class="size-full">
