@@ -40,12 +40,10 @@
     "simplebar-core": "^1.2.5",
     "svelte": "5.0.0-next.136",
     "svelte-check": "^3.7.1",
-    "svgo": "^3.3.2",
     "tailwindcss": "^3.4.3",
     "tslib": "^2.6.2",
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
-    "vite-plugin-image-optimizer": "^1.1.7",
     "vitest": "^1.6.0"
   },
   "type": "module"
