@@ -4,17 +4,17 @@
   $effect(() => {
     const objSvg = SVG('#Objectives');
 
-    let scopeBar = objSvg.findOne('#Scope-progress-bar') as Rect;
-    let scopeTrack = objSvg.findOne('#Scope-progress-track') as Path;
+    let scopeBar = objSvg.findOne('#Objectives_Scope-progress-bar') as Rect;
+    let scopeTrack = objSvg.findOne('#Objectives_Scope-progress-track') as Path;
 
-    let qualityBar = objSvg.findOne('#Quality-progress-bar') as Rect;
-    let qualityTrack = objSvg.findOne('#Quality-progress-track') as Path;
+    let qualityBar = objSvg.findOne('#Objectives_Quality-progress-bar') as Rect;
+    let qualityTrack = objSvg.findOne('#Objectives_Quality-progress-track') as Path;
 
-    let timeBar = objSvg.findOne('#Time-progress-bar') as Rect;
-    let timeTrack = objSvg.findOne('#Time-progress-track') as Path;
+    let timeBar = objSvg.findOne('#Objectives_Time-progress-bar') as Rect;
+    let timeTrack = objSvg.findOne('#Objectives_Time-progress-track') as Path;
 
-    let costBar = objSvg.findOne('#Cost-progress-bar') as Rect;
-    let costTrack = objSvg.findOne('#Cost-progress-track') as Path;
+    let costBar = objSvg.findOne('#Objectives_Cost-progress-bar') as Rect;
+    let costTrack = objSvg.findOne('#Objectives_Cost-progress-track') as Path;
 
     scopeBar
       .animate(1500)
@@ -69,7 +69,7 @@
 >
   <defs>
     <linearGradient
-      id="linear-gradient"
+      id="Objectives_linear-gradient"
       x1="-709.95"
       y1="548.63"
       x2="-605.48"
@@ -81,13 +81,13 @@
       <stop offset="1" stop-color="#f7ffec" />
     </linearGradient>
     <linearGradient
-      id="linear-gradient-2"
+      id="Objectives_linear-gradient-2"
       x1="940.92"
       x2="1045.39"
       gradientTransform="translate(562.63 -416.02) rotate(90)"
-      xlink:href="#linear-gradient"
+      xlink:href="#Objectives_linear-gradient"
     />
-    <clipPath id="clippath">
+    <clipPath id="Objectives_clippath">
       <rect
         x="93.58"
         y="185.31"
@@ -101,15 +101,15 @@
       />
     </clipPath>
     <linearGradient
-      id="linear-gradient-3"
+      id="Objectives_linear-gradient-3"
       x1="279.99"
       y1="203.43"
       x2="292.72"
       y2="203.43"
       gradientTransform="matrix(1,0,0,1,0,0)"
-      xlink:href="#linear-gradient"
+      xlink:href="#Objectives_linear-gradient"
     />
-    <clipPath id="clippath-1">
+    <clipPath id="Objectives_clippath-1">
       <rect
         x="93.58"
         y="344.31"
@@ -123,15 +123,15 @@
       />
     </clipPath>
     <linearGradient
-      id="linear-gradient-4"
+      id="Objectives_linear-gradient-4"
       x1="279.99"
       y1="362.43"
       x2="292.72"
       y2="362.43"
       gradientTransform="matrix(1,0,0,1,0,0)"
-      xlink:href="#linear-gradient"
+      xlink:href="#Objectives_linear-gradient"
     />
-    <clipPath id="clippath-2">
+    <clipPath id="Objectives_clippath-2">
       <rect
         x="93.58"
         y="498.31"
@@ -145,15 +145,15 @@
       />
     </clipPath>
     <linearGradient
-      id="linear-gradient-5"
+      id="Objectives_linear-gradient-5"
       x1="279.99"
       y1="516.43"
       x2="292.72"
       y2="516.43"
       gradientTransform="matrix(1,0,0,1,0,0)"
-      xlink:href="#linear-gradient"
+      xlink:href="#Objectives_linear-gradient"
     />
-    <clipPath id="clippath-3">
+    <clipPath id="Objectives_clippath-3">
       <rect
         x="93.58"
         y="669.31"
@@ -167,40 +167,40 @@
       />
     </clipPath>
     <linearGradient
-      id="linear-gradient-6"
+      id="Objectives_linear-gradient-6"
       x1="279.99"
       y1="687.43"
       x2="292.72"
       y2="687.43"
       gradientTransform="matrix(1,0,0,1,0,0)"
-      xlink:href="#linear-gradient"
+      xlink:href="#Objectives_linear-gradient"
     />
   </defs>
-  <g id="side_stuff">
+  <g id="Objectives_side_stuff">
     <polygon
       points="27 301.31 1 288.48 1 250.92 1 247.22 1 209.66 27 196.83 27 301.31"
-      fill="url(#linear-gradient)"
+      fill="url(#Objectives_linear-gradient)"
       stroke="#6e78b3"
       stroke-miterlimit="10"
       stroke-width="2"
     />
     <polygon
       points="27 524.89 1 537.69 1 575.29 1 579 1 616.57 27 629.36 27 524.89"
-      fill="url(#linear-gradient-2)"
+      fill="url(#Objectives_linear-gradient-2)"
       stroke="#6e78b3"
       stroke-miterlimit="10"
       stroke-width="2"
     />
   </g>
-  <g id="Top">
+  <g id="Objectives_Top">
     <path
-      id="bg"
+      id="Objectives_bg"
       d="M425,58.38H143.63c7.62-18,15.24-36,22.87-54h236.63c7.29,18,14.58,36,21.87,54Z"
       fill="#414666"
       stroke-width="0"
     />
     <polygon
-      id="border"
+      id="Objectives_border"
       points="425.4 60.38 403.52 2.5 288.63 2.5 278.59 2.5 165.42 2.5 141.86 60.38 425.4 60.38"
       fill="none"
       stroke="#6e78b3"
@@ -216,9 +216,9 @@
       <tspan x="0" y="0">Objectives</tspan>
     </text>
   </g>
-  <g id="Outer">
+  <g id="Objectives_Outer">
     <rect
-      id="bg-2"
+      id="Objectives_bg-2"
       x="34"
       y="66.38"
       width="499"
@@ -229,7 +229,7 @@
       stroke-width="0"
     />
     <rect
-      id="border-2"
+      id="Objectives_border-2"
       x="31"
       y="62.38"
       width="506"
@@ -242,9 +242,9 @@
       stroke-width="10"
     />
   </g>
-  <g id="Inner">
+  <g id="Objectives_Inner">
     <rect
-      id="bg-3"
+      id="Objectives_bg-3"
       x="55"
       y="90.38"
       width="457"
@@ -255,7 +255,7 @@
       stroke-width="0"
     />
     <rect
-      id="border-3"
+      id="Objectives_border-3"
       x="53"
       y="88.38"
       width="461"
@@ -268,7 +268,7 @@
       stroke-width="6"
     />
   </g>
-  <g id="Top-Stuff">
+  <g id="Objectives_Top-Stuff">
     <line
       x1="95.21"
       y1="259.82"
@@ -296,7 +296,7 @@
       stroke="#131321"
       stroke-miterlimit="10"
     />
-    <g id="Scope">
+    <g id="Objectives_Scope">
       <path
         d="M287.99,4.81h.92c11.41,0,20.67,9.26,20.67,20.67v355.13c0,11.41-9.26,20.67-20.67,20.67h-.92c-11.41,0-20.67-9.26-20.67-20.67V25.48c0-11.41,9.26-20.67,20.67-20.67Z"
         transform="translate(491.5 -85.41) rotate(90)"
@@ -305,7 +305,7 @@
         stroke-miterlimit="10"
         stroke-width="2"
       />
-      <g clip-path="url(#clippath)">
+      <g clip-path="url(#Objectives_clippath)">
         <path
           d="M404.27,184.71h60.73c10.13,0,18.34,8.21,18.34,18.34h0c0,10.13-8.21,18.34-18.34,18.34h-60.73c-5.23.37-10.21.65-15.05.87-1.26.06-3.03.12-4.09-1.02-1.49-1.6-.55-4.45,0-7.16v-29.65c2.03-.01,4.07-.01,6.13,0,4.42.03,8.76.13,13,.28Z"
           fill="#3fa400"
@@ -352,7 +352,7 @@
         <tspan x="0" y="0">Over</tspan>
       </text>
       <path
-        id="Scope-progress-track"
+        id="Objectives_Scope-progress-track"
         d="M95.21,203.38h386.49H95.21Z"
         fill="none"
         opacity="0"
@@ -361,14 +361,14 @@
         stroke-width=".25"
       />
       <rect
-        id="Scope-progress-bar"
+        id="Objectives_Scope-progress-bar"
         x="279.99"
         y="175.48"
         width="12.73"
         height="55.9"
         rx="6.37"
         ry="6.37"
-        fill="url(#linear-gradient-3)"
+        fill="url(#Objectives_linear-gradient-3)"
         stroke="#8b9fbe"
         stroke-miterlimit="10"
         stroke-width=".25"
@@ -387,7 +387,7 @@
         stroke-width="0"
       />
     </g>
-    <g id="Quality">
+    <g id="Objectives_Quality">
       <path
         d="M287.99,163.81h.92c11.41,0,20.67,9.26,20.67,20.67v355.13c0,11.41-9.26,20.67-20.67,20.67h-.92c-11.41,0-20.67-9.26-20.67-20.67V184.48c0-11.41,9.26-20.67,20.67-20.67Z"
         transform="translate(650.5 73.59) rotate(90)"
@@ -396,7 +396,7 @@
         stroke-miterlimit="10"
         stroke-width="2"
       />
-      <g clip-path="url(#clippath-1)">
+      <g clip-path="url(#Objectives_clippath-1)">
         <path
           d="M404.27,343.71h60.73c10.13,0,18.34,8.21,18.34,18.34h0c0,10.13-8.21,18.34-18.34,18.34h-60.73c-5.23.37-10.21.65-15.05.87-1.26.06-3.03.12-4.09-1.02-1.49-1.6-.55-4.45,0-7.16v-29.65c2.03-.01,4.07-.01,6.13,0,4.42.03,8.76.13,13,.28Z"
           fill="#3fa400"
@@ -443,7 +443,7 @@
         <tspan x="0" y="0">Over</tspan>
       </text>
       <path
-        id="Quality-progress-track"
+        id="Objectives_Quality-progress-track"
         d="M95.21,362.38h386.49H95.21Z"
         fill="none"
         opacity="0"
@@ -452,14 +452,14 @@
         stroke-width=".25"
       />
       <rect
-        id="Quality-progress-bar"
+        id="Objectives_Quality-progress-bar"
         x="279.99"
         y="334.48"
         width="12.73"
         height="55.9"
         rx="6.37"
         ry="6.37"
-        fill="url(#linear-gradient-4)"
+        fill="url(#Objectives_linear-gradient-4)"
         stroke="#8b9fbe"
         stroke-miterlimit="10"
         stroke-width=".25"
@@ -478,7 +478,7 @@
         <tspan x="0" y="0">Quality</tspan>
       </text>
     </g>
-    <g id="Time">
+    <g id="Objectives_Time">
       <path
         d="M287.99,317.81h.92c11.41,0,20.67,9.26,20.67,20.67v355.13c0,11.41-9.26,20.67-20.67,20.67h-.92c-11.41,0-20.67-9.26-20.67-20.67v-355.13c0-11.41,9.26-20.67,20.67-20.67Z"
         transform="translate(804.5 227.59) rotate(90)"
@@ -487,7 +487,7 @@
         stroke-miterlimit="10"
         stroke-width="2"
       />
-      <g clip-path="url(#clippath-2)">
+      <g clip-path="url(#Objectives_clippath-2)">
         <path
           d="M404.27,497.71h60.73c10.13,0,18.34,8.21,18.34,18.34h0c0,10.13-8.21,18.34-18.34,18.34h-60.73c-5.23.37-10.21.65-15.05.87-1.26.06-3.03.12-4.09-1.02-1.49-1.6-.55-4.45,0-7.16v-29.65c2.03-.01,4.07-.01,6.13,0,4.42.03,8.76.13,13,.28Z"
           fill="#3fa400"
@@ -534,7 +534,7 @@
         <tspan x="0" y="0">Over</tspan>
       </text>
       <path
-        id="Time-progress-track"
+        id="Objectives_Time-progress-track"
         d="M95.21,516.38h386.49H95.21Z"
         fill="none"
         opacity="0"
@@ -543,14 +543,14 @@
         stroke-width=".25"
       />
       <rect
-        id="Time-progress-bar"
+        id="Objectives_Time-progress-bar"
         x="279.99"
         y="488.48"
         width="12.73"
         height="55.9"
         rx="6.37"
         ry="6.37"
-        fill="url(#linear-gradient-5)"
+        fill="url(#Objectives_linear-gradient-5)"
         stroke="#8b9fbe"
         stroke-miterlimit="10"
         stroke-width=".25"
@@ -569,7 +569,7 @@
         stroke-width="0"
       />
     </g>
-    <g id="Cost">
+    <g id="Objectives_Cost">
       <path
         d="M287.99,488.81h.92c11.41,0,20.67,9.26,20.67,20.67v355.13c0,11.41-9.26,20.67-20.67,20.67h-.92c-11.41,0-20.67-9.26-20.67-20.67v-355.13c0-11.41,9.26-20.67,20.67-20.67Z"
         transform="translate(975.5 398.59) rotate(90)"
@@ -578,7 +578,7 @@
         stroke-miterlimit="10"
         stroke-width="2"
       />
-      <g clip-path="url(#clippath-3)">
+      <g clip-path="url(#Objectives_clippath-3)">
         <path
           d="M404.27,668.71h60.73c10.13,0,18.34,8.21,18.34,18.34h0c0,10.13-8.21,18.34-18.34,18.34h-60.73c-5.23.37-10.21.65-15.05.87-1.26.06-3.03.12-4.09-1.02-1.49-1.6-.55-4.45,0-7.16v-29.65c2.03-.01,4.07-.01,6.13,0,4.42.03,8.76.13,13,.28Z"
           fill="#3fa400"
@@ -625,7 +625,7 @@
         <tspan x="0" y="0">Over</tspan>
       </text>
       <path
-        id="Cost-progress-track"
+        id="Objectives_Cost-progress-track"
         d="M95.21,687.38h386.49H95.21Z"
         fill="none"
         opacity="0"
@@ -634,14 +634,14 @@
         stroke-width=".25"
       />
       <rect
-        id="Cost-progress-bar"
+        id="Objectives_Cost-progress-bar"
         x="279.99"
         y="659.48"
         width="12.73"
         height="55.9"
         rx="6.37"
         ry="6.37"
-        fill="url(#linear-gradient-6)"
+        fill="url(#Objectives_linear-gradient-6)"
         stroke="#8b9fbe"
         stroke-miterlimit="10"
         stroke-width=".25"

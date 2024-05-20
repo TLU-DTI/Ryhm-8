@@ -4,8 +4,8 @@
   $effect(() => {
     const objSvg = SVG('#Timeline');
 
-    let bar = objSvg.findOne('#progress-bar') as Rect;
-    let track = objSvg.findOne('#progress-bar-track') as Path;
+    let bar = objSvg.findOne('#Timeline_progress-bar') as Rect;
+    let track = objSvg.findOne('#Timeline_progress-bar-track') as Path;
 
     bar
       .animate(6000)
@@ -31,14 +31,14 @@
     stroke-width="2"
   />
   <path
-    id="progress-bar-track"
+    id="Timeline_progress-bar-track"
     d="M7.26,30.1l354.02.05-354.02-.05Z"
     fill="#fff"
     opacity="0"
     stroke-width="0"
   />
   <rect
-    id="progress-bar"
+    id="Timeline_progress-bar"
     x="7.26"
     y="23.81"
     width="354.02"
