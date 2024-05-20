@@ -22,7 +22,7 @@
   });
 </script>
 
-<svg id="Timeline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 367.24 51.88">
+<svg id="Timeline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 367 52">
   <polygon
     points="219.32 23.01 211.85 1 189.12 1 186.89 1 164.16 1 156.75 22.85 219.32 23.01"
     fill="#414666"
