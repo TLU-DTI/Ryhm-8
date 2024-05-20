@@ -1,56 +1,56 @@
 <script lang="ts">
-  import { SVG } from '@svgdotjs/svg.js';
+  import { type Path, type Rect, SVG } from '@svgdotjs/svg.js';
 
   $effect(() => {
     const objSvg = SVG('#Objectives');
 
-    let scopeBar = objSvg.findOne('#Scope-progress-bar');
-    let scopeTrack = objSvg.findOne('#Scope-progress-track');
+    let scopeBar = objSvg.findOne('#Scope-progress-bar') as Rect;
+    let scopeTrack = objSvg.findOne('#Scope-progress-track') as Path;
 
-    let qualityBar = objSvg.findOne('#Quality-progress-bar');
-    let qualityTrack = objSvg.findOne('#Quality-progress-track');
+    let qualityBar = objSvg.findOne('#Quality-progress-bar') as Rect;
+    let qualityTrack = objSvg.findOne('#Quality-progress-track') as Path;
 
-    let timeBar = objSvg.findOne('#Time-progress-bar');
-    let timeTrack = objSvg.findOne('#Time-progress-track');
+    let timeBar = objSvg.findOne('#Time-progress-bar') as Rect;
+    let timeTrack = objSvg.findOne('#Time-progress-track') as Path;
 
-    let costBar = objSvg.findOne('#Cost-progress-bar');
-    let costTrack = objSvg.findOne('#Cost-progress-track');
+    let costBar = objSvg.findOne('#Cost-progress-bar') as Rect;
+    let costTrack = objSvg.findOne('#Cost-progress-track') as Path;
 
     scopeBar
       .animate(1500)
       .ease('<>')
-      .during(function (eased) {
+      .during(function (eased: number) {
         let p = scopeTrack.pointAt(eased * 380);
         scopeBar.center(p.x, p.y);
       })
-      .loop(true, true);
+      .loop(Infinity, true);
 
     qualityBar
       .animate(1500)
       .ease('<>')
-      .during(function (eased) {
+      .during(function (eased: number) {
         let p = qualityTrack.pointAt(eased * 380 + 100);
         qualityBar.center(p.x, p.y);
       })
-      .loop(true, true);
+      .loop(Infinity, true);
 
     timeBar
       .animate(1500)
       .ease('<>')
-      .during(function (eased) {
+      .during(function (eased: number) {
         let p = timeTrack.pointAt(eased * 380 - 200);
         timeBar.center(p.x, p.y);
       })
-      .loop(true, true);
+      .loop(Infinity, true);
 
     costBar
       .animate(1500)
       .ease('<>')
-      .during(function (eased) {
+      .during(function (eased: number) {
         let p = costTrack.pointAt(eased * 680 + 100);
         costBar.center(p.x, p.y);
       })
-      .loop(true, true);
+      .loop(Infinity, true);
   });
 </script>
 
