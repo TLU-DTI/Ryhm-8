@@ -176,491 +176,468 @@
       xlink:href="#Objectives_linear-gradient"
     />
   </defs>
-  <g id="Objectives_side_stuff">
-    <polygon
-      points="27 301.31 1 288.48 1 250.92 1 247.22 1 209.66 27 196.83 27 301.31"
-      fill="url(#Objectives_linear-gradient)"
-      stroke="#6e78b3"
-      stroke-miterlimit="10"
-      stroke-width="2"
-    />
-    <polygon
-      points="27 524.89 1 537.69 1 575.29 1 579 1 616.57 27 629.36 27 524.89"
-      fill="url(#Objectives_linear-gradient-2)"
-      stroke="#6e78b3"
-      stroke-miterlimit="10"
-      stroke-width="2"
-    />
-  </g>
-  <g id="Objectives_Top">
+  <polygon
+    points="27 301.31 1 288.48 1 250.92 1 247.22 1 209.66 27 196.83 27 301.31"
+    fill="url(#Objectives_linear-gradient)"
+    stroke="#6e78b3"
+    stroke-miterlimit="10"
+    stroke-width="2"
+  />
+  <polygon
+    points="27 524.89 1 537.69 1 575.29 1 579 1 616.57 27 629.36 27 524.89"
+    fill="url(#Objectives_linear-gradient-2)"
+    stroke="#6e78b3"
+    stroke-miterlimit="10"
+    stroke-width="2"
+  />
+  <path
+    d="M425,58.38H143.63c7.62-18,15.24-36,22.87-54h236.63c7.29,18,14.58,36,21.87,54Z"
+    fill="#414666"
+    stroke-width="0"
+  />
+  <polygon
+    points="425.4 60.38 403.52 2.5 288.63 2.5 278.59 2.5 165.42 2.5 141.86 60.38 425.4 60.38"
+    fill="none"
+    stroke="#6e78b3"
+    stroke-miterlimit="10"
+    stroke-width="5"
+  /><text
+    transform="translate(194.53 40.95)"
+    fill="#edfdeb"
+    font-family="ChangaOne, &apos;Changa One&apos;"
+    font-size="35.67"
+    isolation="isolate"
+    letter-spacing=".02em"
+  >
+    <tspan x="0" y="0">Objectives</tspan>
+  </text>
+  <rect
+    x="34"
+    y="66.38"
+    width="499"
+    height="707"
+    rx="45.3"
+    ry="45.3"
+    fill="#414666"
+    stroke-width="0"
+  />
+  <rect
+    x="31"
+    y="62.38"
+    width="506"
+    height="714"
+    rx="50.01"
+    ry="50.01"
+    fill="none"
+    stroke="#6e78b3"
+    stroke-miterlimit="10"
+    stroke-width="10"
+  />
+  <rect
+    x="55"
+    y="90.38"
+    width="457"
+    height="660"
+    rx="27.9"
+    ry="27.9"
+    fill="#282844"
+    stroke-width="0"
+  />
+  <rect
+    x="53"
+    y="88.38"
+    width="461"
+    height="664"
+    rx="31.7"
+    ry="31.7"
+    fill="none"
+    stroke="#40406b"
+    stroke-miterlimit="10"
+    stroke-width="6"
+  />
+  <line
+    x1="95.21"
+    y1="259.82"
+    x2="481.7"
+    y2="259.82"
+    fill="none"
+    stroke="#131321"
+    stroke-miterlimit="10"
+  />
+  <line
+    x1="95.21"
+    y1="408.12"
+    x2="481.7"
+    y2="408.12"
+    fill="none"
+    stroke="#131321"
+    stroke-miterlimit="10"
+  />
+  <line
+    x1="95.21"
+    y1="572.42"
+    x2="481.7"
+    y2="572.42"
+    fill="none"
+    stroke="#131321"
+    stroke-miterlimit="10"
+  />
+  <path
+    d="M287.99,4.81h.92c11.41,0,20.67,9.26,20.67,20.67v355.13c0,11.41-9.26,20.67-20.67,20.67h-.92c-11.41,0-20.67-9.26-20.67-20.67V25.48c0-11.41,9.26-20.67,20.67-20.67Z"
+    transform="translate(491.5 -85.41) rotate(90)"
+    fill="#40406b"
+    stroke="#5a6591"
+    stroke-miterlimit="10"
+    stroke-width="2"
+  />
+  <g clip-path="url(#Objectives_clippath)">
     <path
-      id="Objectives_bg"
-      d="M425,58.38H143.63c7.62-18,15.24-36,22.87-54h236.63c7.29,18,14.58,36,21.87,54Z"
-      fill="#414666"
-      stroke-width="0"
-    />
-    <polygon
-      id="Objectives_border"
-      points="425.4 60.38 403.52 2.5 288.63 2.5 278.59 2.5 165.42 2.5 141.86 60.38 425.4 60.38"
-      fill="none"
-      stroke="#6e78b3"
-      stroke-miterlimit="10"
-      stroke-width="5"
-    /><text
-      transform="translate(194.53 40.95)"
-      fill="#edfdeb"
-      font-family="ChangaOne, &apos;Changa One&apos;"
-      font-size="35.67"
-      letter-spacing=".02em"
-    >
-      <tspan x="0" y="0">Objectives</tspan>
-    </text>
-  </g>
-  <g id="Objectives_Outer">
-    <rect
-      id="Objectives_bg-2"
-      x="34"
-      y="66.38"
-      width="499"
-      height="707"
-      rx="45.3"
-      ry="45.3"
-      fill="#414666"
+      d="M404.27,184.71h60.73c10.13,0,18.34,8.21,18.34,18.34h0c0,10.13-8.21,18.34-18.34,18.34h-60.73c-5.23.37-10.21.65-15.05.87-1.26.06-3.03.12-4.09-1.02-1.49-1.6-.55-4.45,0-7.16v-29.65c2.03-.01,4.07-.01,6.13,0,4.42.03,8.76.13,13,.28Z"
+      fill="#3fa400"
       stroke-width="0"
     />
     <rect
-      id="Objectives_border-2"
-      x="31"
-      y="62.38"
-      width="506"
-      height="714"
-      rx="50.01"
-      ry="50.01"
-      fill="none"
-      stroke="#6e78b3"
-      stroke-miterlimit="10"
-      stroke-width="10"
-    />
-  </g>
-  <g id="Objectives_Inner">
-    <rect
-      id="Objectives_bg-3"
-      x="55"
-      y="90.38"
-      width="457"
-      height="660"
-      rx="27.9"
-      ry="27.9"
-      fill="#282844"
+      x="288.46"
+      y="184.71"
+      width="97.4"
+      height="36.67"
+      transform="translate(674.31 406.1) rotate(180)"
+      fill="#a6dc22"
       stroke-width="0"
     />
     <rect
-      id="Objectives_border-3"
-      x="53"
-      y="88.38"
-      width="461"
-      height="664"
-      rx="31.7"
-      ry="31.7"
-      fill="none"
-      stroke="#40406b"
-      stroke-miterlimit="10"
-      stroke-width="6"
+      x="190.98"
+      y="184.71"
+      width="97.4"
+      height="36.67"
+      transform="translate(479.35 406.1) rotate(180)"
+      fill="#f9bd00"
+      stroke-width="0"
     />
-  </g>
-  <g id="Objectives_Top-Stuff">
-    <line
-      x1="95.21"
-      y1="259.82"
-      x2="481.7"
-      y2="259.82"
-      fill="none"
-      stroke="#131321"
-      stroke-miterlimit="10"
+    <path
+      d="M111.91,184.71h60.73c3.61-.15,7.31-.24,11.1-.28,2.42-.02,4.81-.02,7.16,0v36.8c-2.7-.02-5.42-.02-8.18,0-3.4.02-6.76.07-10.07.15h-60.73c-10.13,0-18.34-8.21-18.34-18.34h0c0-10.13,8.21-18.34,18.34-18.34Z"
+      fill="#ea5a3d"
+      stroke-width="0"
     />
-    <line
-      x1="95.21"
-      y1="408.12"
-      x2="481.7"
-      y2="408.12"
-      fill="none"
-      stroke="#131321"
-      stroke-miterlimit="10"
+  </g><text
+    transform="translate(111.71 210.8)"
+    fill="#ba3a25"
+    font-family="ChangaOne, &apos;Changa One&apos;"
+    font-size="22.81"
+    letter-spacing=".02em"
+  >
+    <tspan x="0" y="0">Under</tspan>
+  </text><text
+    transform="translate(408.69 210.8)"
+    fill="#2f7700"
+    font-family="ChangaOne, &apos;Changa One&apos;"
+    font-size="22.81"
+    letter-spacing=".02em"
+  >
+    <tspan x="0" y="0">Over</tspan>
+  </text>
+  <path
+    id="Objectives_Scope-progress-track"
+    d="M95.21,203.38h386.49H95.21Z"
+    fill="none"
+    opacity="0"
+    stroke="#131321"
+    stroke-miterlimit="10"
+    stroke-width=".25"
+  />
+  <rect
+    id="Objectives_Scope-progress-bar"
+    x="279.99"
+    y="175.48"
+    width="12.73"
+    height="55.9"
+    rx="6.37"
+    ry="6.37"
+    fill="url(#Objectives_linear-gradient-3)"
+    stroke="#8b9fbe"
+    stroke-miterlimit="10"
+    stroke-width=".25"
+  /><text
+    transform="translate(256.69 157.07)"
+    fill="#edfdeb"
+    font-family="ChangaOne, &apos;Changa One&apos;"
+    font-size="34.48"
+    letter-spacing=".02em"
+  >
+    <tspan x="0" y="0">Scope</tspan>
+  </text>
+  <path
+    d="M234.43,133.8c-7.27,0-13.16,5.89-13.16,13.16s5.89,13.16,13.16,13.16,13.16-5.89,13.16-13.16-5.89-13.16-13.16-13.16ZM241.78,144.45l-8.29,8.29c-.21.21-.48.32-.78.32s-.57-.12-.78-.32l-3.79-3.79c-.43-.43-.43-1.12,0-1.55s1.12-.43,1.55,0l3.01,3.01,7.52-7.52c.43-.43,1.12-.43,1.55,0s.43,1.12,0,1.55Z"
+    fill="#edfdeb"
+    stroke-width="0"
+  />
+  <path
+    d="M287.99,163.81h.92c11.41,0,20.67,9.26,20.67,20.67v355.13c0,11.41-9.26,20.67-20.67,20.67h-.92c-11.41,0-20.67-9.26-20.67-20.67V184.48c0-11.41,9.26-20.67,20.67-20.67Z"
+    transform="translate(650.5 73.59) rotate(90)"
+    fill="#40406b"
+    stroke="#5a6591"
+    stroke-miterlimit="10"
+    stroke-width="2"
+  />
+  <g clip-path="url(#Objectives_clippath-1)">
+    <path
+      d="M404.27,343.71h60.73c10.13,0,18.34,8.21,18.34,18.34h0c0,10.13-8.21,18.34-18.34,18.34h-60.73c-5.23.37-10.21.65-15.05.87-1.26.06-3.03.12-4.09-1.02-1.49-1.6-.55-4.45,0-7.16v-29.65c2.03-.01,4.07-.01,6.13,0,4.42.03,8.76.13,13,.28Z"
+      fill="#3fa400"
+      stroke-width="0"
     />
-    <line
-      x1="95.21"
-      y1="572.42"
-      x2="481.7"
-      y2="572.42"
-      fill="none"
-      stroke="#131321"
-      stroke-miterlimit="10"
+    <rect
+      x="288.46"
+      y="343.71"
+      width="97.4"
+      height="36.67"
+      transform="translate(674.31 724.1) rotate(180)"
+      fill="#a6dc22"
+      stroke-width="0"
     />
-    <g id="Objectives_Scope">
-      <path
-        d="M287.99,4.81h.92c11.41,0,20.67,9.26,20.67,20.67v355.13c0,11.41-9.26,20.67-20.67,20.67h-.92c-11.41,0-20.67-9.26-20.67-20.67V25.48c0-11.41,9.26-20.67,20.67-20.67Z"
-        transform="translate(491.5 -85.41) rotate(90)"
-        fill="#40406b"
-        stroke="#5a6591"
-        stroke-miterlimit="10"
-        stroke-width="2"
-      />
-      <g clip-path="url(#Objectives_clippath)">
-        <path
-          d="M404.27,184.71h60.73c10.13,0,18.34,8.21,18.34,18.34h0c0,10.13-8.21,18.34-18.34,18.34h-60.73c-5.23.37-10.21.65-15.05.87-1.26.06-3.03.12-4.09-1.02-1.49-1.6-.55-4.45,0-7.16v-29.65c2.03-.01,4.07-.01,6.13,0,4.42.03,8.76.13,13,.28Z"
-          fill="#3fa400"
-          stroke-width="0"
-        />
-        <rect
-          x="288.46"
-          y="184.71"
-          width="97.4"
-          height="36.67"
-          transform="translate(674.31 406.1) rotate(180)"
-          fill="#a6dc22"
-          stroke-width="0"
-        />
-        <rect
-          x="190.98"
-          y="184.71"
-          width="97.4"
-          height="36.67"
-          transform="translate(479.35 406.1) rotate(180)"
-          fill="#f9bd00"
-          stroke-width="0"
-        />
-        <path
-          d="M111.91,184.71h60.73c3.61-.15,7.31-.24,11.1-.28,2.42-.02,4.81-.02,7.16,0v36.8c-2.7-.02-5.42-.02-8.18,0-3.4.02-6.76.07-10.07.15h-60.73c-10.13,0-18.34-8.21-18.34-18.34h0c0-10.13,8.21-18.34,18.34-18.34Z"
-          fill="#ea5a3d"
-          stroke-width="0"
-        />
-      </g><text
-        transform="translate(111.71 210.8)"
-        fill="#ba3a25"
-        font-family="ChangaOne, &apos;Changa One&apos;"
-        font-size="22.81"
-        letter-spacing=".02em"
-      >
-        <tspan x="0" y="0">Under</tspan>
-      </text><text
-        transform="translate(408.69 210.8)"
-        fill="#2f7700"
-        font-family="ChangaOne, &apos;Changa One&apos;"
-        font-size="22.81"
-        letter-spacing=".02em"
-      >
-        <tspan x="0" y="0">Over</tspan>
-      </text>
-      <path
-        id="Objectives_Scope-progress-track"
-        d="M95.21,203.38h386.49H95.21Z"
-        fill="none"
-        opacity="0"
-        stroke="#131321"
-        stroke-miterlimit="10"
-        stroke-width=".25"
-      />
-      <rect
-        id="Objectives_Scope-progress-bar"
-        x="279.99"
-        y="175.48"
-        width="12.73"
-        height="55.9"
-        rx="6.37"
-        ry="6.37"
-        fill="url(#Objectives_linear-gradient-3)"
-        stroke="#8b9fbe"
-        stroke-miterlimit="10"
-        stroke-width=".25"
-      /><text
-        transform="translate(256.69 157.07)"
-        fill="#edfdeb"
-        font-family="ChangaOne, &apos;Changa One&apos;"
-        font-size="34.48"
-        letter-spacing=".02em"
-      >
-        <tspan x="0" y="0">Scope</tspan>
-      </text>
-      <path
-        d="M234.43,133.8c-7.27,0-13.16,5.89-13.16,13.16s5.89,13.16,13.16,13.16,13.16-5.89,13.16-13.16-5.89-13.16-13.16-13.16ZM241.78,144.45l-8.29,8.29c-.21.21-.48.32-.78.32s-.57-.12-.78-.32l-3.79-3.79c-.43-.43-.43-1.12,0-1.55s1.12-.43,1.55,0l3.01,3.01,7.52-7.52c.43-.43,1.12-.43,1.55,0s.43,1.12,0,1.55Z"
-        fill="#edfdeb"
-        stroke-width="0"
-      />
-    </g>
-    <g id="Objectives_Quality">
-      <path
-        d="M287.99,163.81h.92c11.41,0,20.67,9.26,20.67,20.67v355.13c0,11.41-9.26,20.67-20.67,20.67h-.92c-11.41,0-20.67-9.26-20.67-20.67V184.48c0-11.41,9.26-20.67,20.67-20.67Z"
-        transform="translate(650.5 73.59) rotate(90)"
-        fill="#40406b"
-        stroke="#5a6591"
-        stroke-miterlimit="10"
-        stroke-width="2"
-      />
-      <g clip-path="url(#Objectives_clippath-1)">
-        <path
-          d="M404.27,343.71h60.73c10.13,0,18.34,8.21,18.34,18.34h0c0,10.13-8.21,18.34-18.34,18.34h-60.73c-5.23.37-10.21.65-15.05.87-1.26.06-3.03.12-4.09-1.02-1.49-1.6-.55-4.45,0-7.16v-29.65c2.03-.01,4.07-.01,6.13,0,4.42.03,8.76.13,13,.28Z"
-          fill="#3fa400"
-          stroke-width="0"
-        />
-        <rect
-          x="288.46"
-          y="343.71"
-          width="97.4"
-          height="36.67"
-          transform="translate(674.31 724.1) rotate(180)"
-          fill="#a6dc22"
-          stroke-width="0"
-        />
-        <rect
-          x="190.98"
-          y="343.71"
-          width="97.4"
-          height="36.67"
-          transform="translate(479.35 724.1) rotate(180)"
-          fill="#f9bd00"
-          stroke-width="0"
-        />
-        <path
-          d="M111.91,343.71h60.73c3.61-.15,7.31-.24,11.1-.28,2.42-.02,4.81-.02,7.16,0v36.8c-2.7-.02-5.42-.02-8.18,0-3.4.02-6.76.07-10.07.15h-60.73c-10.13,0-18.34-8.21-18.34-18.34h0c0-10.13,8.21-18.34,18.34-18.34Z"
-          fill="#ea5a3d"
-          stroke-width="0"
-        />
-      </g><text
-        transform="translate(111.71 369.8)"
-        fill="#ba3a25"
-        font-family="ChangaOne, &apos;Changa One&apos;"
-        font-size="22.81"
-        letter-spacing=".02em"
-      >
-        <tspan x="0" y="0">Under</tspan>
-      </text><text
-        transform="translate(408.69 369.8)"
-        fill="#2f7700"
-        font-family="ChangaOne, &apos;Changa One&apos;"
-        font-size="22.81"
-        letter-spacing=".02em"
-      >
-        <tspan x="0" y="0">Over</tspan>
-      </text>
-      <path
-        id="Objectives_Quality-progress-track"
-        d="M95.21,362.38h386.49H95.21Z"
-        fill="none"
-        opacity="0"
-        stroke="#131321"
-        stroke-miterlimit="10"
-        stroke-width=".25"
-      />
-      <rect
-        id="Objectives_Quality-progress-bar"
-        x="279.99"
-        y="334.48"
-        width="12.73"
-        height="55.9"
-        rx="6.37"
-        ry="6.37"
-        fill="url(#Objectives_linear-gradient-4)"
-        stroke="#8b9fbe"
-        stroke-miterlimit="10"
-        stroke-width=".25"
-      />
-      <path
-        d="M224.6,287.72c-.44,0-.88.21-1.13.64l-.5.83c-.22.36-.57.6-.98.71,0,0,0,0-.01,0-.41.11-.84.08-1.21-.13l-.85-.47c-.87-.48-1.95.14-1.96,1.13l-.02.98c0,.42-.19.8-.49,1.1,0,0,0,0,0,0-.29.3-.68.48-1.1.49l-.99.02c-1,.02-1.62,1.09-1.13,1.97l.47.85c.2.37.24.8.13,1.2,0,0,0,.01,0,.02-.11.4-.35.75-.71.97l-.84.5c-.86.51-.86,1.76,0,2.27l.84.5c.36.21.6.57.71.97,0,0,0,.02,0,.02.11.4.08.84-.12,1.2l-.47.85c-.48.87.14,1.95,1.13,1.96l.98.02c.42,0,.8.19,1.1.49h0c.3.3.48.69.49,1.11l.02.98c.02,1,1.09,1.62,1.96,1.13l.85-.47c.37-.2.8-.24,1.2-.12,0,0,.02,0,.02,0,.4.11.75.35.97.71l.5.84c.51.86,1.76.86,2.27,0l.5-.84c.21-.36.57-.6.97-.71,0,0,.01,0,.02,0,.4-.11.84-.08,1.2.12l.85.47c.87.48,1.95-.14,1.97-1.13l.02-.98c0-.42.19-.8.49-1.1h0c.29-.31.68-.49,1.1-.5l.99-.02c1-.02,1.62-1.09,1.13-1.96l-.47-.85c-.2-.37-.24-.8-.13-1.2,0,0,0-.02,0-.02.11-.4.35-.75.71-.97l.84-.5c.86-.51.86-1.76,0-2.27l-.84-.5c-.36-.21-.6-.57-.71-.97,0,0,0-.01,0-.02-.11-.4-.08-.84.13-1.2l.47-.85c.48-.87-.14-1.95-1.13-1.97l-.99-.02c-.42,0-.8-.19-1.1-.49h0c-.3-.3-.48-.69-.49-1.11l-.02-.99c-.02-1-1.09-1.62-1.97-1.13l-.85.47c-.37.2-.8.24-1.2.13,0,0-.01,0-.02,0-.4-.11-.75-.35-.97-.71l-.5-.84c-.26-.43-.7-.64-1.13-.64ZM215.91,310.49l-2.64,6.33,4.64-.41,3.09,3.64,2.56-6.14c-.89-.26-1.66-.83-2.16-1.65l-.12-.21-.21.12c-.55.31-1.18.47-1.8.47-1.48,0-2.76-.88-3.36-2.15ZM233.28,310.49c-.6,1.26-1.88,2.15-3.36,2.15-.63,0-1.25-.16-1.8-.47l-.21-.12-.12.21c-.5.83-1.27,1.4-2.16,1.65l2.57,6.14,3.09-3.63,4.64.4-2.64-6.33Z"
-        fill="#edfdeb"
-        stroke-width="0"
-      /><text
-        transform="translate(246.85 314.36)"
-        fill="#edfdeb"
-        font-family="ChangaOne, &apos;Changa One&apos;"
-        font-size="34.48"
-        letter-spacing=".02em"
-      >
-        <tspan x="0" y="0">Quality</tspan>
-      </text>
-    </g>
-    <g id="Objectives_Time">
-      <path
-        d="M287.99,317.81h.92c11.41,0,20.67,9.26,20.67,20.67v355.13c0,11.41-9.26,20.67-20.67,20.67h-.92c-11.41,0-20.67-9.26-20.67-20.67v-355.13c0-11.41,9.26-20.67,20.67-20.67Z"
-        transform="translate(804.5 227.59) rotate(90)"
-        fill="#40406b"
-        stroke="#5a6591"
-        stroke-miterlimit="10"
-        stroke-width="2"
-      />
-      <g clip-path="url(#Objectives_clippath-2)">
-        <path
-          d="M404.27,497.71h60.73c10.13,0,18.34,8.21,18.34,18.34h0c0,10.13-8.21,18.34-18.34,18.34h-60.73c-5.23.37-10.21.65-15.05.87-1.26.06-3.03.12-4.09-1.02-1.49-1.6-.55-4.45,0-7.16v-29.65c2.03-.01,4.07-.01,6.13,0,4.42.03,8.76.13,13,.28Z"
-          fill="#3fa400"
-          stroke-width="0"
-        />
-        <rect
-          x="288.46"
-          y="497.71"
-          width="97.4"
-          height="36.67"
-          transform="translate(674.31 1032.1) rotate(180)"
-          fill="#a6dc22"
-          stroke-width="0"
-        />
-        <rect
-          x="190.98"
-          y="497.71"
-          width="97.4"
-          height="36.67"
-          transform="translate(479.35 1032.1) rotate(180)"
-          fill="#f9bd00"
-          stroke-width="0"
-        />
-        <path
-          d="M111.91,497.71h60.73c3.61-.15,7.31-.24,11.1-.28,2.42-.02,4.81-.02,7.16,0v36.8c-2.7-.02-5.42-.02-8.18,0-3.4.02-6.76.07-10.07.15h-60.73c-10.13,0-18.34-8.21-18.34-18.34h0c0-10.13,8.21-18.34,18.34-18.34Z"
-          fill="#ea5a3d"
-          stroke-width="0"
-        />
-      </g><text
-        transform="translate(111.71 523.8)"
-        fill="#ba3a25"
-        font-family="ChangaOne, &apos;Changa One&apos;"
-        font-size="22.81"
-        letter-spacing=".02em"
-      >
-        <tspan x="0" y="0">Under</tspan>
-      </text><text
-        transform="translate(408.69 523.8)"
-        fill="#2f7700"
-        font-family="ChangaOne, &apos;Changa One&apos;"
-        font-size="22.81"
-        letter-spacing=".02em"
-      >
-        <tspan x="0" y="0">Over</tspan>
-      </text>
-      <path
-        id="Objectives_Time-progress-track"
-        d="M95.21,516.38h386.49H95.21Z"
-        fill="none"
-        opacity="0"
-        stroke="#131321"
-        stroke-miterlimit="10"
-        stroke-width=".25"
-      />
-      <rect
-        id="Objectives_Time-progress-bar"
-        x="279.99"
-        y="488.48"
-        width="12.73"
-        height="55.9"
-        rx="6.37"
-        ry="6.37"
-        fill="url(#Objectives_linear-gradient-5)"
-        stroke="#8b9fbe"
-        stroke-miterlimit="10"
-        stroke-width=".25"
-      /><text
-        transform="translate(267.61 471.65)"
-        fill="#edfdeb"
-        font-family="ChangaOne, &apos;Changa One&apos;"
-        font-size="34.48"
-        letter-spacing=".02em"
-      >
-        <tspan x="0" y="0">Time</tspan>
-      </text>
-      <path
-        d="M243.78,448.05c-7.27,0-13.16,5.89-13.16,13.16s5.89,13.16,13.16,13.16,13.16-5.89,13.16-13.16-5.89-13.16-13.16-13.16ZM247.18,466.48l-4.33-4.33c-.25-.25-.39-.58-.39-.93v-6.58c0-.73.59-1.32,1.32-1.32h0c.73,0,1.32.59,1.32,1.32v6.04l3.95,3.95c.51.51.51,1.35,0,1.86h0c-.51.51-1.35.51-1.86,0Z"
-        fill="#edfdeb"
-        stroke-width="0"
-      />
-    </g>
-    <g id="Objectives_Cost">
-      <path
-        d="M287.99,488.81h.92c11.41,0,20.67,9.26,20.67,20.67v355.13c0,11.41-9.26,20.67-20.67,20.67h-.92c-11.41,0-20.67-9.26-20.67-20.67v-355.13c0-11.41,9.26-20.67,20.67-20.67Z"
-        transform="translate(975.5 398.59) rotate(90)"
-        fill="#40406b"
-        stroke="#5a6591"
-        stroke-miterlimit="10"
-        stroke-width="2"
-      />
-      <g clip-path="url(#Objectives_clippath-3)">
-        <path
-          d="M404.27,668.71h60.73c10.13,0,18.34,8.21,18.34,18.34h0c0,10.13-8.21,18.34-18.34,18.34h-60.73c-5.23.37-10.21.65-15.05.87-1.26.06-3.03.12-4.09-1.02-1.49-1.6-.55-4.45,0-7.16v-29.65c2.03-.01,4.07-.01,6.13,0,4.42.03,8.76.13,13,.28Z"
-          fill="#3fa400"
-          stroke-width="0"
-        />
-        <rect
-          x="288.46"
-          y="668.71"
-          width="97.4"
-          height="36.67"
-          transform="translate(674.31 1374.1) rotate(180)"
-          fill="#a6dc22"
-          stroke-width="0"
-        />
-        <rect
-          x="190.98"
-          y="668.71"
-          width="97.4"
-          height="36.67"
-          transform="translate(479.35 1374.1) rotate(180)"
-          fill="#f9bd00"
-          stroke-width="0"
-        />
-        <path
-          d="M111.91,668.71h60.73c3.61-.15,7.31-.24,11.1-.28,2.42-.02,4.81-.02,7.16,0v36.8c-2.7-.02-5.42-.02-8.18,0-3.4.02-6.76.07-10.07.15h-60.73c-10.13,0-18.34-8.21-18.34-18.34h0c0-10.13,8.21-18.34,18.34-18.34Z"
-          fill="#ea5a3d"
-          stroke-width="0"
-        />
-      </g><text
-        transform="translate(111.71 694.8)"
-        fill="#ba3a25"
-        font-family="ChangaOne, &apos;Changa One&apos;"
-        font-size="22.81"
-        letter-spacing=".02em"
-      >
-        <tspan x="0" y="0">Under</tspan>
-      </text><text
-        transform="translate(408.69 694.8)"
-        fill="#2f7700"
-        font-family="ChangaOne, &apos;Changa One&apos;"
-        font-size="22.81"
-        letter-spacing=".02em"
-      >
-        <tspan x="0" y="0">Over</tspan>
-      </text>
-      <path
-        id="Objectives_Cost-progress-track"
-        d="M95.21,687.38h386.49H95.21Z"
-        fill="none"
-        opacity="0"
-        stroke="#131321"
-        stroke-miterlimit="10"
-        stroke-width=".25"
-      />
-      <rect
-        id="Objectives_Cost-progress-bar"
-        x="279.99"
-        y="659.48"
-        width="12.73"
-        height="55.9"
-        rx="6.37"
-        ry="6.37"
-        fill="url(#Objectives_linear-gradient-6)"
-        stroke="#8b9fbe"
-        stroke-miterlimit="10"
-        stroke-width=".25"
-      /><text
-        transform="translate(274.01 631.3)"
-        fill="#edfdeb"
-        font-family="ChangaOne, &apos;Changa One&apos;"
-        font-size="34.48"
-        letter-spacing=".02em"
-      >
-        <tspan x="0" y="0">Cost</tspan>
-      </text>
-      <path
-        d="M242.43,610.3h10.82l1.82-4.85c.14-.37.09-.79-.14-1.12-.23-.33-.6-.52-1-.52h-3.05c-.66-.98-1.77-1.62-3.03-1.62s-2.38.65-3.03,1.62h-3.05c-.4,0-.77.2-1,.52-.23.33-.28.75-.14,1.12l1.82,4.85ZM254.99,612.74h-14.31c-3.37,3-8.48,8.8-8.21,16.13.15,4.15,3.54,7.4,7.71,7.4h15.32c4.17,0,7.55-3.25,7.71-7.4.27-7.33-4.84-13.13-8.21-16.13ZM249.05,630.6v.4c0,.67-.54,1.22-1.22,1.22s-1.22-.54-1.22-1.22v-.45c-1.25-.26-2.28-1.16-2.68-2.42-.2-.64.15-1.32.8-1.53s1.33.15,1.53.8c.15.48.59.8,1.1.8l1.49-.02c.78,0,1.42-.65,1.42-1.43s-.64-1.44-1.44-1.44h-1.18c-2.13,0-3.87-1.74-3.87-3.87,0-1.76,1.21-3.25,2.84-3.71v-.54c0-.67.54-1.22,1.22-1.22s1.22.54,1.22,1.22v.46c1.26.27,2.27,1.18,2.66,2.43.19.64-.16,1.32-.81,1.53-.64.19-1.32-.17-1.52-.81-.15-.48-.59-.81-1.1-.81l-.67.02c-.78,0-1.41.65-1.41,1.43s.64,1.44,1.44,1.44h1.18c2.13,0,3.87,1.74,3.87,3.87s-1.62,3.72-3.65,3.85Z"
-        fill="#edfdeb"
-        stroke-width="0"
-      />
-    </g>
-  </g>
+    <rect
+      x="190.98"
+      y="343.71"
+      width="97.4"
+      height="36.67"
+      transform="translate(479.35 724.1) rotate(180)"
+      fill="#f9bd00"
+      stroke-width="0"
+    />
+    <path
+      d="M111.91,343.71h60.73c3.61-.15,7.31-.24,11.1-.28,2.42-.02,4.81-.02,7.16,0v36.8c-2.7-.02-5.42-.02-8.18,0-3.4.02-6.76.07-10.07.15h-60.73c-10.13,0-18.34-8.21-18.34-18.34h0c0-10.13,8.21-18.34,18.34-18.34Z"
+      fill="#ea5a3d"
+      stroke-width="0"
+    />
+  </g><text
+    transform="translate(111.71 369.8)"
+    fill="#ba3a25"
+    font-family="ChangaOne, &apos;Changa One&apos;"
+    font-size="22.81"
+    letter-spacing=".02em"
+  >
+    <tspan x="0" y="0">Under</tspan>
+  </text><text
+    transform="translate(408.69 369.8)"
+    fill="#2f7700"
+    font-family="ChangaOne, &apos;Changa One&apos;"
+    font-size="22.81"
+    letter-spacing=".02em"
+  >
+    <tspan x="0" y="0">Over</tspan>
+  </text>
+  <path
+    id="Objectives_Quality-progress-track"
+    d="M95.21,362.38h386.49H95.21Z"
+    fill="none"
+    opacity="0"
+    stroke="#131321"
+    stroke-miterlimit="10"
+    stroke-width=".25"
+  />
+  <rect
+    id="Objectives_Quality-progress-bar"
+    x="279.99"
+    y="334.48"
+    width="12.73"
+    height="55.9"
+    rx="6.37"
+    ry="6.37"
+    fill="url(#Objectives_linear-gradient-4)"
+    stroke="#8b9fbe"
+    stroke-miterlimit="10"
+    stroke-width=".25"
+  />
+  <path
+    d="M224.6,287.72c-.44,0-.88.21-1.13.64l-.5.83c-.22.36-.57.6-.98.71,0,0,0,0-.01,0-.41.11-.84.08-1.21-.13l-.85-.47c-.87-.48-1.95.14-1.96,1.13l-.02.98c0,.42-.19.8-.49,1.1,0,0,0,0,0,0-.29.3-.68.48-1.1.49l-.99.02c-1,.02-1.62,1.09-1.13,1.97l.47.85c.2.37.24.8.13,1.2,0,0,0,.01,0,.02-.11.4-.35.75-.71.97l-.84.5c-.86.51-.86,1.76,0,2.27l.84.5c.36.21.6.57.71.97,0,0,0,.02,0,.02.11.4.08.84-.12,1.2l-.47.85c-.48.87.14,1.95,1.13,1.96l.98.02c.42,0,.8.19,1.1.49h0c.3.3.48.69.49,1.11l.02.98c.02,1,1.09,1.62,1.96,1.13l.85-.47c.37-.2.8-.24,1.2-.12,0,0,.02,0,.02,0,.4.11.75.35.97.71l.5.84c.51.86,1.76.86,2.27,0l.5-.84c.21-.36.57-.6.97-.71,0,0,.01,0,.02,0,.4-.11.84-.08,1.2.12l.85.47c.87.48,1.95-.14,1.97-1.13l.02-.98c0-.42.19-.8.49-1.1h0c.29-.31.68-.49,1.1-.5l.99-.02c1-.02,1.62-1.09,1.13-1.96l-.47-.85c-.2-.37-.24-.8-.13-1.2,0,0,0-.02,0-.02.11-.4.35-.75.71-.97l.84-.5c.86-.51.86-1.76,0-2.27l-.84-.5c-.36-.21-.6-.57-.71-.97,0,0,0-.01,0-.02-.11-.4-.08-.84.13-1.2l.47-.85c.48-.87-.14-1.95-1.13-1.97l-.99-.02c-.42,0-.8-.19-1.1-.49h0c-.3-.3-.48-.69-.49-1.11l-.02-.99c-.02-1-1.09-1.62-1.97-1.13l-.85.47c-.37.2-.8.24-1.2.13,0,0-.01,0-.02,0-.4-.11-.75-.35-.97-.71l-.5-.84c-.26-.43-.7-.64-1.13-.64ZM215.91,310.49l-2.64,6.33,4.64-.41,3.09,3.64,2.56-6.14c-.89-.26-1.66-.83-2.16-1.65l-.12-.21-.21.12c-.55.31-1.18.47-1.8.47-1.48,0-2.76-.88-3.36-2.15ZM233.28,310.49c-.6,1.26-1.88,2.15-3.36,2.15-.63,0-1.25-.16-1.8-.47l-.21-.12-.12.21c-.5.83-1.27,1.4-2.16,1.65l2.57,6.14,3.09-3.63,4.64.4-2.64-6.33Z"
+    fill="#edfdeb"
+    stroke-width="0"
+  /><text
+    transform="translate(246.85 314.36)"
+    fill="#edfdeb"
+    font-family="ChangaOne, &apos;Changa One&apos;"
+    font-size="34.48"
+    letter-spacing=".02em"
+  >
+    <tspan x="0" y="0">Quality</tspan>
+  </text>
+  <path
+    d="M287.99,317.81h.92c11.41,0,20.67,9.26,20.67,20.67v355.13c0,11.41-9.26,20.67-20.67,20.67h-.92c-11.41,0-20.67-9.26-20.67-20.67v-355.13c0-11.41,9.26-20.67,20.67-20.67Z"
+    transform="translate(804.5 227.59) rotate(90)"
+    fill="#40406b"
+    stroke="#5a6591"
+    stroke-miterlimit="10"
+    stroke-width="2"
+  />
+  <g clip-path="url(#Objectives_clippath-2)">
+    <path
+      d="M404.27,497.71h60.73c10.13,0,18.34,8.21,18.34,18.34h0c0,10.13-8.21,18.34-18.34,18.34h-60.73c-5.23.37-10.21.65-15.05.87-1.26.06-3.03.12-4.09-1.02-1.49-1.6-.55-4.45,0-7.16v-29.65c2.03-.01,4.07-.01,6.13,0,4.42.03,8.76.13,13,.28Z"
+      fill="#3fa400"
+      stroke-width="0"
+    />
+    <rect
+      x="288.46"
+      y="497.71"
+      width="97.4"
+      height="36.67"
+      transform="translate(674.31 1032.1) rotate(180)"
+      fill="#a6dc22"
+      stroke-width="0"
+    />
+    <rect
+      x="190.98"
+      y="497.71"
+      width="97.4"
+      height="36.67"
+      transform="translate(479.35 1032.1) rotate(180)"
+      fill="#f9bd00"
+      stroke-width="0"
+    />
+    <path
+      d="M111.91,497.71h60.73c3.61-.15,7.31-.24,11.1-.28,2.42-.02,4.81-.02,7.16,0v36.8c-2.7-.02-5.42-.02-8.18,0-3.4.02-6.76.07-10.07.15h-60.73c-10.13,0-18.34-8.21-18.34-18.34h0c0-10.13,8.21-18.34,18.34-18.34Z"
+      fill="#ea5a3d"
+      stroke-width="0"
+    />
+  </g><text
+    transform="translate(111.71 523.8)"
+    fill="#ba3a25"
+    font-family="ChangaOne, &apos;Changa One&apos;"
+    font-size="22.81"
+    letter-spacing=".02em"
+  >
+    <tspan x="0" y="0">Under</tspan>
+  </text><text
+    transform="translate(408.69 523.8)"
+    fill="#2f7700"
+    font-family="ChangaOne, &apos;Changa One&apos;"
+    font-size="22.81"
+    letter-spacing=".02em"
+  >
+    <tspan x="0" y="0">Over</tspan>
+  </text>
+  <path
+    id="Objectives_Time-progress-track"
+    d="M95.21,516.38h386.49H95.21Z"
+    fill="none"
+    opacity="0"
+    stroke="#131321"
+    stroke-miterlimit="10"
+    stroke-width=".25"
+  />
+  <rect
+    id="Objectives_Time-progress-bar"
+    x="279.99"
+    y="488.48"
+    width="12.73"
+    height="55.9"
+    rx="6.37"
+    ry="6.37"
+    fill="url(#Objectives_linear-gradient-5)"
+    stroke="#8b9fbe"
+    stroke-miterlimit="10"
+    stroke-width=".25"
+  /><text
+    transform="translate(267.61 471.65)"
+    fill="#edfdeb"
+    font-family="ChangaOne, &apos;Changa One&apos;"
+    font-size="34.48"
+    letter-spacing=".02em"
+  >
+    <tspan x="0" y="0">Time</tspan>
+  </text>
+  <path
+    d="M243.78,448.05c-7.27,0-13.16,5.89-13.16,13.16s5.89,13.16,13.16,13.16,13.16-5.89,13.16-13.16-5.89-13.16-13.16-13.16ZM247.18,466.48l-4.33-4.33c-.25-.25-.39-.58-.39-.93v-6.58c0-.73.59-1.32,1.32-1.32h0c.73,0,1.32.59,1.32,1.32v6.04l3.95,3.95c.51.51.51,1.35,0,1.86h0c-.51.51-1.35.51-1.86,0Z"
+    fill="#edfdeb"
+    stroke-width="0"
+  />
+  <path
+    d="M287.99,488.81h.92c11.41,0,20.67,9.26,20.67,20.67v355.13c0,11.41-9.26,20.67-20.67,20.67h-.92c-11.41,0-20.67-9.26-20.67-20.67v-355.13c0-11.41,9.26-20.67,20.67-20.67Z"
+    transform="translate(975.5 398.59) rotate(90)"
+    fill="#40406b"
+    stroke="#5a6591"
+    stroke-miterlimit="10"
+    stroke-width="2"
+  />
+  <g clip-path="url(#Objectives_clippath-3)">
+    <path
+      d="M404.27,668.71h60.73c10.13,0,18.34,8.21,18.34,18.34h0c0,10.13-8.21,18.34-18.34,18.34h-60.73c-5.23.37-10.21.65-15.05.87-1.26.06-3.03.12-4.09-1.02-1.49-1.6-.55-4.45,0-7.16v-29.65c2.03-.01,4.07-.01,6.13,0,4.42.03,8.76.13,13,.28Z"
+      fill="#3fa400"
+      stroke-width="0"
+    />
+    <rect
+      x="288.46"
+      y="668.71"
+      width="97.4"
+      height="36.67"
+      transform="translate(674.31 1374.1) rotate(180)"
+      fill="#a6dc22"
+      stroke-width="0"
+    />
+    <rect
+      x="190.98"
+      y="668.71"
+      width="97.4"
+      height="36.67"
+      transform="translate(479.35 1374.1) rotate(180)"
+      fill="#f9bd00"
+      stroke-width="0"
+    />
+    <path
+      d="M111.91,668.71h60.73c3.61-.15,7.31-.24,11.1-.28,2.42-.02,4.81-.02,7.16,0v36.8c-2.7-.02-5.42-.02-8.18,0-3.4.02-6.76.07-10.07.15h-60.73c-10.13,0-18.34-8.21-18.34-18.34h0c0-10.13,8.21-18.34,18.34-18.34Z"
+      fill="#ea5a3d"
+      stroke-width="0"
+    />
+  </g><text
+    transform="translate(111.71 694.8)"
+    fill="#ba3a25"
+    font-family="ChangaOne, &apos;Changa One&apos;"
+    font-size="22.81"
+    letter-spacing=".02em"
+  >
+    <tspan x="0" y="0">Under</tspan>
+  </text><text
+    transform="translate(408.69 694.8)"
+    fill="#2f7700"
+    font-family="ChangaOne, &apos;Changa One&apos;"
+    font-size="22.81"
+    letter-spacing=".02em"
+  >
+    <tspan x="0" y="0">Over</tspan>
+  </text>
+  <path
+    id="Objectives_Cost-progress-track"
+    d="M95.21,687.38h386.49H95.21Z"
+    fill="none"
+    opacity="0"
+    stroke="#131321"
+    stroke-miterlimit="10"
+    stroke-width=".25"
+  />
+  <rect
+    id="Objectives_Cost-progress-bar"
+    x="279.99"
+    y="659.48"
+    width="12.73"
+    height="55.9"
+    rx="6.37"
+    ry="6.37"
+    fill="url(#Objectives_linear-gradient-6)"
+    stroke="#8b9fbe"
+    stroke-miterlimit="10"
+    stroke-width=".25"
+  /><text
+    transform="translate(274.01 631.3)"
+    fill="#edfdeb"
+    font-family="ChangaOne, &apos;Changa One&apos;"
+    font-size="34.48"
+    letter-spacing=".02em"
+  >
+    <tspan x="0" y="0">Cost</tspan>
+  </text>
+  <path
+    d="M242.43,610.3h10.82l1.82-4.85c.14-.37.09-.79-.14-1.12-.23-.33-.6-.52-1-.52h-3.05c-.66-.98-1.77-1.62-3.03-1.62s-2.38.65-3.03,1.62h-3.05c-.4,0-.77.2-1,.52-.23.33-.28.75-.14,1.12l1.82,4.85ZM254.99,612.74h-14.31c-3.37,3-8.48,8.8-8.21,16.13.15,4.15,3.54,7.4,7.71,7.4h15.32c4.17,0,7.55-3.25,7.71-7.4.27-7.33-4.84-13.13-8.21-16.13ZM249.05,630.6v.4c0,.67-.54,1.22-1.22,1.22s-1.22-.54-1.22-1.22v-.45c-1.25-.26-2.28-1.16-2.68-2.42-.2-.64.15-1.32.8-1.53s1.33.15,1.53.8c.15.48.59.8,1.1.8l1.49-.02c.78,0,1.42-.65,1.42-1.43s-.64-1.44-1.44-1.44h-1.18c-2.13,0-3.87-1.74-3.87-3.87,0-1.76,1.21-3.25,2.84-3.71v-.54c0-.67.54-1.22,1.22-1.22s1.22.54,1.22,1.22v.46c1.26.27,2.27,1.18,2.66,2.43.19.64-.16,1.32-.81,1.53-.64.19-1.32-.17-1.52-.81-.15-.48-.59-.81-1.1-.81l-.67.02c-.78,0-1.41.65-1.41,1.43s.64,1.44,1.44,1.44h1.18c2.13,0,3.87,1.74,3.87,3.87s-1.62,3.72-3.65,3.85Z"
+    fill="#edfdeb"
+    stroke-width="0"
+  />
 </svg>
 
 <style></style>
