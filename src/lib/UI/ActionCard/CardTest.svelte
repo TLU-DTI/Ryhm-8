@@ -275,7 +275,12 @@
         style="fill:#f3edf7; font-family:ChangaOne, &apos;Changa One&apos;; font-size:10.77px; isolation:isolate;"
         ><tspan x="0" y="0">Unexpected Resignation</tspan></text
       ></g
-    ><g style="isolation:isolate;"></g
+    ><g style="isolation:isolate;"
+      ><text
+        transform="translate(65.43 203.35)"
+        style="fill:#f3edf7; font-family:ChangaOne, &apos;Changa One&apos;; font-size:10.77px; isolation:isolate;"
+        ><tspan x="0" y="0">Impacts</tspan></text
+      ></g
     ><g style="clip-path:url(#clippath);"
       ><image
         width="1514"

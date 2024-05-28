@@ -1,2 +1,3 @@
-# OOP_L6PP
-Lõputöö ettevalmistus. Osa suveprojektist.
+# Mitigate Online
+
+Some stuff here

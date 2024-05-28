@@ -1,3 +1,0 @@
-<div>
-  pole enam...
-</div>
