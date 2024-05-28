@@ -164,7 +164,7 @@
         ><text
           transform="translate(43.57 170.31)"
           style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
-          ><tspan x="0" y="0">y member of the project team resigns</tspan></text
+          ><tspan x="0" y="0">UUS KAART!!</tspan></text
         ><text
           transform="translate(26.39 177.23)"
           style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
