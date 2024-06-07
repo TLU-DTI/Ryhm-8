@@ -12,7 +12,7 @@
 <div class="wrapper">
   <div class="flex">
     <!-- Column 1 -->
-    <div class="w-[19vw]">
+    <div class="w-[20vw]">
       <div class="relative h-[50vh] bg-blue-300">
         <Objective />
       </div>
@@ -25,7 +25,7 @@
     </div>
 
     <!-- Divider -->
-    <div class="w-[7vw]">
+    <div class="w-[6vw]">
       <div class="h-[100vh]"></div>
     </div>
 
@@ -68,8 +68,10 @@
       <div class="h-[42vh]"></div>
       <div class="h-[2vh]"></div>
 
-      <div class="relative h-[10vh] bg-red-600">
+      <div class="relative flex h-[7vh]">
+        <div class="w-[8vw]"></div>
         <EndTurn />
+        <div class="w-[8vw]"></div>
       </div>
 
       <div class="h-[6vh]"></div>
