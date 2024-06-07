@@ -29,4 +29,6 @@
 ## RiskLog
 
 - RiskLog
-- RiskLog_Category-bg
+- RiskLog_Category
+- RiskLog_Title
+- RiskLog_Middle
