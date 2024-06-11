@@ -1,32 +1,34 @@
 <script>
-  import { barMovement } from '$lib/BarMovement';
   import ObjectiveState from '$lib/BarMovement/ObjectiveState.svelte';
   import TimelineState from '$lib/BarMovement/TimelineState.svelte';
   import '../app.css';
   let { children } = $props();
 
   $effect.pre(() => {
-    ObjectiveState.ObjectiveCost = barMovement(
+    ObjectiveState.ObjectiveCost = ObjectiveState.barMovement(
       '#Objectives_Cost-progress-bar',
       '#Objectives_Cost-progress-track'
     );
 
-    ObjectiveState.ObjectiveQuality = barMovement(
+    ObjectiveState.ObjectiveQuality = ObjectiveState.barMovement(
       '#Objectives_Quality-progress-bar',
       '#Objectives_Quality-progress-track'
     );
 
-    ObjectiveState.ObjectiveScope = barMovement(
+    ObjectiveState.ObjectiveScope = ObjectiveState.barMovement(
       '#Objectives_Scope-progress-bar',
       '#Objectives_Scope-progress-track'
     );
 
-    ObjectiveState.ObjectiveTime = barMovement(
+    ObjectiveState.ObjectiveTime = ObjectiveState.barMovement(
       '#Objectives_Time-progress-bar',
       '#Objectives_Time-progress-track'
     );
 
-    TimelineState.Timeline = barMovement('#Timeline_progress-bar', '#Timeline_progress-bar-track');
+    TimelineState.Timeline = TimelineState.barMovement(
+      '#Timeline_progress-bar',
+      '#Timeline_progress-bar-track'
+    );
   });
 </script>
 
