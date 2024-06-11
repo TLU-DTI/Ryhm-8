@@ -1,6 +1,8 @@
 <script lang="ts">
   import { type Path, type Rect, SVG } from '@svgdotjs/svg.js';
 
+  export const a = 0;
+
   $effect(() => {
     const objSvg = SVG('#Objectives');
 
