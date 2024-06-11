@@ -1,27 +1,3 @@
-<script lang="ts">
-  import { Path, Rect, SVG } from '@svgdotjs/svg.js';
-
-  $effect(() => {
-    const objSvg = SVG('#Timeline');
-
-    let bar = objSvg.findOne('#Timeline_progress-bar') as Rect;
-    let track = objSvg.findOne('#Timeline_progress-bar-track') as Path;
-
-    bar
-      .animate(6000)
-      .ease('>')
-      .during(function (eased: number) {
-        // subtract by 2 because track lenght is from start to end and back
-        let p = track.pointAt((eased * track.length()) / 2);
-
-        // for some reason it starts around 5-7.5
-        // so we subtract it
-        bar.width(p.x - 5);
-      })
-      .loop(Infinity, true);
-  });
-</script>
-
 <svg
   id="Timeline"
   xmlns="http://www.w3.org/2000/svg"
