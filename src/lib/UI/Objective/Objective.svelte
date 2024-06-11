@@ -1,10 +1,12 @@
 <script lang="ts">
   import ObjectiveSvg from './ObjectiveSVG.svelte';
-  import ObjectiveState from '$lib/State/Bars/ObjectiveState.svelte';
+  import ObjectiveState from '$lib/BarMovement/ObjectiveState.svelte';
 
   $effect(() => {
-    ObjectiveState.ObjectiveCost.movePositive(200);
-    // ObjectiveState.ObjectiveCost.moveNegative(10);
+    ObjectiveState.ObjectiveCost.movePositive(500);
+    ObjectiveState.ObjectiveQuality.movePositive(500);
+    ObjectiveState.ObjectiveScope.movePositive(500);
+    ObjectiveState.ObjectiveTime.movePositive(500);
   });
 </script>
 

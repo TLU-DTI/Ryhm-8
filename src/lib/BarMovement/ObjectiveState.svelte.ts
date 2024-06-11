@@ -1,4 +1,4 @@
-import type { BarMovement } from '$lib/Components/BarState/BarMovement';
+import type { BarMovement } from '.';
 
 export const ObjectiveCost = $state() as BarMovement;
 export const ObjectiveQuality = $state() as BarMovement;

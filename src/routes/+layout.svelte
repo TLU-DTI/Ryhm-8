@@ -1,7 +1,7 @@
 <script>
-  import { barMovement } from '$lib/Components/BarState/BarMovement';
-  import ObjectiveState from '$lib/State/Bars/ObjectiveState.svelte';
-  import TimelineState from '$lib/State/Bars/TimelineState.svelte';
+  import { barMovement } from '$lib/BarMovement';
+  import ObjectiveState from '$lib/BarMovement/ObjectiveState.svelte';
+  import TimelineState from '$lib/BarMovement/TimelineState.svelte';
   import '../app.css';
   let { children } = $props();
 

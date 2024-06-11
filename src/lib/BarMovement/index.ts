@@ -1,8 +1,8 @@
-import { type Path, type Rect, SVG } from '@svgdotjs/svg.js';
+import { type Path, type Rect, SVG, Runner } from '@svgdotjs/svg.js';
 
 export interface BarMovement {
-  movePositive: (input: number) => void;
-  moveNegative: (input: number) => void;
+  movePositive: (input: number) => Runner;
+  moveNegative: (input: number) => Runner;
   trackStartPos: number;
   trackEndPos: number;
   barID: string;
@@ -21,43 +21,45 @@ export function barMovement(barID: string, trackID: string): BarMovement {
 
   const SPEED = 500;
 
-  function movePositive(input: number) {
-    console.log(barPos);
+  function movePositive(input: number): Runner {
     if (input - barPos >= trackEndPos) {
       input = trackEndPos;
     }
-    bar
+    const runner = bar
       .animate(SPEED)
       .ease('<>')
       .during(function (eased: number) {
         const p = track.pointAt(eased * input + barPos);
         bar.center(p.x, p.y);
+      })
+      .after(() => {
+        if (barPos + input <= trackEndPos) {
+          barPos += input;
+        } else {
+          barPos = trackEndPos;
+        }
       });
 
-    if (barPos + input <= trackEndPos) {
-      barPos += input;
-    } else {
-      barPos = trackEndPos;
-    }
-    console.log(barPos);
+    return runner;
   }
 
   function moveNegative(input: number) {
-    console.log(barPos);
-    bar
+    const runner = bar
       .animate(SPEED)
       .ease('<>')
       .during(function (eased: number) {
         const p = track.pointAt(eased * -input + barPos);
         bar.center(p.x, p.y);
+      })
+      .after(() => {
+        if (barPos - input >= trackStartPos) {
+          barPos -= input;
+        } else {
+          barPos = trackStartPos;
+        }
       });
 
-    if (barPos - input >= trackStartPos) {
-      barPos -= input;
-    } else {
-      barPos = trackStartPos;
-    }
-    console.log(barPos);
+    return runner;
   }
 
   return {
@@ -65,7 +67,9 @@ export function barMovement(barID: string, trackID: string): BarMovement {
     trackEndPos,
     barID,
     trackID,
-    barPos,
+    get barPos() {
+      return barPos;
+    },
     movePositive,
     moveNegative
   };
