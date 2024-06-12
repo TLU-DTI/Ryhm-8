@@ -28,7 +28,15 @@
     <SimpleBar>
       <div class="bg-black">
         {#each logs as log}
-          <p class="text-white">{JSON.stringify(log)}</p>
+          <ul class="bg-white">
+            <li>{log.title}</li>
+            <li>{log.category}</li>
+            <li>{log.respond}</li>
+            <li>{log.attributes.cost}</li>
+            <li>{log.attributes.quality}</li>
+            <li>{log.attributes.scope}</li>
+            <li>{log.attributes.time}</li>
+          </ul>
         {/each}
       </div>
     </SimpleBar>
