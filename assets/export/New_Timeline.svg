@@ -1,120 +1,56 @@
-<svg
-  id="Timeline"
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 274.96 52.16"
-  style="height: inherit; width: inherit;"
->
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Timeline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 0 274.96 52.16">
   <defs>
-    <linearGradient
-      id="Timeline_linear-gradient"
-      x1="-390.83"
-      y1="12.32"
-      x2="-327.64"
-      y2="12.32"
-      gradientTransform="translate(-221.76) rotate(-180) scale(1 -1)"
-      gradientUnits="userSpaceOnUse"
-    >
+    <linearGradient id="Timeline_linear-gradient" x1="-390.83" y1="12.32" x2="-327.64" y2="12.32"
+      gradientTransform="translate(-221.76) rotate(-180) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#43466e" />
       <stop offset="1" stop-color="#585e81" />
     </linearGradient>
-    <linearGradient
-      id="Timeline_linear-gradient-2"
-      x1=".89"
-      y1="28.99"
-      x2="274.07"
-      y2="28.99"
-      gradientTransform="matrix(1,0,0,1,0,0)"
-      xlink:href="#Timeline_linear-gradient"
-    />
+    <linearGradient id="Timeline_linear-gradient-2" x1=".89" y1="28.99" x2="274.07" y2="28.99"
+      gradientTransform="matrix(1,0,0,1,0,0)" xlink:href="#linear-gradient" />
     <clipPath id="Timeline_clippath-1">
       <path
         d="M267.47,27.31h-27.07c-.74-2.77-3.27-4.82-6.27-4.82s-5.53,2.04-6.27,4.82h-51.77c-.74-2.77-3.27-4.82-6.27-4.82s-5.53,2.04-6.27,4.82h-51.93c-.74-2.77-3.27-4.82-6.27-4.82s-5.53,2.04-6.27,4.82h-51.84c-.74-2.77-3.27-4.82-6.27-4.82s-5.53,2.04-6.27,4.82H7.49c-.89,0-1.6.72-1.6,1.6s.72,1.6,1.6,1.6h27.16c.69,2.85,3.25,4.98,6.31,4.98s5.63-2.12,6.31-4.98h51.75c.69,2.85,3.25,4.98,6.31,4.98s5.63-2.12,6.31-4.98h51.85c.69,2.85,3.25,4.98,6.31,4.98s5.63-2.12,6.31-4.98h51.69c.69,2.85,3.25,4.98,6.31,4.98s5.63-2.12,6.31-4.98h27.03c.89,0,1.6-.72,1.6-1.6s-.72-1.6-1.6-1.6Z"
-        fill="#282844"
-        stroke-width="0"
-      />
+        fill="#282844" stroke-width="0" />
     </clipPath>
     <clipPath id="Timeline_clippath-3">
       <path
         d="M267.47,27.31h-27.07c-.74-2.77-3.27-4.82-6.27-4.82s-5.53,2.04-6.27,4.82h-51.77c-.74-2.77-3.27-4.82-6.27-4.82s-5.53,2.04-6.27,4.82h-51.93c-.74-2.77-3.27-4.82-6.27-4.82s-5.53,2.04-6.27,4.82h-51.84c-.74-2.77-3.27-4.82-6.27-4.82s-5.53,2.04-6.27,4.82H7.49c-.89,0-1.6.72-1.6,1.6s.72,1.6,1.6,1.6h27.16c.69,2.85,3.25,4.98,6.31,4.98s5.63-2.12,6.31-4.98h51.75c.69,2.85,3.25,4.98,6.31,4.98s5.63-2.12,6.31-4.98h51.85c.69,2.85,3.25,4.98,6.31,4.98s5.63-2.12,6.31-4.98h51.69c.69,2.85,3.25,4.98,6.31,4.98s5.63-2.12,6.31-4.98h27.03c.89,0,1.6-.72,1.6-1.6s-.72-1.6-1.6-1.6Z"
-        fill="none"
-        stroke-width="0"
-      />
+        fill="none" stroke-width="0" />
     </clipPath>
-  </defs><text
-    transform="translate(26.13 50.9)"
-    fill="#f3edf7"
-    font-family="ChangaOne, &apos;Changa One&apos;"
-    font-size="7"
-  >
+  </defs><text transform="translate(26.13 50.9)" fill="#f3edf7" font-family="ChangaOne, &apos;Changa One&apos;"
+    font-size="7">
     <tspan x="0" y="0">Initiation</tspan>
-  </text><text
-    transform="translate(91.58 50.9)"
-    fill="#f3edf7"
-    font-family="ChangaOne, &apos;Changa One&apos;"
-    font-size="7"
-  >
+  </text><text transform="translate(91.58 50.9)" fill="#f3edf7" font-family="ChangaOne, &apos;Changa One&apos;"
+    font-size="7">
     <tspan x="0" y="0">Planning</tspan>
-  </text><text
-    transform="translate(154.31 50.9)"
-    fill="#f3edf7"
-    font-family="ChangaOne, &apos;Changa One&apos;"
-    font-size="7"
-  >
+  </text><text transform="translate(154.31 50.9)" fill="#f3edf7" font-family="ChangaOne, &apos;Changa One&apos;"
+    font-size="7">
     <tspan x="0" y="0">Execution</tspan>
-  </text><text
-    transform="translate(222.65 50.9)"
-    fill="#f3edf7"
-    font-family="ChangaOne, &apos;Changa One&apos;"
-    font-size="7"
-  >
+  </text><text transform="translate(222.65 50.9)" fill="#f3edf7" font-family="ChangaOne, &apos;Changa One&apos;"
+    font-size="7">
     <tspan x="0" y="0">Closing</tspan>
   </text>
-  <polygon
-    points="169.08 23.74 161.33 .89 138.6 .89 136.36 .89 113.63 .89 105.88 23.74 169.08 23.74"
-    fill="url(#Timeline_linear-gradient)"
-    stroke="#6e78b3"
-    stroke-miterlimit="10"
-    stroke-width="1.78"
-  /><text
-    transform="translate(120.16 11.49)"
-    fill="#edfdeb"
-    font-family="ChangaOne, &apos;Changa One&apos;"
-    font-size="10"
-  >
+  <polygon points="169.08 23.74 161.33 .89 138.6 .89 136.36 .89 113.63 .89 105.88 23.74 169.08 23.74"
+    fill="url(#Timeline_linear-gradient)" stroke="#6e78b3" stroke-miterlimit="10" stroke-width="1.78" /><text
+    transform="translate(120.16 11.49)" fill="#edfdeb" font-family="ChangaOne, &apos;Changa One&apos;" font-size="10">
     <tspan x="0" y="0" letter-spacing=".02em">P</tspan>
     <tspan x="6.11" y="0">roject</tspan>
     <tspan x="-3.62" y="8">Timeline</tspan>
   </text>
   <path
     d="M268.41,23.33h-23.6c-2.04-3.85-6.08-6.48-10.74-6.48s-8.7,2.63-10.74,6.48h-42.92c-2.04-3.85-6.08-6.48-10.74-6.48s-8.7,2.63-10.74,6.48h-42.92c-2.04-3.85-6.08-6.48-10.74-6.48s-8.7,2.63-10.74,6.48h-42.92c-2.04-3.85-6.08-6.48-10.74-6.48s-8.7,2.63-10.74,6.48H6.55c-3.13,0-5.66,2.54-5.66,5.66s2.54,5.66,5.66,5.66h23.6c2.04,3.85,6.08,6.48,10.74,6.48s8.7-2.63,10.74-6.48h42.92c2.04,3.85,6.08,6.48,10.74,6.48s8.7-2.63,10.74-6.48h42.92c2.04,3.85,6.08,6.48,10.74,6.48s8.7-2.63,10.74-6.48h42.92c2.04,3.85,6.08,6.48,10.74,6.48s8.7-2.63,10.74-6.48h23.6c3.13,0,5.66-2.54,5.66-5.66s-2.54-5.66-5.66-5.66Z"
-    fill="url(#Timeline_linear-gradient-2)"
-    stroke="#6e78b3"
-    stroke-miterlimit="10"
-    stroke-width="1.78"
-  />
+    fill="url(#Timeline_linear-gradient-2)" stroke="#6e78b3" stroke-miterlimit="10" stroke-width="1.78" />
   <path
     d="M267.47,27.31h-27.07c-.74-2.77-3.27-4.82-6.27-4.82s-5.53,2.04-6.27,4.82h-51.77c-.74-2.77-3.27-4.82-6.27-4.82s-5.53,2.04-6.27,4.82h-51.93c-.74-2.77-3.27-4.82-6.27-4.82s-5.53,2.04-6.27,4.82h-51.84c-.74-2.77-3.27-4.82-6.27-4.82s-5.53,2.04-6.27,4.82H7.49c-.89,0-1.6.72-1.6,1.6s.72,1.6,1.6,1.6h27.16c.69,2.85,3.25,4.98,6.31,4.98s5.63-2.12,6.31-4.98h51.75c.69,2.85,3.25,4.98,6.31,4.98s5.63-2.12,6.31-4.98h51.85c.69,2.85,3.25,4.98,6.31,4.98s5.63-2.12,6.31-4.98h51.69c.69,2.85,3.25,4.98,6.31,4.98s5.63-2.12,6.31-4.98h27.03c.89,0,1.6-.72,1.6-1.6s-.72-1.6-1.6-1.6Z"
-    fill="#282844"
-  />
+    fill="#282844" />
   <g clip-path="url(#Timeline_clippath-1)">
     <rect x="5.89" y="20.03" width="263.19" height="17.76" fill="#282844" stroke-width="0" />
   </g>
   <g clip-path="url(#Timeline_clippath-3)">
-    <path
-      id="Timeline_progress-bar-track"
-      d="M5.89,28.99h263.19S5.89,28.99,5.89,28.99Z"
-      fill="#fff"
-      opacity="0"
-      stroke-width="0"
-    />
-    <rect
-      id="Timeline_progress-bar"
-      x="5.89"
-      y="20.03"
-      width="263.19"
-      height="17.76"
-      fill="#d076ff"
-      stroke-width="0"
-    />
+    <path id="Timeline_progress-bar-track" d="M5.89,28.99h263.19S5.89,28.99,5.89,28.99Z" fill="#fff" opacity="0"
+      stroke-width="0" />
+    <rect id="Timeline_progress-bar" x="5.89" y="20.03" width="263.19" height="17.76" fill="#d076ff" stroke-width="0" />
   </g>
 </svg>

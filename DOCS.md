@@ -16,7 +16,7 @@
 
 - Timeline
 - Timeline_progress-bar
-- Timeline_progress-bar-track
+- Timeline_progress-track
 
 ## EndTurn
 

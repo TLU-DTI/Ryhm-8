@@ -3,10 +3,10 @@
   import Objective from '$lib/States/ObjectiveState.svelte';
 
   $effect(() => {
-    Objective.ObjectiveCost.move(-500);
-    Objective.ObjectiveQuality.move(-500);
-    Objective.ObjectiveScope.move(-500);
-    Objective.ObjectiveTime.move(-500);
+    Objective.ObjectiveCost.move(0);
+    Objective.ObjectiveQuality.move(0);
+    Objective.ObjectiveScope.move(0);
+    Objective.ObjectiveTime.move(0);
   });
 </script>
 

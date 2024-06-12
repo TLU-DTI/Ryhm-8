@@ -13,7 +13,7 @@
   <div class="flex">
     <!-- Column 1 -->
     <div class="w-[20vw]">
-      <div class="relative h-[50vh] bg-blue-300">
+      <div class="relative h-[50vh]">
         <Objective />
       </div>
 
@@ -35,7 +35,7 @@
         <Timeline />
       </div>
 
-      <div class="h-[4vh]"></div>
+      <div class="h-[1vh]"></div>
 
       <div class="relative h-[44vh] bg-yellow-400">
         <CardHand />
