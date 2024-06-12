@@ -1,12 +1,12 @@
 <script lang="ts">
   import ObjectiveSvg from './ObjectiveSVG.svelte';
-  import ObjectiveState from '$lib/BarMovement/ObjectiveState.svelte';
+  import Objective from '$lib/States/ObjectiveState.svelte';
 
   $effect(() => {
-    ObjectiveState.ObjectiveCost.move(-500);
-    ObjectiveState.ObjectiveQuality.move(-500);
-    ObjectiveState.ObjectiveScope.move(-500);
-    ObjectiveState.ObjectiveTime.move(-500);
+    Objective.ObjectiveCost.move(-500);
+    Objective.ObjectiveQuality.move(-500);
+    Objective.ObjectiveScope.move(-500);
+    Objective.ObjectiveTime.move(-500);
   });
 </script>
 

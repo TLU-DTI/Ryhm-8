@@ -1,14 +1,22 @@
-import type { BarMovement } from '.';
 import { type Path, type Rect, SVG, Runner } from '@svgdotjs/svg.js';
 
-export const Timeline = $state() as BarMovement;
+export const TimelineState = $state() as ITimeline;
 
 export default {
   Timeline,
-  barMovement
+  TimelineState
 };
 
-export function barMovement(barID: string, trackID: string): BarMovement {
+interface ITimeline {
+  move: (input: number) => Runner;
+  trackStartPos: number;
+  trackEndPos: number;
+  barID: string;
+  trackID: string;
+  barPos: number;
+}
+
+export function Timeline(barID: string, trackID: string): ITimeline {
   const track = SVG(trackID) as Path;
   const bar = SVG(barID) as Rect;
 

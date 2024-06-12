@@ -1,20 +1,28 @@
-import type { BarMovement } from '.';
 import { type Path, type Rect, SVG, Runner } from '@svgdotjs/svg.js';
 
-export const ObjectiveCost = $state() as BarMovement;
-export const ObjectiveQuality = $state() as BarMovement;
-export const ObjectiveScope = $state() as BarMovement;
-export const ObjectiveTime = $state() as BarMovement;
+export const ObjectiveCost = $state() as IObjective;
+export const ObjectiveQuality = $state() as IObjective;
+export const ObjectiveScope = $state() as IObjective;
+export const ObjectiveTime = $state() as IObjective;
 
 export default {
   ObjectiveCost,
   ObjectiveQuality,
   ObjectiveScope,
   ObjectiveTime,
-  barMovement
+  Objective
 };
 
-export function barMovement(barID: string, trackID: string): BarMovement {
+interface IObjective {
+  move: (input: number) => Runner;
+  trackStartPos: number;
+  trackEndPos: number;
+  barID: string;
+  trackID: string;
+  barPos: number;
+}
+
+export function Objective(barID: string, trackID: string): IObjective {
   const track = SVG(trackID) as Path;
   const bar = SVG(barID) as Rect;
 

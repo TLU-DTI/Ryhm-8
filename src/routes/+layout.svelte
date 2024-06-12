@@ -1,34 +1,42 @@
 <script>
-  import ObjectiveState from '$lib/BarMovement/ObjectiveState.svelte';
-  import TimelineState from '$lib/BarMovement/TimelineState.svelte';
+  import EndTurnState from '$lib/States/EndTurnState.svelte';
+  import ObjectiveState from '$lib/States/ObjectiveState.svelte';
+  import TimelineState from '$lib/States/TimelineState.svelte';
   import '../app.css';
   let { children } = $props();
 
   $effect.pre(() => {
-    ObjectiveState.ObjectiveCost = ObjectiveState.barMovement(
+    ObjectiveState.ObjectiveCost = ObjectiveState.Objective(
       '#Objectives_Cost-progress-bar',
       '#Objectives_Cost-progress-track'
     );
 
-    ObjectiveState.ObjectiveQuality = ObjectiveState.barMovement(
+    ObjectiveState.ObjectiveQuality = ObjectiveState.Objective(
       '#Objectives_Quality-progress-bar',
       '#Objectives_Quality-progress-track'
     );
 
-    ObjectiveState.ObjectiveScope = ObjectiveState.barMovement(
+    ObjectiveState.ObjectiveScope = ObjectiveState.Objective(
       '#Objectives_Scope-progress-bar',
       '#Objectives_Scope-progress-track'
     );
 
-    ObjectiveState.ObjectiveTime = ObjectiveState.barMovement(
+    ObjectiveState.ObjectiveTime = ObjectiveState.Objective(
       '#Objectives_Time-progress-bar',
       '#Objectives_Time-progress-track'
     );
 
-    TimelineState.Timeline = TimelineState.barMovement(
+    TimelineState.TimelineState = TimelineState.Timeline(
       '#Timeline_progress-bar',
       '#Timeline_progress-bar-track'
     );
+
+    EndTurnState.EndTurnState = EndTurnState.EndTurn({
+      strip: '#EndTurn_strip',
+      background: '#EndTurn_background',
+      border: '#EndTurn_border',
+      shadow: '#EndTurn_shadow'
+    });
   });
 </script>
 

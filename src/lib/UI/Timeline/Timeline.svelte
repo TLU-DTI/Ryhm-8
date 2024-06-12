@@ -1,9 +1,9 @@
 <script lang="ts">
-  import TimelineState from '$lib/BarMovement/TimelineState.svelte';
+  import Timeline from '$lib/States/TimelineState.svelte';
   import TimelineSvg from './TimelineSVG.svelte';
 
   $effect(() => {
-    TimelineState.Timeline.move(0);
+    Timeline.TimelineState.move(0);
   });
 </script>
 
