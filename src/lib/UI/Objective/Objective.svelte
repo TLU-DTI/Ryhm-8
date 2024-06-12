@@ -3,10 +3,10 @@
   import ObjectiveState from '$lib/BarMovement/ObjectiveState.svelte';
 
   $effect(() => {
-    ObjectiveState.ObjectiveCost.movePositive(500);
-    ObjectiveState.ObjectiveQuality.movePositive(500);
-    ObjectiveState.ObjectiveScope.movePositive(500);
-    ObjectiveState.ObjectiveTime.movePositive(500);
+    ObjectiveState.ObjectiveCost.move(-500);
+    ObjectiveState.ObjectiveQuality.move(-500);
+    ObjectiveState.ObjectiveScope.move(-500);
+    ObjectiveState.ObjectiveTime.move(-500);
   });
 </script>
 

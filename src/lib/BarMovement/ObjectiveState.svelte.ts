@@ -25,7 +25,7 @@ export function barMovement(barID: string, trackID: string): BarMovement {
 
   const SPEED = 500;
 
-  function movePositive(input: number): Runner {
+  function move(input: number): Runner {
     if (input - barPos >= trackEndPos) {
       input = trackEndPos;
     }
@@ -42,23 +42,8 @@ export function barMovement(barID: string, trackID: string): BarMovement {
         } else {
           barPos = trackEndPos;
         }
-      });
 
-    return runner;
-  }
-
-  function moveNegative(input: number) {
-    const runner = bar
-      .animate(SPEED)
-      .ease('<>')
-      .during(function (eased: number) {
-        const p = track.pointAt(eased * -input + barPos);
-        bar.center(p.x, p.y);
-      })
-      .after(() => {
-        if (barPos - input >= trackStartPos) {
-          barPos -= input;
-        } else {
+        if (barPos < trackStartPos) {
           barPos = trackStartPos;
         }
       });
@@ -74,7 +59,6 @@ export function barMovement(barID: string, trackID: string): BarMovement {
     get barPos() {
       return barPos;
     },
-    movePositive,
-    moveNegative
+    move
   };
 }
