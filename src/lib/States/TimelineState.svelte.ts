@@ -36,7 +36,7 @@ export function Timeline(barID: string, trackID: string): ITimeline {
       .ease('<>')
       .during(function (eased: number) {
         const p = track.pointAt(eased * input + barPos);
-        bar.width(p.x - 7);
+        bar.width(p.x - 5.8);
       })
       .after(() => {
         if (barPos + input <= trackEndPos) {
