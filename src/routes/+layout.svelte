@@ -1,4 +1,5 @@
 <script>
+  import RiskLogs from '$lib/States/RiskLogState.svelte';
   import EndTurnState from '$lib/States/EndTurnState.svelte';
   import ObjectiveState from '$lib/States/ObjectiveState.svelte';
   import TimelineState from '$lib/States/TimelineState.svelte';
@@ -6,6 +7,7 @@
   let { children } = $props();
 
   $effect.pre(() => {
+    RiskLogs.RiskLogsState = RiskLogs.RiskLogs();
     ObjectiveState.ObjectiveCost = ObjectiveState.Objective(
       '#Objectives_Cost-progress-bar',
       '#Objectives_Cost-progress-track'
