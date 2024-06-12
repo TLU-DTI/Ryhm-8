@@ -1,39 +1,43 @@
 <script>
+  import RiskCards from '$lib/Cards/RiskCards.svelte';
+  import MitigateCards from '$lib/Cards/MitigationCards.svelte';
   import RiskLogs from '$lib/States/RiskLogState.svelte';
-  import EndTurnState from '$lib/States/EndTurnState.svelte';
-  import ObjectiveState from '$lib/States/ObjectiveState.svelte';
-  import TimelineState from '$lib/States/TimelineState.svelte';
+  import EndTurn from '$lib/States/EndTurnState.svelte';
+  import Objective from '$lib/States/ObjectiveState.svelte';
+  import Timeline from '$lib/States/TimelineState.svelte';
   import '../app.css';
   let { children } = $props();
 
   $effect.pre(() => {
     RiskLogs.RiskLogsState = RiskLogs.RiskLogs();
-    ObjectiveState.ObjectiveCost = ObjectiveState.Objective(
+    RiskCards.RiskCardState = RiskCards.Cards();
+    MitigateCards.MitigatCardState = MitigateCards.Cards();
+    Objective.ObjectiveCost = Objective.Objective(
       '#Objectives_Cost-progress-bar',
       '#Objectives_Cost-progress-track'
     );
 
-    ObjectiveState.ObjectiveQuality = ObjectiveState.Objective(
+    Objective.ObjectiveQuality = Objective.Objective(
       '#Objectives_Quality-progress-bar',
       '#Objectives_Quality-progress-track'
     );
 
-    ObjectiveState.ObjectiveScope = ObjectiveState.Objective(
+    Objective.ObjectiveScope = Objective.Objective(
       '#Objectives_Scope-progress-bar',
       '#Objectives_Scope-progress-track'
     );
 
-    ObjectiveState.ObjectiveTime = ObjectiveState.Objective(
+    Objective.ObjectiveTime = Objective.Objective(
       '#Objectives_Time-progress-bar',
       '#Objectives_Time-progress-track'
     );
 
-    TimelineState.TimelineState = TimelineState.Timeline(
+    Timeline.TimelineState = Timeline.Timeline(
       '#Timeline_progress-bar',
       '#Timeline_progress-bar-track'
     );
 
-    EndTurnState.EndTurnState = EndTurnState.EndTurn({
+    EndTurn.EndTurnState = EndTurn.EndTurn({
       strip: '#EndTurn_strip',
       background: '#EndTurn_background',
       border: '#EndTurn_border',
