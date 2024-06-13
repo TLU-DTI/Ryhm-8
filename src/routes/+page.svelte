@@ -19,7 +19,7 @@
 
       <div class="h-[4vh]"></div>
 
-      <div class="relative h-[46vh] bg-blue-500">
+      <div class="relative h-[46vh]">
         <RiskLog />
       </div>
     </div>
