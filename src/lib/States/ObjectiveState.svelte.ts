@@ -34,8 +34,8 @@ export function Objective(barID: string, trackID: string): IObjective {
   const SPEED = 500;
 
   function move(input: number): Runner {
-    if (input - barPos >= trackEndPos) {
-      input = trackEndPos;
+    if (input + barPos >= trackEndPos) {
+      input = trackEndPos - barPos;
     }
     const runner = bar
       .animate(SPEED)
