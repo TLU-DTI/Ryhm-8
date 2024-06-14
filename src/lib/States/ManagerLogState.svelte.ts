@@ -14,6 +14,7 @@ interface IManagerLogs {
 export interface IManagerLog {
   title: string;
   message: string;
+  name: string;
 }
 
 
