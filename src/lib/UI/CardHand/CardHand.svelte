@@ -80,7 +80,7 @@
 <SimpleBar>
   <div class="size-full">
     <div class="card-container">
-      {#each [1, 3] as cardId}
+      {#each [1, 2, 3, 4, 5] as cardId}
         <div
           class="card-wrapper {($cardState.selectedActionCardId === null) ? 'disabled' : ''}"
           on:drop={(event) => handleHandCardDrop(event, cardId)}

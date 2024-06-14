@@ -10,14 +10,14 @@ interface IObjective {
 }
 
 interface IManager {
-  name: string;
+  title: string;
   message: string;
 }
 export interface IGameState {
   objectives: IObjective;
   mitigationCards: ICard[];
   riskCards: IRiskCard[];
-  manager: IManager;
+  manager: IManager[];
   logs: IRiskLog[];
   timelineStage: number; // 0 = initation, 1 = planning, 2 = execution, 3 = closing
   round: number;
@@ -39,12 +39,12 @@ export const GameState = $state<IGameState>({
   },
   mitigationCards: [],
   riskCards: [],
-  manager: [
+  manager: 
     {
-      name: 'Big Bousman',
+      title: 'Big Bousman',
       message: 'erro'
     }
-  ],
+  ,
   logs: [],
   timelineStage: 0,
   round: 0

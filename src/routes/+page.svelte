@@ -37,7 +37,7 @@
 
       <div class="h-[1vh]"></div>
 
-      <div class="relative h-[44vh] bg-yellow-400">
+      <div class="relative h-[44vh]">
         <CardHand />
       </div>
 

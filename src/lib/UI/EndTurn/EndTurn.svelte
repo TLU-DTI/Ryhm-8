@@ -7,6 +7,7 @@
   import  RiskLogs, { type IRiskLog }  from '$lib/States/RiskLogState.svelte';
   import  RiskCards  from '$lib/Cards/RiskCards.svelte';
   import  MitigateCards  from '$lib/Cards/MitigationCards.svelte';
+  import Manager from '$lib/States/ManagerLogState.svelte';
 
   let stage = 0;
 
@@ -20,13 +21,13 @@
 
   function test():void{
 
-    Objective.ObjectiveCost.move(-100);
-    Objective.ObjectiveQuality.move(-100);
-    Objective.ObjectiveScope.move(100);
-    Objective.ObjectiveTime.move(100);
+    Objective.ObjectiveCost.move(MitigateCards.MitigatCardState.getRandomCard().attributes.cost);
+    Objective.ObjectiveQuality.move(MitigateCards.MitigatCardState.getRandomCard().attributes.quality);
+    Objective.ObjectiveScope.move(MitigateCards.MitigatCardState.getRandomCard().attributes.scope);
+    Objective.ObjectiveTime.move(MitigateCards.MitigatCardState.getRandomCard().attributes.time);
     console.log(Timeline.TimelineState.barPos);
-    if (Timeline.TimelineState.barPos < 100){
-      Timeline.TimelineState.move(12.7);
+    /*if (Timeline.TimelineState.barPos < 100){
+      Timeline.TimelineState.move(15);
     }
     else if (Timeline.TimelineState.barPos < 140){
       Timeline.TimelineState.move(22);
@@ -38,8 +39,9 @@
     }
     else{
       stage = 3
-      Timeline.TimelineState.move(50);
-    }
+    }*/
+    Timeline.TimelineState.move(15);
+    console.log(Timeline.TimelineState.barPos);
   }
 
 
@@ -53,11 +55,7 @@
       },
       "mitigationCards": MitigateCards.MitigatCardState.cards,
       "riskCards": RiskCards.RiskCardState.riskCards,
-      "manager": 
-        {
-          "name": "Manager 1",
-          "message": "Message from Manager 1"
-        },
+      "manager": Manager.ManagerLogsState.logs,
       "logs" : RiskLogs.RiskLogsState.logs,
       "timelineStage": stage,
       "round": Timeline.TimelineState.barPos
@@ -65,7 +63,7 @@
   }
 </script>
 
-<button onclick={save}>Text</button>
+<button onclick={save} >Text</button>
 <button class="flex size-full items-center justify-center" onclick={test}>
   <EndTurnSvg />
 </button>

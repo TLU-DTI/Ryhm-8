@@ -6,12 +6,14 @@
   import Objective from '$lib/States/ObjectiveState.svelte';
   import Timeline from '$lib/States/TimelineState.svelte';
   import '../app.css';
+  import Manager from '$lib/States/ManagerLogState.svelte';
   let { children } = $props();
 
   $effect.pre(() => {
     RiskLogs.RiskLogsState = RiskLogs.RiskLogs();
     RiskCards.RiskCardState = RiskCards.RiskCards();
     MitigateCards.MitigatCardState = MitigateCards.Cards();
+    Manager.ManagerLogsState = Manager.ManagerLogs();
     Objective.ObjectiveCost = Objective.Objective(
       '#Objectives_Cost-progress-bar',
       '#Objectives_Cost-progress-track'
