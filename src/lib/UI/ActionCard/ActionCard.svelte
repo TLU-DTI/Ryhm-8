@@ -1,28 +1,32 @@
-<script>
+<script lang="ts">
+  import { cardState } from '../CardConnect/stores';
+  import CardTest from '../ActionCard/CardTest.svelte';
   import SimpleBar from '$lib/Components/SimpleBar.svelte';
-  import CardTest from './CardTest.svelte';
+
+  function handleCardDragStart(event: DragEvent, cardId: number) {
+    event.dataTransfer?.setData('text/plain', cardId.toString());
+    cardState.update(state => ({
+      ...state,
+      selectedActionCardId: cardId,
+    }));
+  }
 </script>
 
-<div class="size-full">
-  <SimpleBar>
+<SimpleBar>
+  <div class="size-full">
     <div class="flex gap-4 text-center">
-      <div class="size-16 bg-gray-700"><p>Action Cards</p></div>
-      <div class="size-16 bg-gray-700"><p>Action Cards</p></div>
-      <div class="size-16 bg-gray-700"><p>Action Cards</p></div>
-      <div class="size-16 bg-gray-700"><p>Action Cards</p></div>
-      <div class="size-60">
-        <CardTest />
-      </div>
-      <div class="size-16 bg-gray-700"><p>Action Cards</p></div>
-      <div class="size-16 bg-gray-700"><p>Action Cards</p></div>
-      <div class="size-16 bg-gray-700"><p>Action Cards</p></div>
-      <div class="size-16 bg-gray-700"><p>Action Cards</p></div>
-      <div class="size-16 bg-gray-700"><p>Action Cards</p></div>
-      <div class="size-16 bg-gray-700"><p>Action Cards</p></div>
-      <div class="size-16 bg-gray-700"><p>Action Cards</p></div>
-      <div class="size-16 bg-gray-700"><p>Action Cards</p></div>
-      <div class="size-16 bg-gray-700"><p>Action Cards</p></div>
-      <div class="size-16 bg-gray-700"><p>Action Cards</p></div>
+      {#each [1, 2, 3, 4] as cardId}
+        <div
+          class="size-60 card-wrapper"
+          draggable="true"
+          on:dragstart={(event) => handleCardDragStart(event, cardId)}
+          class:selected={$cardState.selectedActionCardId === cardId}
+          role="button"
+          tabindex="0"
+        >
+          <CardTest />
+        </div>
+      {/each}
     </div>
-  </SimpleBar>
-</div>
+  </div>
+</SimpleBar>
