@@ -8,12 +8,12 @@
 
   let logs = $state([]) as IManagerLog[];
 
-  onMount(()=>{
+  /*onMount(()=>{
     logs = ManagerLogs.ManagerLogsState.logs;
     ((SaveGameState.SaveGameState().loadGame()?.manager) ?? []).forEach(object => {
       ManagerLogs.ManagerLogsState.addLog(object);
     });
-  })
+  })*/
 
   $effect(() => {
     logs = ManagerLogs.ManagerLogsState.logs;
