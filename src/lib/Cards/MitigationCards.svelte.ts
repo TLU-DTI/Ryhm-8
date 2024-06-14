@@ -80,7 +80,7 @@ export function Cards(): ICards {
 
     // Return the card at the random index
     return cards[randomIndex];
-}
+  }
 
   return {
     get cards() {

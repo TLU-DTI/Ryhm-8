@@ -17,62 +17,70 @@
 
   $effect(() => {
     logs = ManagerLogs.ManagerLogsState.logs;
-    setInterval(() => {
+    /*setInterval(() => {
       ManagerLogs.ManagerLogsState.addLog({
         message: 'You are fired!!!',
         title: 'Welcome!',
         name: 'Joel'
       });
-    }, 1e3);
+    }, 1e3);*/
   });
 
-  if (MitigateCards.MitigatCardState.getRandomCard().rng) {
-      console.log('1');
-      if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT07') {
-      console.log('1');
-    }
-    else if  (MitigateCards.MitigatCardState.getRandomCard().id == 'MT08') {
-      console.log('1');
-    }
-    else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT09') {
-      console.log('1');
-    }
-    else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT11') {
-      console.log('1');
-    }
-    else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT13') {
-      console.log('1');
-    }
-    else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT14') {
-      console.log('1');
-    }
-    else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT15') {
-      console.log('1');
-    }
-    else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MC08') {
-      console.log('1');
-    }
-    else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME02') {
-      console.log('1');
-    }
-    else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME03') {
-      console.log('1');
-    }
-    else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME04') {
-      console.log('1');
-    }
-    else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME06') {
-      console.log('1');
-    }
-    else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME12') {
-      console.log('1');
-    }
-    }
+  
 
+  function test():void{
+    if (MitigateCards.MitigatCardState.getRandomCard().rng) {
+      if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT07') {
+        ManagerLogs.ManagerLogsState.addLog({
+        message: 'You are fired!!!',
+        title: 'Welcome!',
+        name: 'Manager'
+      });
+      }
+      else if  (MitigateCards.MitigatCardState.getRandomCard().id == 'MT08') {
+        console.log('1');
+      }
+      else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT09') {
+        console.log('1');
+      }
+      else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT11') {
+        console.log('1');
+      }
+      else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT13') {
+        console.log('1');
+      }
+      else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT14') {
+        console.log('1');
+      }
+      else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT15') {
+        console.log('1');
+      }
+      else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MC08') {
+        console.log('1');
+      }
+      else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME02') {
+        console.log('1');
+      }
+      else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME03') {
+        console.log('1');
+      }
+      else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME04') {
+        console.log('1');
+      }
+      else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME06') {
+        console.log('1');
+      }
+      else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME12') {
+        console.log('1');
+      }
+    }
+  }
 
 
 </script>
 
+
+<button onclick={test}>Nupp</button>
 <div class="size-full content-center text-center">
   <ManagerLogSvg>
     <SimpleBar>
