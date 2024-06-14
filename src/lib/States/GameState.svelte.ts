@@ -1,5 +1,5 @@
 import type { ICard } from '$lib/Cards/MitigationCards.svelte';
-import type { IRiskCards }  from '$lib/Cards/RiskCards.svelte';
+import type { IRiskCard }  from '$lib/Cards/RiskCards.svelte';
 import type { IRiskLog } from '$lib/States/RiskLogState.svelte';
 
 interface IObjective {
@@ -16,7 +16,7 @@ interface IManager {
 export interface IGameState {
   objectives: IObjective;
   mitigationCards: ICard[];
-  riskCards: IRiskCards[];
+  riskCards: IRiskCard[];
   manager: IManager[];
   logs: IRiskLog[];
   timelineStage: number; // 0 = initation, 1 = planning, 2 = execution, 3 = closing
