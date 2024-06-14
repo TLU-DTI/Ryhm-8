@@ -32,9 +32,7 @@
       xlink:href="#RiskLogs_bg"
     />
   </defs>
-  <foreignObject x="10" y="50" width="280" height="350">
-    {@render children()}
-  </foreignObject>
+
   <polygon
     points="213.03 30.76 197.76 3 148.84 3 144.13 3 95.68 3 79.95 30.76 213.03 30.76"
     fill="url(#RiskLogs_bg)"
@@ -64,6 +62,9 @@
     stroke-miterlimit="10"
     stroke-width="6"
   />
+  <foreignObject x="10" y="50" width="280" height="350">
+    {@render children()}
+  </foreignObject>
   <path
     d="M289.5,44.69c0,.48-.46.86-1.02.86h-2.19c-.27,0-.53-.09-.72-.25l-1.59-1.34-1.59,1.34c-.19.16-.45.25-.72.25h-2.19c-.56,0-1.02-.39-1.02-.86,0-.23.11-.44.3-.6l3.9-3.29c.73-.61,1.91-.61,2.64,0l3.9,3.29c.19.16.3.38.3.6h0Z"
     fill="#6e78b3"
