@@ -1,9 +1,11 @@
 <script lang="ts">
+  import SaveGameState from '$lib/States/GameState.svelte';
   import Timeline from '$lib/States/TimelineState.svelte';
+  import { onMount } from 'svelte';
   import TimelineSvg from './TimelineSVG.svelte';
 
-  $effect(() => {
-    Timeline.TimelineState.move(0);
+  onMount(() => {
+    Timeline.TimelineState.move(((SaveGameState.SaveGameState().loadGame()?.round) ?? 15) - 15);
   });
 </script>
 
