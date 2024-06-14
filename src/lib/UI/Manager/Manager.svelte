@@ -7,7 +7,7 @@
   import MitigateCards from '$lib/Cards/MitigationCards.svelte';
 
   let logs = $state([]) as IManagerLog[];
-  let good = 0;
+  let good = 1;
 
   /*onMount(()=>{
     logs = ManagerLogs.ManagerLogsState.logs;
@@ -27,8 +27,12 @@
     }, 1e3);*/
   });
 
+<<<<<<< Updated upstream
   //https://docs.google.com/spreadsheets/d/1pB-_vvnAB89TiDUJnSbzoGuCA-KrbVWKbAcudr69Jbk/edit#gid=854363117
 
+=======
+  
+>>>>>>> Stashed changes
   function test():void{
     if (MitigateCards.MitigatCardState.getRandomCard().rng) {
       if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT07') {
@@ -151,6 +155,7 @@
           });
         }
       }
+<<<<<<< Updated upstream
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MM07') {
         if(good){
           ManagerLogs.ManagerLogsState.addLog({
@@ -169,81 +174,110 @@
           });
         }
       }
+=======
+>>>>>>> Stashed changes
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MC09') {
         if(good){
           ManagerLogs.ManagerLogsState.addLog({
-            message: 'You are fired!!!',
-            title: 'Welcome!',
+            message: 'Subcontractor did good and saved you some time',
+            title: 'Subcontractor was a success',
             name: 'Manager'
           });
         }
         else {
           ManagerLogs.ManagerLogsState.addLog({
+<<<<<<< Updated upstream
             message: 'You are fired!!!',
             title: 'Welcome!',
             name: 'Manager'
           });
           
+=======
+            message: 'The work by the sub contractor was bad, you could have done it better yourself',
+            title: 'The subcontractor did a bad job',
+            name: 'Manager'
+          });
+>>>>>>> Stashed changes
         }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME02') {
         if(good){
           ManagerLogs.ManagerLogsState.addLog({
-            message: 'You are fired!!!',
-            title: 'Welcome!',
+            message: 'Your experiment of trying to expand has been profitable',
+            title: 'You expanded to other countries',
             name: 'Manager'
           });
         }
         else {
-          
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'Your experiment of trying to expand was not profitable',
+            title: 'You failed to expand to other countries',
+            name: 'Manager'
+          });
         }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME03') {
         if(good){
           ManagerLogs.ManagerLogsState.addLog({
-            message: 'You are fired!!!',
-            title: 'Welcome!',
+            message: 'You got your way and the policy didnt go through',
+            title: 'Your lobbying was successful',
             name: 'Manager'
           });
         }
         else {
-          
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'You didnt get your way and the policy went through',
+            title: 'Your lobbying was not successful',
+            name: 'Manager'
+          });
         }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME04') {
         if(good){
           ManagerLogs.ManagerLogsState.addLog({
-            message: 'You are fired!!!',
-            title: 'Welcome!',
+            message: 'You made a bunch of money on the stock market',
+            title: 'Your investments were good',
             name: 'Manager'
           });
         }
         else {
-          
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'You lost your money on the stock market',
+            title: 'Your investments were bad',
+            name: 'Manager'
+          });
         }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME06') {
         if(good){
           ManagerLogs.ManagerLogsState.addLog({
-            message: 'You are fired!!!',
-            title: 'Welcome!',
+            message: 'During the party you met a few rich investors and they invested in your business',
+            title: 'Your party was a succesful',
             name: 'Manager'
           });
         }
         else {
-          
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'Your party was a waste of time and you didnt get any new investors',
+            title: 'Your party was a failure',
+            name: 'Manager'
+          });
         }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME12') {
         if(good){
           ManagerLogs.ManagerLogsState.addLog({
-            message: 'You are fired!!!',
-            title: 'Welcome!',
+            message: 'You were successful in your campain to be a politician and made a policy favoring you',
+            title: 'You won the election',
             name: 'Manager'
           });
         }
         else {
-          
+          ManagerLogs.ManagerLogsState.addLog({
+            message: "You lost the election and couldn't change the policies",
+            title: 'You lost the election',
+            name: 'Manager'
+          });
         }
       }
     }
