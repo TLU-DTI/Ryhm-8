@@ -28,8 +28,8 @@ export function Timeline(barID: string, trackID: string): ITimeline {
   const SPEED = 500;
 
   function move(input: number): Runner {
-    if (input - barPos >= trackEndPos) {
-      input = trackEndPos;
+    if (input + barPos >= trackEndPos) {
+      input = trackEndPos - barPos;
     }
     const runner = bar
       .animate(SPEED)
