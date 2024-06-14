@@ -1,15 +1,15 @@
 import RiskCardsJson from './riskcards.json';
 
-export const RiskCardState = $state() as ICards;
+export const RiskCardState = $state() as IRiskCards;
 
 export default {
   RiskCardState,
   Cards
 };
 
-interface ICards {
-  cards: ICard[];
-  addCards(data: RiskData[]): void;
+interface IRiskCards {
+  cards: IRiskCard[];
+  addRiskCards(data: RiskData[]): void;
 }
 
 interface RiskData {
@@ -43,7 +43,7 @@ interface gameStage {
   closing: number;
 }
 
-export interface ICard {
+export interface IRiskCard {
   id: string;
   title: string;
   description: string;
@@ -56,12 +56,12 @@ export interface ICard {
 
 type Category = 'Technical' | 'Management' | 'Commercial' | 'External';
 
-export function Cards(): ICards {
-  const cards: ICard[] = [] as ICard[];
+export function Cards(): IRiskCards {
+  const cards: IRiskCard[] = [] as IRiskCard[];
 
-  addCards(RiskCardsJson as RiskData[]);
+  addRiskCards(RiskCardsJson as RiskData[]);
 
-  function addCards(data: RiskData[]) {
+  function addRiskCards(data: RiskData[]) {
     for (let i = 0; i < data.length; i++) {
       const card = {
         id: data[i]['#'],
@@ -82,7 +82,7 @@ export function Cards(): ICards {
           execution: data[i].E === undefined ? 0 : data[i].E,
           closing: data[i].X === undefined ? 0 : data[i].X
         }
-      } as ICard;
+      } as IRiskCard;
       cards.push(card);
     }
   }
@@ -90,6 +90,6 @@ export function Cards(): ICards {
     get cards() {
       return cards;
     },
-    addCards
+    addRiskCards
   };
 }
