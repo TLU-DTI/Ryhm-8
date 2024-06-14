@@ -20,28 +20,12 @@
   });
 
   function test():void{
+    Objective.ObjectiveCost.move(MitigateCards.MitigatCardState.getRandomCard().attributes.cost * 1.0431000518798828);
+    Objective.ObjectiveQuality.move(MitigateCards.MitigatCardState.getRandomCard().attributes.quality * 1.0431000518798828);
+    Objective.ObjectiveScope.move(MitigateCards.MitigatCardState.getRandomCard().attributes.scope * 1.0431000518798828);
+    Objective.ObjectiveTime.move(MitigateCards.MitigatCardState.getRandomCard().attributes.time * 1.0431000518798828);
 
-    Objective.ObjectiveCost.move(MitigateCards.MitigatCardState.getRandomCard().attributes.cost);
-    Objective.ObjectiveQuality.move(MitigateCards.MitigatCardState.getRandomCard().attributes.quality);
-    Objective.ObjectiveScope.move(MitigateCards.MitigatCardState.getRandomCard().attributes.scope);
-    Objective.ObjectiveTime.move(MitigateCards.MitigatCardState.getRandomCard().attributes.time);
-    console.log(Timeline.TimelineState.barPos);
-    /*if (Timeline.TimelineState.barPos < 100){
-      Timeline.TimelineState.move(15);
-    }
-    else if (Timeline.TimelineState.barPos < 140){
-      Timeline.TimelineState.move(22);
-      stage = 1
-    }
-    else if (Timeline.TimelineState.barPos < 180){
-      Timeline.TimelineState.move(22);
-      stage = 2
-    }
-    else{
-      stage = 3
-    }*/
-    Timeline.TimelineState.move(15);
-    console.log(Timeline.TimelineState.barPos);
+    console.log(Objective.ObjectiveCost.barPos);
   }
 
 
@@ -61,12 +45,17 @@
       "round": Timeline.TimelineState.barPos
     })
   }
+
+  function unsave():void{
+    SaveGameState.SaveGameState().clearSave()
+  }
 </script>
 
-<button onclick={save} >Text</button>
+<button onclick={save}>Save</button>
 <button class="flex size-full items-center justify-center" onclick={test}>
   <EndTurnSvg />
 </button>
+<button onclick={unsave}>Unsave</button>
 
 <style>
 </style>
