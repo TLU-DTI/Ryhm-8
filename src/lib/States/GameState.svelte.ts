@@ -17,7 +17,7 @@ export interface IGameState {
   objectives: IObjective;
   mitigationCards: ICard[];
   riskCards: IRiskCard[];
-  manager: IManager[];
+  manager: IManager;
   logs: IRiskLog[];
   timelineStage: number; // 0 = initation, 1 = planning, 2 = execution, 3 = closing
   round: number;

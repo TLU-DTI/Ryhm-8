@@ -4,11 +4,11 @@ export const RiskCardState = $state() as IRiskCards;
 
 export default {
   RiskCardState,
-  Cards
+  RiskCards
 };
 
 interface IRiskCards {
-  cards: IRiskCard[];
+  riskCards: IRiskCard[];
   addRiskCards(data: RiskData[]): void;
 }
 
@@ -56,7 +56,7 @@ export interface IRiskCard {
 
 type Category = 'Technical' | 'Management' | 'Commercial' | 'External';
 
-export function Cards(): IRiskCards {
+export function RiskCards(): IRiskCards {
   const cards: IRiskCard[] = [] as IRiskCard[];
 
   addRiskCards(RiskCardsJson as RiskData[]);
@@ -87,7 +87,7 @@ export function Cards(): IRiskCards {
     }
   }
   return {
-    get cards() {
+    get riskCards() {
       return cards;
     },
     addRiskCards

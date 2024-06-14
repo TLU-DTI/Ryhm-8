@@ -10,7 +10,7 @@
 
   $effect.pre(() => {
     RiskLogs.RiskLogsState = RiskLogs.RiskLogs();
-    RiskCards.RiskCardState = RiskCards.Cards();
+    RiskCards.RiskCardState = RiskCards.RiskCards();
     MitigateCards.MitigatCardState = MitigateCards.Cards();
     Objective.ObjectiveCost = Objective.Objective(
       '#Objectives_Cost-progress-bar',
