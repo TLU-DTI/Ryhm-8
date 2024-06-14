@@ -27,12 +27,7 @@
     }, 1e3);*/
   });
 
-<<<<<<< Updated upstream
-  //https://docs.google.com/spreadsheets/d/1pB-_vvnAB89TiDUJnSbzoGuCA-KrbVWKbAcudr69Jbk/edit#gid=854363117
-
-=======
   
->>>>>>> Stashed changes
   function test():void{
     if (MitigateCards.MitigatCardState.getRandomCard().rng) {
       if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT07') {
@@ -155,7 +150,6 @@
           });
         }
       }
-<<<<<<< Updated upstream
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MM07') {
         if(good){
           ManagerLogs.ManagerLogsState.addLog({
@@ -174,8 +168,6 @@
           });
         }
       }
-=======
->>>>>>> Stashed changes
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MC09') {
         if(good){
           ManagerLogs.ManagerLogsState.addLog({
@@ -186,18 +178,10 @@
         }
         else {
           ManagerLogs.ManagerLogsState.addLog({
-<<<<<<< Updated upstream
-            message: 'You are fired!!!',
-            title: 'Welcome!',
-            name: 'Manager'
-          });
-          
-=======
             message: 'The work by the sub contractor was bad, you could have done it better yourself',
             title: 'The subcontractor did a bad job',
             name: 'Manager'
           });
->>>>>>> Stashed changes
         }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME02') {
