@@ -7,7 +7,6 @@
 
   $effect(() => {
     logs = ManagerLogs.ManagerLogsState.logs;
-    console.log ('tootab')
     setInterval(() => {
       ManagerLogs.ManagerLogsState.addLog({
         message: 'You are fired!!!',

@@ -20,7 +20,7 @@ export function Timeline(barID: string, trackID: string): ITimeline {
   const track = SVG(trackID) as Path;
   const bar = SVG(barID) as Rect;
 
-  let barPos = 0;
+  let barPos = 17;
 
   const trackStartPos = 0;
   const trackEndPos = track.length() / 2;

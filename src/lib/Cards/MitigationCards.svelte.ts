@@ -73,10 +73,7 @@ export function Cards(): ICards {
   }
 
   function getRandomCard() {
-    // Check if the cards list is empty
-    if (cards.length === 0) {
-        return null; // or handle the empty list case as needed
-    }
+    
 
     // Generate a random index
     const randomIndex = Math.floor(Math.random() * cards.length);
