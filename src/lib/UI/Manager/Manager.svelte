@@ -7,6 +7,7 @@
   import MitigateCards from '$lib/Cards/MitigationCards.svelte';
 
   let logs = $state([]) as IManagerLog[];
+  let good = 0;
 
   /*onMount(()=>{
     logs = ManagerLogs.ManagerLogsState.logs;
@@ -26,52 +27,165 @@
     }, 1e3);*/
   });
 
-  
+  https://docs.google.com/spreadsheets/d/1pB-_vvnAB89TiDUJnSbzoGuCA-KrbVWKbAcudr69Jbk/edit#gid=854363117
 
   function test():void{
     if (MitigateCards.MitigatCardState.getRandomCard().rng) {
       if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT07') {
-        ManagerLogs.ManagerLogsState.addLog({
-        message: 'You are fired!!!',
-        title: 'Welcome!',
-        name: 'Manager'
-      });
+        if(good){
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'You are fired!!!',
+            title: 'Welcome!',
+            name: 'Manager'
+          });
+        }
+        else {
+
+        }
       }
       else if  (MitigateCards.MitigatCardState.getRandomCard().id == 'MT08') {
-        console.log('1');
+        if(good){
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'You are fired!!!',
+            title: 'Welcome!',
+            name: 'Manager'
+          });
+        }
+        else {
+          
+        }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT09') {
-        console.log('1');
+        if(good){
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'You are fired!!!',
+            title: 'Welcome!',
+            name: 'Manager'
+          });
+        }
+        else {
+          
+        }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT11') {
-        console.log('1');
+        if(good){
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'You are fired!!!',
+            title: 'Welcome!',
+            name: 'Manager'
+          });
+        }
+        else {
+          
+        }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT13') {
-        console.log('1');
+        if(good){
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'You are fired!!!',
+            title: 'Welcome!',
+            name: 'Manager'
+          });
+        }
+        else {
+          
+        }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT14') {
-        console.log('1');
+        if(good){
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'You are fired!!!',
+            title: 'Welcome!',
+            name: 'Manager'
+          });
+        }
+        else {
+          
+        }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT15') {
-        console.log('1');
+        if(good){
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'You are fired!!!',
+            title: 'Welcome!',
+            name: 'Manager'
+          });
+        }
+        else {
+          
+        }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MC08') {
-        console.log('1');
+        if(good){
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'You are fired!!!',
+            title: 'Welcome!',
+            name: 'Manager'
+          });
+        }
+        else {
+          
+        }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME02') {
-        console.log('1');
+        if(good){
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'You are fired!!!',
+            title: 'Welcome!',
+            name: 'Manager'
+          });
+        }
+        else {
+          
+        }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME03') {
-        console.log('1');
+        if(good){
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'You are fired!!!',
+            title: 'Welcome!',
+            name: 'Manager'
+          });
+        }
+        else {
+          
+        }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME04') {
-        console.log('1');
+        if(good){
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'You are fired!!!',
+            title: 'Welcome!',
+            name: 'Manager'
+          });
+        }
+        else {
+          
+        }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME06') {
-        console.log('1');
+        if(good){
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'You are fired!!!',
+            title: 'Welcome!',
+            name: 'Manager'
+          });
+        }
+        else {
+          
+        }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'ME12') {
-        console.log('1');
+        if(good){
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'You are fired!!!',
+            title: 'Welcome!',
+            name: 'Manager'
+          });
+        }
+        else {
+          
+        }
       }
     }
   }
