@@ -27,95 +27,149 @@
     }, 1e3);*/
   });
 
-  https://docs.google.com/spreadsheets/d/1pB-_vvnAB89TiDUJnSbzoGuCA-KrbVWKbAcudr69Jbk/edit#gid=854363117
+  //https://docs.google.com/spreadsheets/d/1pB-_vvnAB89TiDUJnSbzoGuCA-KrbVWKbAcudr69Jbk/edit#gid=854363117
 
   function test():void{
     if (MitigateCards.MitigatCardState.getRandomCard().rng) {
       if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT07') {
         if(good){
           ManagerLogs.ManagerLogsState.addLog({
-            message: 'You are fired!!!',
-            title: 'Welcome!',
+            message: 'The client signed the document and specifyed the scope',
+            title: 'The client agreed!',
             name: 'Manager'
           });
         }
         else {
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'The client refused to sign the documents',
+            title: 'The client refused!',
+            name: 'Manager'
+          });
 
         }
       }
       else if  (MitigateCards.MitigatCardState.getRandomCard().id == 'MT08') {
         if(good){
           ManagerLogs.ManagerLogsState.addLog({
-            message: 'You are fired!!!',
-            title: 'Welcome!',
+            message: 'After telling the client about our budget shortfalls he was convinced to give us more money!',
+            title: 'The client to agreed to increase our budget!',
             name: 'Manager'
           });
         }
         else {
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'The client refused to give us a bigger budget, stating that its our problem for siging the contract!',
+            title: 'The client refused to increase our budget!',
+            name: 'Manager'
+          });
           
         }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT09') {
         if(good){
           ManagerLogs.ManagerLogsState.addLog({
-            message: 'You are fired!!!',
-            title: 'Welcome!',
+            message: 'After explaining to the client about our apprehension with the current deadline he agreed to extend it!',
+            title: 'The client agreed to extend the deadline!',
             name: 'Manager'
           });
         }
         else {
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'The client refused to increase the deadline even after explaining the project might not finish with the current one!',
+            title: 'The client refused to increase the deadline!',
+            name: 'Manager'
+          });
           
         }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT11') {
         if(good){
           ManagerLogs.ManagerLogsState.addLog({
-            message: 'You are fired!!!',
-            title: 'Welcome!',
+            message: 'After moving people from other projets we managed to complete tasks faster, although the other project suffered we can finish that easily! ',
+            title: 'We managed to win some time!',
             name: 'Manager'
           });
         }
         else {
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'Although we moved people from the other project the time we gained was negligible and negativley impacted our timeframe!',
+            title: 'We lost a lot of time!',
+            name: 'Manager'
+          });
           
         }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT13') {
         if(good){
           ManagerLogs.ManagerLogsState.addLog({
-            message: 'You are fired!!!',
-            title: 'Welcome!',
+            message: 'After informing the client about our current situation we got more time for the project',
+            title: 'We got more time!',
             name: 'Manager'
           });
         }
         else {
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'After telling the client about our situation we were not given a longer deadline!',
+            title: 'We got no deadline extension!',
+            name: 'Manager'
+          });
           
         }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT14') {
         if(good){
           ManagerLogs.ManagerLogsState.addLog({
-            message: 'You are fired!!!',
-            title: 'Welcome!',
+            message: 'After informing the client we got a bigger budget for the project!',
+            title: 'We got more budget!',
             name: 'Manager'
           });
         }
         else {
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'We were not granted a bigger budget after asking the client!',
+            title: 'We did not get a bigger budget!',
+            name: 'Manager'
+          });
           
         }
       }
       else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MT15') {
         if(good){
           ManagerLogs.ManagerLogsState.addLog({
-            message: 'You are fired!!!',
-            title: 'Welcome!',
+            message: 'After telling the client about our situation they reduced the amount of featues in the project!',
+            title: 'The project scope was reduced!',
             name: 'Manager'
           });
         }
         else {
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'The client refused to reduce the project scope and was adamant that we must finish it as orderd!',
+            title: 'The client wouldnt budge!',
+            name: 'Manager'
           
+        
+          });
         }
       }
-      else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MC08') {
+      else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MM07') {
+        if(good){
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'After increasing the salary of all the team members the productivity of the team has increased!',
+            title: 'The payrise motivated everyone!',
+            name: 'Manager'
+          });
+        }
+        else {
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'Despite increasing the pay of the team they are not working harder!',
+            title: 'The payrise seemed to not work',
+            name: 'Manager'
+          
+        
+          });
+        }
+      }
+      else if (MitigateCards.MitigatCardState.getRandomCard().id == 'MC09') {
         if(good){
           ManagerLogs.ManagerLogsState.addLog({
             message: 'You are fired!!!',
@@ -124,6 +178,11 @@
           });
         }
         else {
+          ManagerLogs.ManagerLogsState.addLog({
+            message: 'You are fired!!!',
+            title: 'Welcome!',
+            name: 'Manager'
+          });
           
         }
       }
