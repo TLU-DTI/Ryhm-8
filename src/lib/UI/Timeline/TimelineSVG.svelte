@@ -99,7 +99,7 @@
     <g clip-path="url(#Timeline_clippath)">
       <path
         id="Timeline_progress-bar-track"
-        d="M8.23,32.52h345.4s-345.4,0-345.4,0Z"
+        d="M8.23,32.51h349.33s-349.33,0-349.33,0Z"
         fill="#fff"
         opacity="0"
         stroke-width="0"

@@ -3,7 +3,7 @@
   import TimelineSvg from './TimelineSVG.svelte';
 
   $effect(() => {
-    Timeline.TimelineState.move(0);
+    Timeline.TimelineState.next();
   });
 </script>
 
