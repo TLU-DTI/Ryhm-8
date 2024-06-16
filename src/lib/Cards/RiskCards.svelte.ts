@@ -63,7 +63,7 @@ type Category = 'Technical' | 'Management' | 'Commercial' | 'External';
 
 export function RiskCards(): IRiskCards {
   const riskCards: IRiskCard[] = [] as IRiskCard[];
-  const cardsInHand: IRiskCard[] = [] as IRiskCard[];
+  const cardsInHand: IRiskCard[] = $state([]) as IRiskCard[];
 
   addRiskCards(RiskCardsJson as RiskData[]);
 
@@ -102,9 +102,6 @@ export function RiskCards(): IRiskCards {
     return cardsInHand;
   }
 
-  /*function getHand(){
-    return cardsInHand;
-  }*/
 
   return {
     get riskCards() {
