@@ -829,7 +829,7 @@
     "#": "X01",
     "Risk": "Aliens attack",
     "Category": "External",
-    "S": "Game Over",
+    "S": -100,
     "P": 1,
     "E": 1,
     "Description": "Aliens attack the Earth, so continuing with the current project is rather pointless. Game over!"
@@ -839,7 +839,7 @@
     "Risk": "Timequake",
     "Category": "External",
     "Sub-category": "Environmental",
-    "S": "Restart",
+    "S": -100,
     "P": 1,
     "E": 1,
     "X": 1,

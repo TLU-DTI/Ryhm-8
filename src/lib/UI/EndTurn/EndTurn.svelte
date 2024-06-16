@@ -8,17 +8,18 @@
   import  RiskCards  from '$lib/Cards/RiskCards.svelte';
   import  MitigateCards  from '$lib/Cards/MitigationCards.svelte';
   import Manager from '$lib/States/ManagerLogState.svelte';
+  import { onMount } from 'svelte';
 
 
-  let costTotal = 0;
-  let qualityTotal = 0;
-  let scopeTotal = 0;
-  let timeTotal = 0;
+  onMount(() =>{
+    Timeline.TimelineState.next();
+    RiskCards.RiskCardState.createHand(riskCardAmount(Timeline.TimelineState.current.stage));
+    //startOfTurn();
+  });
 
   
   $effect(() => {
-    Timeline.TimelineState.next()
-    //startOfTurn();
+    
     setInterval(() => {
       EndTurn.EndTurnState.toggle();
     }, 1e3);
@@ -56,12 +57,33 @@
     }
   }
 
-  function test():void{
+  function endTurn():void{
+    let costTotal = 0;
+    let qualityTotal = 0;
+    let scopeTotal = 0;
+    let timeTotal = 0;
+
+
+    RiskCards.RiskCardState.riskHand.forEach(element => {
+      costTotal += element.attributes.cost
+      qualityTotal += element.attributes.quality;
+      scopeTotal += element.attributes.scope;
+      timeTotal += element.attributes.time;
+    });
 
     Objective.ObjectiveCost.move(costTotal * 1.0431000518798828);
     Objective.ObjectiveQuality.move(qualityTotal * 1.0431000518798828);
     Objective.ObjectiveScope.move(scopeTotal * 1.0431000518798828);
     Objective.ObjectiveTime.move(timeTotal * 1.0431000518798828);
+
+    if (
+      Objective.ObjectiveCost.barPos < 33 ||
+      Objective.ObjectiveQuality.barPos < 33 ||
+      Objective.ObjectiveScope.barPos < 33 ||
+      Objective.ObjectiveTime.barPos < 33
+    ){
+      console.log("Mäng läbi")
+    }
 
     Timeline.TimelineState.next();
     startOfTurn();
@@ -92,7 +114,7 @@
 </script>
 
 <button onclick={save}>Save</button>
-<button class="flex size-full items-center justify-center" onclick={test}>
+<button class="flex size-full items-center justify-center" onclick={endTurn}>
   <EndTurnSvg />
 </button>
 <button onclick={unsave}>Unsave</button>

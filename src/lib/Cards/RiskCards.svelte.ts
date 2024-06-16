@@ -1,4 +1,5 @@
 import RiskCardsJson from './riskcards.json';
+import Timeline, { TimelineState } from '$lib/States/TimelineState.svelte';
 
 export const RiskCardState = $state() as IRiskCards;
 export const RiskCardHand = $state() as IRiskCards;
@@ -95,9 +96,25 @@ export function RiskCards(): IRiskCards {
 
   function createHand(amount: number){
     cardsInHand.splice(0, cardsInHand.length);
+    let filteredCards: IRiskCard[] = [];
+    const stageMap = {
+      1: 'initation',
+      2: 'planning',
+      3: 'execution',
+      4: 'closing'
+    };
+    
+    const currentStage = Timeline.TimelineState.current.stage;
+    const stageKey = stageMap[currentStage];
+    console.log(Timeline.TimelineState.current.stage)
+    console.log(stageKey);
+    
+    if (stageKey) {
+      filteredCards = riskCards.filter(card => card.gameStage[stageKey] === 1);
+    }
     for(let i = 0; i < amount; i++) {
-      const randomIndex = Math.floor(Math.random() * riskCards.length);
-      cardsInHand.push(riskCards[randomIndex]);
+      const randomIndex = Math.floor(Math.random() * filteredCards.length);
+      cardsInHand.push(filteredCards[randomIndex]);
     }
     return cardsInHand;
   }

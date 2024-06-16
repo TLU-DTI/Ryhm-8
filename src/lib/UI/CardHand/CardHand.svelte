@@ -55,13 +55,12 @@
 
   function save():void{
     risks = RiskCards.RiskCardState.riskHand;
-    console.log(risks[0].attributes.cost);
   }
 
   $effect(() => {
     //console.log(Timeline.TimelineState.current.stage);
     risks = RiskCards.RiskCardState.riskHand;
-    console.log(risks);
+    
 
     /*setInterval(() => {
       console.log(Timeline.TimelineState.current.stage);
@@ -115,6 +114,11 @@
           <li>{card.attributes.quality}</li>
           <li>{card.attributes.scope}</li>
           <li>{card.attributes.time}</li>
+          <hr />
+          <li>{card.gameStage.initation}</li>
+          <li>{card.gameStage.planning}</li>
+          <li>{card.gameStage.execution}</li>
+          <li>{card.gameStage.closing}</li>
         </ul>
         <!---<div
           class="card-wrapper {($cardState.selectedActionCardId === null) ? 'disabled' : ''}"
