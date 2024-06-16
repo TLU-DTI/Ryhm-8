@@ -21,6 +21,7 @@ export interface IGameState {
   logs: IRiskLog[];
   timelineStage: number; // 0 = initation, 1 = planning, 2 = execution, 3 = closing
   round: number;
+  position: number;
 }
 
 export interface ISaveGame {

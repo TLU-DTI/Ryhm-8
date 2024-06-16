@@ -5,8 +5,8 @@
   import TimelineSvg from './TimelineSVG.svelte';
 
   onMount(() => {
-    Timeline.TimelineState.move(((SaveGameState.SaveGameState().loadGame()?.round) ?? 15) - 15);
-    Timeline.TimelineState.next();
+    //Timeline.TimelineState.move(((SaveGameState.SaveGameState().loadGame()?.round) ?? 15) - 15);
+    //Timeline.TimelineState.next();
   });
 </script>
 

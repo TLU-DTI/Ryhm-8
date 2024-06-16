@@ -3,8 +3,13 @@
   import { onDestroy, onMount } from 'svelte';
   import CardTest from '../ActionCard/CardTest.svelte';
   import SimpleBar from '$lib/Components/SimpleBar.svelte';
+  import RiskCards,{ type IRiskCard } from '$lib/Cards/RiskCards.svelte';
+  import Timeline, { TimelineState } from '$lib/States/TimelineState.svelte';
+
+  let risks = $state([]) as IRiskCard[];
 
   let cardStateSubscription: { unsubscribe: () => void } | undefined;
+
 
   function handleHandCardDrop(event: DragEvent, cardId: number) {
     event.preventDefault();
@@ -32,6 +37,8 @@
     });
   }
 
+  
+
   function handleDragOver(event: DragEvent) {
     event.preventDefault();
   }
@@ -45,6 +52,22 @@
   onDestroy(() => {
     cardStateSubscription?.unsubscribe();
   });
+
+  
+
+  $effect(() => {
+    //console.log(Timeline.TimelineState.current.stage);
+    risks = RiskCards.RiskCardState.riskHand;
+    console.log(risks);
+
+    /*setInterval(() => {
+      console.log(Timeline.TimelineState.current.stage);
+      console.log(RiskCards.RiskCardState.riskHand);
+      risks = RiskCards.RiskCardState.riskHand;
+    }, 1e3);*/
+  });
+
+
 </script>
 
 <style>
@@ -80,18 +103,18 @@
 <SimpleBar>
   <div class="size-full">
     <div class="card-container">
-      {#each [1, 2, 3, 4, 5] as cardId}
+      {#each risks as card}
         <div
           class="card-wrapper {($cardState.selectedActionCardId === null) ? 'disabled' : ''}"
-          on:drop={(event) => handleHandCardDrop(event, cardId)}
-          on:dragover={handleDragOver}
-          class:selected={$cardState.selectedHandCardId === cardId}
+          ondrop={(event) => handleHandCardDrop(event, card.attributes.cost)}
+          ondragover={handleDragOver}
+          class:selected={$cardState.selectedHandCardId === card.attributes.cost}
           role="button"
           tabindex="0"
         >
-          {#if $cardState.cardConnections.find(conn => conn.handCardId === cardId)}
+          {#if $cardState.cardConnections.find(conn => conn.handCardId === card.attributes.cost)}
             <div class="action-card">
-              ActionCard {$cardState.cardConnections.find(conn => conn.handCardId === cardId)?.actionCardId}
+              ActionCard {$cardState.cardConnections.find(conn => conn.handCardId === card.attributes.cost)?.actionCardId}
             </div>
           {/if}
           <CardTest />

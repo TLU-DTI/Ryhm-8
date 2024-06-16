@@ -17,6 +17,7 @@
 
   $effect(() => {
     logs = RiskLogs.RiskLogsState.logs;
+    console.log("yep")
     setInterval(() => {
       RiskLogs.RiskLogsState.addLog({
         attributes: {

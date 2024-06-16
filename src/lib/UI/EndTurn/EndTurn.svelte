@@ -9,23 +9,62 @@
   import  MitigateCards  from '$lib/Cards/MitigationCards.svelte';
   import Manager from '$lib/States/ManagerLogState.svelte';
 
-  let stage = 0;
+
+  let costTotal = 0;
+  let qualityTotal = 0;
+  let scopeTotal = 0;
+  let timeTotal = 0;
 
   
   $effect(() => {
+    Timeline.TimelineState.next()
+    //startOfTurn();
     setInterval(() => {
       EndTurn.EndTurnState.toggle();
     }, 1e3);
 
   });
 
-  function test():void{
+  /*function test():void{
     Objective.ObjectiveCost.move(MitigateCards.MitigatCardState.getRandomCard().attributes.cost * 1.0431000518798828);
     Objective.ObjectiveQuality.move(MitigateCards.MitigatCardState.getRandomCard().attributes.quality * 1.0431000518798828);
     Objective.ObjectiveScope.move(MitigateCards.MitigatCardState.getRandomCard().attributes.scope * 1.0431000518798828);
     Objective.ObjectiveTime.move(MitigateCards.MitigatCardState.getRandomCard().attributes.time * 1.0431000518798828);
 
     console.log(Objective.ObjectiveCost.barPos);
+  }*/
+
+  function startOfTurn(): void{
+    RiskCards.RiskCardState.createHand(riskCardAmount(Timeline.TimelineState.current.stage));
+    console.log(RiskCards.RiskCardState.riskHand);
+  }
+
+  function riskCardAmount(input: number): number {
+    switch (input) {
+      case 0:
+        return 0;
+      case 1:
+          return 1;
+      case 2:
+          return Math.random() < 0.5 ? 1 : 2;
+      case 3:
+          return Math.random() < 0.5 ? 2 : 3;
+      case 4:
+          return Math.random() < 0.5 ? 4 : 5;
+      default:
+          throw new Error("Input must be 0, 1, 2, or 3");
+    }
+  }
+
+  function test():void{
+
+    Objective.ObjectiveCost.move(costTotal * 1.0431000518798828);
+    Objective.ObjectiveQuality.move(qualityTotal * 1.0431000518798828);
+    Objective.ObjectiveScope.move(scopeTotal * 1.0431000518798828);
+    Objective.ObjectiveTime.move(timeTotal * 1.0431000518798828);
+
+    Timeline.TimelineState.next();
+    startOfTurn();
   }
 
 
@@ -41,8 +80,9 @@
       "riskCards": RiskCards.RiskCardState.riskCards,
       "manager": Manager.ManagerLogsState.logs,
       "logs" : RiskLogs.RiskLogsState.logs,
-      "timelineStage": stage,
-      "round": Timeline.TimelineState.barPos
+      "timelineStage": Timeline.TimelineState.current.stage,
+      "round": Timeline.TimelineState.current.stage,
+      "position": Timeline.TimelineState.barPos
     })
   }
 

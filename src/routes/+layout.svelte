@@ -12,6 +12,7 @@
   $effect.pre(() => {
     RiskLogs.RiskLogsState = RiskLogs.RiskLogs();
     RiskCards.RiskCardState = RiskCards.RiskCards();
+    //RiskCards.RiskCardHand = RiskCards.RiskCards().getHand;
     MitigateCards.MitigatCardState = MitigateCards.Cards();
     Manager.ManagerLogsState = Manager.ManagerLogs();
     Objective.ObjectiveCost = Objective.Objective(

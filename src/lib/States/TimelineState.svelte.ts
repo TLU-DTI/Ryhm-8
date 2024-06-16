@@ -15,6 +15,7 @@ interface ITimeline {
   barID: string;
   trackID: string;
   barPos: number;
+  current: IStage;
 }
 
 interface IStage {
@@ -85,11 +86,12 @@ export function Timeline(barID: string, trackID: string): ITimeline {
   const track = SVG(trackID) as Path;
   const bar = SVG(barID) as Rect;
 
-  let barPos = 17;
+  let barPos = 0;
 
   const current = {
     stage: 0,
-    round: 0
+    round: 0,
+    position: barPos
   };
 
   const trackStartPos = 0;
@@ -145,7 +147,6 @@ export function Timeline(barID: string, trackID: string): ITimeline {
   }
 
   function next(): Runner {
-    console.log(current);
     
     if (current.stage === 0) {
       current.stage += 1;
@@ -173,6 +174,7 @@ export function Timeline(barID: string, trackID: string): ITimeline {
     trackEndPos,
     barID,
     trackID,
+    current,
     get barPos() {
       return barPos;
     },

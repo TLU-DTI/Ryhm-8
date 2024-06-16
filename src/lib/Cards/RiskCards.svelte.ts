@@ -1,15 +1,20 @@
 import RiskCardsJson from './riskcards.json';
 
 export const RiskCardState = $state() as IRiskCards;
+export const RiskCardHand = $state() as IRiskCards;
 
 export default {
   RiskCardState,
-  RiskCards
+  RiskCards,
+  RiskCardHand
 };
 
 interface IRiskCards {
   riskCards: IRiskCard[];
+  riskHand: IRiskCard[];
   addRiskCards(data: RiskData[]): void;
+  //getHand(): IRiskCard[];
+  createHand(amount: number): void;
 }
 
 interface RiskData {
@@ -57,7 +62,8 @@ export interface IRiskCard {
 type Category = 'Technical' | 'Management' | 'Commercial' | 'External';
 
 export function RiskCards(): IRiskCards {
-  const cards: IRiskCard[] = [] as IRiskCard[];
+  const riskCards: IRiskCard[] = [] as IRiskCard[];
+  const cardsInHand: IRiskCard[] = [] as IRiskCard[];
 
   addRiskCards(RiskCardsJson as RiskData[]);
 
@@ -83,13 +89,31 @@ export function RiskCards(): IRiskCards {
           closing: data[i].X === undefined ? 0 : data[i].X
         }
       } as IRiskCard;
-      cards.push(card);
+      riskCards.push(card);
     }
   }
+
+  function createHand(amount: number){
+    cardsInHand.splice(0, cardsInHand.length);
+    for(let i = 0; i < amount; i++) {
+      const randomIndex = Math.floor(Math.random() * riskCards.length);
+      cardsInHand.push(riskCards[randomIndex]);
+    }
+    return cardsInHand;
+  }
+
+  /*function getHand(){
+    return cardsInHand;
+  }*/
+
   return {
     get riskCards() {
-      return cards;
+      return riskCards;
     },
-    addRiskCards
+    get riskHand() {
+      return cardsInHand;
+    },
+    addRiskCards,
+    createHand
   };
 }
