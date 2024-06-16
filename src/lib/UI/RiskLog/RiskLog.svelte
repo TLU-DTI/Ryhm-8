@@ -1,9 +1,19 @@
 <script lang="ts">
   import SimpleBar from '$lib/Components/SimpleBar.svelte';
   import RiskLogs, { type IRiskLog } from '$lib/States/RiskLogState.svelte';
+  import { onMount } from 'svelte';
   import RiskLogSvg from './RiskLogSVG.svelte';
+  import SaveGameState from '$lib/States/GameState.svelte';
 
   let logs = $state([]) as IRiskLog[];
+
+  
+  onMount(()=>{
+    logs = RiskLogs.RiskLogsState.logs;
+    ((SaveGameState.SaveGameState().loadGame()?.logs) ?? []).forEach(object => {
+      RiskLogs.RiskLogsState.addLog(object);
+    });
+  })
 
   $effect(() => {
     logs = RiskLogs.RiskLogsState.logs;

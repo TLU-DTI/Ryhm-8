@@ -11,6 +11,7 @@ interface ICards {
   cards: ICard[];
   addCard(card: ICard): void;
   addCards(data: MitigationData[]): void;
+  getRandomCard(): ICard;
 }
 
 interface MitigationData {
@@ -71,11 +72,22 @@ export function Cards(): ICards {
     }
   }
 
+  function getRandomCard() {
+    
+
+    // Generate a random index
+    const randomIndex = Math.floor(Math.random() * cards.length);
+
+    // Return the card at the random index
+    return cards[randomIndex];
+  }
+
   return {
     get cards() {
       return cards;
     },
     addCard,
-    addCards
+    addCards,
+    getRandomCard
   };
 }
