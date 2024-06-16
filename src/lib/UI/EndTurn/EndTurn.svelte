@@ -71,10 +71,10 @@
       timeTotal += element.attributes.time;
     });
 
-    Objective.ObjectiveCost.move(costTotal * 1.0431000518798828);
-    Objective.ObjectiveQuality.move(qualityTotal * 1.0431000518798828);
-    Objective.ObjectiveScope.move(scopeTotal * 1.0431000518798828);
-    Objective.ObjectiveTime.move(timeTotal * 1.0431000518798828);
+    Objective.ObjectiveCost.move(costTotal * 1.04310005188);
+    Objective.ObjectiveQuality.move(qualityTotal * 1.04310005188);
+    Objective.ObjectiveScope.move(scopeTotal * 1.04310005188);
+    Objective.ObjectiveTime.move(timeTotal * 1.04310005188);
 
     if (
       Objective.ObjectiveCost.barPos < 33 ||
