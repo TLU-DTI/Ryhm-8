@@ -53,9 +53,7 @@
     cardStateSubscription?.unsubscribe();
   });
 
-  function save():void{
-    risks = RiskCards.RiskCardState.riskHand;
-  }
+  
 
   $effect(() => {
     //console.log(Timeline.TimelineState.current.stage);
@@ -106,21 +104,7 @@
   <div class="size-full">
     <div class="card-container">
       {#each risks as card}
-        <ul class="bg-white">
-          <li>{card.title}</li>
-          <li>{card.category}</li>
-          <li>{card.description}</li>
-          <li>{card.attributes.cost}</li>
-          <li>{card.attributes.quality}</li>
-          <li>{card.attributes.scope}</li>
-          <li>{card.attributes.time}</li>
-          <hr />
-          <li>{card.gameStage.initation}</li>
-          <li>{card.gameStage.planning}</li>
-          <li>{card.gameStage.execution}</li>
-          <li>{card.gameStage.closing}</li>
-        </ul>
-        <!---<div
+        <div
           class="card-wrapper {($cardState.selectedActionCardId === null) ? 'disabled' : ''}"
           ondrop={(event) => handleHandCardDrop(event, card.attributes.cost)}
           ondragover={handleDragOver}
@@ -133,10 +117,23 @@
               ActionCard {$cardState.cardConnections.find(conn => conn.handCardId === card.attributes.cost)?.actionCardId}
             </div>
           {/if}
-          <CardTest />
-        </div>-->
+          <ul class="bg-white">
+            <li>{card.title}</li>
+            <li>{card.category}</li>
+            <li>{card.description}</li>
+            <li>{card.attributes.cost}</li>
+            <li>{card.attributes.quality}</li>
+            <li>{card.attributes.scope}</li>
+            <li>{card.attributes.time}</li>
+            <hr />
+            <li>{card.gameStage.initation}</li>
+            <li>{card.gameStage.planning}</li>
+            <li>{card.gameStage.execution}</li>
+            <li>{card.gameStage.closing}</li>
+          </ul>
+          <!--<CardTest />-->
+        </div>
       {/each}
     </div>
-    <button onclick={save}>Save</button>
   </div>
 </SimpleBar>

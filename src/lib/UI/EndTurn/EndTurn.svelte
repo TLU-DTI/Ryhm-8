@@ -13,8 +13,7 @@
 
   onMount(() =>{
     Timeline.TimelineState.next();
-    RiskCards.RiskCardState.createHand(riskCardAmount(Timeline.TimelineState.current.stage));
-    //startOfTurn();
+    startOfTurn();
   });
 
   
@@ -37,7 +36,8 @@
 
   function startOfTurn(): void{
     RiskCards.RiskCardState.createHand(riskCardAmount(Timeline.TimelineState.current.stage));
-    console.log(RiskCards.RiskCardState.riskHand);
+    MitigateCards.MitigatCardState.createMitigateHand(5)
+    //console.log(RiskCards.RiskCardState.riskHand);
   }
 
   function riskCardAmount(input: number): number {

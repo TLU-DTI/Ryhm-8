@@ -1,3 +1,4 @@
+//import RiskCards from './RiskCards.svelte';
 import MitiagateCardsJson from './mitigationcards.json';
 
 export const MitigatCardState = $state() as ICards;
@@ -11,7 +12,8 @@ interface ICards {
   cards: ICard[];
   addCard(card: ICard): void;
   addCards(data: MitigationData[]): void;
-  getRandomCard(): ICard;
+  mitigateCardsHand: ICard[];
+  createMitigateHand(amount: number): void
 }
 
 interface MitigationData {
@@ -46,6 +48,7 @@ type Category = 'Technical' | 'Management' | 'Commercial' | 'External';
 
 export function Cards(): ICards {
   const cards: ICard[] = [] as ICard[];
+  const mitigateCardsInHand: ICard[] = $state([]) as ICard[]
 
   addCards(MitiagateCardsJson as MitigationData[]);
 
@@ -72,7 +75,7 @@ export function Cards(): ICards {
     }
   }
 
-  function getRandomCard() {
+  /*function getRandomCard() {
     
 
     // Generate a random index
@@ -80,14 +83,41 @@ export function Cards(): ICards {
 
     // Return the card at the random index
     return cards[randomIndex];
+  }*/
+
+  function createMitigateHand(amount: number){
+    mitigateCardsInHand.splice(0, mitigateCardsInHand.length);
+    mitigateCardsInHand.push({
+      id: "0",
+      rng: 0,
+      category: 'Management',
+      title: 'Avoid',
+      description: 'Ignore the problem and hope that it works out',
+      attributes: {
+        scope: 0,
+        quality: 0,
+        time: 0,
+        cost: 0
+      }
+    })
+    
+    if (mitigateCardsInHand.length < amount){
+      while(mitigateCardsInHand.length < amount) {
+        const randomIndex = Math.floor(Math.random() * cards.length);
+        mitigateCardsInHand.push(cards[randomIndex]);
+      }
+    }
   }
 
   return {
     get cards() {
       return cards;
     },
+    get mitigateCardsHand(){
+      return mitigateCardsInHand;
+    },
     addCard,
     addCards,
-    getRandomCard
+    createMitigateHand
   };
 }

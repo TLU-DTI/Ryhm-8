@@ -106,8 +106,8 @@ export function RiskCards(): IRiskCards {
     
     const currentStage = Timeline.TimelineState.current.stage;
     const stageKey = stageMap[currentStage];
-    console.log(Timeline.TimelineState.current.stage)
-    console.log(stageKey);
+    //console.log(Timeline.TimelineState.current.stage)
+    //console.log(stageKey);
     
     if (stageKey) {
       filteredCards = riskCards.filter(card => card.gameStage[stageKey] === 1);
