@@ -1,7 +1,7 @@
 <svg
   id="Manager"
   xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 428.84 324.15"
+  viewBox="0 0 428.84 199.25"
   style="height: inherit; width: inherit;"
 >
   <rect
