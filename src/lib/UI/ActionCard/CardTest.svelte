@@ -1,3 +1,7 @@
+<script lang="ts">
+  let { title, description }: { title: string; description: string } = $props();
+</script>
+
 <svg
   id="Layer_2"
   xmlns="http://www.w3.org/2000/svg"
@@ -148,140 +152,28 @@
       ry="10.73"
       style="fill:none; stroke:#6e78b3; stroke-miterlimit:10; stroke-width:1.78px;"
     /><g style="opacity:.86;"
-      ><g style="isolation:isolate;"
-        ><text
-          transform="translate(31.76 170.31)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
-          ><tspan x="0" y="0">A </tspan></text
-        ><text
-          transform="translate(37.26 170.31)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate; letter-spacing:-.02em;"
-          ><tspan x="0" y="0">k</tspan></text
-        ><text
-          transform="translate(40.36 170.31)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
-          ><tspan x="0" y="0">e</tspan></text
-        ><text
-          transform="translate(43.57 170.31)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
-          ><tspan x="0" y="0">y member of the project team resigns</tspan></text
-        ><text
-          transform="translate(26.39 177.23)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
-          ><tspan x="0" y="0">un</tspan></text
-        ><text
-          transform="translate(33.36 177.23)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate; letter-spacing:-.02em;"
-          ><tspan x="0" y="0">e</tspan></text
-        ><text
-          transform="translate(36.46 177.23)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
-          ><tspan x="0" y="0">xpectedl</tspan></text
-        ><text
-          transform="translate(60.09 177.23)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate; letter-spacing:-.06em;"
-          ><tspan x="0" y="0">y</tspan></text
-        ><text
-          transform="translate(62.9 177.23)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
-          ><tspan x="0" y="0">, causing a tempo</tspan></text
-        ><text
-          transform="translate(109.56 177.23)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
-          ><tspan x="0" y="0">r</tspan></text
-        ><text
-          transform="translate(111.99 177.23)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
-          ><tspan x="0" y="0">ary disruption</tspan></text
-        ><text
-          transform="translate(55.98 184.16)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
-          ><tspan x="0" y="0">in the project workflo</tspan></text
-        ><text
-          transform="translate(114.96 184.16)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate; letter-spacing:-.02em;"
-          ><tspan x="0" y="0">w</tspan></text
-        ><text
-          transform="translate(119.54 184.16)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate; letter-spacing:0em;"
-          ><tspan x="0" y="0">.</tspan></text
-        ></g
-      ></g
-    ><g style="opacity:.86;"
-      ><g style="isolation:isolate;"
-        ><text
-          transform="translate(31.34 216.63)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
-          ><tspan x="0" y="0">- </tspan></text
-        ><text
-          transform="translate(34.79 216.63)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
-          ><tspan x="0" y="0">L</tspan></text
-        ><text
-          transform="translate(37.9 216.63)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
-          ><tspan x="0" y="0">orem ipsum dolor sit amet, consectetu</tspan></text
-        ><text
-          transform="translate(142.03 216.63)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate; letter-spacing:-.06em;"
-          ><tspan x="0" y="0">r</tspan></text
-        ><text
-          transform="translate(144.17 216.63)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate; letter-spacing:0em;"
-          ><tspan x="0" y="0">.</tspan></text
-        ><text
-          transform="translate(29.52 223.55)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
-          ><tspan x="0" y="0">- Nulla ac tristique turpis, </tspan></text
-        ><text
-          transform="translate(99.85 223.55)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
-          ><tspan x="0" y="0">v</tspan></text
-        ><text
-          transform="translate(102.99 223.55)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
-          ><tspan x="0" y="0">el molestie eros.</tspan></text
-        ><text
-          transform="translate(31.34 230.48)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
-          ><tspan x="0" y="0">- </tspan></text
-        ><text
-          transform="translate(34.79 230.48)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
-          ><tspan x="0" y="0">L</tspan></text
-        ><text
-          transform="translate(37.9 230.48)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
-          ><tspan x="0" y="0">orem ipsum dolor sit amet, consectetu</tspan></text
-        ><text
-          transform="translate(142.03 230.48)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate; letter-spacing:-.06em;"
-          ><tspan x="0" y="0">r</tspan></text
-        ><text
-          transform="translate(144.17 230.48)"
-          style="fill:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate; letter-spacing:0em;"
-          ><tspan x="0" y="0">.</tspan></text
-        ></g
-      ></g
-    ><g style="isolation:isolate;"
-      ><text
-        transform="translate(65.43 12.64)"
-        style="fill:#ff9d00; font-family:ChangaOne, &apos;Changa One&apos;; font-size:9.93px; isolation:isolate;"
-        ><tspan x="0" y="0">Risk Card</tspan></text
-      ></g
-    ><g style="isolation:isolate;"
-      ><text
-        transform="translate(27.74 156.41)"
-        style="fill:#f3edf7; font-family:ChangaOne, &apos;Changa One&apos;; font-size:10.77px; isolation:isolate;"
-        ><tspan x="0" y="0">Unexpected Resignation</tspan></text
-      ></g
-    ><g style="isolation:isolate;"
-      ><text
-        transform="translate(65.43 203.35)"
-        style="fill:#f3edf7; font-family:ChangaOne, &apos;Changa One&apos;; font-size:10.77px; isolation:isolate;"
-        ><tspan x="0" y="0">Impacts</tspan></text
-      ></g
-    ><g style="clip-path:url(#clippath);"
+      ><g style="isolation:isolate;">
+        <foreignObject
+          x="10"
+          y="140"
+          width="156"
+          height="15"
+          style="color:#f3edf7; font-family:ChangaOne, &apos;Changa One&apos;; font-size:10.77px; isolation:isolate; overflow:hidden;"
+        >
+          {title}
+        </foreignObject>
+        <foreignObject
+          x="10"
+          y="160"
+          width="156"
+          height="82"
+          style="color:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
+        >
+          {description}
+        </foreignObject>
+      </g></g
+    >
+    <g style="clip-path:url(#clippath);"
       ><image
         width="1514"
         height="963"
