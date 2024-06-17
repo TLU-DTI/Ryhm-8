@@ -1,4 +1,5 @@
 //import RiskCards from './RiskCards.svelte';
+import RiskCards from './RiskCards.svelte';
 import MitiagateCardsJson from './mitigationcards.json';
 
 export const MitigatCardState = $state() as ICards;
@@ -87,7 +88,7 @@ export function Cards(): ICards {
 
   function createMitigateHand(amount: number){
     mitigateCardsInHand.splice(0, mitigateCardsInHand.length);
-    mitigateCardsInHand.push({
+    /*mitigateCardsInHand.push({
       id: "0",
       rng: 0,
       category: 'Management',
@@ -99,8 +100,13 @@ export function Cards(): ICards {
         time: 0,
         cost: 0
       }
-    })
-    
+    })*/
+    RiskCards.RiskCardState.riskHand.forEach(element => {
+      const foundElement = cards.find(card => card.id === element.mitigation);
+      if(foundElement){
+        mitigateCardsInHand.push(foundElement);
+      }
+    });
     if (mitigateCardsInHand.length < amount){
       while(mitigateCardsInHand.length < amount) {
         const randomIndex = Math.floor(Math.random() * cards.length);

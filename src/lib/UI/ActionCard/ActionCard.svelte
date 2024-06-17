@@ -30,19 +30,19 @@
 <SimpleBar>
   <div class="size-full">
     <div class="flex gap-4 text-center">
-      {#each mitigation as card}
+      {#each mitigation as card, mCardIndex (card)}
       
         <div
           class="size-60 card-wrapper"
           draggable="true"
-          ondragstart={(event) => handleCardDragStart(event, card.attributes.quality)}
-          class:selected={$cardState.selectedActionCardId === card.attributes.quality}
+          ondragstart={(event) => handleCardDragStart(event, mCardIndex)}
+          class:selected={$cardState.selectedActionCardId === mCardIndex}
           role="button"
           tabindex="0"
         >
           <!--<CardTest />-->
           <ul class="bg-white">
-            <li>{card.title}</li>
+            <li>{card.id}</li>
             <li>{card.category}</li>
             <li>{card.description}</li>
             <li>{card.attributes.cost}</li>

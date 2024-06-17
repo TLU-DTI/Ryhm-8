@@ -19,9 +19,7 @@
   
   $effect(() => {
     
-    setInterval(() => {
-      EndTurn.EndTurnState.toggle();
-    }, 1e3);
+    
 
   });
 
@@ -36,7 +34,7 @@
 
   function startOfTurn(): void{
     RiskCards.RiskCardState.createHand(riskCardAmount(Timeline.TimelineState.current.stage));
-    MitigateCards.MitigatCardState.createMitigateHand(5)
+    MitigateCards.MitigatCardState.createMitigateHand(3)
     //console.log(RiskCards.RiskCardState.riskHand);
   }
 
@@ -65,10 +63,10 @@
 
 
     RiskCards.RiskCardState.riskHand.forEach(element => {
-      costTotal += element.attributes.cost
+      costTotal -= element.attributes.cost
       qualityTotal += element.attributes.quality;
       scopeTotal += element.attributes.scope;
-      timeTotal += element.attributes.time;
+      timeTotal -= element.attributes.time;
     });
 
     Objective.ObjectiveCost.move(costTotal * 1.04310005188);
@@ -83,6 +81,22 @@
       Objective.ObjectiveTime.barPos < 33
     ){
       console.log("Mäng läbi")
+    }
+
+    if(RiskCards.RiskCardState.riskHand){
+      RiskCards.RiskCardState.riskHand.forEach(element => {
+        RiskLogs.RiskLogsState.addLog({
+          attributes: {
+            cost: 0,
+            quality: 0,
+            scope: 0,
+            time: 0
+          },
+          category: 'Management',
+          title: element.title,
+          respond: 'Avoided'
+        });
+      });
     }
 
     Timeline.TimelineState.next();
@@ -113,11 +127,11 @@
   }
 </script>
 
-<button onclick={save}>Save</button>
+<!--<button onclick={save}>Save</button>-->
 <button class="flex size-full items-center justify-center" onclick={endTurn}>
   <EndTurnSvg />
 </button>
-<button onclick={unsave}>Unsave</button>
+<!--<button onclick={unsave}>Unsave</button>-->
 
 <style>
 </style>

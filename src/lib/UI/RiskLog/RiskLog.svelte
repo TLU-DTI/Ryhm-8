@@ -17,7 +17,7 @@
 
   $effect(() => {
     logs = RiskLogs.RiskLogsState.logs;
-    setInterval(() => {
+    /*setInterval(() => {
       RiskLogs.RiskLogsState.addLog({
         attributes: {
           cost: 10,
@@ -29,7 +29,7 @@
         respond: 'Mitigate',
         title: 'Risk Log'
       });
-    }, 1e3);
+    }, 1e3);*/
   });
 </script>
 
@@ -39,13 +39,9 @@
       <div class="bg-black">
         {#each logs as log}
           <ul class="bg-white">
-            <li>{log.title}</li>
-            <li>{log.category}</li>
-            <li>{log.respond}</li>
-            <li>{log.attributes.cost}</li>
-            <li>{log.attributes.quality}</li>
-            <li>{log.attributes.scope}</li>
-            <li>{log.attributes.time}</li>
+            <li>Risk: {log.title}</li>
+            <li>Categroy: {log.category}</li>
+            <li>Mitigation: {log.respond}</li>
           </ul>
         {/each}
       </div>
