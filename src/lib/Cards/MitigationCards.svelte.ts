@@ -15,6 +15,8 @@ interface ICards {
   addCards(data: MitigationData[]): void;
   mitigateCardsHand: ICard[];
   createMitigateHand(amount: number): void
+  addUsed(card: ICard): void;
+  usedCardsHand: ICard[];
 }
 
 interface MitigationData {
@@ -49,6 +51,7 @@ type Category = 'Technical' | 'Management' | 'Commercial' | 'External';
 
 export function Cards(): ICards {
   const cards: ICard[] = [] as ICard[];
+  const usedMitigations: ICard[] = $state([]) as ICard[];
   const mitigateCardsInHand: ICard[] = $state([]) as ICard[]
 
   addCards(MitiagateCardsJson as MitigationData[]);
@@ -115,6 +118,10 @@ export function Cards(): ICards {
     }
   }
 
+  function addUsed(card: ICard) {
+    usedMitigations.push(card);
+  }
+
   return {
     get cards() {
       return cards;
@@ -122,8 +129,12 @@ export function Cards(): ICards {
     get mitigateCardsHand(){
       return mitigateCardsInHand;
     },
+    get usedCardsHand(){
+      return usedMitigations;
+    },
     addCard,
     addCards,
-    createMitigateHand
+    createMitigateHand,
+    addUsed
   };
 }

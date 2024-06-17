@@ -5,6 +5,7 @@
   import MitigateCards, {type  ICard } from '$lib/Cards/MitigationCards.svelte';
 
   let mitigation = $state([]) as ICard[];
+  let usedMitigations = $state([]) as ICard[];
 
   function handleCardDragStart(event: DragEvent, cardId: number) {
     event.dataTransfer?.setData('text/plain', cardId.toString());
@@ -17,7 +18,7 @@
   $effect(() => {
     //console.log(Timeline.TimelineState.current.stage);
     mitigation = MitigateCards.MitigatCardState.mitigateCardsHand
-    
+    usedMitigations = MitigateCards.MitigatCardState.usedCardsHand
 
     /*setInterval(() => {
       console.log(Timeline.TimelineState.current.stage);
@@ -30,6 +31,28 @@
 <SimpleBar>
   <div class="size-full">
     <div class="flex gap-4 text-center">
+      {#each usedMitigations as card, mCardIndex (card)}
+      
+        <div
+          class="size-60 card-wrapper"
+          draggable="true"
+          ondragstart={(event) => handleCardDragStart(event, mCardIndex)}
+          class:selected={$cardState.selectedActionCardId === mCardIndex}
+          role="button"
+          tabindex="0"
+        >
+          <!--<CardTest />-->
+          <ul class="bg-white">
+            <li>{card.id}</li>
+            <li>{card.category}</li>
+            <li>{card.description}</li>
+            <li>{card.attributes.cost}</li>
+            <li>{card.attributes.quality}</li>
+            <li>{card.attributes.scope}</li>
+            <li>{card.attributes.time}</li>
+          </ul>
+        </div>
+      {/each}
       {#each mitigation as card, mCardIndex (card)}
       
         <div

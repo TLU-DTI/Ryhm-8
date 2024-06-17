@@ -63,16 +63,16 @@
 
 
     RiskCards.RiskCardState.riskHand.forEach(element => {
-      costTotal -= element.attributes.cost
+      costTotal += element.attributes.cost
       qualityTotal += element.attributes.quality;
       scopeTotal += element.attributes.scope;
-      timeTotal -= element.attributes.time;
+      timeTotal += element.attributes.time;
     });
 
-    Objective.ObjectiveCost.move(costTotal * 1.04310005188);
+    Objective.ObjectiveCost.move(-(costTotal * 1.04310005188));
     Objective.ObjectiveQuality.move(qualityTotal * 1.04310005188);
     Objective.ObjectiveScope.move(scopeTotal * 1.04310005188);
-    Objective.ObjectiveTime.move(timeTotal * 1.04310005188);
+    Objective.ObjectiveTime.move(-(timeTotal * 1.04310005188));
 
     if (
       Objective.ObjectiveCost.barPos < 33 ||
