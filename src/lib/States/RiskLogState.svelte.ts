@@ -30,7 +30,7 @@ export function RiskLogs(): IRiskLogs {
   const logs: IRiskLog[] = $state([]) as IRiskLog[];
 
   function addLog(log: IRiskLog) {
-    logs.push(log);
+    logs.unshift(log);
   }
 
   return {
