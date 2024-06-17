@@ -1,3 +1,7 @@
-<div class="size-full content-center text-center">
-  <p>Manager</p>
+<script>
+  import ManagerSvg from './ManagerSVG.svelte';
+</script>
+
+<div class="size-full">
+  <ManagerSvg />
 </div>
