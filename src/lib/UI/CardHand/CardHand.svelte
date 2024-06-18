@@ -7,24 +7,26 @@
 
   $effect(() => {
     move = function (targetID: string) {
-      const finalPos = document.getElementById('RiskLogs');
-      console.log(finalPos?.clientTop);
+      const finalPos = document.querySelector('#RiskLogs')?.getBoundingClientRect() as DOMRect;
+      const currentPos = document.querySelector('#' + targetID)?.getBoundingClientRect() as DOMRect;
+      console.log(finalPos, currentPos);
 
-      const animation1 = anime.timeline().add({
-        targets: '#',
-        //rotate: 7200,
-        duration: 5000,
-        translateY: -2000,
-        easing: 'easeInOutSine',
-        direction: 'normal',
-        loop: true
-      });
+      // const animation1 = anime.timeline().add({
+      //   targets: '#',
+      //   //rotate: 7200,
+      //   duration: 5000,
+      //   translateY: -2000,
+      //   easing: 'easeInOutSine',
+      //   direction: 'normal',
+      //   loop: true
+      // });
+
       const animation2 = anime.timeline().add({
         targets: '#' + targetID,
         duration: 500,
-        top: finalPos,
-        left: 0,
-        scale: 0.3,
+        top: finalPos.y - currentPos.y - 110,
+        left: finalPos.x - currentPos.x + 110,
+        scale: 0.2,
         rotate: '1turn'
       });
     };
@@ -48,9 +50,32 @@
       />
     </button>
   </div>
-</div>
+  <div class="card-container">
+    <button class="card" id="card3" onclick={() => move('card3')}>
+      <CardTest
+        title="TIIIITEL"
+        description="Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description "
+      />
+    </button>
+  </div>
+  <div class="card-container">
+    <button class="card" id="card4" onclick={() => move('card4')}>
+      <CardTest
+        title="TIIIITEL"
+        description="Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description "
+      />
+    </button>
+  </div>
+  <div class="card-container">
+    <button class="card" id="card5" onclick={() => move('card5')}>
+      <CardTest
+        title="TIIIITEL"
+        description="Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description "
+      />
+    </button>
+  </div>
 
-<!-- <div class="card-container">
+  <!-- <div class="card-container">
     <div class="card">
       <CardTest
         title="TIIIITEL"
@@ -73,8 +98,8 @@
         description="Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description "
       />
     </div>
-  </div> 
-</div> -->
+  </div> -->
+</div>
 
 <style>
   .card-container {
