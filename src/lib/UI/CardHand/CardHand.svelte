@@ -6,18 +6,19 @@
   import RiskCards,{ type IRiskCard } from '$lib/Cards/RiskCards.svelte';
   import Timeline, { TimelineState } from '$lib/States/TimelineState.svelte';
   import  RiskLogs, { type IRiskLog }  from '$lib/States/RiskLogState.svelte';
-  import MitigationCardsSvelte from '$lib/Cards/MitigationCards.svelte';
+  import MitigationCardsSvelte, { type ICard } from '$lib/Cards/MitigationCards.svelte';
   import Objective from '$lib/States/ObjectiveState.svelte';
+  import ManagerLogs from '$lib/States/ManagerLogState.svelte';
+  import anime from 'animejs';
 
   let risks = $state([]) as IRiskCard[];
 
   let cardStateSubscription: { unsubscribe: () => void } | undefined;
 
 
-  function handleHandCardDrop(event: DragEvent, cardId: number) {
+  function handleHandCardDrop(event: DragEvent, cardId: number, card: ICard) {
 
-
-
+    
     event.preventDefault();
     console.log(cardId);
     const actionCardId = event.dataTransfer?.getData('text/plain');
@@ -37,6 +38,8 @@
       respond: MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].title
     });
 
+    
+
     let costTotal = 0;
     let qualityTotal = 0;
     let scopeTotal = 0;
@@ -47,11 +50,15 @@
     scopeTotal += MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].attributes.scope
     timeTotal += MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].attributes.time
 
-    if(risks[cardId].mitigation == MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].id){
-      
+    if(risks[cardId].mitigation[0] == MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].id){
+      ManagerLogs.ManagerLogsState.addLog({
+        title: "Correct choice",
+        name: "Manager",
+        message: "Your choice of " + MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].title + " to risk " + risks[cardId].title + " was perfect"
+      })
     } else if (risks[cardId].category == MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].category){
       if(Math.random() < 0.5){
-        
+
       }
     }
   
@@ -65,7 +72,26 @@
     Objective.ObjectiveScope.move(scopeTotal * 1.04310005188);
     Objective.ObjectiveTime.move(-timeTotal * 1.04310005188);
 
-    risks.splice(cardId, 1)
+    const finalPos = document.querySelector('#RiskLogs')?.getBoundingClientRect() as DOMRect;
+    const currentPos = document.querySelector('#' + card.id)?.getBoundingClientRect() as DOMRect;
+
+    anime.timeline().add({
+      targets: '#' + card.id,
+      duration: 500,
+      top: finalPos.y - currentPos.y - 110,
+      left: finalPos.x - currentPos.x + 110,
+      scale: 0.2,
+      rotate: '1turn',
+      easing: "linear"      ,
+      //opacity: 0,
+      complete: function() {
+        // This function is called after the animation is complete
+        risks.splice(cardId, 1);
+      }
+    })
+
+    //risks.splice(cardId, 1)
+    MitigationCardsSvelte.MitigatCardState.mitigateCardsHand.splice(selectedActionCardId, 1)
 
     /*cardState.update(state => {
       const selectedActionCardId = parseInt(actionCardId, 10);
@@ -170,7 +196,7 @@
 
       <div
         class="card-container card-wrapper {($cardState.selectedActionCardId === null) ? 'disabled' : ''}"
-        ondrop={(event) => handleHandCardDrop(event, cardIndex)}
+        ondrop={(event) => handleHandCardDrop(event, cardIndex, card)}
         ondragover={handleDragOver}
         class:selected={$cardState.selectedHandCardId === cardIndex}
         role="button"
@@ -195,7 +221,7 @@
           <li>{card.gameStage.execution}</li>
           <li>{card.gameStage.closing}</li>
         </ul>-->
-        <div class="card"><CardTest title={card.title} description={card.description} /></div>
+        <div class="card" id={card.id}><CardTest title={card.title} description={card.description} /></div>
       </div>
     {/each}
   </div>

@@ -105,7 +105,7 @@ export function Cards(): ICards {
       }
     })*/
     RiskCards.RiskCardState.riskHand.forEach(element => {
-      const foundElement = cards.find(card => card.id === element.mitigation);
+      const foundElement = cards.find(card => card.id === element.mitigation[Math.floor(Math.random() * element.mitigation.length)]);
       if(foundElement){
         mitigateCardsInHand.push(foundElement);
       }

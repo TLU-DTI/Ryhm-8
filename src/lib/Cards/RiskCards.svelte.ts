@@ -56,7 +56,7 @@ export interface IRiskCard {
   category: Category;
   subcategory: string;
   attributes: IAttributes;
-  mitigation: string;
+  mitigation: string[];
   gameStage: gameStage;
 }
 
@@ -82,7 +82,7 @@ export function RiskCards(): IRiskCards {
           time: data[i].T,
           cost: data[i].C
         },
-        mitigation: data[i].Mitigation,
+        mitigation: data[i].Mitigation ? data[i].Mitigation.split(", ") : [],
         gameStage: {
           initation: data[i].I === undefined ? 0 : data[i].I,
           planning: data[i].P === undefined ? 0 : data[i].P,

@@ -94,7 +94,7 @@
           },
           category: 'Management',
           title: element.title,
-          respond: 'Avoided'
+          respond: 'Ignored'
         });
       });
     }

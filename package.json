@@ -46,5 +46,9 @@
     "vite": "^5.2.11",
     "vitest": "^1.6.0"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "anime": "^0.1.2",
+    "animejs": "^3.2.2"
+  }
 }

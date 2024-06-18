@@ -1,6 +1,7 @@
 import type { ICard } from '$lib/Cards/MitigationCards.svelte';
 import type { IRiskCard }  from '$lib/Cards/RiskCards.svelte';
 import type { IRiskLog } from '$lib/States/RiskLogState.svelte';
+import { Objective } from './ObjectiveState.svelte';
 
 interface IObjective {
   scope: number;
@@ -12,6 +13,7 @@ interface IObjective {
 interface IManager {
   title: string;
   message: string;
+  name: string;
 }
 export interface IGameState {
   objectives: IObjective;
@@ -43,7 +45,8 @@ export const GameState = $state<IGameState>({
   manager: 
     {
       title: 'Big Bousman',
-      message: 'erro'
+      message: 'erro',
+      name: 'Manager'
     }
   ,
   logs: [],
@@ -53,6 +56,8 @@ export const GameState = $state<IGameState>({
 
 export function SaveGameState(): ISaveGame {
   const storageKey = 'game_save';
+  const objectives: IObjective = $state() as IObjective;
+  
 
   let save: IGameState | null = null;
 
@@ -88,5 +93,7 @@ export function SaveGameState(): ISaveGame {
 
 export default {
   GameState,
-  SaveGameState
+  SaveGameState,
+  
+  objectives
 };
