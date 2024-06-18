@@ -74,31 +74,6 @@
       />
     </button>
   </div>
-
-  <!-- <div class="card-container">
-    <div class="card">
-      <CardTest
-        title="TIIIITEL"
-        description="Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description "
-      />
-    </div>
-  </div>
-  <div class="card-container">
-    <div class="card">
-      <CardTest
-        title="TIIIITEL"
-        description="Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description "
-      />
-    </div>
-  </div>
-  <div class="card-container">
-    <div class="card">
-      <CardTest
-        title="TIIIITEL"
-        description="Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description "
-      />
-    </div>
-  </div> -->
 </div>
 
 <style>
@@ -112,6 +87,7 @@
     max-width: inherit;
     width: inherit;
     height: inherit;
+    transition: transform 0.3s ease-in-out;
   }
   .card {
     position: absolute;
@@ -138,5 +114,9 @@
   }
   .card-container:nth-child(even):hover .card {
     rotate: -3deg;
+  }
+  .card-container:hover ~ .card-container {
+    transform: translateX(5vw);
+    transition: ease-in-out 0.3s;
   }
 </style>
