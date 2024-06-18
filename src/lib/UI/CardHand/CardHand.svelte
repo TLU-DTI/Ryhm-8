@@ -58,9 +58,27 @@
       })
     } else if (risks[cardId].category == MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].category){
       if(Math.random() < 0.5){
-
+        ManagerLogs.ManagerLogsState.addLog({
+          title: "Okay choice",
+          name: "Manager",
+          message: "Your choice of " + MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].title + " to risk " + risks[cardId].title + " was okay"
+        })
       }
+      else {
+        ManagerLogs.ManagerLogsState.addLog({
+          title: "Bad choice",
+          name: "Manager",
+          message: "Your choice of " + MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].title + " to risk " + risks[cardId].title + " was okay, but the risk did not materialize"
+        })
+      }
+    } else {
+      ManagerLogs.ManagerLogsState.addLog({
+        title: "Terrible choice!",
+        name: "Manager",
+        message: "Your choice of " + MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].title + " to risk " + risks[cardId].title + " was terrible! What have you done!"
+      })
     }
+
   
 
     MitigationCardsSvelte.MitigatCardState.addUsed(MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId]);
