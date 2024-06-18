@@ -56,7 +56,6 @@ export const GameState = $state<IGameState>({
 
 export function SaveGameState(): ISaveGame {
   const storageKey = 'game_save';
-  const objectives: IObjective = $state() as IObjective;
   
 
   let save: IGameState | null = null;
@@ -93,7 +92,5 @@ export function SaveGameState(): ISaveGame {
 
 export default {
   GameState,
-  SaveGameState,
-  
-  objectives
+  SaveGameState
 };

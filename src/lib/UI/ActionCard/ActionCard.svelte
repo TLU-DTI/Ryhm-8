@@ -44,7 +44,7 @@
           <!--<CardTest />-->
           <ul class="bg-white">
             <li>{card.id}</li>
-            <li>{card.category}</li>
+            <li>{card.title}</li>
             <li>{card.description}</li>
             <li>{card.attributes.cost}</li>
             <li>{card.attributes.quality}</li>

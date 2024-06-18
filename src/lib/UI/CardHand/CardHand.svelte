@@ -17,120 +17,86 @@
 
 
   function handleHandCardDrop(event: DragEvent, cardId: number, card: ICard) {
-
-    
     event.preventDefault();
-    console.log(cardId);
     const actionCardId = event.dataTransfer?.getData('text/plain');
-    const selectedActionCardId = parseInt(actionCardId, 10)
-    //console.log(actionCardId)
+    let selectedActionCardId = parseInt(actionCardId, 10);
     if (!actionCardId) return;
 
+    if (selectedActionCardId >= MitigationCardsSvelte.MitigatCardState.usedCardsHand.length) {
+        selectedActionCardId -= MitigationCardsSvelte.MitigatCardState.usedCardsHand.length;
+        addLog(risks[cardId], MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId]);
+        updateObjectives(MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId]);
+        handleAnimation(cardId, card);
+        MitigationCardsSvelte.MitigatCardState.addUsed(MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId]);
+        MitigationCardsSvelte.MitigatCardState.mitigateCardsHand.splice(selectedActionCardId, 1);
+    } else {
+        addLog(risks[cardId], MitigationCardsSvelte.MitigatCardState.usedCardsHand[selectedActionCardId]);
+        updateObjectives(MitigationCardsSvelte.MitigatCardState.usedCardsHand[selectedActionCardId]);
+        handleAnimation(cardId, card);
+    }
+}
+
+function addLog(risk: IRiskCard, mitigationCard: ICard) {
     RiskLogs.RiskLogsState.addLog({
-      attributes: {
-        cost: 0,
-        quality: 0,
-        scope: 0,
-        time: 0
-      },
-      category: risks[cardId].category,
-      title: risks[cardId].title,
-      respond: MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].title
+        attributes: {
+            cost: 0,
+            quality: 0,
+            scope: 0,
+            time: 0
+        },
+        category: risk.category,
+        title: risk.title,
+        respond: mitigationCard.title
     });
 
-    
-
-    let costTotal = 0;
-    let qualityTotal = 0;
-    let scopeTotal = 0;
-    let timeTotal = 0;
-
-    costTotal += MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].attributes.cost
-    qualityTotal += MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].attributes.quality
-    scopeTotal += MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].attributes.scope
-    timeTotal += MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].attributes.time
-
-    if(risks[cardId].mitigation[0] == MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].id){
-      ManagerLogs.ManagerLogsState.addLog({
-        title: "Correct choice",
-        name: "Manager",
-        message: "Your choice of " + MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].title + " to risk " + risks[cardId].title + " was perfect"
-      })
-    } else if (risks[cardId].category == MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].category){
-      if(Math.random() < 0.5){
+    if (risk.mitigation[0] == mitigationCard.id) {
         ManagerLogs.ManagerLogsState.addLog({
-          title: "Okay choice",
-          name: "Manager",
-          message: "Your choice of " + MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].title + " to risk " + risks[cardId].title + " was okay"
-        })
-      }
-      else {
+            title: "Correct choice",
+            name: "Manager",
+            message: `Your choice of ${mitigationCard.title} to risk ${risk.title} was perfect`
+        });
+    } else if (risk.category == mitigationCard.category) {
         ManagerLogs.ManagerLogsState.addLog({
-          title: "Bad choice",
-          name: "Manager",
-          message: "Your choice of " + MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].title + " to risk " + risks[cardId].title + " was okay, but the risk did not materialize"
-        })
-      }
+            title: Math.random() < 0.5 ? "Okay choice" : "Bad choice",
+            name: "Manager",
+            message: `Your choice of ${mitigationCard.title} to risk ${risk.title} was ${
+                Math.random() < 0.5 ? "okay" : "okay, but the risk did not materialize"
+            }`
+        });
     } else {
-      ManagerLogs.ManagerLogsState.addLog({
-        title: "Terrible choice!",
-        name: "Manager",
-        message: "Your choice of " + MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId].title + " to risk " + risks[cardId].title + " was terrible! What have you done!"
-      })
+        ManagerLogs.ManagerLogsState.addLog({
+            title: "Terrible choice!",
+            name: "Manager",
+            message: `Your choice of ${mitigationCard.title} to risk ${risk.title} was terrible! What have you done!`
+        });
     }
+}
 
-  
+function updateObjectives(mitigationCard: ICard) {
+    const factor = 1.04310005188;
+    Objective.ObjectiveCost.move(-mitigationCard.attributes.cost * factor);
+    Objective.ObjectiveQuality.move(mitigationCard.attributes.quality * factor);
+    Objective.ObjectiveScope.move(mitigationCard.attributes.scope * factor);
+    Objective.ObjectiveTime.move(-mitigationCard.attributes.time * factor);
+}
 
-    MitigationCardsSvelte.MitigatCardState.addUsed(MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId]);
-
-    
-
-    Objective.ObjectiveCost.move(-costTotal * 1.04310005188);
-    Objective.ObjectiveQuality.move(qualityTotal * 1.04310005188);
-    Objective.ObjectiveScope.move(scopeTotal * 1.04310005188);
-    Objective.ObjectiveTime.move(-timeTotal * 1.04310005188);
-
+function handleAnimation(cardId: number, card: ICard) {
     const finalPos = document.querySelector('#RiskLogs')?.getBoundingClientRect() as DOMRect;
     const currentPos = document.querySelector('#' + card.id)?.getBoundingClientRect() as DOMRect;
 
     anime.timeline().add({
-      targets: '#' + card.id,
-      duration: 500,
-      top: finalPos.y - currentPos.y - 110,
-      left: finalPos.x - currentPos.x + 110,
-      scale: 0.2,
-      rotate: '1turn',
-      easing: "linear"      ,
-      //opacity: 0,
-      complete: function() {
-        // This function is called after the animation is complete
-        risks.splice(cardId, 1);
-      }
-    })
-
-    //risks.splice(cardId, 1)
-    MitigationCardsSvelte.MitigatCardState.mitigateCardsHand.splice(selectedActionCardId, 1)
-
-    /*cardState.update(state => {
-      const selectedActionCardId = parseInt(actionCardId, 10);
-
-      // Check if a connection already exists
-      const existingConnectionIndex = state.cardConnections.findIndex(connection =>
-        connection.actionCardId === selectedActionCardId && connection.handCardId === cardId
-      );
-
-      if (existingConnectionIndex !== -1) {
-        state.cardConnections.splice(existingConnectionIndex, 1);
-      } else {
-        state.cardConnections.push({ actionCardId: selectedActionCardId, handCardId: cardId });
-      }
-
-      return {
-        ...state,
-        selectedHandCardId: state.selectedHandCardId === cardId ? null : cardId,
-      };
-    });*/
-  }
+        targets: '#' + card.id,
+        duration: 500,
+        top: finalPos.y - currentPos.y - 110,
+        left: finalPos.x - currentPos.x + 110,
+        scale: 0.2,
+        rotate: '1turn',
+        easing: "linear",
+        complete: function() {
+            risks.splice(cardId, 1);
+        }
+    });
+}
 
   
 
