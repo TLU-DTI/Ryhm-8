@@ -8,8 +8,10 @@
   import  RiskCards  from '$lib/Cards/RiskCards.svelte';
   import  MitigateCards  from '$lib/Cards/MitigationCards.svelte';
   import Manager, { ManagerLogsState } from '$lib/States/ManagerLogState.svelte';
+  import GameOverModal from './GameOverModal.svelte'; 
   import { onMount } from 'svelte';
 
+  let gameOver = $state(false);  
 
   onMount(() =>{
     Manager.ManagerLogsState.addLog({
@@ -38,6 +40,7 @@
   }*/
 
   function startOfTurn(): void{
+    if (gameOver) return;
     RiskCards.RiskCardState.createHand(riskCardAmount(Timeline.TimelineState.current.stage));
     MitigateCards.MitigatCardState.createMitigateHand(3)
     //console.log(RiskCards.RiskCardState.riskHand);
@@ -71,6 +74,7 @@
         EndTurn.EndTurnState.toggle();
     }, 1000);
 
+    if (gameOver) return; 
 
     let costTotal = 0;
     let qualityTotal = 0;
@@ -96,7 +100,8 @@
       Objective.ObjectiveScope.barPos < 33 ||
       Objective.ObjectiveTime.barPos < 33
     ){
-      console.log("Mäng läbi")
+      gameOver = true;  
+      return;  
     }
 
     if(Timeline.TimelineState.current.stage == 4){
@@ -145,13 +150,16 @@
   function unsave():void{
     SaveGameState.SaveGameState().clearSave()
   }
+
 </script>
 
-<!--<button onclick={save}>Save</button>-->
+<GameOverModal show={gameOver} />
+
+
 <button id="mybutton" class="flex size-full items-center justify-center" onclick={endTurn}>
   <EndTurnSvg />
 </button>
-<!--<button onclick={unsave}>Unsave</button>-->
+
 
 <style>
 </style>
