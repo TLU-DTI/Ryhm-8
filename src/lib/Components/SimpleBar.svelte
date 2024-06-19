@@ -43,7 +43,7 @@
     <div class="simplebar-mask">
       <div class="simplebar-offset">
         <div class="simplebar-content-wrapper">
-          <div class="simplebar-content {contentClass}">
+          <div class="simplebar-content {contentClass}" style="margin-right: 11px;">
             {@render children()}
           </div>
         </div>
