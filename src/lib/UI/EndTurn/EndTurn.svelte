@@ -61,6 +61,17 @@
   }
 
   function endTurn():void{
+    const button = document.getElementById("mybutton") as HTMLButtonElement;
+
+    button.disabled = true;
+    EndTurn.EndTurnState.toggle();
+
+    setTimeout(() => {
+        button.disabled = false;
+        EndTurn.EndTurnState.toggle();
+    }, 1000);
+
+
     let costTotal = 0;
     let qualityTotal = 0;
     let scopeTotal = 0;
@@ -137,7 +148,7 @@
 </script>
 
 <!--<button onclick={save}>Save</button>-->
-<button class="flex size-full items-center justify-center" onclick={endTurn}>
+<button id="mybutton" class="flex size-full items-center justify-center" onclick={endTurn}>
   <EndTurnSvg />
 </button>
 <!--<button onclick={unsave}>Unsave</button>-->
