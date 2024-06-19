@@ -9,7 +9,7 @@
   });
 </script>
 
-<button class="flex size-full items-center justify-center">
+<button id="EndTurn_button" class="flex size-full items-center justify-center">
   <EndTurnSvg />
 </button>
 
