@@ -2,7 +2,7 @@
   import ActionCard from '$lib/UI/ActionCard/ActionCard.svelte';
   import CardHand from '$lib/UI/CardHand/CardHand.svelte';
   import EndTurn from '$lib/UI/EndTurn/EndTurn.svelte';
-  import Manager from '$lib/UI/Manager/Manager.svelte';
+  import Manager from '$lib/UI/Notification/Notification.svelte';
   import Objective from '$lib/UI/Objective/Objective.svelte';
   import RiskLog from '$lib/UI/RiskLog/RiskLog.svelte';
   import Settings from '$lib/UI/Settings/Settings.svelte';
@@ -61,7 +61,7 @@
 
       <div class="h-[6vh]"></div>
 
-      <div class="relative h-[24vh] bg-red-300">
+      <div class="relative h-[24vh]">
         <Manager />
       </div>
 
