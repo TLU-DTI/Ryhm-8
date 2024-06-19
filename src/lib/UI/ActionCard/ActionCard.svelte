@@ -42,17 +42,22 @@
           tabindex="0"
         >
           <!--<CardTest />-->
-          <ul class="bg-white">
+          <ul class="bg-white card">
             <li>{card.id}</li>
             <li>{card.title}</li>
             <li>{card.description}</li>
-            <li>{card.attributes.cost}</li>
-            <li>{card.attributes.quality}</li>
-            <li>{card.attributes.scope}</li>
-            <li>{card.attributes.time}</li>
           </ul>
         </div>
       {/each}
     </div>
   </div>
 </SimpleBar>
+
+<style>
+  .card:hover {
+    transform: translateY(-1vh);
+    transition: 0.3s;
+    filter: drop-shadow(0 2vh 0.5rem rgba(0, 0, 0, 0.169));
+    z-index: 1;
+  }
+</style>
