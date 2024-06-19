@@ -43,7 +43,7 @@
 
       <div class="h-[4vh]"></div>
 
-      <div class="relative h-[38vh] bg-yellow-500">
+      <div class="relative h-[38vh] rounded-2xl bg-indigo-500/35">
         <ActionCard />
       </div>
     </div>
@@ -55,7 +55,7 @@
 
     <!-- Column 3 -->
     <div class="w-[25vw]">
-      <div class="relative h-[10vh] bg-red-200">
+      <div class="relative h-[10vh]">
         <Settings />
       </div>
 

@@ -126,7 +126,7 @@ function handleAnimation(cardId: number, card: ICard) {
         rotate: '1turn',
         easing: "linear",
         complete: function() {
-            risks.splice(cardId, 1);
+          risks.splice(cardId, 1);
         }
     });
 }
