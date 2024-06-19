@@ -7,14 +7,14 @@ export default {
   Notification
 };
 
-type PersonName = "Manager";
+//type PersonName = "Manager";
 
 
 interface INotification {
 }
 
 export interface INotificationProps {
-  name: PersonName;
+  name: string;
   icon: Component;
   message: string;
 }

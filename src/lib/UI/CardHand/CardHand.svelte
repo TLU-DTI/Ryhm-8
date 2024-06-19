@@ -49,35 +49,53 @@ function addLog(risk: IRiskCard, mitigationCard: ICard) {
         respond: mitigationCard.title
     });
 
-    if (risk.mitigation[0] == mitigationCard.id) {
+    let correct = 0;
+    for (let i = 0; i < risk.mitigation.length; i++) {
+      if(risk.mitigation[i] == mitigationCard.id){
+        correct = 1
+      }
+    }
+    risk.mitigation[0] == mitigationCard.id
+    if (correct) {
         ManagerLogs.ManagerLogsState.addLog({
             title: "Correct choice",
             name: "Manager",
-            message: `Your choice of ${mitigationCard.title} to risk ${risk.title} was perfect`
+            message: `Your choice to use the card "${mitigationCard.title}" on the "${risk.title}" was perfect`
         });
     } else if (risk.category == mitigationCard.category) {
+        let rng = Math.random() < 0.5;
         ManagerLogs.ManagerLogsState.addLog({
-            title: Math.random() < 0.5 ? "Okay choice" : "Bad choice",
+            title: rng ? "Okay choice" : "Bad choice",
             name: "Manager",
             message: `Your choice of ${mitigationCard.title} to risk ${risk.title} was ${
-                Math.random() < 0.5 ? "okay" : "okay, but the risk did not materialize"
+                rng ? "okay and you got lucky - the risk did not materialize" : "okay, but sadly the risk materialized"
             }`
         });
+        if(!rng){
+          Objective.ObjectiveCost.move(-risk.attributes.cost);
+          Objective.ObjectiveQuality.move(risk.attributes.quality);
+          Objective.ObjectiveScope.move(risk.attributes.scope);
+          Objective.ObjectiveTime.move(-risk.attributes.time);
+        }
     } else {
         ManagerLogs.ManagerLogsState.addLog({
             title: "Terrible choice!",
             name: "Manager",
             message: `Your choice of ${mitigationCard.title} to risk ${risk.title} was terrible! What have you done!`
         });
+        Objective.ObjectiveCost.move(-risk.attributes.cost);
+          Objective.ObjectiveQuality.move(risk.attributes.quality);
+          Objective.ObjectiveScope.move(risk.attributes.scope);
+          Objective.ObjectiveTime.move(-risk.attributes.time);
     }
 }
 
 function updateObjectives(mitigationCard: ICard) {
-    const factor = 1.04310005188;
-    Objective.ObjectiveCost.move(-mitigationCard.attributes.cost * factor);
-    Objective.ObjectiveQuality.move(mitigationCard.attributes.quality * factor);
-    Objective.ObjectiveScope.move(mitigationCard.attributes.scope * factor);
-    Objective.ObjectiveTime.move(-mitigationCard.attributes.time * factor);
+
+    Objective.ObjectiveCost.move(-mitigationCard.attributes.cost);
+    Objective.ObjectiveQuality.move(mitigationCard.attributes.quality);
+    Objective.ObjectiveScope.move(mitigationCard.attributes.scope);
+    Objective.ObjectiveTime.move(-mitigationCard.attributes.time);
 }
 
 function handleAnimation(cardId: number, card: ICard) {

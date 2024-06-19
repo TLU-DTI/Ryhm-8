@@ -34,6 +34,7 @@ export function Objective(barID: string, trackID: string): IObjective {
   const SPEED = 500;
 
   function move(input: number): Runner {
+    input = input * 1.04310005188;
     if (input + barPos >= trackEndPos) {
       input = trackEndPos - barPos;
     }

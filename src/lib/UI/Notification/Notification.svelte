@@ -1,19 +1,31 @@
-<script>
+<script lang="ts">
   import ManagerSvg from './NotificationSVG.svelte';
   import Happy from './Manager/Happy.svelte';
   import Mad from './Manager/Mad.svelte';
   import Unhappy from './Manager/Unhappy.svelte';
   import Evil from './Manager/Evil.svelte';
+  import ManagerLogStateSvelte, { type IManagerLog } from '$lib/States/ManagerLogState.svelte';
+
+
+  let managerLogs = $state([]) as IManagerLog[];
+
+
+  $effect(() => {
+    managerLogs = ManagerLogStateSvelte.ManagerLogsState.logs;
+
+  });
+    
+
+  /*name={managerLogs[0].title}
+    icon={Happy}
+    message={managerLogs[0].message}*/
 </script>
 
 <div class="size-full">
   <ManagerSvg
-    name="Manager"
+    
+    name={managerLogs?.[0]?.title ?? 'No Logs'}
     icon={Happy}
-    message="Lorem ipsum dolor sit amet consectetur,
-      adipisicing elit. Necessitatibus, est. Facilis doloremque officiis voluptatibus eveniet quia quas,
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum dignissimos rem iusto nostrum nemo
-      asperiores maxime pariatur quae sapiente eius, laboriosam ut officiis doloremque. Officia, eius
-      deleniti? Sint, animi beatae!"
+    message={managerLogs?.[0]?.message ?? 'There are no logs available.'}
   />
 </div>

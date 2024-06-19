@@ -23,7 +23,7 @@ export function ManagerLogs(): IManagerLogs {
   const logs: IManagerLog[] = $state([]) as IManagerLog[];
 
   function addLog(log: IManagerLog) {
-    logs.push(log);
+    logs.unshift(log);
   }
 
   return {

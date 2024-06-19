@@ -52,7 +52,7 @@ type Category = 'Technical' | 'Management' | 'Commercial' | 'External';
 export function Cards(): ICards {
   const cards: ICard[] = [] as ICard[];
   const usedMitigations: ICard[] = $state([]) as ICard[];
-  const mitigateCardsInHand: ICard[] = $state([]) as ICard[]
+  let mitigateCardsInHand: ICard[] = $state([]) as ICard[]
 
   addCards(MitiagateCardsJson as MitigationData[]);
 
@@ -116,7 +116,21 @@ export function Cards(): ICards {
         mitigateCardsInHand.push(cards[randomIndex]);
       }
     }
+    mitigateCardsInHand = shuffleArray(mitigateCardsInHand);
   }
+
+  function shuffleArray<T>(array: T[]): T[] {
+    // Make a copy of the array to avoid modifying the original array
+    const result = array.slice();
+
+    // Fisher-Yates shuffle algorithm
+    for (let i = result.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [result[i], result[j]] = [result[j], result[i]];
+    }
+
+    return result;
+}
 
   function addUsed(card: ICard) {
     usedMitigations.push(card);

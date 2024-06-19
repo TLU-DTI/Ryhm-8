@@ -7,11 +7,16 @@
   import  RiskLogs, { type IRiskLog }  from '$lib/States/RiskLogState.svelte';
   import  RiskCards  from '$lib/Cards/RiskCards.svelte';
   import  MitigateCards  from '$lib/Cards/MitigationCards.svelte';
-  import Manager from '$lib/States/ManagerLogState.svelte';
+  import Manager, { ManagerLogsState } from '$lib/States/ManagerLogState.svelte';
   import { onMount } from 'svelte';
 
 
   onMount(() =>{
+    Manager.ManagerLogsState.addLog({
+      title: "Welcome to the game",
+      name: "Manager",
+      message: "Welcome to Mitigate Inc. I'm your boss and i will let you know how you will do managing the issues that will come your way."
+    });
     Timeline.TimelineState.next();
     startOfTurn();
   });
@@ -69,10 +74,10 @@
       timeTotal += element.attributes.time;
     });
 
-    Objective.ObjectiveCost.move(-(costTotal * 1.04310005188));
-    Objective.ObjectiveQuality.move(qualityTotal * 1.04310005188);
-    Objective.ObjectiveScope.move(scopeTotal * 1.04310005188);
-    Objective.ObjectiveTime.move(-(timeTotal * 1.04310005188));
+    Objective.ObjectiveCost.move(-(costTotal));
+    Objective.ObjectiveQuality.move(qualityTotal);
+    Objective.ObjectiveScope.move(scopeTotal);
+    Objective.ObjectiveTime.move(-(timeTotal));
 
     if (
       Objective.ObjectiveCost.barPos < 33 ||
@@ -81,6 +86,10 @@
       Objective.ObjectiveTime.barPos < 33
     ){
       console.log("Mäng läbi")
+    }
+
+    if(Timeline.TimelineState.current.stage == 4){
+      console.log("Mäng võidetud")
     }
 
     if(RiskCards.RiskCardState.riskHand){
