@@ -213,6 +213,13 @@ function handleAnimation(cardId: number, card: ICard) {
 
 <!--<script>
   import CardTest from '../ActionCard/CardTest.svelte';
+  import { writable } from 'svelte/store';
+
+  const selectedHandCardId = writable<number | null>(null);
+
+  function handleHandCardClick(cardId: number) {
+    selectedHandCardId.update(currentId => (currentId === cardId ? null : cardId));
+  }
 </script>
 
 <div class="size-full content-center text-center">

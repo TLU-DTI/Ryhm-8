@@ -7,7 +7,7 @@
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   viewBox="0 0 183.71 255.68"
-  style="width: inherit; height: inherit;"
+  style="width: auto; height: inherit;"
 >
   <defs
     ><linearGradient
