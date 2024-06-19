@@ -151,14 +151,20 @@
       rx="10.73"
       ry="10.73"
       style="fill:none; stroke:#6e78b3; stroke-miterlimit:10; stroke-width:1.78px;"
-    /><g style="opacity:.86;"
+    /><g style="isolation:isolate;"
+      ><text
+        transform="translate(65.43 12.64)"
+        style="fill:#ff9d00; font-family:ChangaOne, &apos;Changa One&apos;; font-size:9.93px; isolation:isolate;"
+        ><tspan x="0" y="0">Risk Card</tspan></text
+      ></g
+    ><g style="opacity:.86;"
       ><g style="isolation:isolate;">
         <foreignObject
           x="10"
           y="140"
           width="156"
-          height="15"
-          style="color:#f3edf7; font-family:ChangaOne, &apos;Changa One&apos;; font-size:10.77px; isolation:isolate; overflow:hidden;"
+          height="20"
+          style="color:#f3edf7; font-family:ChangaOne, &apos;Changa One&apos;; font-size:18,31px; isolation:isolate; overflow:hidden;"
         >
           {title}
         </foreignObject>
@@ -167,7 +173,7 @@
           y="160"
           width="156"
           height="82"
-          style="color:#f3edf7; font-family:Lato-Regular, Lato; font-size:6.16px; isolation:isolate;"
+          style="color:#f3edf7; font-family:Lato-Regular, Lato; font-size:10.47px; isolation:isolate;"
         >
           {description}
         </foreignObject>
