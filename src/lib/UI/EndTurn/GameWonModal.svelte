@@ -2,16 +2,13 @@
   import { goto } from '$app/navigation'; 
   const { show } = $props();
 
+
   function goToMainMenu() {
     goto('/main');
 
     setTimeout(() => {
       window.location.reload();
-    }, 100);
-  }
-
-  function restartGame() {
-    window.location.reload();
+    }, 100); 
   }
 </script>
 
@@ -19,13 +16,12 @@
   <div class="modal-overlay">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>Game Over</h2>
+        <h2>You Win!</h2>
       </div>
       <div class="modal-body">
-        <p>You have lost the game.</p>
+        <p>Congratulations! You have successfully managed all challenges.</p>
       </div>
       <div class="modal-footer">
-        <button class="restart-button" on:click={restartGame}>Restart</button>
         <button class="main-menu-button" on:click={goToMainMenu}>Main Menu</button>
       </div>
     </div>
@@ -53,7 +49,7 @@
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     animation: fadeIn 0.3s ease-in-out;
-    max-width: 400px; 
+    max-width: 400px; /* Adjust width as needed */
     width: 100%;
   }
 
@@ -76,7 +72,6 @@
     justify-content: space-around;
   }
 
-  .restart-button,
   .main-menu-button {
     background-color: #4CAF50;
     color: white;
@@ -88,7 +83,6 @@
     transition: background-color 0.3s ease;
   }
 
-  .restart-button:hover,
   .main-menu-button:hover {
     background-color: #45a049;
   }
