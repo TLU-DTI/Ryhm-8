@@ -15,7 +15,8 @@
     "lint": "eslint src tests && prettier --check src tests",
     "format": "prettier --write src tests",
     "test:integration": "playwright test",
-    "test:unit": "vitest --run"
+    "test:unit": "vitest --run",
+    "test:ui": "vitest --ui"
   },
   "devDependencies": {
     "animejs": "^3.2.2",
@@ -25,14 +26,18 @@
     "@sveltejs/kit": "^2.5.9",
     "@sveltejs/vite-plugin-svelte": "^3.1.0",
     "@svgdotjs/svg.js": "^3.2.0",
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/svelte": "^5.1.0",
     "@types/eslint": "^8.56.10",
     "@typescript-eslint/eslint-plugin": "^7.9.0",
     "@typescript-eslint/parser": "^7.9.0",
+    "@vitest/ui": "^1.6.0",
     "autoprefixer": "^10.4.19",
     "cssnano": "^7.0.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-svelte": "^2.39.0",
+    "jsdom": "^24.1.0",
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
     "prettier-plugin-svelte": "^3.2.3",
