@@ -184,7 +184,7 @@
         width="1514"
         height="963"
         transform="translate(12.79 24.73) scale(.11)"
-        xlink:href = "./Pictures/MitigationCards/Commercial.png"
+        xlink:href = "/assets/Pictures/MitigationCards/Commercial.png"
         
       /></g
     ></g
