@@ -9,9 +9,11 @@
   import  MitigateCards  from '$lib/Cards/MitigationCards.svelte';
   import Manager, { ManagerLogsState } from '$lib/States/ManagerLogState.svelte';
   import GameOverModal from './GameOverModal.svelte'; 
+  import GameWonModal from './GameWonModal.svelte'; 
   import { onMount } from 'svelte';
 
   let gameOver = $state(false);  
+  let gameWon = $state(false);
 
   onMount(() =>{
     Manager.ManagerLogsState.addLog({
@@ -40,7 +42,7 @@
   }*/
 
   function startOfTurn(): void{
-    if (gameOver) return;
+    if (gameOver || gameWon) return;   
     RiskCards.RiskCardState.createHand(riskCardAmount(Timeline.TimelineState.current.stage));
     MitigateCards.MitigatCardState.createMitigateHand(3)
     //console.log(RiskCards.RiskCardState.riskHand);
@@ -105,7 +107,7 @@
     }
 
     if(Timeline.TimelineState.current.stage == 4){
-      console.log("Mäng võidetud")
+      gameWon = true;
     }
 
     if(RiskCards.RiskCardState.riskHand){
@@ -154,6 +156,7 @@
 </script>
 
 <GameOverModal show={gameOver} />
+<GameWonModal show={gameWon} />
 
 
 <button id="mybutton" class="flex size-full items-center justify-center" onclick={endTurn}>
