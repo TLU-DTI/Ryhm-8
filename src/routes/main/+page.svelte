@@ -11,7 +11,7 @@
     <a href="/tutorial" class="sidebar-link">Tutorial</a>
   </div>
   <div class="sidebar bottom-right">
-    <!--<Settings />-->
+    <Settings />
   </div>
 </div>
 

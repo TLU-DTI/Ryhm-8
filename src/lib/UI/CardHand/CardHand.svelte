@@ -60,7 +60,10 @@ function addLog(risk: IRiskCard, mitigationCard: ICard) {
             name: "Manager",
             message: `Your choice to use the card "${mitigationCard.title}" on the "${risk.title}" was perfect!`
         });
-        finalUpdateObjectives(mitigationCard.attributes.cost, mitigationCard.attributes.quality, mitigationCard.attributes.scope, mitigationCard.attributes.time);
+        finalUpdateObjectives(mitigationCard.attributes.cost, 
+        mitigationCard.attributes.quality, 
+        mitigationCard.attributes.scope, 
+        mitigationCard.attributes.time);
     } else if (risk.category == mitigationCard.category) {
         let rng = Math.random() < 0.5;
         ManagerLogs.ManagerLogsState.addLog({
@@ -71,9 +74,15 @@ function addLog(risk: IRiskCard, mitigationCard: ICard) {
             }`
         });
         if(!rng){
-          finalUpdateObjectives(mitigationCard.attributes.cost + risk.attributes.cost, mitigationCard.attributes.quality + risk.attributes.quality, mitigationCard.attributes.scope + risk.attributes.scope, mitigationCard.attributes.time + risk.attributes.scope);
+          finalUpdateObjectives(mitigationCard.attributes.cost + risk.attributes.cost, 
+          mitigationCard.attributes.quality + risk.attributes.quality, 
+          mitigationCard.attributes.scope + risk.attributes.scope, 
+          mitigationCard.attributes.time + risk.attributes.scope);
         } else {
-          finalUpdateObjectives(mitigationCard.attributes.cost, mitigationCard.attributes.quality, mitigationCard.attributes.scope, mitigationCard.attributes.time);
+          finalUpdateObjectives(mitigationCard.attributes.cost, 
+          mitigationCard.attributes.quality, 
+          mitigationCard.attributes.scope, 
+          mitigationCard.attributes.time);
         }
     } else {
         ManagerLogs.ManagerLogsState.addLog({
@@ -81,7 +90,10 @@ function addLog(risk: IRiskCard, mitigationCard: ICard) {
             name: "Manager",
             message: `Your choice of ${mitigationCard.title} to risk ${risk.title} was terrible! What have you done!`
         });
-        finalUpdateObjectives(mitigationCard.attributes.cost + risk.attributes.cost, mitigationCard.attributes.quality + risk.attributes.quality, mitigationCard.attributes.scope + risk.attributes.scope, mitigationCard.attributes.time + risk.attributes.scope);
+        finalUpdateObjectives(mitigationCard.attributes.cost + risk.attributes.cost,
+        mitigationCard.attributes.quality + risk.attributes.quality, 
+        mitigationCard.attributes.scope + risk.attributes.scope,
+        mitigationCard.attributes.time + risk.attributes.scope);
     }
 }
 
