@@ -25,13 +25,11 @@
     if (selectedActionCardId >= MitigationCardsSvelte.MitigatCardState.usedCardsHand.length) {
         selectedActionCardId -= MitigationCardsSvelte.MitigatCardState.usedCardsHand.length;
         addLog(risks[cardId], MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId]);
-        updateObjectives(MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId]);
         handleAnimation(cardId, card);
         MitigationCardsSvelte.MitigatCardState.addUsed(MitigationCardsSvelte.MitigatCardState.mitigateCardsHand[selectedActionCardId]);
         MitigationCardsSvelte.MitigatCardState.mitigateCardsHand.splice(selectedActionCardId, 1);
     } else {
         addLog(risks[cardId], MitigationCardsSvelte.MitigatCardState.usedCardsHand[selectedActionCardId]);
-        updateObjectives(MitigationCardsSvelte.MitigatCardState.usedCardsHand[selectedActionCardId]);
         handleAnimation(cardId, card);
     }
 }
@@ -60,22 +58,22 @@ function addLog(risk: IRiskCard, mitigationCard: ICard) {
         ManagerLogs.ManagerLogsState.addLog({
             title: "Correct choice",
             name: "Manager",
-            message: `Your choice to use the card "${mitigationCard.title}" on the "${risk.title}" was perfect`
+            message: `Your choice to use the card "${mitigationCard.title}" on the "${risk.title}" was perfect!`
         });
+        finalUpdateObjectives(mitigationCard.attributes.cost, mitigationCard.attributes.quality, mitigationCard.attributes.scope, mitigationCard.attributes.time)
     } else if (risk.category == mitigationCard.category) {
         let rng = Math.random() < 0.5;
         ManagerLogs.ManagerLogsState.addLog({
             title: rng ? "Okay choice" : "Bad choice",
             name: "Manager",
             message: `Your choice of ${mitigationCard.title} to risk ${risk.title} was ${
-                rng ? "okay and you got lucky - the risk did not materialize" : "okay, but sadly the risk materialized"
+                rng ? "okay and you got lucky - the risk did not materialize." : "okay, but sadly the risk materialized."
             }`
         });
         if(!rng){
-          Objective.ObjectiveCost.move(-risk.attributes.cost);
-          Objective.ObjectiveQuality.move(risk.attributes.quality);
-          Objective.ObjectiveScope.move(risk.attributes.scope);
-          Objective.ObjectiveTime.move(-risk.attributes.time);
+          finalUpdateObjectives(mitigationCard.attributes.cost + risk.attributes.cost, mitigationCard.attributes.quality + risk.attributes.quality, mitigationCard.attributes.scope + risk.attributes.scope, mitigationCard.attributes.time + risk.attributes.scope)
+        } else {
+          finalUpdateObjectives(mitigationCard.attributes.cost, mitigationCard.attributes.quality, mitigationCard.attributes.scope, mitigationCard.attributes.time)
         }
     } else {
         ManagerLogs.ManagerLogsState.addLog({
@@ -83,19 +81,24 @@ function addLog(risk: IRiskCard, mitigationCard: ICard) {
             name: "Manager",
             message: `Your choice of ${mitigationCard.title} to risk ${risk.title} was terrible! What have you done!`
         });
-        Objective.ObjectiveCost.move(-risk.attributes.cost);
-          Objective.ObjectiveQuality.move(risk.attributes.quality);
-          Objective.ObjectiveScope.move(risk.attributes.scope);
-          Objective.ObjectiveTime.move(-risk.attributes.time);
+        finalUpdateObjectives(mitigationCard.attributes.cost + risk.attributes.cost, mitigationCard.attributes.quality + risk.attributes.quality, mitigationCard.attributes.scope + risk.attributes.scope, mitigationCard.attributes.time + risk.attributes.scope)
     }
 }
 
 function updateObjectives(mitigationCard: ICard) {
+  Objective.ObjectiveCost.move(-mitigationCard.attributes.cost);
+  Objective.ObjectiveQuality.move(mitigationCard.attributes.quality);
+  Objective.ObjectiveScope.move(mitigationCard.attributes.scope);
+  Objective.ObjectiveTime.move(-mitigationCard.attributes.time);
+  
+}
 
-    Objective.ObjectiveCost.move(-mitigationCard.attributes.cost);
-    Objective.ObjectiveQuality.move(mitigationCard.attributes.quality);
-    Objective.ObjectiveScope.move(mitigationCard.attributes.scope);
-    Objective.ObjectiveTime.move(-mitigationCard.attributes.time);
+
+function finalUpdateObjectives(cost: number, quality: number, scope: number, time: number) {
+  Objective.ObjectiveCost.move(-cost);
+  Objective.ObjectiveQuality.move(quality);
+  Objective.ObjectiveScope.move(scope);
+  Objective.ObjectiveTime.move(-time);
 }
 
 function handleAnimation(cardId: number, card: ICard) {
@@ -138,7 +141,6 @@ function handleAnimation(cardId: number, card: ICard) {
     //console.log(Timeline.TimelineState.current.stage);
     risks = RiskCards.RiskCardState.riskHand;
     
-
   });
 
 
@@ -223,7 +225,7 @@ function handleAnimation(cardId: number, card: ICard) {
           <li>{card.gameStage.execution}</li>
           <li>{card.gameStage.closing}</li>
         </ul>-->
-        <div class="card" id={card.id}><CardTest title={card.title} description={card.description} /></div>
+        <div class="card" id={card.id}><CardTest title={card.title} description={card.description} img={card.id}/></div>
       </div>
     {/each}
   </div>

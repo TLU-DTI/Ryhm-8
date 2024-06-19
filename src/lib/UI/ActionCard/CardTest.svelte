@@ -1,5 +1,6 @@
 <script lang="ts">
-  let { title, description }: { title: string; description: string } = $props();
+  let { title, description , img}: { title: string; description: string ; img: string} = $props();
+  
 </script>
 
 <svg
@@ -164,7 +165,7 @@
           y="140"
           width="156"
           height="20"
-          style="color:#f3edf7; font-family:ChangaOne, &apos;Changa One&apos;; font-size:18,31px; isolation:isolate; overflow:hidden;"
+          style="color:#f3edf7; font-family:ChangaOne, &apos;Changa One&apos;; font-size:13px; isolation:isolate; overflow:hidden;"
         >
           {title}
         </foreignObject>
@@ -173,7 +174,7 @@
           y="160"
           width="156"
           height="82"
-          style="color:#f3edf7; font-family:Lato-Regular, Lato; font-size:10.47px; isolation:isolate;"
+          style="color:#f3edf7; font-family:Lato-Regular, Lato; font-size:10px; isolation:isolate;"
         >
           {description}
         </foreignObject>
@@ -181,10 +182,10 @@
     >
     <g style="clip-path:url(#clippath);"
       ><image
-        width="1514"
-        height="963"
-        transform="translate(12.79 24.73) scale(.11)"
-        xlink:href = "/assets/Pictures/MitigationCards/Commercial.png"
+        width="1025"
+        height="1025"
+        transform="translate(12.79 18.73) scale(.15)"
+        xlink:href = "/assets/Pictures/RiskCards/{img}.jpg"
         
       /></g
     ></g

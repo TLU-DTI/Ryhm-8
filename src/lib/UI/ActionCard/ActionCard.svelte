@@ -41,12 +41,13 @@
           role="button"
           tabindex="0"
         >
-          <!--<CardTest />-->
-          <ul class="bg-white card">
+        <CardTest title={card.title} description={card.description} img={card.id}/>
+          <!--<ul class="bg-white card">
             <li>{card.id}</li>
             <li>{card.title}</li>
             <li>{card.description}</li>
-          </ul>
+            
+          </ul>-->
         </div>
       {/each}
     </div>

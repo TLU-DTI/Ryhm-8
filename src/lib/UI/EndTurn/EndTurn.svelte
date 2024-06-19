@@ -109,7 +109,8 @@
     }
 
     if(RiskCards.RiskCardState.riskHand){
-      RiskCards.RiskCardState.riskHand.forEach(element => {
+      let managerMessage = "You decided to avoid the following risks: "
+      RiskCards.RiskCardState.riskHand.forEach((element, index) => {
         RiskLogs.RiskLogsState.addLog({
           attributes: {
             cost: 0,
@@ -121,7 +122,20 @@
           title: element.title,
           respond: 'Ignored'
         });
+        managerMessage += element.title
+        if (index < RiskCards.RiskCardState.riskHand.length - 1) {
+          managerMessage += ", ";
+        }
       });
+        
+
+      Manager.ManagerLogsState.addLog({
+        title: "You decided to avoid some risks",
+        name: "Manager",
+        message: managerMessage + ". I hope you know what you are doing!"
+      });
+      
+
     }
 
     Timeline.TimelineState.next();
