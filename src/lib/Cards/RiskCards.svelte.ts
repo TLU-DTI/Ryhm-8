@@ -53,7 +53,7 @@ export interface IRiskCard {
   id: string;
   title: string;
   description: string;
-  category: Category;
+  category?: Category;
   subcategory: string;
   attributes: IAttributes;
   mitigation: string[];
@@ -82,7 +82,7 @@ export function RiskCards(): IRiskCards {
           time: data[i].T,
           cost: data[i].C
         },
-        mitigation: data[i].Mitigation ? data[i].Mitigation.split(", ") : [],
+        mitigation: data[i].Mitigation ? data[i].Mitigation.split(', ') : [],
         gameStage: {
           initation: data[i].I === undefined ? 0 : data[i].I,
           planning: data[i].P === undefined ? 0 : data[i].P,
@@ -94,7 +94,7 @@ export function RiskCards(): IRiskCards {
     }
   }
 
-  function createHand(amount: number){
+  function createHand(amount: number) {
     cardsInHand.splice(0, cardsInHand.length);
     let filteredCards: IRiskCard[] = [];
     const stageMap = {
@@ -103,22 +103,21 @@ export function RiskCards(): IRiskCards {
       3: 'execution',
       4: 'closing'
     };
-    
+
     const currentStage = Timeline.TimelineState.current.stage;
     const stageKey = stageMap[currentStage];
     //console.log(Timeline.TimelineState.current.stage)
     //console.log(stageKey);
-    
+
     if (stageKey) {
-      filteredCards = riskCards.filter(card => card.gameStage[stageKey] === 1);
+      filteredCards = riskCards.filter((card) => card.gameStage[stageKey] === 1);
     }
-    for(let i = 0; i < amount; i++) {
+    for (let i = 0; i < amount; i++) {
       const randomIndex = Math.floor(Math.random() * filteredCards.length);
       cardsInHand.push(filteredCards[randomIndex]);
     }
     return cardsInHand;
   }
-
 
   return {
     get riskCards() {
