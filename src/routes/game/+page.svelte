@@ -1,12 +1,11 @@
 <script lang="ts">
   import ActionCard from '$lib/UI/ActionCard/ActionCard.svelte';
   import CardHand from '$lib/UI/CardHand/CardHand.svelte';
-  import Credit from '$lib/UI/Credits/Credit.svelte';
   import EndTurn from '$lib/UI/EndTurn/EndTurn.svelte';
+  import MenuRestart from '$lib/UI/Menu-Restart/Menu-Restart.svelte';
   import Manager from '$lib/UI/Notification/Notification.svelte';
   import Objective from '$lib/UI/Objective/Objective.svelte';
   import RiskLog from '$lib/UI/RiskLog/RiskLog.svelte';
-  import Settings from '$lib/UI/Settings/Settings.svelte';
   import Timeline from '$lib/UI/Timeline/Timeline.svelte';
 </script>
 
@@ -57,7 +56,7 @@
     <!-- Column 3 -->
     <div class="w-[25vw]">
       <div class="relative h-[10vh]">
-        <Credit />
+        <MenuRestart />
       </div>
 
       <div class="h-[6vh]"></div>
