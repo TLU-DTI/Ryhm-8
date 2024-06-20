@@ -8,19 +8,11 @@
 
   $effect(() => {
     logs = RiskLogs.RiskLogsState.logs;
-    setTimeout(() => {
-      RiskLogs.RiskLogsState.addLog({
-        attributes: {
-          cost: 10,
-          quality: 5,
-          scope: 3,
-          time: 2
-        },
-        category: 'Commercial',
-        respond: 'Mitigate',
-        title: 'Risk Log'
-      });
-    }, 1e3);
+
+    // save function incomplete
+    // ((SaveGameState.SaveGameState().loadGame()?.logs) ?? []).forEach(object => {
+    //   RiskLogs.RiskLogsState.addLog(object);
+    // });
   });
 </script>
 

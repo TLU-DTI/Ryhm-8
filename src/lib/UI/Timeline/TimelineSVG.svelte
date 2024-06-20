@@ -67,31 +67,31 @@
     fill="#282844"
     stroke-width="0"
   /><text
-    transform="translate(0 57.03)"
+    transform="translate(-6 57.03)"
     fill="#f3edf7"
     font-family="ChangaOne, &apos;Changa One&apos;"
-    font-size="7"
+    font-size="10"
   >
     <tspan x="0" y="0">Initiation</tspan>
   </text><text
-    transform="translate(149.71 57.14)"
+    transform="translate(143.71 57.14)"
     fill="#f3edf7"
     font-family="ChangaOne, &apos;Changa One&apos;"
-    font-size="7"
+    font-size="10"
   >
     <tspan x="0" y="0">Planning</tspan>
   </text><text
-    transform="translate(241.42 57.03)"
+    transform="translate(235.42 57.03)"
     fill="#f3edf7"
     font-family="ChangaOne, &apos;Changa One&apos;"
-    font-size="7"
+    font-size="10"
   >
     <tspan x="0" y="0">Execution</tspan>
   </text><text
-    transform="translate(335.33 57.03)"
+    transform="translate(329.33 57.03)"
     fill="#f3edf7"
     font-family="ChangaOne, &apos;Changa One&apos;"
-    font-size="7"
+    font-size="10"
   >
     <tspan x="0" y="0">Closing</tspan>
   </text>
