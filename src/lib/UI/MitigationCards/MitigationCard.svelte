@@ -6,7 +6,7 @@
     mitigationCard: ICard;
   } = $props();
 
-  let color: string = '#43466e';
+  let color: string = $state('#43466e');
 
   if (mitigationCard.category === 'Technical') {
     color = '#3e97ff';
@@ -24,6 +24,7 @@
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   viewBox="0 0 119.02 172.82"
+  style="width: inherit; height: inherit;"
 >
   <defs>
     <linearGradient
