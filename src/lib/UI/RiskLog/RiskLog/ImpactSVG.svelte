@@ -35,15 +35,6 @@
       stroke-miterlimit="10"
       stroke-width=".75"
     />
-    <!-- <text
-      transform="translate(17.01 12.08) scale(1.1 1)"
-      fill="#f3edf7"
-      font-family="Lato-Regular, Lato"
-      font-size="10.92"
-      letter-spacing="0em"
-    >
-      <tspan x="0" y="0">{text}</tspan>
-    </text> -->
     <foreignObject x="16" y="-1.5" width="45" height="16">
       <div class="">
         <p class="text-[11px] text-white">{text}</p>

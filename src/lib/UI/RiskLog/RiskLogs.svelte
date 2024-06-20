@@ -34,7 +34,7 @@
             mitigate={log.respond}
             category={log.category}
             impact="Low"
-            color="Red"
+            color="Plain"
           />
         {/each}
       </div>

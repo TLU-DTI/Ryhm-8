@@ -12,7 +12,7 @@
     mitigate: string;
     category: 'External' | 'Management' | 'Technical' | 'Commercial';
     impact: 'Low' | 'Medium' | 'High';
-    color: 'Red' | 'Yellow' | 'Green';
+    color: 'Red' | 'Yellow' | 'Green' | 'Plain';
   } = $props();
 </script>
 

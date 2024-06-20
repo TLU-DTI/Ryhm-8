@@ -13,7 +13,7 @@
     mitigate: string;
     category: 'External' | 'Management' | 'Technical' | 'Commercial';
     impact: 'Low' | 'Medium' | 'High';
-    color: 'Red' | 'Yellow' | 'Green';
+    color: 'Red' | 'Yellow' | 'Green' | 'Plain';
   } = $props();
 
   let outer_color: string = $state() as string;
@@ -23,6 +23,8 @@
     outer_color = '#f9bd00';
   } else if (color === 'Green') {
     outer_color = '#3fa400';
+  } else if (color === 'Plain') {
+    outer_color = '#282844';
   }
 </script>
 
