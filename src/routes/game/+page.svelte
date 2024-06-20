@@ -4,7 +4,7 @@
   import EndTurn from '$lib/UI/EndTurn/EndTurn.svelte';
   import Manager from '$lib/UI/Notification/Notification.svelte';
   import Objective from '$lib/UI/Objective/Objective.svelte';
-  import RiskLog from '$lib/UI/RiskLog/RiskLog.svelte';
+  import RiskLog from '$lib/UI/RiskLog/RiskLogs.svelte';
   import Settings from '$lib/UI/Settings/Settings.svelte';
   import Timeline from '$lib/UI/Timeline/Timeline.svelte';
 </script>

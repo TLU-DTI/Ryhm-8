@@ -8,7 +8,7 @@
 
 
   function goToMainMenu() {
-    goto('/main');
+    goto('/');
 
     setTimeout(() => {
       window.location.reload();
