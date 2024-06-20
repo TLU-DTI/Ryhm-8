@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="RiskLog_Category_Commercial" xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 79.12 15.5">
+  <rect x=".06" y="0" width="79.05" height="15.5" rx="7.75" ry="7.75" fill="#f07d3a" stroke-width="0" /><text
+    transform="translate(7.17 11.53) scale(1.1 1)" fill="#fff" font-family="Lato-Regular, Lato" font-size="10.92"
+    letter-spacing="0em">
+    <tspan x="0" y="0">Commercial</tspan>
+  </text>
+</svg>

@@ -1,0 +1,20 @@
+<svg id="RiskLog_Category_External" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.49 15.37">
+  <rect
+    x="0"
+    y="-.13"
+    width="60.75"
+    height="15.5"
+    rx="7.75"
+    ry="7.75"
+    fill="#a152ad"
+    stroke-width="0"
+  /><text
+    transform="translate(7.66 11.4) scale(1.1 1)"
+    fill="#fff"
+    font-family="Lato-Regular, Lato"
+    font-size="10.92"
+    letter-spacing="0em"
+  >
+    <tspan x="0" y="0">External</tspan>
+  </text>
+</svg>

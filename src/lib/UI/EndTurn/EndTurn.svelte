@@ -67,7 +67,7 @@
   }
 
   function endTurn():void{
-    const button = document.getElementById("mybutton") as HTMLButtonElement;
+    const button = document.getElementById("EndTurn_button") as HTMLButtonElement;
 
     button.disabled = true;
     EndTurn.EndTurnState.toggle();
@@ -123,7 +123,7 @@
             scope: 0,
             time: 0
           },
-          category: 'Management',
+          category: "Ignored",
           title: element.title,
           respond: 'Ignored'
         });
@@ -174,7 +174,7 @@
 <GameWonModal show={gameWon} />
 
 
-<button id="mybutton" class="flex size-full items-center justify-center" onclick={endTurn}>
+<button id="EndTurn_button" class="flex size-full items-center justify-center" onclick={endTurn}>
   <EndTurnSvg />
 </button>
 

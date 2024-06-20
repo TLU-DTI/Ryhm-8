@@ -2,8 +2,10 @@
   import SimpleBar from '$lib/Components/SimpleBar.svelte';
   import RiskLogs, { type IRiskLog } from '$lib/States/RiskLogState.svelte';
   import { onMount } from 'svelte';
-  import RiskLogSvg from './RiskLogSVG.svelte';
+  import RiskLogSvg from './RiskLogsSVG.svelte';
   import SaveGameState from '$lib/States/GameState.svelte';
+  import RiskLog from './RiskLog/RiskLog.svelte';
+  import RiskLogsSvg from './RiskLogsSVG.svelte';
 
   let logs = $state([]) as IRiskLog[];
 
@@ -25,7 +27,7 @@
           scope: 3,
           time: 2
         },
-        category: 'Management',
+        category: 'Commercial',
         respond: 'Mitigate',
         title: 'Risk Log'
       });
@@ -34,17 +36,19 @@
 </script>
 
 <div class="size-full content-center text-center">
-  <RiskLogSvg>
+  <RiskLogsSvg>
     <SimpleBar>
-      <div class="bg-black">
+      <div class="flex flex-col gap-4">
         {#each logs as log}
-          <ul class="bg-white">
-            <li>Risk: {log.title}</li>
-            <li>Categroy: {log.category}</li>
-            <li>Mitigation: {log.respond}</li>
-          </ul>
+          <RiskLog
+            risk={log.title}
+            mitigate={log.respond}
+            category={log.category}
+            impact="Low"
+            color="Plain"
+          />
         {/each}
       </div>
     </SimpleBar>
-  </RiskLogSvg>
+  </RiskLogsSvg>
 </div>

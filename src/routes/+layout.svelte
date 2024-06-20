@@ -43,7 +43,8 @@
       strip: '#EndTurn_strip',
       background: '#EndTurn_background',
       border: '#EndTurn_border',
-      shadow: '#EndTurn_shadow'
+      shadow: '#EndTurn_shadow',
+      button: 'EndTurn_button'
     });
   });
 </script>
