@@ -1,13 +1,13 @@
 import RiskCardsJson from './riskcards.json';
 
-export const RiskCardState = $state() as ICards;
+export const RiskCardState = $state() as IRiskCards;
 
 export default {
   RiskCardState,
   Cards
 };
 
-interface ICards {
+export interface IRiskCards {
   cards: ICard[];
   addCards(data: RiskData[]): void;
 }
@@ -56,7 +56,7 @@ export interface ICard {
 
 type Category = 'Technical' | 'Management' | 'Commercial' | 'External';
 
-export function Cards(): ICards {
+export function Cards(): IRiskCards {
   const cards: ICard[] = [] as ICard[];
 
   addCards(RiskCardsJson as RiskData[]);

@@ -1,13 +1,13 @@
 import MitiagateCardsJson from './mitigationcards.json';
 
-export const MitigatCardState = $state() as ICards;
+export const MitigatCardState = $state() as IMitigationCards;
 
 export default {
   MitigatCardState,
   Cards
 };
 
-interface ICards {
+interface IMitigationCards {
   cards: ICard[];
   addCard(card: ICard): void;
   addCards(data: MitigationData[]): void;
@@ -43,7 +43,7 @@ export interface ICard {
 
 export type Category = 'Technical' | 'Management' | 'Commercial' | 'External';
 
-export function Cards(): ICards {
+export function Cards(): IMitigationCards {
   const cards: ICard[] = [] as ICard[];
 
   addCards(MitiagateCardsJson as MitigationData[]);
