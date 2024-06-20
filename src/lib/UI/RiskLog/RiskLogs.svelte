@@ -8,7 +8,7 @@
 
   $effect(() => {
     logs = RiskLogs.RiskLogsState.logs;
-    setInterval(() => {
+    setTimeout(() => {
       RiskLogs.RiskLogsState.addLog({
         attributes: {
           cost: 10,
