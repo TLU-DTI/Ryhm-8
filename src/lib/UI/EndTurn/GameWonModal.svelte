@@ -103,11 +103,12 @@
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    text-shadow: 
-      -1px -1px 0 #282844,  
-      1px -1px 0 #282844,
-      -1px 1px 0 #282844,
-      1px 1px 0 #282844;
+    font-weight: bold;
+      text-shadow: 
+      -0.5px -0.5px 0 #282844,  
+      0.5px -0.5px 0 #282844,
+      -0.5px 0.5px 0 #282844,
+      0.5px 0.5px 0 #282844;
   }
 
 

@@ -92,6 +92,7 @@
       justify-content: space-between;
       overflow: hidden;
       color: #F3EDF7; 
+      
     }
   
     h2 {
@@ -118,7 +119,12 @@
       border-radius: 8px;
       transition: background-color 0.3s ease;
       outline: none;
-      text-shadow: 0 0 1px #282844;
+      font-weight: bold;
+      text-shadow: 
+      -0.5px -0.5px 0 #282844,  
+      0.5px -0.5px 0 #282844,
+      -0.5px 0.5px 0 #282844,
+      0.5px 0.5px 0 #282844;
     }
   
     .menu-button:hover {
@@ -155,7 +161,12 @@
       margin-top: 1rem;
       transition: background-color 0.3s ease;
       outline: none;
-      text-shadow: 0 0 1px #282844;
+      font-weight: bold;
+      text-shadow: 
+      -0.5px -0.5px 0 #282844,  
+      0.5px -0.5px 0 #282844,
+      -0.5px 0.5px 0 #282844,
+      0.5px 0.5px 0 #282844;
     }
   
     .close-button:hover {
