@@ -1,8 +1,9 @@
 <script lang="ts">
   import { goto } from '$app/navigation'; 
-  import SaveGameState from '$lib/States/GameState.svelte';
+  import SaveGameState, {type IObjective} from '$lib/States/GameState.svelte';
   const { show } = $props();
 
+  let info = $state() as IObjective;
   let score = $state();
 
 
@@ -19,7 +20,10 @@
   }
 
   $effect(() =>{
-    let info = SaveGameState.SaveGameState().loadGame()?.objectives
+    
+    
+    info = SaveGameState.SaveGameState().stats
+    console.log(info?.cost + " gamewon");
     score = ((info?.cost + info?.quality + info?.scope + info?.time) / 4 / 1.04).toFixed(1)
   })
 </script>

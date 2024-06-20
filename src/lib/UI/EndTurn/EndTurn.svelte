@@ -11,12 +11,12 @@
   import GameOverModal from './GameOverModal.svelte'; 
   import GameWonModal from './GameWonModal.svelte'; 
   import { onMount } from 'svelte';
+  import GameStateSvelte from '$lib/States/GameState.svelte';
 
   let gameOver = $state(false);  
   let gameWon = $state(false);
 
   onMount(() =>{
-    unsave();
     Manager.ManagerLogsState.addLog({
       title: "Welcome to the game",
       name: "Manager",
@@ -108,7 +108,8 @@
     }
 
     if(Timeline.TimelineState.current.stage == 4){
-      save();
+      console.log(Objective.ObjectiveCost.barPos + " endturn.svelte")
+      GameStateSvelte.SaveGameState().updateStats(Objective.ObjectiveCost.barPos, Objective.ObjectiveQuality.barPos, Objective.ObjectiveScope.barPos, Objective.ObjectiveTime.barPos);
       gameWon = true;
     }
 

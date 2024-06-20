@@ -52,7 +52,7 @@ type Category = 'Technical' | 'Management' | 'Commercial' | 'External';
 export function Cards(): ICards {
   const cards: ICard[] = [] as ICard[];
   const usedMitigations: ICard[] = $state([]) as ICard[];
-  let mitigateCardsInHand: ICard[] = $state([]) as ICard[]
+  let mitigateCardsInHand: ICard[] = $state([]) as ICard[];
 
   addCards(MitiagateCardsJson as MitigationData[]);
 

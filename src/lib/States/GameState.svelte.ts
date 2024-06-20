@@ -1,9 +1,8 @@
 import type { ICard } from '$lib/Cards/MitigationCards.svelte';
 import type { IRiskCard }  from '$lib/Cards/RiskCards.svelte';
 import type { IRiskLog } from '$lib/States/RiskLogState.svelte';
-import { Objective } from './ObjectiveState.svelte';
 
-interface IObjective {
+export interface IObjective {
   scope: number;
   quality: number;
   time: number;
@@ -31,6 +30,8 @@ export interface ISaveGame {
   saveGame: (state: IGameState) => void;
   loadGame: () => IGameState | null;
   clearSave: () => void;
+  updateStats: (cost: number, quality: number, scope: number, time: number) => void;
+  stats: IObjective;
 }
 
 export const GameState = $state<IGameState>({
@@ -56,7 +57,8 @@ export const GameState = $state<IGameState>({
 
 export function SaveGameState(): ISaveGame {
   const storageKey = 'game_save';
-  
+  //let stats: IObjective = $state() as IObjective;
+  let stats: IObjective = GameState.objectives; 
 
   let save: IGameState | null = null;
 
@@ -80,13 +82,29 @@ export function SaveGameState(): ISaveGame {
     save = null;
   }
 
+  function updateStats(cost: number, quality: number, scope: number, time: number){
+    console.log(cost + " gamestate");
+    
+    stats.cost = cost;
+    stats.quality = quality;
+    stats.scope = scope;
+    stats.time = time;
+
+    console.log(stats.cost + " gamestate2");
+    
+  }
+
   //const save: IGameState | null = loadGame() ?? null;
 
   return {
     save: save,
     saveGame,
     loadGame,
-    clearSave
+    clearSave,
+    updateStats,
+    get stats(){
+      return stats;
+    }
   };
 }
 
