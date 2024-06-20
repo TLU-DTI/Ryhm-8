@@ -4,7 +4,7 @@
 
   function goToMainMenu() {
     // Navigate to the main menu route
-    goto('/main');
+    goto('/');
   }
 
   function restartGame() {
