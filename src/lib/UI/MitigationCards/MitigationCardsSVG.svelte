@@ -1,0 +1,98 @@
+<script lang="ts">
+  import type { Snippet } from 'svelte';
+
+  let { children }: { children: Snippet } = $props();
+</script>
+
+<svg
+  id="ActionCards"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 0 600.2 325.5"
+  style="width: inherit; height: inherit;"
+>
+  <defs>
+    <linearGradient
+      id="ActionCards_linear-gradient"
+      x1="307.85"
+      y1="365.46"
+      x2="291.18"
+      y2="-22.18"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset="0" stop-color="#43466e" />
+      <stop offset="1" stop-color="#585e81" />
+    </linearGradient>
+    <linearGradient
+      id="ActionCards_linear-gradient-2"
+      x1="-190.26"
+      y1="14.63"
+      x2="-65.86"
+      y2="14.63"
+      gradientTransform="translate(172.04) rotate(-180) scale(1 -1)"
+      xlink:href="#ActionCards_linear-gradient"
+    />
+  </defs>
+  <path
+    d="M2,325.5V45.32c0-9.12,7.39-16.51,16.51-16.51h563.17c9.12,0,16.51,7.39,16.51,16.51v280.18"
+    fill="url(#ActionCards_linear-gradient)"
+    fill-opacity=".6"
+    stroke="#6e78b3"
+    stroke-miterlimit="10"
+    stroke-width="4"
+  />
+  <rect
+    x="9.4"
+    y="52.33"
+    width="581.4"
+    height="247.27"
+    rx="8.4"
+    ry="8.4"
+    fill="#282844"
+    stroke-width="0"
+  />
+  <foreignObject x="15" y="55" width="570" height="262">
+    {@render children()}
+  </foreignObject>
+  <path d="M14.16,312.94h554.47" fill="#757575" opacity=".23" stroke-width="0" />
+  <path
+    d="M12.05,307.53c.28,0,.52.36.52.81v1.74c0,.22-.05.42-.15.57l-.8,1.26.8,1.26c.1.15.15.36.15.57v1.74c0,.45-.23.81-.52.81-.14,0-.26-.08-.36-.24l-1.97-3.1c-.37-.58-.37-1.52,0-2.09l1.97-3.1c.1-.15.23-.24.36-.24h0Z"
+    fill="#6e78b3"
+    stroke-width="0"
+  />
+  <path
+    d="M12.3,313.36l-.92-1.45.92-1.45c.07-.1.1-.24.1-.39v-1.74c0-.49-.38-.73-.59-.39l-1.97,3.1c-.3.48-.3,1.25,0,1.72l1.97,3.1c.22.34.59.1.59-.39v-1.74c0-.15-.04-.28-.1-.39Z"
+    fill="#6e78b3"
+    stroke-width="0"
+  />
+  <path
+    d="M587.83,316.29c-.28,0-.52-.36-.52-.81v-1.74c0-.22.05-.42.15-.57l.8-1.26-.8-1.26c-.1-.15-.15-.36-.15-.57v-1.74c0-.45.23-.81.52-.81.14,0,.26.08.36.24l1.97,3.1c.37.58.37,1.52,0,2.09l-1.97,3.1c-.1.15-.23.24-.36.24h0Z"
+    fill="#6e78b3"
+    stroke-width="0"
+  />
+  <path
+    d="M587.58,310.47l.92,1.45-.92,1.45c-.07.1-.1.24-.1.39v1.74c0,.49.38.73.59.39l1.97-3.1c.3-.48.3-1.25,0-1.72l-1.97-3.1c-.22-.34-.59-.1-.59.39v1.74c0,.15.04.28.1.39Z"
+    fill="#6e78b3"
+    stroke-width="0"
+  />
+  <polygon
+    points="362.3 27.76 354.6 1.5 302.3 1.5 297.9 1.5 244.85 1.5 237.9 27.76 362.3 27.76"
+    fill="url(#ActionCards_linear-gradient-2)"
+    fill-opacity=".61"
+    stroke="#6e78b3"
+    stroke-miterlimit="10"
+    stroke-width="3"
+  /><text
+    transform="translate(252.62 20.28)"
+    fill="#edfdeb"
+    font-family="ChangaOne, &apos;Changa One&apos;"
+    font-size="16.37"
+    letter-spacing=".02em"
+  >
+    <tspan x="0" y="0">Action Cards</tspan>
+  </text>
+  <!-- <text transform="translate(22.36 45.96)" fill="#f3edf7" font-family="Lato-Regular, Lato" font-size="10.87"
+    letter-spacing=".01em">
+    <tspan x="0" y="0">Filter:</tspan>
+  </text> -->
+</svg>

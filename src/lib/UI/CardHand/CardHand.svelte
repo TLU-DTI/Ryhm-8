@@ -204,7 +204,7 @@
           <li>{card.gameStage.closing}</li>
         </ul>-->
       <div class="card" id={card.id}>
-        <CardTest title={card.title} description={card.description} img={card.id} />
+        <CardTest riskCard={card} />
       </div>
     </div>
   {/each}

@@ -91,12 +91,12 @@
           </g>
         </g>
         <foreignObject x="28" y="3" width="150" height="24">
-          <div class="text-left text-white">
+          <div class="text-left font-['Lato'] text-white">
             <p class="truncate">{risk}</p>
           </div>
         </foreignObject>
         <foreignObject x="28" y="24" width="150" height="24">
-          <div class="text-left text-white">
+          <div class="text-left font-['Lato'] text-white">
             <p class="truncate">{mitigate}</p>
           </div>
         </foreignObject>
