@@ -1,6 +1,6 @@
 import { type Rect, SVG } from "@svgdotjs/svg.js";
 
-export const EndTurnState = $state() as IEndTurn;
+export const EndTurnState = undefined as unknown as IEndTurn;
 
 export default {
   EndTurnState,

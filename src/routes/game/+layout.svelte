@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Snippet } from 'svelte';
+  import { setContext, type Snippet } from 'svelte';
   import RiskCards from '$lib/Cards/RiskCards.svelte';
   import MitigateCards from '$lib/Cards/MitigationCards.svelte';
   import RiskLogs from '$lib/States/RiskLogState.svelte';
@@ -7,36 +7,48 @@
   import Objective from '$lib/States/ObjectiveState.svelte';
   import Timeline from '$lib/States/TimelineState.svelte';
   import '../../app.css';
+  import Notification from '$lib/States/NotificationState.svelte';
   let { children }: { children: Snippet } = $props();
 
   $effect.pre(() => {
     RiskLogs.RiskLogsState = RiskLogs.RiskLogs();
+    setContext('RiskLogs', RiskLogs.RiskLogsState);
+
     RiskCards.RiskCardState = RiskCards.Cards();
+    setContext('RiskCards', RiskCards.RiskCardState);
+
     MitigateCards.MitigatCardState = MitigateCards.Cards();
-    Objective.ObjectiveCost = Objective.Objective(
+    setContext('MitigatCards', MitigateCards.MitigatCardState);
+
+    Notification.NotificationState = Notification.Notification();
+    setContext('Notification', Notification.NotificationState);
+
+    Objective.ObjectiveState.Cost = Objective.Objective(
       '#Objectives_Cost-progress-bar',
       '#Objectives_Cost-progress-track'
     );
 
-    Objective.ObjectiveQuality = Objective.Objective(
+    Objective.ObjectiveState.Quality = Objective.Objective(
       '#Objectives_Quality-progress-bar',
       '#Objectives_Quality-progress-track'
     );
 
-    Objective.ObjectiveScope = Objective.Objective(
+    Objective.ObjectiveState.Scope = Objective.Objective(
       '#Objectives_Scope-progress-bar',
       '#Objectives_Scope-progress-track'
     );
 
-    Objective.ObjectiveTime = Objective.Objective(
+    Objective.ObjectiveState.Time = Objective.Objective(
       '#Objectives_Time-progress-bar',
       '#Objectives_Time-progress-track'
     );
+    setContext('Objectives', Objective.ObjectiveState);
 
     Timeline.TimelineState = Timeline.Timeline(
       '#Timeline_progress-bar',
       '#Timeline_progress-bar-track'
     );
+    setContext('Timeline', Timeline.TimelineState);
 
     EndTurn.EndTurnState = EndTurn.EndTurn({
       strip: '#EndTurn_strip',
@@ -45,6 +57,7 @@
       shadow: '#EndTurn_shadow',
       button: 'EndTurn_button'
     });
+    setContext('EndTurn', EndTurn.EndTurnState);
   });
 </script>
 

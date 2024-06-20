@@ -1,6 +1,6 @@
 import { type Path, type Rect, SVG, Runner } from '@svgdotjs/svg.js';
 
-export const TimelineState = $state() as ITimeline;
+export const TimelineState = undefined as unknown as ITimeline;
 
 export default {
   Timeline,

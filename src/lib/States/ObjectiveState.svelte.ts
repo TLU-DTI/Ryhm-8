@@ -1,15 +1,14 @@
 import { type Path, type Rect, SVG, Runner } from '@svgdotjs/svg.js';
 
-export const ObjectiveCost = $state() as IObjective;
-export const ObjectiveQuality = $state() as IObjective;
-export const ObjectiveScope = $state() as IObjective;
-export const ObjectiveTime = $state() as IObjective;
+export const ObjectiveState = {
+  Cost: undefined,
+  Time: undefined,
+  Scope: undefined,
+  Quality: undefined
+} as unknown as IObjectiveState;
 
 export default {
-  ObjectiveCost,
-  ObjectiveQuality,
-  ObjectiveScope,
-  ObjectiveTime,
+  ObjectiveState,
   Objective
 };
 
@@ -22,11 +21,18 @@ interface IObjective {
   barPos: number;
 }
 
+export interface IObjectiveState {
+  Cost: IObjective;
+  Time: IObjective;
+  Scope: IObjective;
+  Quality: IObjective;
+}
+
 export function Objective(barID: string, trackID: string): IObjective {
   const track = SVG(trackID) as Path;
   const bar = SVG(barID) as Rect;
 
-  let barPos = 0;
+  let barPos = 70;
 
   const trackStartPos = 0;
   const trackEndPos = track.length() / 2;
@@ -37,6 +43,10 @@ export function Objective(barID: string, trackID: string): IObjective {
     if (input + barPos >= trackEndPos) {
       input = trackEndPos - barPos;
     }
+    if (Number.isNaN(input)) {
+      input = 1;
+    }
+
     const runner = bar
       .animate(SPEED)
       .ease('<>')

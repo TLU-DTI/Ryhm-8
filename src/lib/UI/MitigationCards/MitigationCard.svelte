@@ -79,7 +79,7 @@
   />
   <foreignObject x="15" y="0" width="85" height="26">
     <div
-      class="font-['Change One'] size-full content-center text-center text-[9px] font-bold text-white"
+      class="font-['Change One'] size-full content-center text-center text-[8px] font-bold text-white z-50"
     >
       {mitigationCard.title}
     </div>

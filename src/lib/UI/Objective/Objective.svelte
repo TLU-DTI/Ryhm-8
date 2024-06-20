@@ -1,12 +1,15 @@
 <script lang="ts">
+  import { getContext } from 'svelte';
   import ObjectiveSvg from './ObjectiveSVG.svelte';
-  import Objective from '$lib/States/ObjectiveState.svelte';
+  import type { IObjectiveState } from '$lib/States/ObjectiveState.svelte';
+
+  const Objective = getContext<IObjectiveState>('Objectives');
 
   $effect(() => {
-    Objective.ObjectiveCost.move(0);
-    Objective.ObjectiveQuality.move(0);
-    Objective.ObjectiveScope.move(0);
-    Objective.ObjectiveTime.move(0);
+    Objective.Cost.move(0);
+    Objective.Quality.move(0);
+    Objective.Scope.move(0);
+    Objective.Time.move(0);
 
     // save function incomplete
     // Objective.ObjectiveCost.move((Load.SaveGameState().loadGame()?.objectives.cost) ?? 0);

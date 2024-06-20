@@ -1,4 +1,4 @@
-export const RiskLogsState = $state() as IRiskLogs;
+export const RiskLogsState = undefined as unknown as IRiskLogs;
 
 export default {
   RiskLogsState,
