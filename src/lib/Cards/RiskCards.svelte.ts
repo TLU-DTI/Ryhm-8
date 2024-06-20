@@ -1,15 +1,21 @@
 import RiskCardsJson from './riskcards.json';
+import Timeline from '$lib/States/TimelineState.svelte';
 
 export const RiskCardState = $state() as IRiskCards;
+export const RiskCardHand = $state() as IRiskCards;
 
 export default {
   RiskCardState,
-  Cards
+  RiskCards,
+  RiskCardHand
 };
 
-export interface IRiskCards {
-  cards: ICard[];
-  addCards(data: RiskData[]): void;
+interface IRiskCards {
+  riskCards: IRiskCard[];
+  riskHand: IRiskCard[];
+  addRiskCards(data: RiskData[]): void;
+  //getHand(): IRiskCard[];
+  createHand(amount: number): void;
 }
 
 interface RiskData {
@@ -43,25 +49,26 @@ interface gameStage {
   closing: number;
 }
 
-export interface ICard {
+export interface IRiskCard {
   id: string;
   title: string;
   description: string;
-  category: Category;
+  category?: Category;
   subcategory: string;
   attributes: IAttributes;
-  mitigation: string;
+  mitigation: string[];
   gameStage: gameStage;
 }
 
 type Category = 'Technical' | 'Management' | 'Commercial' | 'External';
 
-export function Cards(): IRiskCards {
-  const cards: ICard[] = [] as ICard[];
+export function RiskCards(): IRiskCards {
+  const riskCards: IRiskCard[] = [] as IRiskCard[];
+  const cardsInHand: IRiskCard[] = $state([]) as IRiskCard[];
 
-  addCards(RiskCardsJson as RiskData[]);
+  addRiskCards(RiskCardsJson as RiskData[]);
 
-  function addCards(data: RiskData[]) {
+  function addRiskCards(data: RiskData[]) {
     for (let i = 0; i < data.length; i++) {
       const card = {
         id: data[i]['#'],
@@ -75,21 +82,49 @@ export function Cards(): IRiskCards {
           time: data[i].T,
           cost: data[i].C
         },
-        mitigation: data[i].Mitigation,
+        mitigation: data[i].Mitigation ? data[i].Mitigation.split(', ') : [],
         gameStage: {
           initation: data[i].I === undefined ? 0 : data[i].I,
           planning: data[i].P === undefined ? 0 : data[i].P,
           execution: data[i].E === undefined ? 0 : data[i].E,
           closing: data[i].X === undefined ? 0 : data[i].X
         }
-      } as ICard;
-      cards.push(card);
+      } as IRiskCard;
+      riskCards.push(card);
     }
   }
+
+  function createHand(amount: number) {
+    cardsInHand.splice(0, cardsInHand.length);
+    let filteredCards: IRiskCard[] = [];
+    const stageMap = {
+      1: 'initation',
+      2: 'planning',
+      3: 'execution',
+      4: 'closing'
+    };
+
+    const currentStage = Timeline.TimelineState.current.stage;
+    const stageKey = stageMap[currentStage as keyof typeof stageMap];
+
+    if (stageKey) {
+      filteredCards = riskCards.filter((card) => card.gameStage[stageKey as keyof typeof card.gameStage] === 1);
+    }
+    for (let i = 0; i < amount; i++) {
+      const randomIndex = Math.floor(Math.random() * filteredCards.length);
+      cardsInHand.push(filteredCards[randomIndex]);
+    }
+    return cardsInHand;
+  }
+
   return {
-    get cards() {
-      return cards;
+    get riskCards() {
+      return riskCards;
     },
-    addCards
+    get riskHand() {
+      return cardsInHand;
+    },
+    addRiskCards,
+    createHand
   };
 }

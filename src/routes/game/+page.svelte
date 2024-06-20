@@ -1,7 +1,7 @@
 <script lang="ts">
   import CardHand from '$lib/UI/CardHand/CardHand.svelte';
   import EndTurn from '$lib/UI/EndTurn/EndTurn.svelte';
-  // import MenuRestart from '$lib/UI/Menu-Restart/Menu-Restart.svelte';
+  import MenuRestart from '$lib/UI/MenuRestart/MenuRestart.svelte';
   import MitigationCards from '$lib/UI/MitigationCards/MitigationCards.svelte';
   import Manager from '$lib/UI/Notification/Notification.svelte';
   import Objective from '$lib/UI/Objective/Objective.svelte';
@@ -56,7 +56,7 @@
     <!-- Column 3 -->
     <div class="w-[25vw]">
       <div class="relative h-[10vh]">
-        <!-- <MenuRestart /> -->
+        <MenuRestart />
       </div>
 
       <div class="h-[6vh]"></div>

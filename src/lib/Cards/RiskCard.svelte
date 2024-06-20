@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { ICard } from './RiskCards.svelte';
+  import type { IRiskCard } from './RiskCards.svelte';
 
-  let { riskCard }: { riskCard: ICard } = $props();
+  let { riskCard }: { riskCard: IRiskCard } = $props();
 </script>
 
 <svg

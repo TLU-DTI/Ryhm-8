@@ -14,7 +14,7 @@
     RiskLogs.RiskLogsState = RiskLogs.RiskLogs();
     setContext('RiskLogs', RiskLogs.RiskLogsState);
 
-    RiskCards.RiskCardState = RiskCards.Cards();
+    RiskCards.RiskCardState = RiskCards.RiskCards();
     setContext('RiskCards', RiskCards.RiskCardState);
 
     MitigateCards.MitigatCardState = MitigateCards.Cards();

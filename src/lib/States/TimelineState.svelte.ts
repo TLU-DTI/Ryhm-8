@@ -7,7 +7,7 @@ export default {
   TimelineState
 };
 
-interface ITimeline {
+export interface ITimeline {
   move: (input: number) => Runner;
   next: () => Runner;
   trackStartPos: number;
