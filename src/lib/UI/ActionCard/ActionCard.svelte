@@ -63,6 +63,7 @@
 <style>
   .card,
   .card-old {
+    top: calc(100% - 75%);
     display: flex;
     position: relative;
     transition: ease-in-out 0.3s;
