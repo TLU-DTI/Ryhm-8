@@ -3,6 +3,7 @@
   import CardHand from '$lib/UI/CardHand/CardHand.svelte';
   import EndTurn from '$lib/UI/EndTurn/EndTurn.svelte';
   import MenuRestart from '$lib/UI/Menu-Restart/Menu-Restart.svelte';
+  import MitigationCards from '$lib/UI/MitigationCards/MitigationCards.svelte';
   import Manager from '$lib/UI/Notification/Notification.svelte';
   import Objective from '$lib/UI/Objective/Objective.svelte';
   import RiskLog from '$lib/UI/RiskLog/RiskLogs.svelte';
@@ -43,8 +44,8 @@
 
       <div class="h-[4vh]"></div>
 
-      <div class="relative h-[38vh] bg-yellow-500">
-        <ActionCard />
+      <div class="relative h-[38vh]">
+        <MitigationCards />
       </div>
     </div>
 

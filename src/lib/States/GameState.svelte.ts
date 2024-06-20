@@ -83,14 +83,14 @@ export function SaveGameState(): ISaveGame {
   }
 
   function updateStats(cost: number, quality: number, scope: number, time: number){
-    console.log(cost + " gamestate");
+    //console.log(cost + " gamestate");
     
     stats.cost = cost;
     stats.quality = quality;
     stats.scope = scope;
     stats.time = time;
 
-    console.log(stats.cost + " gamestate2");
+    //console.log(stats.cost + " gamestate2");
     
   }
 

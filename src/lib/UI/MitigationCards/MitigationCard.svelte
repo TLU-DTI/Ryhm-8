@@ -79,7 +79,7 @@
   />
   <foreignObject x="15" y="0" width="85" height="26">
     <div
-      class="font-['Change One'] size-full content-center text-center text-[9px] font-bold text-white"
+      class="font-['Change One'] size-full content-center text-center text-[8px] font-bold text-white z-50"
     >
       {mitigationCard.title}
     </div>
@@ -105,7 +105,7 @@
           width="1024"
           height="1024"
           transform="translate(21.93 29.14) scale(.07)"
-          xlink:href="/assets/Pictures/MitigationCards/{mitigationCard.id}.jpg"
+          xlink:href="/assets/Pictures/MitigationCards/MitigationCards/{mitigationCard.id}.jpg"
         />
       </g>
     </g>
