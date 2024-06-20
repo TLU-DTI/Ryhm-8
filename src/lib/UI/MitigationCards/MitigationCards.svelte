@@ -31,7 +31,9 @@
     <SimpleBar>
       <div class="flex h-[240px] w-[570px] gap-4">
         {#each cards as card}
-          <MitigationCard mitigationCard={card} />
+          <div class="w-[165px]">
+            <MitigationCard mitigationCard={card} />
+          </div>
         {/each}
       </div>
     </SimpleBar>
