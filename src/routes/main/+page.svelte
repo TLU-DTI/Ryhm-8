@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Credit from '$lib/UI/Creadits/Credit.svelte';
   import Settings from '$lib/UI/Settings/Settings.svelte';
 </script>
 
@@ -11,7 +12,7 @@
     <a href="/tutorial" class="sidebar-link">Tutorial</a>
   </div>
   <div class="sidebar bottom-right">
-    <Settings />
+    <Credit />
   </div>
 </div>
 

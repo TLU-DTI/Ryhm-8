@@ -1,6 +1,7 @@
 <script lang="ts">
   import ActionCard from '$lib/UI/ActionCard/ActionCard.svelte';
   import CardHand from '$lib/UI/CardHand/CardHand.svelte';
+  import Credit from '$lib/UI/Creadits/Credit.svelte';
   import EndTurn from '$lib/UI/EndTurn/EndTurn.svelte';
   import Manager from '$lib/UI/Notification/Notification.svelte';
   import Objective from '$lib/UI/Objective/Objective.svelte';
@@ -55,8 +56,8 @@
 
     <!-- Column 3 -->
     <div class="w-[25vw]">
-      <div class="relative h-[10vh] bg-red-200">
-        <Settings />
+      <div class="relative h-[10vh]">
+        <Credit />
       </div>
 
       <div class="h-[6vh]"></div>
