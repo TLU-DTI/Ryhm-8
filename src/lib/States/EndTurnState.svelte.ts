@@ -12,6 +12,7 @@ interface IEndTurnID {
   shadow: string;
   strip: string;
   border: string;
+  button?: string;
 }
 
 interface IEndTurn {
@@ -26,6 +27,7 @@ export function EndTurn(ID: IEndTurnID): IEndTurn {
   const shadow = SVG(ID.shadow) as Rect;
   const strip = SVG(ID.strip) as Rect;
   const border = SVG(ID.border) as Rect;
+  const button = document.getElementById(ID.button as string) as HTMLButtonElement;
 
   let active = true;
 
@@ -56,6 +58,7 @@ export function EndTurn(ID: IEndTurnID): IEndTurn {
       border.fill(activeColor.border);
     }
     active = !active;
+    button.disabled = !active;
   }
 
   return {
