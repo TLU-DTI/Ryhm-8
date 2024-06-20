@@ -1,5 +1,5 @@
 <script lang="ts">
-  import ActionCard from '$lib/UI/ActionCard/ActionCard.svelte';
+  import ActionCard from '$lib/UI/MitigationCards/MitigationCards.svelte';
   import CardHand from '$lib/UI/CardHand/CardHand.svelte';
   import EndTurn from '$lib/UI/EndTurn/EndTurn.svelte';
   import Manager from '$lib/UI/Notification/Notification.svelte';
@@ -43,7 +43,7 @@
 
       <div class="h-[4vh]"></div>
 
-      <div class="relative h-[38vh] bg-yellow-500">
+      <div class="relative h-[41vh]">
         <ActionCard />
       </div>
     </div>

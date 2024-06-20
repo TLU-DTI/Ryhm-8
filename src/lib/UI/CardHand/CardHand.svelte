@@ -1,5 +1,5 @@
 <script>
-  import CardTest from '../ActionCard/CardTest.svelte';
+  import CardTest from '../MitigationCards/CardTest.svelte';
 </script>
 
 <div class="handbg size-full content-center">

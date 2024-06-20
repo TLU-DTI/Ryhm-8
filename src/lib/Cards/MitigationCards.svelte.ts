@@ -13,7 +13,7 @@ interface ICards {
   addCards(data: MitigationData[]): void;
 }
 
-interface MitigationData {
+export interface MitigationData {
   '#': string;
   Mitigation: string;
   Category: Category;
@@ -41,7 +41,7 @@ export interface ICard {
   rng: number;
 }
 
-type Category = 'Technical' | 'Management' | 'Commercial' | 'External';
+export type Category = 'Technical' | 'Management' | 'Commercial' | 'External';
 
 export function Cards(): ICards {
   const cards: ICard[] = [] as ICard[];
