@@ -1,6 +1,9 @@
-<script>
+<script lang="ts">
   import { goto } from '$app/navigation'; 
+  import SaveGameState from '$lib/States/GameState.svelte';
   const { show } = $props();
+
+  let score = $state();
 
 
   function goToMainMenu() {
@@ -10,6 +13,15 @@
       window.location.reload();
     }, 100); 
   }
+
+  function restartGame() {
+    window.location.reload();
+  }
+
+  $effect(() =>{
+    let info = SaveGameState.SaveGameState().loadGame()?.objectives
+    score = ((info?.cost + info?.quality + info?.scope + info?.time) / 4 / 1.04).toFixed(1)
+  })
 </script>
 
 {#if show}
@@ -19,9 +31,11 @@
         <h2>You Win!</h2>
       </div>
       <div class="modal-body">
-        <p>Congratulations! You have successfully managed all challenges.</p>
+        <p>Congratulations! You have successfully managed all risks.</p>
+        <p>Score: {score} / 100</p>
       </div>
       <div class="modal-footer">
+        <button class="main-menu-button" on:click={restartGame}>Restart</button>
         <button class="main-menu-button" on:click={goToMainMenu}>Main Menu</button>
       </div>
     </div>
@@ -43,28 +57,31 @@
   }
 
   .modal-content {
-    background: #f0f0f0;
+    background: #282844;
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 20px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     animation: fadeIn 0.3s ease-in-out;
-    max-width: 400px; /* Adjust width as needed */
+    max-width: 400px; 
     width: 100%;
+    border: 4px solid #40406B; 
   }
 
   .modal-header {
     margin-bottom: 1rem;
+    font-family: "Changa One";
   }
 
   .modal-header h2 {
     margin: 0;
     font-size: 2rem;
-    color: #ff0000;
+    color: #3FA400;
   }
 
   .modal-body {
     margin-bottom: 1.5rem;
+    color: #F3EDF7;
   }
 
   .modal-footer {
@@ -72,17 +89,25 @@
     justify-content: space-around;
   }
 
+  .restart-button,
   .main-menu-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
+    background-color: #67FF7D;
+    color: #F7FFEC;
+    border: 3px solid #BDF8C7;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-shadow: 
+      -1px -1px 0 #282844,  
+      1px -1px 0 #282844,
+      -1px 1px 0 #282844,
+      1px 1px 0 #282844;
   }
 
+
+  .restart-button:hover,
   .main-menu-button:hover {
     background-color: #45a049;
   }

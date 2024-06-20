@@ -3,7 +3,7 @@
   const { show } = $props();
 
   function goToMainMenu() {
-    goto('/main');
+    goto('/');
 
     setTimeout(() => {
       window.location.reload();
@@ -47,28 +47,31 @@
   }
 
   .modal-content {
-    background: #f0f0f0;
+    background: #282844;
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 20px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     animation: fadeIn 0.3s ease-in-out;
     max-width: 400px; 
     width: 100%;
+    border: 4px solid #40406B; 
   }
 
   .modal-header {
     margin-bottom: 1rem;
+    font-family: "Changa One";
   }
 
   .modal-header h2 {
     margin: 0;
     font-size: 2rem;
-    color: #ff0000;
+    color: #EA5A3D
   }
 
   .modal-body {
     margin-bottom: 1.5rem;
+    color: #F3EDF7;
   }
 
   .modal-footer {
@@ -78,15 +81,21 @@
 
   .restart-button,
   .main-menu-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
+    background-color: #67FF7D;
+    color: #F7FFEC;
+    border: 3px solid #BDF8C7;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-shadow: 
+      -1px -1px 0 #282844,  
+      1px -1px 0 #282844,
+      -1px 1px 0 #282844,
+      1px 1px 0 #282844;
   }
+
 
   .restart-button:hover,
   .main-menu-button:hover {

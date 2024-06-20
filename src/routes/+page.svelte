@@ -12,6 +12,7 @@
   </div>
   <div class="sidebar bottom-right">
     <Settings />
+    <a href="/credits">credits</a>
   </div>
 </div>
 

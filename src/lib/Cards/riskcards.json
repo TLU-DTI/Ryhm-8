@@ -429,7 +429,7 @@
 "E": 1,
 "X": 1,
 "Mitigation": "MM01, MM03, MM05, MM10",
-"Description": "The local community is not happy about the project you are working on. You donät care because they are not your client nor end users of the service."
+"Description": "The local community is not happy about the project you are working on. You do not care because they are not your client nor end users of the service."
 },
 {
 "#": "M16",
@@ -478,7 +478,7 @@
 "Risk": "No Money no Honey",
 "Category": "Commercial",
 "Sub-category": "Client\/customer stability",
-"S": "Game Over",
+"S": -100,
 "E": 1,
 "Mitigation": "-MC06",
 "Description": "The client of the project goes bankrupt. Game Over!"

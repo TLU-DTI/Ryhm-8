@@ -16,6 +16,7 @@
   let gameWon = $state(false);
 
   onMount(() =>{
+    unsave();
     Manager.ManagerLogsState.addLog({
       title: "Welcome to the game",
       name: "Manager",
@@ -102,15 +103,16 @@
       Objective.ObjectiveScope.barPos < 33 ||
       Objective.ObjectiveTime.barPos < 33
     ){
-      gameOver = true;  
-      return;  
+      //gameOver = true;  
+      //return;  
     }
 
     if(Timeline.TimelineState.current.stage == 4){
+      save();
       gameWon = true;
     }
 
-    if(RiskCards.RiskCardState.riskHand){
+    if(RiskCards.RiskCardState.riskHand.length > 0){
       let managerMessage = "You decided to avoid the following risks: "
       RiskCards.RiskCardState.riskHand.forEach((element, index) => {
         RiskLogs.RiskLogsState.addLog({
@@ -136,8 +138,6 @@
         name: "Manager",
         message: managerMessage + ". I hope you know what you are doing!"
       });
-      
-
     }
 
     Timeline.TimelineState.next();
