@@ -13,12 +13,12 @@
   }
 
   const credits = [
-    { name: 'Hugo Luca Tigane', role: 'Roll' },
-    { name: 'Jan-Erich Sigur', role: 'Roll' },
-    { name: 'Germo Tael', role: 'Roll' },
-    { name: 'Kadir Alp Yalti', role: 'Roll' },
-    { name: 'Madis Valliste', role: 'Roll' },
-    { name: 'Kaspar Merisalu', role: 'Roll' }
+    { name: 'Hugo Luca Tigane', role: 'Project Manager' },
+    { name: 'Jan-Erich Sigur', role: 'Programmer' },
+    { name: 'Germo Tael', role: 'Programmer' },
+    { name: 'Kadir Alp Yalti', role: 'Designer' },
+    { name: 'Madis Valliste', role: 'Programmer' },
+    { name: 'Kaspar Merisalu', role: 'Programmer' }
   ];
 </script>
 
