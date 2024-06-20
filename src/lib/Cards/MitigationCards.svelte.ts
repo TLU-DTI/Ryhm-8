@@ -14,7 +14,7 @@ interface ICards {
   addCard(card: ICard): void;
   addCards(data: MitigationData[]): void;
   mitigateCardsHand: ICard[];
-  createMitigateHand(amount: number): void
+  createMitigateHand(amount: number): void;
   addUsed(card: ICard): void;
   usedCardsHand: ICard[];
 }
@@ -45,6 +45,7 @@ export interface ICard {
   category: Category;
   attributes: IAttributes;
   rng: number;
+  used?: boolean;
 }
 
 type Category = 'Technical' | 'Management' | 'Commercial' | 'External';
@@ -89,7 +90,7 @@ export function Cards(): ICards {
     return cards[randomIndex];
   }*/
 
-  function createMitigateHand(amount: number){
+  function createMitigateHand(amount: number) {
     mitigateCardsInHand.splice(0, mitigateCardsInHand.length);
     /*mitigateCardsInHand.push({
       id: "0",
@@ -104,14 +105,17 @@ export function Cards(): ICards {
         cost: 0
       }
     })*/
-    RiskCards.RiskCardState.riskHand.forEach(element => {
-      const foundElement = cards.find(card => card.id === element.mitigation[Math.floor(Math.random() * element.mitigation.length)]);
-      if(foundElement){
+    RiskCards.RiskCardState.riskHand.forEach((element) => {
+      const foundElement = cards.find(
+        (card) =>
+          card.id === element.mitigation[Math.floor(Math.random() * element.mitigation.length)]
+      );
+      if (foundElement) {
         mitigateCardsInHand.push(foundElement);
       }
     });
-    if (mitigateCardsInHand.length < amount){
-      while(mitigateCardsInHand.length < amount) {
+    if (mitigateCardsInHand.length < amount) {
+      while (mitigateCardsInHand.length < amount) {
         const randomIndex = Math.floor(Math.random() * cards.length);
         mitigateCardsInHand.push(cards[randomIndex]);
       }
@@ -125,14 +129,15 @@ export function Cards(): ICards {
 
     // Fisher-Yates shuffle algorithm
     for (let i = result.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [result[i], result[j]] = [result[j], result[i]];
+      const j = Math.floor(Math.random() * (i + 1));
+      [result[i], result[j]] = [result[j], result[i]];
     }
 
     return result;
-}
+  }
 
   function addUsed(card: ICard) {
+    card.used = true;
     usedMitigations.push(card);
   }
 
@@ -140,10 +145,10 @@ export function Cards(): ICards {
     get cards() {
       return cards;
     },
-    get mitigateCardsHand(){
+    get mitigateCardsHand() {
       return mitigateCardsInHand;
     },
-    get usedCardsHand(){
+    get usedCardsHand() {
       return usedMitigations;
     },
     addCard,

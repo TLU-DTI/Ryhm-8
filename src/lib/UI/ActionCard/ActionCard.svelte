@@ -2,7 +2,7 @@
   import { cardState } from '../CardConnect/stores';
   import CardTest from '../ActionCard/CardTest.svelte';
   import SimpleBar from '$lib/Components/SimpleBar.svelte';
-  import MitigateCards, {type  ICard } from '$lib/Cards/MitigationCards.svelte';
+  import MitigateCards, { type ICard } from '$lib/Cards/MitigationCards.svelte';
 
   let mitigation = $state([]) as ICard[];
   let usedMitigations = $state([]) as ICard[];
@@ -10,9 +10,9 @@
 
   function handleCardDragStart(event: DragEvent, cardId: number) {
     event.dataTransfer?.setData('text/plain', cardId.toString());
-    cardState.update(state => ({
+    cardState.update((state) => ({
       ...state,
-      selectedActionCardId: cardId,
+      selectedActionCardId: cardId
     }));
   }
 
@@ -20,10 +20,6 @@
     //console.log(Timeline.TimelineState.current.stage);
     mitigation = MitigateCards.MitigatCardState.mitigateCardsHand;
     usedMitigations = MitigateCards.MitigatCardState.usedCardsHand;
-    cards = [
-      ...usedMitigations.map(card => ({ ...card, type: 'used' })),
-      ...mitigation.map(card => ({ ...card, type: 'mitigation' }))
-    ];
 
     /*setInterval(() => {
       console.log(Timeline.TimelineState.current.stage);
@@ -35,18 +31,30 @@
 
 <SimpleBar>
   <div class="size-full">
-    <div class="flex gap-4 text-center"> 
-      {#each cards as card, mCardIndex (card)}
-      
+    <div class="card-pack flex text-center">
+      {#each [...usedMitigations, ...mitigation] as card, mCardIndex (card)}
         <div
-          class="size-60 card-wrapper card"
+          class="card-wrapper size-60"
           draggable="true"
           ondragstart={(event) => handleCardDragStart(event, mCardIndex)}
           class:selected={$cardState.selectedActionCardId === mCardIndex}
           role="button"
           tabindex="0"
         >
-        <CardTest title={card.title} description={card.description} img={card.id}/>
+          {#if card.used}
+            <div class="card-old">
+              <CardTest title={'VANA'} description={card.description} />
+            </div>
+          {:else}
+            <div class="card">
+              <CardTest title={'uus'} description={card.description} />
+              <!-- <ul class="card-old bg-white">
+            <li>{card.id}</li>
+            <li>{card.title}</li>
+            <li>{card.description}</li>
+          </ul> -->
+            </div>
+          {/if}
         </div>
       {/each}
     </div>
@@ -54,36 +62,32 @@
 </SimpleBar>
 
 <style>
-  .card:hover {
-    transform: translateY(-1vh);
+  .card,
+  .card-old {
+    top: calc(100% - 75%);
+    display: flex;
+    position: relative;
+    transition: ease-in-out 0.3s;
+    box-sizing: border-box;
+    height: 100%;
+    flex-basis: calc(33.33% - 1rem);
+  }
+  .card:hover,
+  .card-old:hover {
+    transform: translateY(-2vh);
     transition: 0.3s;
     filter: drop-shadow(0 2vh 0.5rem rgba(0, 0, 0, 0.169));
     z-index: 1;
   }
-  /*.card {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    box-sizing: border-box;
-    height: 100%;
-    flex-basis: calc(33.33% - 1rem);
-    transition:
-      transform 0.3s ease-in-out,
-      box-shadow 0.3s ease-in-out,
-      border-width 0.3s ease-in-out,
-      rotate 0.3s ease-in-out;
-  }*/
-  /*.card-wrapper{
+  .card-pack {
+    size: inherit;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    flex: 1 1 auto;
-    flex-wrap: wrap;
-    max-width: inherit;
-    width: inherit;
-    height: inherit;
-    transition: transform 0.3s ease-in-out;
-  }*/
+  }
+
+  .card:first-child {
+    transform: translateX(2vw);
+  }
+  .card:first-child:hover {
+    transform: translate(2vw, -2vh);
+  }
 </style>
