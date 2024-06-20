@@ -30,7 +30,7 @@
 
 <SimpleBar>
   <div class="size-full">
-    <div class="card-pack flex gap-4 text-center">
+    <div class="card-pack flex text-center">
       {#each [...usedMitigations, ...mitigation] as card, mCardIndex (card)}
         <div
           class="card-wrapper size-60"
@@ -61,21 +61,31 @@
 </SimpleBar>
 
 <style>
+  .card,
+  .card-old {
+    display: flex;
+    position: relative;
+    transition: ease-in-out 0.3s;
+    box-sizing: border-box;
+    height: 100%;
+    flex-basis: calc(33.33% - 1rem);
+  }
   .card:hover,
   .card-old:hover {
-    transform: translateY(-1vh);
+    transform: translateY(-2vh);
     transition: 0.3s;
     filter: drop-shadow(0 2vh 0.5rem rgba(0, 0, 0, 0.169));
     z-index: 1;
   }
   .card-pack {
-    /* display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(5vw, 3fr)); */
+    size: inherit;
     display: flex;
-    flex-wrap: wrap;
   }
 
-  /* .card-old:last-child {
-    transform: translateX(-1vw);
-  } */
+  .card:first-child {
+    transform: translateX(2vw);
+  }
+  .card:first-child:hover {
+    transform: translate(2vw, -2vh);
+  }
 </style>
