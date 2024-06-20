@@ -70,13 +70,13 @@
     
     const button = document.getElementById("EndTurn_button") as HTMLButtonElement;
 
-    //button.disabled = true;
+    button.disabled = true;
     //EndTurn.EndTurnState.toggle();
 
 
     setTimeout(() => {
-        button.disabled = false;
-        EndTurn.EndTurnState.toggle();
+      button.disabled = false;
+      //EndTurn.EndTurnState.toggle();
     }, 1000);
 
     if (gameOver) return; 
