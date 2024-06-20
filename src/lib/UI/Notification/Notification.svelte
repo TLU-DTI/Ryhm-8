@@ -9,20 +9,6 @@
   import { getContext } from 'svelte';
 
   let notifiction = getContext<INotification>('Notification');
-
-  $effect(() => {
-    setInterval(() => {
-      notifiction.delNotification();
-    }, 0.5e3);
-
-    setInterval(() => {
-      notifiction.setNotification({
-        name: 'Manager',
-        icon: Happy,
-        message: 'Hello, Manager!'
-      });
-    }, 1e3);
-  });
 </script>
 
 {#if notifiction?.notification}

@@ -8,14 +8,14 @@ export default {
   Cards
 };
 
-interface IMitigationCards {
-  cards: ICard[];
-  addCard(card: ICard): void;
+export interface IMitigationCards {
+  cards: IMitigationCard[];
+  addCard(card: IMitigationCard): void;
   addCards(data: MitigationData[]): void;
-  mitigateCardsHand: ICard[];
+  mitigateCardsHand: IMitigationCard[];
   createMitigateHand(amount: number): void
-  addUsed(card: ICard): void;
-  usedCardsHand: ICard[];
+  addUsed(card: IMitigationCard): void;
+  usedCardsHand: IMitigationCard[];
 }
 
 export interface MitigationData {
@@ -37,25 +37,26 @@ interface IAttributes {
   cost: number;
 }
 
-export interface ICard {
+export interface IMitigationCard {
   id: string;
   title: string;
   description: string;
   category: Category;
   attributes: IAttributes;
   rng: number;
+  used?: boolean;
 }
 
 export type Category = 'Technical' | 'Management' | 'Commercial' | 'External';
 
 export function Cards(): IMitigationCards {
-  const cards: ICard[] = [] as ICard[];
-  const usedMitigations: ICard[] = $state([]) as ICard[];
-  let mitigateCardsInHand: ICard[] = $state([]) as ICard[];
+  const cards: IMitigationCard[] = [] as IMitigationCard[];
+  const usedMitigations: IMitigationCard[] = $state([]) as IMitigationCard[];
+  let mitigateCardsInHand: IMitigationCard[] = $state([]) as IMitigationCard[];
 
   addCards(MitiagateCardsJson as MitigationData[]);
 
-  function addCard(card: ICard) {
+  function addCard(card: IMitigationCard) {
     cards.push(card);
   }
 
@@ -73,7 +74,7 @@ export function Cards(): IMitigationCards {
           time: data[i].T,
           cost: data[i].C
         }
-      } as ICard;
+      } as IMitigationCard;
 
       cards.push(card);
     }
@@ -113,7 +114,7 @@ export function Cards(): IMitigationCards {
     return result;
 }
 
-  function addUsed(card: ICard) {
+  function addUsed(card: IMitigationCard) {
     usedMitigations.push(card);
   }
 

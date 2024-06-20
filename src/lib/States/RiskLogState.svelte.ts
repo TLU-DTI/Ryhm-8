@@ -5,7 +5,7 @@ export default {
   RiskLogs
 };
 
-interface IRiskLogs {
+export interface IRiskLogs {
   logs: IRiskLog[];
   addLog(log: IRiskLog): void;
 }

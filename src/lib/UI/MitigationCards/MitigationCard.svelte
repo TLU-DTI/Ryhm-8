@@ -1,9 +1,9 @@
 <script lang="ts">
-  import type { ICard } from '$lib/Cards/MitigationCards.svelte';
+  import type { IMitigationCard } from '$lib/Cards/MitigationCards.svelte';
   let {
     mitigationCard
   }: {
-    mitigationCard: ICard;
+    mitigationCard: IMitigationCard;
   } = $props();
 
   let color: string = $state('#43466e');
@@ -79,7 +79,7 @@
   />
   <foreignObject x="15" y="0" width="85" height="26">
     <div
-      class="font-['Change One'] size-full content-center text-center text-[8px] font-bold text-white z-50"
+      class="font-['Change One'] z-50 size-full content-center text-center text-[8px] font-bold text-white"
     >
       {mitigationCard.title}
     </div>

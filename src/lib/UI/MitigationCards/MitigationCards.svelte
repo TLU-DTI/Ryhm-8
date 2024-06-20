@@ -1,28 +1,25 @@
 <script lang="ts">
-  import type { ICard } from '$lib/Cards/MitigationCards.svelte';
+  import MitigateCards, { type IMitigationCard } from '$lib/Cards/MitigationCards.svelte';
   import SimpleBar from '$lib/Components/SimpleBar.svelte';
   import MitigationCard from './MitigationCard.svelte';
   import MitigationCardSvg from './MitigationCardsSVG.svelte';
-  let cards = $state([]) as ICard[];
+
+  let mitigation = $state([]) as IMitigationCard[];
+  let usedMitigations = $state([]) as IMitigationCard[];
+  let cards = $state([]) as IMitigationCard[];
+
+  function handleCardDragStart(event: DragEvent, cardId: number) {
+    event.dataTransfer?.setData('text/plain', cardId.toString());
+    cardState.update((state) => ({
+      ...state,
+      selectedActionCardId: cardId
+    }));
+  }
 
   $effect(() => {
-    setTimeout(() => {
-      let card = {
-        id: '1M',
-        title: 'Requ Requirements Requirements',
-        description:
-          'Analyse customer needs and specify clear requirements. Present the results of the needs study to the customer and ask for feedback.',
-        category: 'Management',
-        attributes: {
-          cost: 10,
-          quality: 5,
-          scope: 3,
-          time: 2
-        },
-        rng: 1
-      } as ICard;
-      cards.push(card);
-    }, 1e3);
+    mitigation = MitigateCards.MitigatCardState.mitigateCardsHand;
+    usedMitigations = MitigateCards.MitigatCardState.usedCardsHand;
+    cards = [...usedMitigations, ...mitigation];
   });
 </script>
 
@@ -30,9 +27,28 @@
   <MitigationCardSvg>
     <SimpleBar>
       <div class="flex h-[240px] w-[570px] gap-4">
-        {#each cards as card}
-          <div class="w-[165px]">
-            <MitigationCard mitigationCard={card} />
+        {#each cards as card, mCardIndex (card)}
+          <div
+            class="card-wrapper size-60"
+            draggable="true"
+            ondragstart={(event) => handleCardDragStart(event, mCardIndex)}
+            class:selected={cardState.selectedActionCardId === mCardIndex}
+            role="button"
+            tabindex="0"
+          >
+            {#if card.used}
+              <div class="card-old">
+                <div class="w-[165px]">
+                  <MitigationCard mitigationCard={card} />
+                </div>
+              </div>
+            {:else}
+              <div class="card">
+                <div class="w-[165px]">
+                  <MitigationCard mitigationCard={card} />
+                </div>
+              </div>
+            {/if}
           </div>
         {/each}
       </div>

@@ -18,7 +18,7 @@
     setContext('RiskCards', RiskCards.RiskCardState);
 
     MitigateCards.MitigatCardState = MitigateCards.Cards();
-    setContext('MitigatCards', MitigateCards.MitigatCardState);
+    setContext('MitigateCards', MitigateCards.MitigatCardState);
 
     Notification.NotificationState = Notification.Notification();
     setContext('Notification', Notification.NotificationState);

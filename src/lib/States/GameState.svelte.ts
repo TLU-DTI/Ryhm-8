@@ -1,4 +1,4 @@
-import type { ICard } from '$lib/Cards/MitigationCards.svelte';
+import type { IMitigationCard } from '$lib/Cards/MitigationCards.svelte';
 import type { IRiskCard }  from '$lib/Cards/RiskCards.svelte';
 import type { IRiskLog } from '$lib/States/RiskLogState.svelte';
 
@@ -16,7 +16,7 @@ interface IManager {
 }
 export interface IGameState {
   objectives: IObjective;
-  mitigationCards: ICard[];
+  mitigationCards: IMitigationCard[];
   riskCards: IRiskCard[];
   manager: IManager[];
   logs: IRiskLog[];
@@ -58,7 +58,7 @@ export const GameState = $state<IGameState>({
 export function SaveGameState(): ISaveGame {
   const storageKey = 'game_save';
   //let stats: IObjective = $state() as IObjective;
-  let stats: IObjective = GameState.objectives; 
+  const stats: IObjective = GameState.objectives; 
 
   let save: IGameState | null = null;
 

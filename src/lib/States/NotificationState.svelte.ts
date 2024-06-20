@@ -18,7 +18,7 @@ export interface INotification {
 
 export interface INotificationProps {
   name: PersonName;
-  icon: Component;
+  icon?: Component;
   message: string;
 }
 

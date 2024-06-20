@@ -10,7 +10,7 @@ export default {
   RiskCardHand
 };
 
-interface IRiskCards {
+export interface IRiskCards {
   riskCards: IRiskCard[];
   riskHand: IRiskCard[];
   addRiskCards(data: RiskData[]): void;

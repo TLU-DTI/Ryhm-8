@@ -15,7 +15,7 @@ interface IEndTurnID {
   button?: string;
 }
 
-interface IEndTurn {
+export interface IEndTurn {
   toggle: () => void;
   get active(): boolean;
   activeColor: IEndTurnID
