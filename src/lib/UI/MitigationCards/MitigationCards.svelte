@@ -6,7 +6,7 @@
   let cards = $state([]) as ICard[];
 
   $effect(() => {
-    setInterval(() => {
+    setTimeout(() => {
       let card = {
         id: '1M',
         title: 'Requ Requirements Requirements',
