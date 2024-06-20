@@ -38,6 +38,10 @@ export function Objective(barID: string, trackID: string): IObjective {
     if (input + barPos >= trackEndPos) {
       input = trackEndPos - barPos;
     }
+    if (Number.isNaN(input)) {
+      input = 1;
+    }
+
     const runner = bar
       .animate(SPEED)
       .ease('<>')

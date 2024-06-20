@@ -19,7 +19,7 @@ interface IAttributes {
 
 export interface IRiskLog {
   title: string;
-  category: Category;
+  category?: Category;
   respond: string;
   attributes: IAttributes;
 }

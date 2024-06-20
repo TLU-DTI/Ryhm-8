@@ -1,37 +1,33 @@
 <script lang="ts">
-  import Objective  from '$lib/States/ObjectiveState.svelte';
+  import Objective from '$lib/States/ObjectiveState.svelte';
   import EndTurn from '$lib/States/EndTurnState.svelte';
   import EndTurnSvg from './EndTurnSVG.svelte';
   import Timeline, { TimelineState } from '$lib/States/TimelineState.svelte';
   import SaveGameState from '$lib/States/GameState.svelte';
-  import  RiskLogs, { type IRiskLog }  from '$lib/States/RiskLogState.svelte';
-  import  RiskCards  from '$lib/Cards/RiskCards.svelte';
-  import  MitigateCards  from '$lib/Cards/MitigationCards.svelte';
+  import RiskLogs, { type IRiskLog } from '$lib/States/RiskLogState.svelte';
+  import RiskCards from '$lib/Cards/RiskCards.svelte';
+  import MitigateCards from '$lib/Cards/MitigationCards.svelte';
   import Manager, { ManagerLogsState } from '$lib/States/ManagerLogState.svelte';
-  import GameOverModal from './GameOverModal.svelte'; 
-  import GameWonModal from './GameWonModal.svelte'; 
+  import GameOverModal from './GameOverModal.svelte';
+  import GameWonModal from './GameWonModal.svelte';
   import { onMount } from 'svelte';
   import GameStateSvelte from '$lib/States/GameState.svelte';
 
-  let gameOver = $state(false);  
+  let gameOver = $state(false);
   let gameWon = $state(false);
 
-  onMount(() =>{
+  onMount(() => {
     Manager.ManagerLogsState.addLog({
-      title: "Welcome to the game",
-      name: "Manager",
-      message: "Welcome to Mitigate Inc. I'm your boss and i will let you know how you will do managing the issues that will come your way."
+      title: 'Welcome to the game',
+      name: 'Manager',
+      message:
+        "Welcome to Mitigate Inc. I'm your boss and i will let you know how you will do managing the issues that will come your way."
     });
     Timeline.TimelineState.next();
     startOfTurn();
   });
 
-  
-  $effect(() => {
-    
-    
-
-  });
+  $effect(() => {});
 
   /*function test():void{
     Objective.ObjectiveCost.move(MitigateCards.MitigatCardState.getRandomCard().attributes.cost * 1.0431000518798828);
@@ -42,10 +38,10 @@
     console.log(Objective.ObjectiveCost.barPos);
   }*/
 
-  function startOfTurn(): void{
-    if (gameOver || gameWon) return;   
+  function startOfTurn(): void {
+    if (gameOver || gameWon) return;
     RiskCards.RiskCardState.createHand(riskCardAmount(Timeline.TimelineState.current.stage));
-    MitigateCards.MitigatCardState.createMitigateHand(3)
+    MitigateCards.MitigatCardState.createMitigateHand(3);
     //console.log(RiskCards.RiskCardState.riskHand);
   }
 
@@ -54,15 +50,15 @@
       case 0:
         return 0;
       case 1:
-          return 1;
+        return 1;
       case 2:
-          return Math.random() < 0.5 ? 1 : 2;
+        return Math.random() < 0.5 ? 1 : 2;
       case 3:
-          return Math.random() < 0.5 ? 2 : 3;
+        return Math.random() < 0.5 ? 2 : 3;
       case 4:
-          return Math.random() < 0.5 ? 4 : 5;
+        return Math.random() < 0.5 ? 4 : 5;
       default:
-          throw new Error("Input must be 0, 1, 2, or 3");
+        throw new Error('Input must be 0, 1, 2, or 3');
     }
   }
 
@@ -79,45 +75,48 @@
       //EndTurn.EndTurnState.toggle();
     }, 1000);
 
-    if (gameOver) return; 
+    if (gameOver) return;
 
     let costTotal = 0;
     let qualityTotal = 0;
     let scopeTotal = 0;
     let timeTotal = 0;
 
-
-
-    RiskCards.RiskCardState.riskHand.forEach(element => {
-      costTotal += element.attributes.cost
+    RiskCards.RiskCardState.riskHand.forEach((element) => {
+      costTotal += element.attributes.cost;
       qualityTotal += element.attributes.quality;
       scopeTotal += element.attributes.scope;
       timeTotal += element.attributes.time;
     });
 
-    Objective.ObjectiveCost.move(-(costTotal));
+    Objective.ObjectiveCost.move(-costTotal);
     Objective.ObjectiveQuality.move(qualityTotal);
     Objective.ObjectiveScope.move(scopeTotal);
-    Objective.ObjectiveTime.move(-(timeTotal));
+    Objective.ObjectiveTime.move(-timeTotal);
 
     if (
       Objective.ObjectiveCost.barPos < 33 ||
       Objective.ObjectiveQuality.barPos < 33 ||
       Objective.ObjectiveScope.barPos < 33 ||
       Objective.ObjectiveTime.barPos < 33
-    ){
-      //gameOver = true;  
-      //return;  
+    ) {
+      gameOver = true;
+      return;
     }
 
-    if(Timeline.TimelineState.current.stage == 4){
-      console.log(Objective.ObjectiveCost.barPos + " endturn.svelte")
-      GameStateSvelte.SaveGameState().updateStats(Objective.ObjectiveCost.barPos, Objective.ObjectiveQuality.barPos, Objective.ObjectiveScope.barPos, Objective.ObjectiveTime.barPos);
+    if (Timeline.TimelineState.current.stage == 4) {
+      console.log(Objective.ObjectiveCost.barPos + ' endturn.svelte');
+      GameStateSvelte.SaveGameState().updateStats(
+        Objective.ObjectiveCost.barPos,
+        Objective.ObjectiveQuality.barPos,
+        Objective.ObjectiveScope.barPos,
+        Objective.ObjectiveTime.barPos
+      );
       gameWon = true;
     }
 
-    if(RiskCards.RiskCardState.riskHand.length > 0){
-      let managerMessage = "You decided to avoid the following risks: "
+    if (RiskCards.RiskCardState.riskHand.length > 0) {
+      let managerMessage = 'You decided to avoid the following risks: ';
       RiskCards.RiskCardState.riskHand.forEach((element, index) => {
         RiskLogs.RiskLogsState.addLog({
           attributes: {
@@ -130,17 +129,16 @@
           title: element.title,
           respond: 'Ignored'
         });
-        managerMessage += element.title
+        managerMessage += element.title;
         if (index < RiskCards.RiskCardState.riskHand.length - 1) {
-          managerMessage += ", ";
+          managerMessage += ', ';
         }
       });
-        
 
       Manager.ManagerLogsState.addLog({
-        title: "You decided to avoid some risks",
-        name: "Manager",
-        message: managerMessage + ". I hope you know what you are doing!"
+        title: 'You decided to avoid some risks',
+        name: 'Manager',
+        message: managerMessage + '. I hope you know what you are doing!'
       });
     }
 
@@ -148,29 +146,27 @@
     startOfTurn();
   }
 
-
-  function save():void{
+  function save(): void {
     SaveGameState.SaveGameState().saveGame({
-      "objectives": {
-        "scope": Objective.ObjectiveScope.barPos,
-        "quality": Objective.ObjectiveQuality.barPos,
-        "time": Objective.ObjectiveTime.barPos,
-        "cost": Objective.ObjectiveCost.barPos
+      objectives: {
+        scope: Objective.ObjectiveScope.barPos,
+        quality: Objective.ObjectiveQuality.barPos,
+        time: Objective.ObjectiveTime.barPos,
+        cost: Objective.ObjectiveCost.barPos
       },
-      "mitigationCards": MitigateCards.MitigatCardState.cards,
-      "riskCards": RiskCards.RiskCardState.riskCards,
-      "manager": Manager.ManagerLogsState.logs,
-      "logs" : RiskLogs.RiskLogsState.logs,
-      "timelineStage": Timeline.TimelineState.current.stage,
-      "round": Timeline.TimelineState.current.stage,
-      "position": Timeline.TimelineState.barPos
-    })
+      mitigationCards: MitigateCards.MitigatCardState.cards,
+      riskCards: RiskCards.RiskCardState.riskCards,
+      manager: Manager.ManagerLogsState.logs,
+      logs: RiskLogs.RiskLogsState.logs,
+      timelineStage: Timeline.TimelineState.current.stage,
+      round: Timeline.TimelineState.current.stage,
+      position: Timeline.TimelineState.barPos
+    });
   }
 
-  function unsave():void{
-    SaveGameState.SaveGameState().clearSave()
+  function unsave(): void {
+    SaveGameState.SaveGameState().clearSave();
   }
-
 </script>
 
 <GameOverModal show={gameOver} />
@@ -180,7 +176,6 @@
 <button id="EndTurn_button" class="flex size-full items-center justify-center" onclick={endTurn}>
   <EndTurnSvg />
 </button>
-
 
 <style>
 </style>
