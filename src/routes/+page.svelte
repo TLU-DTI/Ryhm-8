@@ -1,18 +1,27 @@
 <script lang="ts">
   import Settings from '$lib/UI/Settings/Settings.svelte';
+  import Credit from '$lib/UI/Credits/Credit.svelte';
+  import { onMount } from 'svelte';
+
+  const handleStartClick = () => {
+    window.location.href = '/game';
+  };
+
+  onMount(() => {
+    if (window.location.pathname === '/game') {
+      window.location.reload();
+    }
+  });
 </script>
 
 <div class="wrapper">
   <div class="content">
     <h1 class="header">Mitigate Online</h1>
-    <a href="/game" class="button">Start</a>
-  </div>
-  <div class="sidebar top-right">
-    <a href="/tutorial" class="sidebar-link">Tutorial</a>
+    <!-- Refactored button for better design -->
+    <button class="button" on:click={handleStartClick}>Start Game</button>
   </div>
   <div class="sidebar bottom-right">
-    <Settings />
-    <a href="/credits">credits</a>
+    <Credit />
   </div>
 </div>
 
@@ -45,14 +54,17 @@
     color: white;
     font-size: 2rem;
     padding: 1rem 2rem;
-    border-radius: 30%;
-    border: 5px solid black;
+    border-radius: 12px; /* Adjusted from 30% to 12px for a cleaner look */
+    border: 2px solid #5a32a3; /* Slightly reduced border thickness */
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    outline: none; /* Remove focus outline */
   }
 
   .button:hover {
     background-color: #5a32a3;
+    transform: scale(1.05); /* Scale up on hover for a subtle effect */
   }
 
   .sidebar {
@@ -60,31 +72,8 @@
     color: white;
   }
 
-  .top-right {
-    top: 2rem;
-    right: 2rem;
-  }
-
   .bottom-right {
     bottom: 2rem;
     right: 2rem;
-  }
-
-  .sidebar-link,
-  .settings-button {
-    display: block;
-    background-color: #6f42c1;
-    color: white;
-    font-size: 2rem;
-    padding: 1rem 0.5rem;
-    border-radius: 20%;
-    border: 5px solid black;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-
-  .sidebar-link:hover,
-  .settings-button:hover {
-    background-color: #5a32a3;
   }
 </style>
