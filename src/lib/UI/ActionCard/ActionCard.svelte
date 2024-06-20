@@ -43,11 +43,11 @@
         >
           {#if card.used}
             <div class="card-old">
-              <CardTest title={'VANA'} description={card.description} />
+              <CardTest title={card.title} description={card.description} img={card.id}/>
             </div>
           {:else}
             <div class="card">
-              <CardTest title={'uus'} description={card.description} />
+              <CardTest title={card.title} description={card.description} img={card.id}/>
               <!-- <ul class="card-old bg-white">
             <li>{card.id}</li>
             <li>{card.title}</li>

@@ -67,10 +67,12 @@
   }
 
   function endTurn():void{
+    
     const button = document.getElementById("EndTurn_button") as HTMLButtonElement;
 
-    button.disabled = true;
-    EndTurn.EndTurnState.toggle();
+    //button.disabled = true;
+    //EndTurn.EndTurnState.toggle();
+
 
     setTimeout(() => {
         button.disabled = false;
@@ -83,6 +85,7 @@
     let qualityTotal = 0;
     let scopeTotal = 0;
     let timeTotal = 0;
+
 
 
     RiskCards.RiskCardState.riskHand.forEach(element => {
