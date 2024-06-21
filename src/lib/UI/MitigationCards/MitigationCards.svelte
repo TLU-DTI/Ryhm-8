@@ -1,6 +1,7 @@
 <script lang="ts">
   import MitigateCards, { type IMitigationCard } from '$lib/Cards/MitigationCards.svelte';
   import SimpleBar from '$lib/Components/SimpleBar.svelte';
+  import { cardState as cardState2 } from '../CardConnect/states.svelte';
   import MitigationCard from './MitigationCard.svelte';
   import MitigationCardSvg from './MitigationCardsSVG.svelte';
 
@@ -8,12 +9,13 @@
   let usedMitigations = $state([]) as IMitigationCard[];
   let cards = $state([]) as IMitigationCard[];
 
+  let cardState = $state(cardState2);
+
   function handleCardDragStart(event: DragEvent, cardId: number) {
     event.dataTransfer?.setData('text/plain', cardId.toString());
-    cardState.update((state) => ({
-      ...state,
+    cardState = {
       selectedActionCardId: cardId
-    }));
+    };
   }
 
   $effect(() => {

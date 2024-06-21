@@ -8,9 +8,8 @@
   import { type IMitigationCards } from '$lib/Cards/MitigationCards.svelte';
   import GameOverModal from './GameOverModal.svelte';
   import GameWonModal from './GameWonModal.svelte';
-  import GameStateSvelte from '$lib/States/GameState.svelte';
   import { type INotification } from '$lib/States/NotificationState.svelte';
-  import { getContext } from 'svelte';
+  import { getContext, onMount } from 'svelte';
   import type { IEndTurn } from '$lib/States/EndTurnState.svelte';
 
   const Notifiction = getContext<INotification>('Notification');
@@ -24,7 +23,7 @@
   let gameOver = $state(false);
   let gameWon = $state(false);
 
-  $effect(() => {
+  onMount(() => {
     Notifiction.setNotification({
       name: 'Manager',
       message:

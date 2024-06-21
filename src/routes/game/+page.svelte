@@ -43,7 +43,7 @@
 
       <div class="h-[4vh]"></div>
 
-      <div class="relative h-[41vh]">
+      <div class="relative h-[39vh]">
         <MitigationCards />
       </div>
     </div>
