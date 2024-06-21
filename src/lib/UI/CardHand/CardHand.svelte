@@ -55,7 +55,7 @@
         scope: 0,
         time: 0
       },
-      category: risk.category as Category,
+      category: risk?.category as Category,
       title: risk.title,
       respond: mitigationCard.title
     });
@@ -78,7 +78,7 @@
         mitigationCard.attributes.scope,
         mitigationCard.attributes.time
       );
-    } else if (risk.category == mitigationCard.category) {
+    } else if (risk?.category == mitigationCard?.category) {
       let rng = Math.random() < 0.5;
       Notifiction.setNotification({
         name: 'Manager',
@@ -188,6 +188,7 @@
     border-radius: 2rem;
   }
   .card-container {
+    cursor: default !important;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -200,10 +201,11 @@
     transition: transform 0.3s ease-in-out;
   }
   .card {
+    cursor: default !important;
     position: absolute;
     top: 0;
     left: 0;
-
+    user-select: none;
     box-sizing: border-box;
     height: 100%;
     flex-basis: calc(33.33% - 1rem);

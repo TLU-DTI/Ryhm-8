@@ -3,6 +3,7 @@
   import { onMount } from 'svelte';
   import Logo from './Logo.svelte';
   import Start from './Start.svelte';
+  import Tutorial from '$lib/Tutorial/Tutorial.svelte';
 
   const handleStartClick = () => {
     window.location.href = '/game';
@@ -23,6 +24,9 @@
     <button class="w-44" onclick={handleStartClick}>
       <Start />
     </button>
+    <div class="w-44">
+      <Tutorial />
+    </div>
     <div class="w-44">
       <Credit />
     </div>
