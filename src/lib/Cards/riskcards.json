@@ -9,7 +9,7 @@
   "T": 5,
   "C": 5,
   "E": 1,
-  "Mitigation": "MT01, MT02, MT07,  MT16,  -MT17",
+  "Mitigation": "MT01, MT02, MT07,  MT16",
   "Description": "The customer requests new features, and developers are ready to implement them without agreeing with management."
   },
   {
@@ -80,7 +80,7 @@
   "C": 5,
   "P": 1,
   "E": 1,
-  "Mitigation": "MT01, MT02, MT04, MT07,  MT16,  -MT17",
+  "Mitigation": "MT01, MT02, MT04, MT07,  MT16",
   "Description": "The client is pointing out a new feature that was listed in the initial analysis of needs but was not properly prioritised."
   },
   {
@@ -163,7 +163,7 @@
   "T": 5,
   "C": 5,
   "E": 1,
-  "Mitigation": "MT01, MT02, MT05, MT07, MT16, -MT17, MC03",
+  "Mitigation": "MT01, MT02, MT05, MT07, MT16, MC03",
   "Description": "The user changes his mind after the major demonstration of the project outcome and introduces new (actual) needs"
   },
   {
@@ -234,7 +234,7 @@
   "T": 5,
   "C": 0,
   "E": 1,
-  "Mitigation": "MM11, MM12, MM15, -MM16, -MM17, -MM20",
+  "Mitigation": "MM11, MM12, MM15",
   "Description": "Two team members fell in love at the beginning of the project. Now, the relationship is breaking apart. A fight between them starts to have a negative impact on the team’s performance."
   },
   {
@@ -248,7 +248,7 @@
   "C": 0,
   "P": 1,
   "E": 1,
-  "Mitigation": "MM02, MM11, MM12, MM15, -MM16,- MM20, ME11",
+  "Mitigation": "MM02, MM11, MM12, MM15, ME11",
   "Description": "One team member blames others for not sorting the garbage. He threatens to throw the contents of the trash cans on the desks of his colleagues."
   },
   {
@@ -276,7 +276,7 @@
   "C": 0,
   "P": 1,
   "E": 1,
-  "Mitigation": "MM19, MM07,MM09,  -MM16, -MM20, MM22",
+  "Mitigation": "MM19, MM07,MM09, MM22",
   "Description": "Most team members have a tendency to start their tasks as late as possible."
   },
   {
@@ -318,7 +318,7 @@
   "T": 5,
   "C": 0,
   "E": 1,
-  "Mitigation": "-MM05, MM06",
+  "Mitigation": "MM06",
   "Description": "Project meetings are so frequent and long that team members lack time to complete tasks."
   },
   {
@@ -344,7 +344,7 @@
   "T": 10,
   "C": 0,
   "E": 1,
-  "Mitigation": "MM04, -MM07, MT11, -MM24",
+  "Mitigation": "MM04, MT11",
   "Description": "The work from different projects heavily overloads most team members."
   },
   {
@@ -357,7 +357,7 @@
   "C": 5,
   "P": 1,
   "E": 1,
-  "Mitigation": "MM11, MM16, -MM17, MM19, -MM20",
+  "Mitigation": "MM11, MM16, MM19",
   "Description": "A project manager selects team members based on ethnic and cultural preferences. Having the required skills is a secondary option."
   },
   {
@@ -370,7 +370,7 @@
   "C": 5,
   "P": 1,
   "E": 1,
-  "Mitigation": "MM11, MM16, -MM17, MM19, -MM20",
+  "Mitigation": "MM11, MM16, MM19",
   "Description": "The project manager distributes work and resources based on gender preferences. Having the skills needed and results is an irrelevant option."
   },
   {
@@ -442,7 +442,7 @@
   "P": 1,
   "E": 1,
   "X": 1,
-  "Mitigation": "MM11, MM12, MM15, -MM16, MM17, MM19, -MM20",
+  "Mitigation": "MM11, MM12, MM15, MM17, MM19",
   "Description": "Two team members are constantly fighting to promote their design ideas and get recognition from the manager."
   },
   {
@@ -480,7 +480,6 @@
   "Sub-category": "Client\/customer stability",
   "S": -100,
   "E": 1,
-  "Mitigation": "-MC06",
   "Description": "The client of the project goes bankrupt. Game Over!"
   },
   {
@@ -715,7 +714,7 @@
   "C": 10,
   "I": 1,
   "P": 1,
-  "Mitigation": "MS04, ME08",
+  "Mitigation": "ME08",
   "Description": "Competitors are bidding their project offers for a price that can barely cover production costs."
   },
   {
@@ -772,7 +771,7 @@
   "C": 15,
   "P": 1,
   "E": 1,
-  "Mitigation": "MM07, -MM16",
+  "Mitigation": "MM07",
   "Description": "Many team members finally had enough of low salaries, stereotypical attitudes, bad weather, and bad food in this country. They are planning to emigrate to Russia, wherever is better."
   },
   {
@@ -788,7 +787,7 @@
   "P": 1,
   "E": 1,
   "X": 1,
-  "Mitigation": "ME09, -MM17",
+  "Mitigation": "ME09",
   "Description": "A new plague breaks out and forces all staff members to work from home."
   },
   {
@@ -847,7 +846,7 @@
   "I": 1,
   "P": 1,
   "E": 1,
-  "Mitigation": "ME09, -MM17",
+  "Mitigation": "ME09",
   "Description": "The union demands a 4-day work week for employees."
   },
   {

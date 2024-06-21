@@ -115,6 +115,11 @@ export function Cards(): IMitigationCards {
 }
 
   function addUsed(card: IMitigationCard) {
+    card.used = true;
+    card.attributes.cost = 0;
+    card.attributes.quality = 0;
+    card.attributes.scope = 0;
+    card.attributes.time = 0;
     usedMitigations.push(card);
   }
 

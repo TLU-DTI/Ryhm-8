@@ -59,11 +59,21 @@
 </div>
 
 <style>
-  .card {
+  .card,.card-old{
     transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
     user-select: none;
   }
-  .card:hover {
+  .card:hover,.card-old:hover {
+    transform: scale(1.1) translate(2px, 1vh);
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+  }
+  .card:first-child {
+    transform: translateX(2vw);
+    user-select: none;
+
+  }
+  .card:first-child>:hover {
+    transform: translateX(2vw);
     transform: scale(1.1) translate(2px, 1vh);
     transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
   }
