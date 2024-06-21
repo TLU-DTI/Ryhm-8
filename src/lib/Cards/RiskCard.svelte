@@ -202,7 +202,7 @@
     <image
       width="1515"
       height="906"
-      transform="translate(13.07 46.58) scale(.22 .24)"
+      transform="translate(-68 44) scale(.31 .24)"
       xlink:href="/assets/Pictures/RiskCards/{riskCard.id}.jpg"
     />
   </g>
