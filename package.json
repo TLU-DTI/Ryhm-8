@@ -1,7 +1,7 @@
 {
   "name": "mitigate-online-svelte",
   "version": "0.0.1",
-  "public": true,
+  "private": true,
   "browserslist": [
     "defaults"
   ],
