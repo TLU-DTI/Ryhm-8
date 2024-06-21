@@ -20,7 +20,6 @@
 
   $effect(() => {
     info = SaveGameState.SaveGameState().stats;
-    console.log(info?.cost + ' gamewon');
     score = ((info?.cost + info?.quality + info?.scope + info?.time) / 4 / 1.04).toFixed(1);
   });
 </script>
