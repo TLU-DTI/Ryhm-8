@@ -1,5 +1,5 @@
 <svg
-  id="Credits"
+  id="Start"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   viewBox="0 0 154.35 42.04"
@@ -7,7 +7,7 @@
 >
   <defs>
     <linearGradient
-      id="Credits_linear-gradient"
+      id="Start_linear-gradient"
       x1="89.08"
       y1="81.85"
       x2="69.67"
@@ -19,7 +19,7 @@
       <stop offset="1" stop-color="#d9ffde" />
     </linearGradient>
     <linearGradient
-      id="Credits_linear-gradient-2"
+      id="Start_linear-gradient-2"
       x1="88.35"
       y1="78.11"
       x2="70.13"
@@ -34,7 +34,7 @@
     <path
       d="M67.77-56.16h18.82c6.41,0,11.61,5.2,11.61,11.61V86.59c0,6.41-5.2,11.61-11.61,11.61h-18.82c-6.41,0-11.61-5.2-11.61-11.61V-44.54c0-6.41,5.2-11.61,11.61-11.61Z"
       transform="translate(98.2 -56.16) rotate(90)"
-      fill="url(#Credits_linear-gradient)"
+      fill="url(#Start_linear-gradient)"
       stroke-width="0"
     />
     <rect
@@ -44,10 +44,10 @@
       height="38"
       rx="9.78"
       ry="9.78"
-      fill="url(#Credits_linear-gradient-2)"
+      fill="url(#Start_linear-gradient-2)"
       stroke-width="0"
     /><text
-      transform="translate(40.66 28.18)"
+      transform="translate(51.73 28.18)"
       fill="#f7ffec"
       font-family="ChangaOne, &apos;Changa One&apos;"
       font-size="22.65"
@@ -56,7 +56,7 @@
       stroke-linejoin="round"
       stroke-width=".51"
     >
-      <tspan x="0" y="0">Credits</tspan>
+      <tspan x="0" y="0">Start</tspan>
     </text>
   </g>
 </svg>

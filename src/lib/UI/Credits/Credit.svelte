@@ -14,7 +14,7 @@
 </script>
 
 <div class="size-full content-center text-center">
-  <button type="button" class="credits-button" onclick={() => (isPopupOpen = true)}>
+  <button type="button" class="credits-button size-full" onclick={() => (isPopupOpen = true)}>
     <CreditSVG />
   </button>
 </div>
