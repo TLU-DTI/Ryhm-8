@@ -28,9 +28,8 @@ Projekt koostatud DTI suvepraktiga raames. Projekt on tehtud meie kliendi Martin
 Arendus Keskonna paigaldusjuhend:
 
 1. Tõmba alla repo kas kloonimise või zip failina
-2. Ava folder Mitigate Online Visual Studio Code programmiga või muu arendus vahendiga
-3. Et käima panna arendus keskonda ava terminal ja kasuta käsku "npm run dev"
-4. Vaikimisi port kus lehekülg jookseb on: 5173
+2. Et käima panna arendus keskonda ava terminal ja kasuta käsku "npm run dev"
+3. Vaikimisi port kus lehekülg jookseb on: 5173
    arenduseks on vajalik node.js installitud arvutisse
 
 This project is licensed under the MIT License.
