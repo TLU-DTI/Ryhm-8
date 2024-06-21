@@ -34,7 +34,7 @@
     display: flex;
     align-items: center;
     height: 100vh;
-    background: url('../assets/bg/filter.svg'), url('../assets/bg/bg.jpg');
+    background: url('/assets/bg/filter.svg'), url('/assets/bg/bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
