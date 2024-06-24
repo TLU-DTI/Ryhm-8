@@ -26,14 +26,6 @@ Mäng koosneb 12 voorust, kus igal voorul esitatakse mängijale, kaartide näol 
 - Kaspar Merisalu
 - Kadir Alp Yalti
 
-Arendus Keskonna paigaldusjuhend:
-
-1. Tõmba alla repo kas kloonimise või zip failina
-2. Et installida vajalikud moodulid "npm install --force"
-3. Et käima panna arendus keskonda ava terminal ja kasuta käsku "npm run dev"
-4. Vaikimisi port kus lehekülg jookseb on: 5173
-   arenduseks on vajalik node.js installitud arvutisse
-
 # Arenduskeskkonna Paigaldusjuhend
 
 ## Eelnevalt peab süsteemis olema paigaldatud:
@@ -73,7 +65,7 @@ Arendus Keskonna paigaldusjuhend:
      (käivitab mängu localhostis, tüüpiliselt localhost:5174)
 
 
-# Svelte rakenduse veebis serveerimiseks ettevalmistamise juhend
+# Svelte Rakenduse Veebis Serveerimiseks Ettevalmistamise Juhend
 
 ## Eeltingimused
 Veenduge, et teie süsteemis on paigaldatud järgmised programmid:
