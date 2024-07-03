@@ -4,6 +4,8 @@
   import Logo from './Logo.svelte';
   import Start from './Start.svelte';
 
+  import Version from '../../version?raw';
+
   const handleStartClick = () => {
     window.location.href = '/game';
   };
@@ -27,6 +29,7 @@
       <Credit />
     </div>
   </div>
+  {Version}
 </div>
 
 <style lang="scss">
