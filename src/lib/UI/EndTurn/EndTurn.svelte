@@ -11,6 +11,7 @@
   import { type INotification } from '$lib/States/NotificationState.svelte';
   import { getContext, onMount } from 'svelte';
   import type { IEndTurn } from '$lib/States/EndTurnState.svelte';
+  import GameStateSvelte from '$lib/States/GameState.svelte';
 
   const Notifiction = getContext<INotification>('Notification');
   const Timeline = getContext<ITimeline>('Timeline');
@@ -83,22 +84,22 @@
     Objective.Time.move(-timeTotal);
 
     if (
-      Objective.Cost.barPos < 33 ||
-      Objective.Quality.barPos < 33 ||
-      Objective.Scope.barPos < 33 ||
-      Objective.Time.barPos < 33
+      Objective.Cost.barPos < 40 ||
+      Objective.Quality.barPos < 40 ||
+      Objective.Scope.barPos < 40 ||
+      Objective.Time.barPos < 40
     ) {
       gameOver = true;
       return;
     }
 
     if (Timeline.current.stage == 4) {
-      // GameStateSvelte.SaveGameState().updateStats(
-      //   Objective.Cost.barPos,
-      //   Objective.Quality.barPos,
-      //   Objective.Scope.barPos,
-      //   Objective.Time.barPos
-      // );
+      GameStateSvelte.SaveGameState().updateStats(
+        Objective.Cost.barPos,
+        Objective.Quality.barPos,
+        Objective.Scope.barPos,
+        Objective.Time.barPos
+      );
       gameWon = true;
     }
 

@@ -3,7 +3,7 @@
   import { onMount } from 'svelte';
   import Logo from './Logo.svelte';
   import Start from './Start.svelte';
-
+  import Tutorial from '$lib/UI/Tutorial/Tutorial.svelte';
   import Version from '../../version?raw';
 
   const handleStartClick = () => {
@@ -25,6 +25,9 @@
     <button class="w-44" onclick={handleStartClick}>
       <Start />
     </button>
+    <div class="w-44">
+      <Tutorial />
+    </div>
     <div class="w-44">
       <Credit />
     </div>

@@ -1,0 +1,62 @@
+<svg
+  id="Tutorial"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 0 154.35 42.04"
+  style="width: inherit; height: inherit;"
+>
+  <defs>
+    <linearGradient
+      id="Tutorial_linear-gradient"
+      x1="89.08"
+      y1="81.85"
+      x2="69.67"
+      y2="-17.34"
+      gradientTransform="translate(56.16 98.2) rotate(-90)"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset="0" stop-color="#bdf8c7" />
+      <stop offset="1" stop-color="#d9ffde" />
+    </linearGradient>
+    <linearGradient
+      id="Tutorial_linear-gradient-2"
+      x1="88.35"
+      y1="78.11"
+      x2="70.13"
+      y2="-14.98"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset="0" stop-color="#21cf46" />
+      <stop offset=".99" stop-color="#67ff7d" />
+    </linearGradient>
+  </defs>
+  <g>
+    <path
+      d="M67.77-56.16h18.82c6.41,0,11.61,5.2,11.61,11.61V86.59c0,6.41-5.2,11.61-11.61,11.61h-18.82c-6.41,0-11.61-5.2-11.61-11.61V-44.54c0-6.41,5.2-11.61,11.61-11.61Z"
+      transform="translate(98.2 -56.16) rotate(90)"
+      fill="url(#Tutorial_linear-gradient)"
+      stroke-width="0"
+    />
+    <rect
+      x="2.02"
+      y="2.02"
+      width="150.31"
+      height="38"
+      rx="9.78"
+      ry="9.78"
+      fill="url(#Tutorial_linear-gradient-2)"
+      stroke-width="0"
+    /><text
+      transform="translate(40.66 28.18)"
+      fill="#f7ffec"
+      font-family="ChangaOne, &apos;Changa One&apos;"
+      font-size="22.65"
+      stroke="#282844"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width=".51"
+    >
+      <tspan x="0" y="0">Tutorial</tspan>
+    </text>
+  </g>
+</svg>
