@@ -8,25 +8,25 @@ export class Objective {
 
   readonly SPEED = 800
 
-  public get scope(): number { return this._scope.value }
-  public set scope(value: number) { this._scope.value = value }
-  public set scopeLen(value: number) { this._scope._length = value }
-  public set scopeStart(value: number) { this._scope.start = value }
+  get scope(): number { return this._scope.value }
+  set scope(value: number) { this._scope.value = value }
+  set scopeLen(value: number) { this._scope._length = value }
+  set scopeStart(value: number) { this._scope.start = value }
 
-  public get quality(): number { return this._quality.value }
-  public set quality(value: number) { this._quality.value = value }
-  public set qualityLen(value: number) { this._quality._length = value }
-  public set qualityStart(value: number) { this._quality.start = value }
+  get quality(): number { return this._quality.value }
+  set quality(value: number) { this._quality.value = value }
+  set qualityLen(value: number) { this._quality._length = value }
+  set qualityStart(value: number) { this._quality.start = value }
 
-  public get time(): number { return this._time.value }
-  public set time(value: number) { this._time.value = value }
-  public set timeLen(value: number) { this._time._length = value }
-  public set timeStart(value: number) { this._time.start = value }
+  get time(): number { return this._time.value }
+  set time(value: number) { this._time.value = value }
+  set timeLen(value: number) { this._time._length = value }
+  set timeStart(value: number) { this._time.start = value }
 
-  public get cost(): number { return this._cost.value }
-  public set cost(value: number) { this._cost.value = value }
-  public set costLen(value: number) { this._cost._length = value }
-  public set costStart(value: number) { this._cost.start = value }
+  get cost(): number { return this._cost.value }
+  set cost(value: number) { this._cost.value = value }
+  set costLen(value: number) { this._cost._length = value }
+  set costStart(value: number) { this._cost.start = value }
 }
 
 class Component {
@@ -35,6 +35,7 @@ class Component {
   _end: number = 0
   _length: number = 0
 
+  private LENGHTPREFIX = -3.5
   get value(): number { return this._value }
   set value(value: number) {
     // keeps value between start and end
@@ -46,7 +47,7 @@ class Component {
   set start(value: number) {
     this._start = value
     this._value = value
-    this._length -= 3.5
+    this._length = this._length + this.LENGHTPREFIX
     this._end = value + this._length
   }
 }

@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Engine } from '$lib/Engine';
+  import { SVG } from '@svgdotjs/svg.js';
   import { onMount } from 'svelte';
   import { expoInOut } from 'svelte/easing';
   import { tweened } from 'svelte/motion';
@@ -20,6 +21,14 @@
   $effect(() => {
     $timeline = Engine.timeline.barPos;
   });
+
+  $effect(() => {
+    SVG(bar).width($timeline);
+  });
+
+  setInterval(() => {
+    Engine.timeline.next();
+  }, 1e3);
 </script>
 
 <svg
