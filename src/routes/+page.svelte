@@ -1,20 +1,13 @@
 <script lang="ts">
   import Credit from '$lib/UI/Credits/Credit.svelte';
-  import { onMount } from 'svelte';
-  import Logo from './Logo.svelte';
-  import Start from './Start.svelte';
+  import Logo from '$lib/UI/Main/Logo.svelte';
+  import Start from '$lib/UI/Main/Start.svelte';
   import Tutorial from '$lib/UI/Tutorial/Tutorial.svelte';
   import Version from '../../version?raw';
 
   const handleStartClick = () => {
     window.location.href = '/game';
   };
-
-  onMount(() => {
-    if (window.location.pathname === '/game') {
-      window.location.reload();
-    }
-  });
 </script>
 
 <div class="wrapper flex-col">
