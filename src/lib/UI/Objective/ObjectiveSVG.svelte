@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { getPathPoint } from '$lib';
   import { Engine } from '$lib/Engine';
   import { SVG } from '@svgdotjs/svg.js';
   import { onMount } from 'svelte';
@@ -36,22 +35,22 @@
   let costTrack: SVGPathElement;
 
   onMount(() => {
-    const scopeCenter = getPathPoint(scopeTrack);
+    const scopeCenter = scopeTrack.getPointAtLength(0);
     SVG(scopeBar).center(scopeCenter.x, scopeCenter.y);
     Engine.objective.scopeLen = scopeTrack.getTotalLength() / 2;
     Engine.objective.scopeStart = scopeCenter.x;
 
-    const qualityCenter = getPathPoint(qualityTrack);
+    const qualityCenter = qualityTrack.getPointAtLength(0);
     SVG(qualityBar).center(qualityCenter.x, qualityCenter.y);
     Engine.objective.qualityLen = qualityTrack.getTotalLength() / 2;
     Engine.objective.qualityStart = qualityCenter.x;
 
-    const timeCenter = getPathPoint(timeTrack);
+    const timeCenter = timeTrack.getPointAtLength(0);
     SVG(timeBar).center(timeCenter.x, timeCenter.y);
     Engine.objective.timeLen = timeTrack.getTotalLength() / 2;
     Engine.objective.timeStart = timeCenter.x;
 
-    const costCenter = getPathPoint(costTrack);
+    const costCenter = costTrack.getPointAtLength(0);
     SVG(costBar).center(costCenter.x, costCenter.y);
     Engine.objective.costLen = costTrack.getTotalLength() / 2;
     Engine.objective.costStart = costCenter.x;

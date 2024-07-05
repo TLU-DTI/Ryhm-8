@@ -1,3 +1,27 @@
+<script lang="ts">
+  import { Engine } from '$lib/Engine';
+  import { onMount } from 'svelte';
+  import { expoInOut } from 'svelte/easing';
+  import { tweened } from 'svelte/motion';
+
+  let timeline = tweened(0, {
+    duration: Engine.timeline.SPEED,
+    easing: expoInOut
+  });
+
+  let bar: SVGRectElement;
+  let track: SVGPathElement;
+
+  onMount(() => {
+    Engine.timeline.length = track.getTotalLength() / 2;
+    Engine.timeline.start = track.getPointAtLength(0).x;
+  });
+
+  $effect(() => {
+    $timeline = Engine.timeline.barPos;
+  });
+</script>
+
 <svg
   id="Timeline"
   xmlns="http://www.w3.org/2000/svg"
@@ -98,6 +122,7 @@
   <g id="Loading">
     <g clip-path="url(#Timeline_clippath)">
       <path
+        bind:this={track}
         id="Timeline_progress-bar-track"
         d="M8.23,32.51h349.33s-349.33,0-349.33,0Z"
         fill="#fff"
@@ -105,6 +130,7 @@
         stroke-width="0"
       />
       <rect
+        bind:this={bar}
         id="Timeline_progress-bar"
         x="3.23"
         y="23.63"
