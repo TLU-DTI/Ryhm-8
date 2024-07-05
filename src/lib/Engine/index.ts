@@ -1,5 +1,10 @@
-import { Engine } from "./engine.svelte";
+import { Engine as engine } from "./engine.svelte";
 
-const engine = new Engine();
+const Engine = new engine();
 
-export default engine;
+export { Engine };
+
+export interface Point {
+  x: number;
+  y: number;
+}

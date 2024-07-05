@@ -1,3 +1,77 @@
+<script lang="ts">
+  import { getPathPoint } from '$lib';
+  import { Engine } from '$lib/Engine';
+  import { SVG } from '@svgdotjs/svg.js';
+  import { onMount } from 'svelte';
+  import { tweened } from 'svelte/motion';
+  import { expoInOut } from 'svelte/easing';
+
+  let scope = tweened(0, {
+    duration: Engine.objective.SPEED,
+    easing: expoInOut
+  });
+
+  let scopeBar: SVGRectElement;
+  let scopeTrack: SVGPathElement;
+
+  let quality = tweened(0, {
+    duration: Engine.objective.SPEED,
+    easing: expoInOut
+  });
+  let qualityBar: SVGRectElement;
+  let qualityTrack: SVGPathElement;
+
+  let time = tweened(0, {
+    duration: Engine.objective.SPEED,
+    easing: expoInOut
+  });
+  let timeBar: SVGRectElement;
+  let timeTrack: SVGPathElement;
+
+  let cost = tweened(0, {
+    duration: Engine.objective.SPEED,
+    easing: expoInOut
+  });
+  let costBar: SVGRectElement;
+  let costTrack: SVGPathElement;
+
+  onMount(() => {
+    const scopeCenter = getPathPoint(scopeTrack);
+    SVG(scopeBar).center(scopeCenter.x, scopeCenter.y);
+    Engine.objective.scopeLen = scopeTrack.getTotalLength() / 2;
+    Engine.objective.scopeStart = scopeCenter.x;
+
+    const qualityCenter = getPathPoint(qualityTrack);
+    SVG(qualityBar).center(qualityCenter.x, qualityCenter.y);
+    Engine.objective.qualityLen = qualityTrack.getTotalLength() / 2;
+    Engine.objective.qualityStart = qualityCenter.x;
+
+    const timeCenter = getPathPoint(timeTrack);
+    SVG(timeBar).center(timeCenter.x, timeCenter.y);
+    Engine.objective.timeLen = timeTrack.getTotalLength() / 2;
+    Engine.objective.timeStart = timeCenter.x;
+
+    const costCenter = getPathPoint(costTrack);
+    SVG(costBar).center(costCenter.x, costCenter.y);
+    Engine.objective.costLen = costTrack.getTotalLength() / 2;
+    Engine.objective.costStart = costCenter.x;
+  });
+
+  $effect(() => {
+    $scope = Engine.objective.scope;
+    $quality = Engine.objective.quality;
+    $time = Engine.objective.time;
+    $cost = Engine.objective.cost;
+  });
+
+  $effect(() => {
+    SVG(scopeBar).x($scope);
+    SVG(qualityBar).x($quality);
+    SVG(timeBar).x($time);
+    SVG(costBar).x($cost);
+  });
+</script>
+
 <!--
   DON'T CHANGE SVG TAG
 
@@ -248,6 +322,7 @@
     <tspan x="0" y="0">More</tspan>
   </text>
   <rect
+    bind:this={scopeBar}
     id="Objectives_Scope-progress-bar"
     x="78.85"
     y="47.23"
@@ -261,6 +336,7 @@
     stroke-width=".25"
   />
   <path
+    bind:this={scopeTrack}
     id="Objectives_Scope-progress-track"
     d="M27.35,54.75h104.22H27.35Z"
     fill="none"
@@ -304,6 +380,7 @@
     <tspan x="0" y="0">Higher</tspan>
   </text>
   <rect
+    bind:this={qualityBar}
     id="Objectives_Quality-progress-bar"
     x="78.85"
     y="92.83"
@@ -317,6 +394,7 @@
     stroke-width=".25"
   />
   <path
+    bind:this={qualityTrack}
     id="Objectives_Quality-progress-track"
     d="M27.35,100.34h104.22H27.35Z"
     fill="none"
@@ -360,6 +438,7 @@
     <tspan x="0" y="0">Shorter</tspan>
   </text>
   <rect
+    bind:this={timeBar}
     id="Objectives_Time-progress-bar"
     x="78.85"
     y="138.46"
@@ -373,6 +452,7 @@
     stroke-width=".25"
   />
   <path
+    bind:this={timeTrack}
     id="Objectives_Time-progress-track"
     d="M27.35,145.6h104.31H27.35Z"
     fill="none"
@@ -415,6 +495,7 @@
     <tspan x="0" y="0">Cheaper</tspan>
   </text>
   <path
+    bind:this={costTrack}
     id="Objectives_Cost-progress-track"
     d="M27.35,191.59h104.31H27.35Z"
     fill="none"
@@ -424,6 +505,7 @@
     stroke-width=".25"
   />
   <rect
+    bind:this={costBar}
     id="Objectives_Cost-progress-bar"
     x="78.85"
     y="184.08"
