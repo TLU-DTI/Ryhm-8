@@ -1,7 +1,27 @@
+import type { ComponentStatusEvent, GameStatusEvent } from "./engine.svelte";
 
 interface EventMap {
-  'my-event': CustomEvent<{ foo: string }>;
-  'my-event2': CustomEvent<{ foo: number }>;
+  'status': CustomEvent<GameStatusEvent>;
+  'component-status': CustomEvent<ComponentStatusEvent>;
+}
+
+export class Event {
+  private _eventBus = new EventBus();
+  private _eventHandler = new EventHandler();
+
+  on<T extends keyof EventMap>(type: T, listener: (event: EventMap[T]) => void) {
+    this._eventBus.on(type, listener);
+  }
+  once<T extends keyof EventMap>(type: T, listener: (event: EventMap[T]) => void) {
+    this._eventBus.once(type, listener);
+  }
+  off<T extends keyof EventMap>(type: T, listener: (event: EventMap[T]) => void) {
+    this._eventBus.off(type, listener);
+  }
+  emit<T extends keyof EventMap>(type: T, detail?: EventMap[T]['detail']) {
+    this._eventBus.emit(type, detail);
+  }
+  constructor() { }
 }
 
 
@@ -13,7 +33,7 @@ interface EventMap {
 //   console.log(detail);
 // });
 // myEventBus.emit('event-name', 'Hello');
-export class EventBus {
+class EventBus {
   private eventTarget: EventTarget;
 
   constructor(description = '') {
@@ -31,4 +51,8 @@ export class EventBus {
   emit<T extends keyof EventMap>(type: T, detail?: EventMap[T]['detail']) {
     return this.eventTarget.dispatchEvent(new CustomEvent(type, { detail }));
   }
+}
+
+class EventHandler {
+  constructor() { }
 }

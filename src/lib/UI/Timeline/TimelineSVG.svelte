@@ -5,6 +5,11 @@
   import { expoInOut } from 'svelte/easing';
   import { tweened } from 'svelte/motion';
 
+  Engine.event.emit('component-status', {
+    name: 'Timeline',
+    status: 'Loading'
+  });
+
   let timeline = tweened(0, {
     duration: Engine.timeline.SPEED,
     easing: expoInOut
@@ -16,6 +21,11 @@
   onMount(() => {
     Engine.timeline.length = track.getTotalLength() / 2;
     Engine.timeline.start = track.getPointAtLength(0).x;
+
+    Engine.event.emit('component-status', {
+      name: 'Timeline',
+      status: 'Ready'
+    });
   });
 
   $effect(() => {

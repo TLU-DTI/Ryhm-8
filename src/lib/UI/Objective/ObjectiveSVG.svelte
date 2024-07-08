@@ -5,6 +5,11 @@
   import { tweened } from 'svelte/motion';
   import { expoInOut } from 'svelte/easing';
 
+  Engine.event.emit('component-status', {
+    name: 'Objective',
+    status: 'Loading'
+  });
+
   let scope = tweened(0, {
     duration: Engine.objective.SPEED,
     easing: expoInOut
@@ -54,6 +59,11 @@
     SVG(costBar).center(costCenter.x, costCenter.y);
     Engine.objective.costLen = costTrack.getTotalLength() / 2;
     Engine.objective.costStart = costCenter.x;
+
+    Engine.event.emit('component-status', {
+      name: 'Objective',
+      status: 'Ready'
+    });
   });
 
   $effect(() => {
