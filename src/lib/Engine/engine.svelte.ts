@@ -1,5 +1,6 @@
 import { Event } from "./event.svelte";
 import { Objective } from "./objective.svelte";
+import { RiskLogs } from "./risklog.svelte";
 import { Timeline } from "./timeline.svelte";
 
 export interface GameStatusEvent {
@@ -18,6 +19,7 @@ export const ComponentCount = 5;
 export class Engine {
   readonly objective = new Objective();
   readonly timeline = new Timeline();
+  readonly risklog = new RiskLogs();
 
   readonly event = new Event();
 
@@ -39,11 +41,11 @@ export class Engine {
   }
 
   componentStatusEventHandler() {
-    this.event.on('component-status', ({ detail }) => {
-      if (detail.status === 'Ready') {
-        if (this._componentStatus.includes(detail)) return
+    this.event.on('component-status', (e) => {
+      if (e.status === 'Ready') {
+        if (this._componentStatus.includes(e)) return
 
-        this._componentStatus.push(detail);
+        this._componentStatus.push(e);
         if (this._componentStatus.length === ComponentCount) {
           this.status = 'Ready';
         }

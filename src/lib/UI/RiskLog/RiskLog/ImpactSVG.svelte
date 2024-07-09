@@ -1,8 +1,10 @@
 <script lang="ts">
+  import type { Impact } from '$lib/Engine/risklog.svelte';
+
   let {
-    text
+    impact
   }: {
-    text: 'Low' | 'Medium' | 'High';
+    impact: Impact;
   } = $props();
 </script>
 
@@ -37,7 +39,7 @@
     />
     <foreignObject x="16" y="-1.5" width="45" height="16">
       <div class="">
-        <p class="text-[11px] text-white">{text}</p>
+        <p class="text-[11px] text-white">{impact}</p>
       </div>
     </foreignObject>
   </g>

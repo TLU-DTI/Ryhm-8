@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { Category, Color, Impact } from '$lib/Engine/risklog.svelte';
   import RiskLogSvg from './RiskLogSVG.svelte';
 
   let {
@@ -10,9 +11,9 @@
   }: {
     risk: string;
     mitigate: string;
-    category: 'External' | 'Management' | 'Technical' | 'Commercial';
-    impact: 'Low' | 'Medium' | 'High';
-    color: 'Red' | 'Yellow' | 'Green' | 'Plain';
+    category: Category;
+    impact: Impact;
+    color: string;
   } = $props();
 </script>
 

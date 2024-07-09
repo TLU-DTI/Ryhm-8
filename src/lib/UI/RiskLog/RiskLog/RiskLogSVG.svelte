@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { Impact, Category as TCategory } from '$lib/Engine/risklog.svelte';
   import Category from './Category/Category.svelte';
   import ImpactSvg from './ImpactSVG.svelte';
 
@@ -11,21 +12,10 @@
   }: {
     risk: string;
     mitigate: string;
-    category: 'External' | 'Management' | 'Technical' | 'Commercial';
-    impact: 'Low' | 'Medium' | 'High';
-    color: 'Red' | 'Yellow' | 'Green' | 'Plain';
+    category: TCategory;
+    impact: Impact;
+    color: string;
   } = $props();
-
-  let outer_color: string = $state() as string;
-  if (color === 'Red') {
-    outer_color = '#ea5a3d';
-  } else if (color === 'Yellow') {
-    outer_color = '#f9bd00';
-  } else if (color === 'Green') {
-    outer_color = '#3fa400';
-  } else if (color === 'Plain') {
-    outer_color = '#282844';
-  }
 </script>
 
 <svg
@@ -84,7 +74,7 @@
                 height="55.61"
                 rx="10.78"
                 ry="10.78"
-                fill={outer_color}
+                fill={color}
                 stroke-width="0"
               />
             </g>
@@ -102,7 +92,7 @@
         </foreignObject>
         <foreignObject x="178" y="29" width="78" height="24">
           <div class="">
-            <ImpactSvg text={impact} />
+            <ImpactSvg {impact} />
           </div>
         </foreignObject>
         <foreignObject x="176" y="9" width="78" height="30">

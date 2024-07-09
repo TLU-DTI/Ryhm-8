@@ -1,19 +1,39 @@
 <script lang="ts">
   import SimpleBar from '$lib/Components/SimpleBar.svelte';
-  import RiskLogs, { type IRiskLog } from '$lib/States/RiskLogState.svelte';
-  import RiskLog from './RiskLog/RiskLog.svelte';
+  import { Engine } from '$lib/Engine';
+  import { RiskLog } from '$lib/Engine/risklog.svelte';
+  import { onMount } from 'svelte';
+  import RiskLogComponent from './RiskLog/RiskLog.svelte';
   import RiskLogsSvg from './RiskLogsSVG.svelte';
 
-  let logs = $state([]) as IRiskLog[];
+  Engine.event.emit('component-status', {
+    name: 'RiskLog',
+    status: 'Loading'
+  });
+
+  onMount(() => {
+    Engine.event.emit('component-status', {
+      name: 'RiskLog',
+      status: 'Ready'
+    });
+  });
+
+  let logs: RiskLog[] = $state([]);
 
   $effect(() => {
-    logs = RiskLogs.RiskLogsState.logs;
-
-    // save function incomplete
-    // ((SaveGameState.SaveGameState().loadGame()?.logs) ?? []).forEach(object => {
-    //   RiskLogs.RiskLogsState.addLog(object);
-    // });
+    logs = Engine.risklog.riskLogs;
   });
+
+  setInterval(() => {
+    Engine.risklog.add(
+      new RiskLog('Risk Log', 'Commercial', 'Category', {
+        scope: 0,
+        quality: 2,
+        time: 3,
+        cost: -1
+      })
+    );
+  }, 1e3);
 </script>
 
 <div class="size-full content-center text-center">
@@ -21,12 +41,12 @@
     <SimpleBar>
       <div class="flex flex-col gap-4">
         {#each logs as log}
-          <RiskLog
+          <RiskLogComponent
             risk={log.title}
             mitigate={log.respond}
             category={log.category}
-            impact="Low"
-            color="Plain"
+            impact={log.impact}
+            color={log.color}
           />
         {/each}
       </div>

@@ -3,11 +3,12 @@
   import ManagementSVG from './ManagementSVG.svelte';
   import TechnicalSVG from './TechnicalSVG.svelte';
   import CommercialSVG from './CommercialSVG.svelte';
+  import type { Category } from '$lib/Engine/risklog.svelte';
 
   let {
     category
   }: {
-    category: 'External' | 'Management' | 'Technical' | 'Commercial';
+    category: Category;
   } = $props();
 </script>
 
