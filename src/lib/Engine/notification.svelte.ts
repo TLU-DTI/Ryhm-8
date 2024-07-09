@@ -64,7 +64,7 @@ export class Notifications {
       this._notifications = [];
     }
 
-    this._notifications.unshift(notification);
+    this._notifications.push(notification);
   }
 
   clear() {
