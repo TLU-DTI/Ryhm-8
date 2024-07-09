@@ -3,6 +3,8 @@
   import { Engine } from '$lib/Engine';
   import { onMount } from 'svelte';
   import { Notification } from '$lib/Engine/notification.svelte';
+  import BackButton from './BackButton.svelte';
+  import NextButton from './NextButton.svelte';
 
   Engine.event.emit('component-status', {
     name: 'Notification',
@@ -42,12 +44,17 @@
 
   setTimeout(() => {
     Engine.notification.add(new Notification('Manager', '1', 'Happy'));
-    Engine.notification.add(new Notification('Manager', '2', 'Evil'));
   });
 
   setTimeout(() => {
-    Engine.notification.add(new Notification('Manager', '3', 'Happy'));
-    Engine.notification.add(new Notification('Manager', '4', 'Evil'));
+    Engine.notification.add(new Notification('Manager', '3', 'UnHappy'));
+    Engine.notification.add(
+      new Notification(
+        'Manager',
+        'lorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolor',
+        'Evil'
+      )
+    );
   }, 2e3);
 </script>
 
@@ -71,9 +78,10 @@
       stroke-miterlimit="10"
       stroke-width="4"
     />
+
     <foreignObject x="140" y="10" width="280" height="170">
       <SimpleBar>
-        <div class="font-['Lato'] text-white">
+        <div class="select-none font-['Lato'] text-white">
           <span class="mr-1 font-['Changa_One'] text-xl">{name}:</span>
           {message}
         </div>
@@ -85,9 +93,27 @@
         <svelte:component this={icon} />
       </div>
     </foreignObject>
+
+    {#if notifictions.length > 1}
+      <foreignObject x="320" y="-4" width="70" height="22">
+        <div class="size-full text-center">
+          <p class="select-none font-['Lato'] text-white">{index + 1}/{notifictions.length}</p>
+        </div>
+      </foreignObject>
+
+      <foreignObject x="230" y="180" width="90" height="34">
+        <div class="size-full select-none">
+          <button class="absolute left-1/4 h-full w-1/2" onclick={backButton}> </button>
+          <BackButton />
+        </div>
+      </foreignObject>
+
+      <foreignObject x="300" y="180" width="90" height="34">
+        <div class="size-full select-none">
+          <button class="absolute left-1/4 h-full w-1/2" onclick={nextButton}> </button>
+          <NextButton />
+        </div>
+      </foreignObject>
+    {/if}
   </svg>
-  <div>
-    <button onclick={backButton}> Back </button>
-    <button onclick={nextButton}> Next </button>
-  </div>
 {/if}
