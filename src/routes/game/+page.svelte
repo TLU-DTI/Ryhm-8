@@ -5,7 +5,7 @@
   import MitigationCards from '$lib/UI/MitigationCards/MitigationCards.svelte';
   import Manager from '$lib/UI/Notification/Notification.svelte';
   import Objective from '$lib/UI/Objective/Objective.svelte';
-  import RiskLog from '$lib/UI/RiskLog/RiskLogs.svelte';
+  import RiskLogs from '$lib/UI/RiskLogs/RiskLogs.svelte';
   import Timeline from '$lib/UI/Timeline/Timeline.svelte';
 </script>
 
@@ -20,7 +20,9 @@
       <div class="h-[4vh]"></div>
 
       <div class="relative h-[46vh]">
-        <RiskLog />
+        <div class="size-full">
+          <RiskLogs />
+        </div>
       </div>
     </div>
 
@@ -32,7 +34,9 @@
     <!-- Column 2 -->
     <div class="w-[48vw]">
       <div class="relative h-[10vh]">
-        <Timeline />
+        <div class="size-full">
+          <Timeline />
+        </div>
       </div>
 
       <div class="h-[1vh]"></div>
