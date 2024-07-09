@@ -1,18 +1,102 @@
 <script lang="ts">
-  import ManagerSvg from './NotificationSVG.svelte';
-  import Happy from './Manager/Happy.svelte';
-  // import Mad from './Manager/Mad.svelte';
-  // import Unhappy from './Manager/Unhappy.svelte';
-  // import Evil from './Manager/Evil.svelte';
+  import SimpleBar from '$lib/Components/SimpleBar.svelte';
+  import { Engine } from '$lib/Engine';
+  import { onMount } from 'svelte';
+  import { Notification } from '$lib/Engine/notification.svelte';
 
-  import type { INotification } from '$lib/States/NotificationState.svelte';
-  import { getContext } from 'svelte';
+  Engine.event.emit('component-status', {
+    name: 'Notification',
+    status: 'Loading'
+  });
 
-  let notifiction = getContext<INotification>('Notification');
+  onMount(() => {
+    Engine.event.emit('component-status', {
+      name: 'Notification',
+      status: 'Ready'
+    });
+  });
+
+  let notifictions: Notification[] | undefined = $state();
+
+  $effect(() => {
+    notifictions = Engine.notification.notifications;
+  });
+
+  setTimeout(() => {
+    let message = `
+    gdfgdfgdfgdfg
+    dfgfghfghfgh
+    df
+    gdffghfghfghgdfgdfgdfgdfg
+    dfgfghfghfgh
+    df
+    gdffghfghfgh
+    gdfghfg
+    Fragmentdfghfg
+    dfhdgh
+    ghfg
+    dghfghgdfgdfgdfgdfg
+    dfgfghfghfgh
+    df
+    gdffghfghfgh
+    gdfghfg
+    Fragmentdfghfg
+    dfhdgh
+    ghfg
+    dghfghgdfgdfgdfgdfg
+    dfgfghfghfgh
+    df
+    gdffghfghfgh
+    gdfghfg
+    Fragmentdfghfg
+    dfhdgh
+    ghfg
+    dghfgh
+    gdfghfg
+    Fragmentdfghfg
+    dfhdgh
+    ghfg
+    dghfgh
+hfg
+    `;
+    Engine.notification.add(new Notification('Manager', message, 'Happy'));
+  });
 </script>
 
-{#if notifiction?.notification}
-  <div class="size-full">
-    <ManagerSvg name="Manager" icon={Happy} message={notifiction.notification.message} />
-  </div>
+{#if notifictions}
+  {#each notifictions as { name, message, icon }}
+    <svg
+      id="Manager"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 428.25 215.31"
+      style="height: inherit; width: inherit;"
+    >
+      <rect
+        x="34.98"
+        y="2"
+        width="391.28"
+        height="183.41"
+        rx="8.4"
+        ry="8.4"
+        fill="#282844"
+        stroke="#6e78b3"
+        stroke-miterlimit="10"
+        stroke-width="4"
+      />
+      <foreignObject x="140" y="10" width="280" height="170">
+        <SimpleBar>
+          <div class="font-['Lato'] text-white">
+            <span class="mr-1 font-['Changa_One'] text-xl">{name}:</span>
+            {message}
+          </div>
+        </SimpleBar>
+      </foreignObject>
+
+      <foreignObject x="0" y="5" width="140" height="220">
+        <div class="">
+          <svelte:component this={icon} />
+        </div>
+      </foreignObject>
+    </svg>
+  {/each}
 {/if}

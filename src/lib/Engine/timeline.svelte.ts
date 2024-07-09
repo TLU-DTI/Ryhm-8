@@ -1,6 +1,6 @@
 import { clamp } from "$lib"
 
-const stages = {
+const stages = <const>{
   1: [4.1, 7.7, 8.3, 8.3, 8.5],
   2: [10, 7.8, 8.2],
   3: [10.4, 7.5, 8.2],

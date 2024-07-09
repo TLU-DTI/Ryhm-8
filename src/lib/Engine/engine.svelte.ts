@@ -1,4 +1,5 @@
 import { Event } from "./event.svelte";
+import { Notifications } from "./notification.svelte";
 import { Objective } from "./objective.svelte";
 import { RiskLogs } from "./risklog.svelte";
 import { Timeline } from "./timeline.svelte";
@@ -20,6 +21,7 @@ export class Engine {
   readonly objective = new Objective();
   readonly timeline = new Timeline();
   readonly risklog = new RiskLogs();
+  readonly notification = new Notifications();
 
   readonly event = new Event();
 

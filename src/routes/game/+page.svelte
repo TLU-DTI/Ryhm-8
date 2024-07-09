@@ -3,7 +3,7 @@
   import EndTurn from '$lib/UI/EndTurn/EndTurn.svelte';
   import MenuRestart from '$lib/UI/MenuRestart/MenuRestart.svelte';
   import MitigationCards from '$lib/UI/MitigationCards/MitigationCards.svelte';
-  import Manager from '$lib/UI/Notification/Notification.svelte';
+  import Notification from '$lib/UI/Notification/Notification.svelte';
   import Objective from '$lib/UI/Objective/Objective.svelte';
   import RiskLogs from '$lib/UI/RiskLogs/RiskLogs.svelte';
   import Timeline from '$lib/UI/Timeline/Timeline.svelte';
@@ -14,7 +14,9 @@
     <!-- Column 1 -->
     <div class="w-[20vw]">
       <div class="relative h-[50vh]">
-        <Objective />
+        <div class="size-full">
+          <Objective />
+        </div>
       </div>
 
       <div class="h-[4vh]"></div>
@@ -66,7 +68,9 @@
       <div class="h-[6vh]"></div>
 
       <div class="relative h-[24vh]">
-        <Manager />
+        <div class="size-full">
+          <Notification />
+        </div>
       </div>
 
       <div class="h-[42vh]"></div>
