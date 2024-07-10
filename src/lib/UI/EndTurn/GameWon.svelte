@@ -1,7 +1,6 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
   import SaveGameState, { type IObjective } from '$lib/States/GameState.svelte';
-  const { show } = $props();
 
   let info = $state() as IObjective;
   let score = $state();
@@ -25,23 +24,21 @@
   });
 </script>
 
-{#if show}
-  <div class="modal-overlay">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>You Win!</h2>
-      </div>
-      <div class="modal-body">
-        <p>Congratulations! You have successfully managed all risks.</p>
-        <p>Score: {score} / 100</p>
-      </div>
-      <div class="modal-footer">
-        <button class="main-menu-button" onclick={restartGame}>Restart</button>
-        <button class="main-menu-button" onclick={goToMainMenu}>Main Menu</button>
-      </div>
+<div class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>You Win!</h2>
+    </div>
+    <div class="modal-body">
+      <p>Congratulations! You have successfully managed all risks.</p>
+      <p>Score: {score} / 100</p>
+    </div>
+    <div class="modal-footer">
+      <button class="main-menu-button" onclick={restartGame}>Restart</button>
+      <button class="main-menu-button" onclick={goToMainMenu}>Main Menu</button>
     </div>
   </div>
-{/if}
+</div>
 
 <style>
   .modal-overlay {

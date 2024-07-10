@@ -18,7 +18,7 @@
     });
   });
 
-  let notifictions: Notification[] | undefined = $state();
+  let notifictions: Notification[] | undefined = $derived(Engine.notification.notifications);
 
   let index: number = $state(0);
 
@@ -28,10 +28,6 @@
     } else {
       index = 0;
     }
-  });
-
-  $effect(() => {
-    notifictions = Engine.notification.notifications;
   });
 
   function backButton() {

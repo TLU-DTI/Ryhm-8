@@ -7,9 +7,12 @@ const stages = <const>{
   4: [99],
 }
 
+export const turns = 12
+
 export class Timeline {
   private _stage: number = $state(1)
   private _round: number = $state(0)
+
   private _barPos: number = $state(0)
 
   private _start: number = 0
@@ -22,6 +25,7 @@ export class Timeline {
   constructor() { }
 
   next() {
+
     if (this.stage > Object.keys(stages).length) {
       this.stage = 1;
       this.round = 0;

@@ -18,13 +18,9 @@
     });
   });
 
-  let logs: RiskLog[] = $state([]);
+  let logs: RiskLog[] = $derived(Engine.risklog.riskLogs);
 
-  $effect(() => {
-    logs = Engine.risklog.riskLogs;
-  });
-
-  setInterval(() => {
+  setTimeout(() => {
     Engine.risklog.add(
       new RiskLog('Risk Log', 'Commercial', 'Category', {
         scope: 0,

@@ -3,6 +3,7 @@ import { Notifications } from "./notification.svelte";
 import { Objective } from "./objective.svelte";
 import { RiskLogs } from "./risklog.svelte";
 import { Timeline } from "./timeline.svelte";
+import { Turn, TurnStatus } from "./turn.svelte";
 
 export interface GameStatusEvent {
   status: GameStatus
@@ -22,6 +23,7 @@ export class Engine {
   readonly timeline = new Timeline();
   readonly risklog = new RiskLogs();
   readonly notification = new Notifications();
+  readonly turn = new Turn(this);
 
   readonly event = new Event();
 
@@ -40,6 +42,11 @@ export class Engine {
     this._status = 'Loading';
 
     this.componentStatusEventHandler();
+    this.event.on('status', (e) => {
+      if (e.status === 'Ready') {
+        this.status = 'Running';
+      }
+    })
   }
 
   componentStatusEventHandler() {
@@ -53,5 +60,9 @@ export class Engine {
         }
       }
     })
+  }
+
+  gameEnd() {
+    this.status = 'Ended';
   }
 }

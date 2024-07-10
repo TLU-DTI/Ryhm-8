@@ -1,3 +1,21 @@
+<script lang="ts">
+  const activeColor = {
+    background: '#3ef46f',
+    shadow: '#00a33b',
+    strip: '#058854',
+    border: '#bdf9c9'
+  };
+
+  const inactiveColor = {
+    background: '#b0b0b0',
+    shadow: '#8e8e8e',
+    strip: '#858584',
+    border: '#ededed'
+  };
+
+  let { active }: { active: boolean } = $props();
+</script>
+
 <svg
   id="EndTurn"
   xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +31,7 @@
     rx="14.42"
     ry="14.42"
     transform="translate(80.24 -44.79) rotate(90)"
-    fill="#00a33b"
+    fill={active ? activeColor.shadow : inactiveColor.shadow}
     stroke-width="0"
   />
   <rect
@@ -25,7 +43,7 @@
     rx="14.42"
     ry="14.42"
     transform="translate(77.62 -47.41) rotate(90)"
-    fill="#bdf9c9"
+    fill={active ? activeColor.border : inactiveColor.border}
     stroke-width="0"
   />
   <rect
@@ -36,7 +54,7 @@
     height="26.41"
     rx="11.39"
     ry="11.39"
-    fill="#3ef46f"
+    fill={active ? activeColor.background : inactiveColor.background}
     stroke-width="0"
   />
   <rect
@@ -45,7 +63,7 @@
     y="30.21"
     width="87.83"
     height="2.62"
-    fill="#058854"
+    fill={active ? activeColor.strip : inactiveColor.strip}
     stroke-width="0"
   /><text
     transform="translate(11.5 20.49)"

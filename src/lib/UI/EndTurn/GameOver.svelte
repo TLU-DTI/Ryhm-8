@@ -1,6 +1,5 @@
 <script>
   import { goto } from '$app/navigation';
-  const { show } = $props();
 
   function goToMainMenu() {
     goto('/');
@@ -15,22 +14,20 @@
   }
 </script>
 
-{#if show}
-  <div class="modal-overlay">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Game Over</h2>
-      </div>
-      <div class="modal-body">
-        <p>You have lost the game.</p>
-      </div>
-      <div class="modal-footer">
-        <button class="restart-button" onclick={restartGame}>Restart</button>
-        <button class="main-menu-button" onclick={goToMainMenu}>Main Menu</button>
-      </div>
+<div class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Game Over</h2>
+    </div>
+    <div class="modal-body">
+      <p>You have lost the game.</p>
+    </div>
+    <div class="modal-footer">
+      <button class="restart-button" onclick={restartGame}>Restart</button>
+      <button class="main-menu-button" onclick={goToMainMenu}>Main Menu</button>
     </div>
   </div>
-{/if}
+</div>
 
 <style>
   .modal-overlay {
