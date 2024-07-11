@@ -1,9 +1,11 @@
 <script lang="ts">
+  import type { Category } from './../../Engine/risklog.svelte.ts';
   import MitigateCards, { type IMitigationCard } from '$lib/Cards/MitigationCards.svelte';
   import SimpleBar from '$lib/Components/SimpleBar.svelte';
   import { cardState as cardState2 } from '../CardConnect/states.svelte';
   import MitigationCard from './MitigationCard.svelte';
   import MitigationCardSvg from './MitigationCardsSVG.svelte';
+  import { draggable } from '@neodrag/svelte';
 
   let mitigation = $state([]) as IMitigationCard[];
   let usedMitigations = $state([]) as IMitigationCard[];
@@ -23,12 +25,30 @@
     usedMitigations = MitigateCards.MitigatCardState.usedCardsHand;
     cards = [...usedMitigations, ...mitigation];
   });
+
+  let testCard = {
+    id: '1',
+    title: 'asd',
+    description: 'dfgdfg',
+    category: 'Technical' as Category,
+    attributes: {
+      scope: 0,
+      quality: 0,
+      time: 0,
+      cost: 0
+    },
+    rng: 0,
+    used: false
+  };
 </script>
 
 <div class="size-full">
   <MitigationCardSvg>
     <SimpleBar>
       <div class="flex h-[240px] w-[570px] gap-4">
+        <div class="size-60" use:draggable>
+          <MitigationCard mitigationCard={testCard} />
+        </div>
         {#each cards as card, mCardIndex (card)}
           <div
             class="card-wrapper size-60"
