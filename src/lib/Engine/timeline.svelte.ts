@@ -1,4 +1,6 @@
 import { clamp } from "$lib"
+import type { Engine } from "./engine.svelte"
+import { TurnStatus } from "./turn.svelte"
 
 const stages = <const>{
   1: [4.1, 7.7, 8.3, 8.3, 8.5],
@@ -10,6 +12,8 @@ const stages = <const>{
 export const turns = 12
 
 export class Timeline {
+  private _engine: Engine
+
   private _stage: number = $state(1)
   private _round: number = $state(0)
 
@@ -22,14 +26,14 @@ export class Timeline {
   readonly SPEED = 800
   private STARTPREFIX = -3.3
 
-  constructor() { }
+  constructor(engine: Engine) {
+    this._engine = engine
+  }
 
   next() {
 
     if (this.stage > Object.keys(stages).length) {
-      this.stage = 1;
-      this.round = 0;
-      this.move(-100);
+      this._engine.turn.status = TurnStatus.ENDED
     } else if (this.round === stages[this.stage as keyof typeof stages].length) {
       this.round = 0;
       this.stage += 1;

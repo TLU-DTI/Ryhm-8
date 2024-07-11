@@ -22,10 +22,11 @@ export class Turn {
 
   next() {
     this._engine.timeline.next();
-    this.status = TurnStatus.ONGOING;
 
     if (this._engine.timeline.stage === 5) {
       this._engine.gameEnd();
+    } else {
+      this.status = TurnStatus.ONGOING;
     }
   }
 }

@@ -20,7 +20,7 @@ export const ComponentCount = 5;
 
 export class Engine {
   readonly objective = new Objective();
-  readonly timeline = new Timeline();
+  readonly timeline = new Timeline(this);
   readonly risklog = new RiskLogs();
   readonly notification = new Notifications();
   readonly turn = new Turn(this);
