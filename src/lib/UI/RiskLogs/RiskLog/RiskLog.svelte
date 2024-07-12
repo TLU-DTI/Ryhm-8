@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Category, Color, Impact } from '$lib/Engine/risklog.svelte';
+  import type { Category, Impact } from '$lib/Engine';
   import RiskLogSvg from './RiskLogSVG.svelte';
 
   let {

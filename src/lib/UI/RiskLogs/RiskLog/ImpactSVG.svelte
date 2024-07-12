@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Impact } from '$lib/Engine/risklog.svelte';
+  import type { Impact } from '$lib/Engine';
 
   let {
     impact

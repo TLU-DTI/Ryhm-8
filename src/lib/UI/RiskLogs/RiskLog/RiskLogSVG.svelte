@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Impact, Category as TCategory } from '$lib/Engine/risklog.svelte';
+  import type { Impact, Category as TCategory } from '$lib/Engine';
   import Category from './Category/Category.svelte';
   import ImpactSvg from './ImpactSVG.svelte';
 

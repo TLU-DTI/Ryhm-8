@@ -1,26 +1,28 @@
 <script lang="ts">
-  import type { IMitigationCard } from '$lib/Cards/MitigationCards.svelte';
+  import { Category } from '$lib/Engine';
+  import type { MitiCard } from '$lib/Engine/Cards/MitiCard.svelte';
   let {
-    mitigationCard
+    card
   }: {
-    mitigationCard: IMitigationCard;
+    card: MitiCard;
   } = $props();
 
   let color: string = $state('#43466e');
 
-  if (mitigationCard.category === 'Technical') {
+  if (card.category === Category.Technical) {
     color = '#3e97ff';
-  } else if (mitigationCard.category === 'Management') {
+  } else if (card.category === Category.Management) {
     color = '#38963b';
-  } else if (mitigationCard.category === 'Commercial') {
+  } else if (card.category === Category.Commercial) {
     color = '#f07d3a';
-  } else if (mitigationCard.category === 'External') {
+  } else if (card.category === Category.External) {
     color = '#a152ad';
   }
 </script>
 
 <svg
-  id="ActionCard_{mitigationCard.id}"
+  id="ActionCard_{card.id}"
+  class="select-none"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   viewBox="0 0 119.02 172.82"
@@ -81,12 +83,12 @@
     <div
       class="font-['Change One'] z-50 size-full content-center text-center text-[8px] font-bold text-white"
     >
-      {mitigationCard.title}
+      {card.title}
     </div>
   </foreignObject>
   <foreignObject x="10" y="110" width="100" height="60">
     <div class="size-full text-center font-['Lato'] text-[7px] text-white">
-      {mitigationCard.description}
+      {card.description}
     </div>
   </foreignObject>
   <g id="Frame">
@@ -105,7 +107,7 @@
           width="1024"
           height="1024"
           transform="translate(21.93 29.14) scale(.07)"
-          xlink:href="/assets/Pictures/MitigationCards/{mitigationCard.id}.jpg"
+          xlink:href="/assets/Pictures/MitigationCards/{card.id}.jpg"
         />
       </g>
     </g>

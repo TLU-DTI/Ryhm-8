@@ -1,11 +1,11 @@
 <script lang="ts">
-  import type { Category } from './../../Engine/risklog.svelte.ts';
   import MitigateCards, { type IMitigationCard } from '$lib/Cards/MitigationCards.svelte';
   import SimpleBar from '$lib/Components/SimpleBar.svelte';
-  import { cardState as cardState2 } from '../CardConnect/states.svelte';
-  import MitigationCard from './MitigationCard.svelte';
-  import MitigationCardSvg from './MitigationCardsSVG.svelte';
+  import type { Category } from '$lib/Engine';
+  import { cardState as cardState2 } from '$lib/UI/CardConnect/states.svelte.js';
+  import MitiCard from '$lib/UI/Cards/MitiCard.svelte';
   import { draggable } from '@neodrag/svelte';
+  import ActionCardsSvg from './ActionCardsSVG.svelte';
 
   let mitigation = $state([]) as IMitigationCard[];
   let usedMitigations = $state([]) as IMitigationCard[];
@@ -43,11 +43,11 @@
 </script>
 
 <div class="size-full">
-  <MitigationCardSvg>
+  <ActionCardsSvg>
     <SimpleBar>
       <div class="flex h-[240px] w-[570px] gap-4">
         <div class="size-60" use:draggable>
-          <MitigationCard mitigationCard={testCard} />
+          <MitiCard card={testCard} />
         </div>
         {#each cards as card, mCardIndex (card)}
           <div
@@ -61,13 +61,13 @@
             {#if card.used}
               <div class="card-old">
                 <div class="w-[165px]">
-                  <MitigationCard mitigationCard={card} />
+                  <MitiCard {card} />
                 </div>
               </div>
             {:else}
               <div class="card">
                 <div class="w-[165px]">
-                  <MitigationCard mitigationCard={card} />
+                  <MitiCard {card} />
                 </div>
               </div>
             {/if}
@@ -75,7 +75,7 @@
         {/each}
       </div>
     </SimpleBar>
-  </MitigationCardSvg>
+  </ActionCardsSvg>
 </div>
 
 <style>

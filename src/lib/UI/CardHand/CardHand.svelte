@@ -10,7 +10,7 @@
   import { type IObjectiveState } from '$lib/States/ObjectiveState.svelte';
   import anime from 'animejs';
   import { type INotification } from '$lib/States/NotificationState.svelte';
-  import RiskCard from '$lib/Cards/RiskCard.svelte';
+  import RiskCard from '$lib/UI/Cards/RiskCard.svelte';
 
   let risks = $state([]) as IRiskCard[];
 

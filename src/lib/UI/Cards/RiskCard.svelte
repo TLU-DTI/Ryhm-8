@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IRiskCard } from './RiskCards.svelte';
+  import type { IRiskCard } from '../../Cards/RiskCards.svelte';
 
   let { riskCard }: { riskCard: IRiskCard } = $props();
 </script>

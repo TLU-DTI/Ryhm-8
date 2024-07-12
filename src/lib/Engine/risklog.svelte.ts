@@ -1,14 +1,6 @@
+import type { Attributes, Category, Color, Impact } from ".";
 
-export interface Attributes {
-  scope: number;
-  quality: number;
-  time: number;
-  cost: number;
-}
 
-export type Category = 'Technical' | 'Management' | 'Commercial' | 'External';
-export type Impact = 'Low' | 'Medium' | 'High';
-export type Color = 'Red' | 'Yellow' | 'Green' | 'Plain';
 
 export class RiskLog {
   title: string

@@ -1,4 +1,4 @@
-import RiskCardsJson from './riskcards.json';
+// import RiskCardsJson from './riskcards.json';
 import Timeline from '$lib/States/TimelineState.svelte';
 
 export const RiskCardState = $state() as IRiskCards;
@@ -66,7 +66,7 @@ export function RiskCards(): IRiskCards {
   const riskCards: IRiskCard[] = [] as IRiskCard[];
   const cardsInHand: IRiskCard[] = $state([]) as IRiskCard[];
 
-  addRiskCards(RiskCardsJson as RiskData[]);
+  // addRiskCards(RiskCardsJson as RiskData[]);
 
   function addRiskCards(data: RiskData[]) {
     for (let i = 0; i < data.length; i++) {
