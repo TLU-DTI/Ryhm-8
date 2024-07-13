@@ -4,6 +4,7 @@ import { Event } from './event.svelte';
 import { Notifications } from './notification.svelte';
 import { Objective } from './objective.svelte';
 import { RiskLogs } from './risklog.svelte';
+import { SaveGame } from './save.svelte';
 import { Timeline } from './timeline.svelte';
 import { Turn } from './turn.svelte';
 
@@ -31,6 +32,7 @@ export class Engine {
   readonly riskHand = new RiskHand();
 
   readonly event = new Event();
+  readonly savegame = new SaveGame(this);
 
   _componentStatus: ComponentStatusEvent[] = [];
 
@@ -73,5 +75,5 @@ export class Engine {
     this.status = 'Ended';
   }
 
-  restart() {}
+  restart() { }
 }

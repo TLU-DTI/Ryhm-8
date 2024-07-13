@@ -21,7 +21,7 @@
   let turnStatus: TurnStatus = $derived(Engine.turn.status);
   let active = $derived(turnStatus === TurnStatus.ONGOING);
 
-  let x = 0;
+  // let x = 0;
   // setInterval(() => {
   //   if (x == 1) {
   //     Engine.turn.status = TurnStatus.ONGOING;
@@ -37,6 +37,7 @@
   class="flex size-full select-none items-center justify-center"
   onclick={() => {
     Engine.turn.next();
+    Engine.savegame.save();
   }}
   disabled={!active}
 >

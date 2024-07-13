@@ -86,7 +86,7 @@ class Component {
   set value(value: number) {
     // keeps value between start and end
     // value is a percentage
-    this._value = clamp(this._value + (value / 100) * this._length, this._start, this._end);
+    this._value = clamp(this._value + (value / 100 * this._length), this._start, this._end);
   }
   set valueTo(value: number) {
     this._value = value;

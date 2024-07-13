@@ -5,53 +5,30 @@ import type { Notification } from './notification.svelte';
 import type { RiskCard } from './Cards/RiskCard.svelte';
 import type { MitiCard } from './Cards/MitiCard.svelte';
 
-class SaveData {
+interface SaveData {
   objective: {
     scope: number;
     quality: number;
     time: number;
     cost: number;
   };
-
   timeline: {
     stage: number;
     round: number;
     barPos: number;
   };
-
   turn: {
     status: TurnStatus;
   };
-
   riskHand: {
     handCards: RiskCard[];
   };
-
   mitiHand: {
     handCards: MitiCard[];
     usedCards: MitiCard[];
   };
-
   logs: RiskLog[];
-  notification: Notification[];
-
-  constructor(
-    objective: { scope: number; quality: number; time: number; cost: number },
-    timeline: { stage: number; round: number; barPos: number },
-    turn: { status: TurnStatus },
-    riskHand: { handCards: RiskCard[] },
-    mitiHand: { handCards: MitiCard[]; usedCards: MitiCard[] },
-    logs: RiskLog[],
-    notification: Notification[]
-  ) {
-    this.objective = objective;
-    this.timeline = timeline;
-    this.turn = turn;
-    this.riskHand = riskHand;
-    this.mitiHand = mitiHand;
-    this.logs = logs;
-    this.notification = notification;
-  }
+  notification?: Notification[];
 }
 
 export class SaveGame {
@@ -62,8 +39,34 @@ export class SaveGame {
   }
 
   save() {
-    const data = {};
+    const data: SaveData = {
+      objective: {
+        scope: this._engine.objective.scope,
+        quality: this._engine.objective.quality,
+        time: this._engine.objective.time,
+        cost: this._engine.objective.cost,
+      },
+      timeline: {
+        stage: this._engine.timeline.stage,
+        round: this._engine.timeline.round,
+        barPos: this._engine.timeline.barPos,
+      },
+      turn: {
+        status: this._engine.turn.status
+      },
+      riskHand: {
+        handCards: this._engine.riskHand.handCards
+      },
+      mitiHand: {
+        handCards: this._engine.mitihand.handCards,
+        usedCards: this._engine.mitihand.usedCards,
+      },
+      logs: this._engine.risklog.riskLogs,
+      notification: this._engine.notification.notifications,
+    };
+
+    localStorage.setItem('save', JSON.stringify(data));
   }
 
-  load() {}
+  load() { }
 }

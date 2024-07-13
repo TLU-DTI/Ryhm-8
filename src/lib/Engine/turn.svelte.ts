@@ -1,11 +1,11 @@
 import type { Engine } from './engine.svelte';
 
 export enum TurnStatus {
-  ONGOING,
-  WAITING,
-  ENDED,
-  GAMEOVER,
-  GAMEWON
+  ONGOING = 'ONGOING',
+  WAITING = 'WAITING',
+  ENDED = 'ENDED',
+  GAMEOVER = 'GAMEOVER',
+  GAMEWON = 'GAMEWON'
 }
 
 export class Turn {
