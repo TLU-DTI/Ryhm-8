@@ -19,20 +19,6 @@
   </button>
 </div>
 
-<!-- {#if isPopupOpen}
-  <div class="popup-overlay" role="dialog" aria-modal="true" tabindex="0" onclick={closePopup}>
-    <div class="popup" role="document" onclick={(e) => e.stopPropagation()} tabindex="0">
-      <h2>Game Menu</h2>
-      <div class="buttons-container">
-        <button class="menu-button restart-button" onclick={restartGame}>Restart</button>
-        <button class="menu-button main-menu-button" onclick={goToMainMenu}>Main Menu</button>
-      </div>
-      <button type="button" class="close-button" onclick={closePopup}>Close</button>
-    </div>
-  </div>
-{/if} 
--->
-
 <Modal bind:showModal>
   <div class="popup font-['Lato']">
     <h2 class="text-lg">Game Menu</h2>

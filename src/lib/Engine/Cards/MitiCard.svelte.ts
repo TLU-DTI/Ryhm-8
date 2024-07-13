@@ -1,8 +1,10 @@
+import { shuffle } from '$lib';
 import MitiCardsJson from '$lib/Data/miticards.json';
 
 import type { Category } from "..";
+import type { RiskCard } from './RiskCard.svelte';
 
-interface MitigationData {
+interface MitiData {
   '#': string;
   Mitigation: string;
   Category: Category;
@@ -28,7 +30,7 @@ export class MitiCard {
   category: Category;
   attributes: Attributes;
   rng: boolean;
-  used?: boolean;
+  used: boolean;
 
   constructor(id: string, title: string, description: string, category: Category, attributes: Attributes, rng: boolean) {
     this.id = id;
@@ -37,36 +39,74 @@ export class MitiCard {
     this.category = category;
     this.attributes = attributes;
     this.rng = rng;
+    this.used = false;
   }
-
 }
 
-export class MitiCardJson {
-  private _cards: MitiCard[] = [];
-  get cards(): MitiCard[] { return this._cards; }
+export class MitiHand {
+  readonly mitiCards = MitiCardJson();
 
-  constructor() {
-    this.addCards(MitiCardsJson as MitigationData[]);
-  }
+  private _handCards: MitiCard[] = $state([]);
+  get handCards(): MitiCard[] { return this._handCards; }
 
-  addCard(card: MitiCard) { this._cards.push(card); }
-  addCards(data: MitigationData[]) {
-    for (let i = 0; i < data.length; i++) {
-      const card = {
-        id: data[i]['#'],
-        rng: data[i].RND === 'RND',
-        category: data[i].Category,
-        title: data[i].Mitigation,
-        description: data[i].Description,
-        attributes: {
-          scope: data[i].S,
-          quality: data[i].Q,
-          time: data[i].T,
-          cost: data[i].C
-        }
-      };
+  private _usedCards: MitiCard[] = $state([]);
+  get usedCards(): MitiCard[] { return this._usedCards; }
 
-      this._cards.push(card);
+
+  createHand(amount: number, riskHand: RiskCard[]) {
+    this._handCards = [];
+
+    // have 1 correct card
+    riskHand.forEach(element => {
+      const foundElement = this.mitiCards.find(card => card.id === element.mitigation[Math.floor(Math.random() * element.mitigation.length)]);
+
+      if (foundElement) {
+        this._handCards.push(foundElement);
+      }
+    });
+
+    // fill in rest
+    if (this._handCards.length < amount) {
+      while (this._handCards.length < amount) {
+        const randomIndex = Math.floor(Math.random() * this.mitiCards.length);
+        this._handCards.push(this.mitiCards[randomIndex]);
+      }
     }
+
+    this._handCards = shuffle(this._handCards);
   }
+
+  addUsed(card: MitiCard) {
+    card.used = true;
+    card.attributes.cost = 0;
+    card.attributes.quality = 0;
+    card.attributes.scope = 0;
+    card.attributes.time = 0;
+    this._usedCards.push(card);
+  }
+}
+
+function MitiCardJson(): MitiCard[] {
+  const cards: MitiCard[] = []
+  const data = MitiCardsJson as MitiData[]
+
+  for (let i = 0; i < data.length; i++) {
+    const card = {
+      id: data[i]['#'],
+      rng: data[i].RND === 'RND',
+      category: data[i].Category,
+      title: data[i].Mitigation,
+      description: data[i].Description,
+      attributes: {
+        scope: data[i].S,
+        quality: data[i].Q,
+        time: data[i].T,
+        cost: data[i].C
+      },
+      used: false
+    };
+    cards.push(card);
+  }
+
+  return cards
 }

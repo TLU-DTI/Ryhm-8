@@ -1,9 +1,11 @@
+import { MitiHand } from "./Cards/MitiCard.svelte";
+import { RiskHand } from "./Cards/RiskCard.svelte";
 import { Event } from "./event.svelte";
 import { Notifications } from "./notification.svelte";
 import { Objective } from "./objective.svelte";
 import { RiskLogs } from "./risklog.svelte";
 import { Timeline } from "./timeline.svelte";
-import { Turn, TurnStatus } from "./turn.svelte";
+import { Turn } from "./turn.svelte";
 
 export interface GameStatusEvent {
   status: GameStatus
@@ -24,6 +26,9 @@ export class Engine {
   readonly risklog = new RiskLogs();
   readonly notification = new Notifications();
   readonly turn = new Turn(this);
+
+  readonly mitihand = new MitiHand();
+  readonly riskHand = new RiskHand();
 
   readonly event = new Event();
 
@@ -64,5 +69,9 @@ export class Engine {
 
   gameEnd() {
     this.status = 'Ended';
+  }
+
+  restart() {
+
   }
 }

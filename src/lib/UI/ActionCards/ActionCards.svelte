@@ -1,5 +1,5 @@
 <script lang="ts">
-  import MitigateCards, { type IMitigationCard } from '$lib/Cards/MitigationCards.svelte';
+  // import MitigateCards, { type IMitigationCard } from '$lib/Cards/MitigationCards.svelte';
   import SimpleBar from '$lib/Components/SimpleBar.svelte';
   import type { Category } from '$lib/Engine';
   import { cardState as cardState2 } from '$lib/UI/CardConnect/states.svelte.js';
