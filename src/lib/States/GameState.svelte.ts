@@ -1,5 +1,5 @@
 import type { IMitigationCard } from '$lib/Cards/MitigationCards.svelte';
-import type { IRiskCard }  from '$lib/Cards/RiskCards.svelte';
+import type { IRiskCard } from '$lib/Cards/RiskCards.svelte';
 import type { IRiskLog } from '$lib/States/RiskLogState.svelte';
 
 export interface IObjective {
@@ -43,13 +43,11 @@ export const GameState = $state<IGameState>({
   },
   mitigationCards: [],
   riskCards: [],
-  manager: 
-    {
-      title: 'Big Bousman',
-      message: 'erro',
-      name: 'Manager'
-    }
-  ,
+  manager: {
+    title: 'Big Bousman',
+    message: 'erro',
+    name: 'Manager'
+  },
   logs: [],
   timelineStage: 0,
   round: 0
@@ -58,7 +56,7 @@ export const GameState = $state<IGameState>({
 export function SaveGameState(): ISaveGame {
   const storageKey = 'game_save';
   //let stats: IObjective = $state() as IObjective;
-  const stats: IObjective = GameState.objectives; 
+  const stats: IObjective = GameState.objectives;
 
   let save: IGameState | null = null;
 
@@ -82,16 +80,15 @@ export function SaveGameState(): ISaveGame {
     save = null;
   }
 
-  function updateStats(cost: number, quality: number, scope: number, time: number){
+  function updateStats(cost: number, quality: number, scope: number, time: number) {
     //console.log(cost + " gamestate");
-    
+
     stats.cost = cost;
     stats.quality = quality;
     stats.scope = scope;
     stats.time = time;
 
     //console.log(stats.cost + " gamestate2");
-    
   }
 
   //const save: IGameState | null = loadGame() ?? null;
@@ -102,7 +99,7 @@ export function SaveGameState(): ISaveGame {
     loadGame,
     clearSave,
     updateStats,
-    get stats(){
+    get stats() {
       return stats;
     }
   };

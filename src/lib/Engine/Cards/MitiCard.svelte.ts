@@ -1,7 +1,7 @@
 import { shuffle } from '$lib';
 import MitiCardsJson from '$lib/Data/miticards.json';
 
-import type { Category } from "..";
+import type { Category } from '..';
 import type { RiskCard } from './RiskCard.svelte';
 
 interface MitiData {
@@ -32,7 +32,14 @@ export class MitiCard {
   rng: boolean;
   used: boolean;
 
-  constructor(id: string, title: string, description: string, category: Category, attributes: Attributes, rng: boolean) {
+  constructor(
+    id: string,
+    title: string,
+    description: string,
+    category: Category,
+    attributes: Attributes,
+    rng: boolean
+  ) {
     this.id = id;
     this.title = title;
     this.description = description;
@@ -49,13 +56,15 @@ export class MitiHand {
   handCards: MitiCard[] = $state([]);
   usedCards: MitiCard[] = $state([]);
 
-
   createHand(amount: number, riskHand: RiskCard[]) {
     this.handCards = [];
 
     // have 1 correct card
-    riskHand.forEach(element => {
-      const foundElement = this.mitiCards.find(card => card.id === element.mitigation[Math.floor(Math.random() * element.mitigation.length)]);
+    riskHand.forEach((element) => {
+      const foundElement = this.mitiCards.find(
+        (card) =>
+          card.id === element.mitigation[Math.floor(Math.random() * element.mitigation.length)]
+      );
 
       if (foundElement) {
         this.handCards.push(foundElement);
@@ -84,8 +93,8 @@ export class MitiHand {
 }
 
 function MitiCardJson(): MitiCard[] {
-  const cards: MitiCard[] = []
-  const data = MitiCardsJson as MitiData[]
+  const cards: MitiCard[] = [];
+  const data = MitiCardsJson as MitiData[];
 
   for (let i = 0; i < data.length; i++) {
     const card = {
@@ -105,5 +114,5 @@ function MitiCardJson(): MitiCard[] {
     cards.push(card);
   }
 
-  return cards
+  return cards;
 }

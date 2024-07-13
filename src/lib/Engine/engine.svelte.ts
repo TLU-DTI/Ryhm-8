@@ -1,20 +1,20 @@
-import { MitiHand } from "./Cards/MitiCard.svelte";
-import { RiskHand } from "./Cards/RiskCard.svelte";
-import { Event } from "./event.svelte";
-import { Notifications } from "./notification.svelte";
-import { Objective } from "./objective.svelte";
-import { RiskLogs } from "./risklog.svelte";
-import { Timeline } from "./timeline.svelte";
-import { Turn } from "./turn.svelte";
+import { MitiHand } from './Cards/MitiCard.svelte';
+import { RiskHand } from './Cards/RiskCard.svelte';
+import { Event } from './event.svelte';
+import { Notifications } from './notification.svelte';
+import { Objective } from './objective.svelte';
+import { RiskLogs } from './risklog.svelte';
+import { Timeline } from './timeline.svelte';
+import { Turn } from './turn.svelte';
 
 export interface GameStatusEvent {
-  status: GameStatus
+  status: GameStatus;
 }
 export type GameStatus = 'Loading' | 'Ready' | 'Running' | 'Ended';
 
 export interface ComponentStatusEvent {
-  status: ComponentStatus
-  name: ComponentName
+  status: ComponentStatus;
+  name: ComponentName;
 }
 export type ComponentStatus = 'Loading' | 'Ready';
 export type ComponentName = 'Objective' | 'Timeline' | 'RiskLog' | 'Notification' | 'EndTurn';
@@ -35,9 +35,11 @@ export class Engine {
   _componentStatus: ComponentStatusEvent[] = [];
 
   private _status: GameStatus = $state() as GameStatus;
-  get status(): GameStatus { return this._status; }
+  get status(): GameStatus {
+    return this._status;
+  }
   set status(value: GameStatus) {
-    if (this._status === value) return
+    if (this._status === value) return;
 
     this._status = value;
     this.event.emit('status', { status: value });
@@ -51,27 +53,25 @@ export class Engine {
       if (e.status === 'Ready') {
         this.status = 'Running';
       }
-    })
+    });
   }
 
   componentStatusEventHandler() {
     this.event.on('component-status', (e) => {
       if (e.status === 'Ready') {
-        if (this._componentStatus.includes(e)) return
+        if (this._componentStatus.includes(e)) return;
 
         this._componentStatus.push(e);
         if (this._componentStatus.length === ComponentCount) {
           this.status = 'Ready';
         }
       }
-    })
+    });
   }
 
   gameEnd() {
     this.status = 'Ended';
   }
 
-  restart() {
-
-  }
+  restart() {}
 }

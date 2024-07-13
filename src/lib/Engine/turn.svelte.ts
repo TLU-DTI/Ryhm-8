@@ -1,4 +1,4 @@
-import type { Engine } from "./engine.svelte";
+import type { Engine } from './engine.svelte';
 
 export enum TurnStatus {
   ONGOING,
@@ -9,7 +9,7 @@ export enum TurnStatus {
 }
 
 export class Turn {
-  private _engine: Engine
+  private _engine: Engine;
   private _status: TurnStatus = $state() as TurnStatus;
 
   constructor(engine: Engine) {
@@ -17,8 +17,12 @@ export class Turn {
     this._engine = engine;
   }
 
-  get status(): TurnStatus { return this._status; }
-  set status(value: TurnStatus) { this._status = value; }
+  get status(): TurnStatus {
+    return this._status;
+  }
+  set status(value: TurnStatus) {
+    this._status = value;
+  }
 
   next() {
     this._engine.timeline.next();

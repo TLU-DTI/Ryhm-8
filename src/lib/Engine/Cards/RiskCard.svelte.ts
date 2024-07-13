@@ -1,6 +1,6 @@
 import { shuffle } from '$lib';
 import RiskCardsJson from '$lib/Data/riskcards.json';
-import type { Attributes, Category } from "..";
+import type { Attributes, Category } from '..';
 
 interface RiskData {
   '#': string;
@@ -63,7 +63,7 @@ export class RiskHand {
   handCards: RiskCard[] = $state([]);
 
   createHand(amount: number, stage: number) {
-    this.handCards = []
+    this.handCards = [];
 
     let filteredCards: RiskCard[] = [];
     const stageMap = {
@@ -78,7 +78,9 @@ export class RiskHand {
 
     // get all cards that match the stage
     if (stageKey) {
-      filteredCards = this.riskCards.filter((card) => card.gameStage[stageKey as keyof typeof card.gameStage] === true);
+      filteredCards = this.riskCards.filter(
+        (card) => card.gameStage[stageKey as keyof typeof card.gameStage] === true
+      );
     }
 
     for (let i = 0; i < amount; i++) {
@@ -91,8 +93,8 @@ export class RiskHand {
 }
 
 function RiskCardJson(): RiskCard[] {
-  const cards: RiskCard[] = []
-  const data = RiskCardsJson as RiskData[]
+  const cards: RiskCard[] = [];
+  const data = RiskCardsJson as RiskData[];
 
   for (let i = 0; i < data.length; i++) {
     const card = {
@@ -112,12 +114,12 @@ function RiskCardJson(): RiskCard[] {
         initation: !!data[i].I,
         planning: !!data[i].P,
         execution: !!data[i].E,
-        closing: !!data[i].X,
+        closing: !!data[i].X
       }
     };
 
     cards.push(card);
   }
 
-  return cards
+  return cards;
 }

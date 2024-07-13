@@ -1,4 +1,4 @@
-import { Engine as engine } from "./engine.svelte";
+import { Engine as engine } from './engine.svelte';
 
 const Engine = new engine();
 

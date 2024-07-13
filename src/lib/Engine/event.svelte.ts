@@ -1,11 +1,11 @@
 import mitt from 'mitt';
 
-import type { ComponentStatusEvent, GameStatusEvent } from "./engine.svelte";
+import type { ComponentStatusEvent, GameStatusEvent } from './engine.svelte';
 
 type EventMap = {
-  'status': GameStatusEvent;
+  status: GameStatusEvent;
   'component-status': ComponentStatusEvent;
-}
+};
 
 // example
 // listen to an event
@@ -32,9 +32,9 @@ export class Event {
   emit<T extends keyof EventMap>(type: T, detail: EventMap[T]) {
     this._eventBus.emit(type, detail);
   }
-  constructor() { }
+  constructor() {}
 }
 
 class EventHandler {
-  constructor() { }
+  constructor() {}
 }
