@@ -56,18 +56,17 @@ export class Notification {
 }
 
 export class Notifications {
-  private _notifications: Notification[] | undefined = $state();
-  get notifications() { return this._notifications; }
+  notifications: Notification[] | undefined = $state();
 
   add(notification: Notification) {
-    if (this._notifications === undefined) {
-      this._notifications = [];
+    if (this.notifications === undefined) {
+      this.notifications = [];
     }
 
-    this._notifications.push(notification);
+    this.notifications.push(notification);
   }
 
   clear() {
-    this._notifications = undefined;
+    this.notifications = undefined;
   }
 }

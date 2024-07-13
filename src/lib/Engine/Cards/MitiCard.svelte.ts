@@ -46,34 +46,31 @@ export class MitiCard {
 export class MitiHand {
   readonly mitiCards = MitiCardJson();
 
-  private _handCards: MitiCard[] = $state([]);
-  get handCards(): MitiCard[] { return this._handCards; }
-
-  private _usedCards: MitiCard[] = $state([]);
-  get usedCards(): MitiCard[] { return this._usedCards; }
+  handCards: MitiCard[] = $state([]);
+  usedCards: MitiCard[] = $state([]);
 
 
   createHand(amount: number, riskHand: RiskCard[]) {
-    this._handCards = [];
+    this.handCards = [];
 
     // have 1 correct card
     riskHand.forEach(element => {
       const foundElement = this.mitiCards.find(card => card.id === element.mitigation[Math.floor(Math.random() * element.mitigation.length)]);
 
       if (foundElement) {
-        this._handCards.push(foundElement);
+        this.handCards.push(foundElement);
       }
     });
 
     // fill in rest
-    if (this._handCards.length < amount) {
-      while (this._handCards.length < amount) {
+    if (this.handCards.length < amount) {
+      while (this.handCards.length < amount) {
         const randomIndex = Math.floor(Math.random() * this.mitiCards.length);
-        this._handCards.push(this.mitiCards[randomIndex]);
+        this.handCards.push(this.mitiCards[randomIndex]);
       }
     }
 
-    this._handCards = shuffle(this._handCards);
+    this.handCards = shuffle(this.handCards);
   }
 
   addUsed(card: MitiCard) {
@@ -82,7 +79,7 @@ export class MitiHand {
     card.attributes.quality = 0;
     card.attributes.scope = 0;
     card.attributes.time = 0;
-    this._usedCards.push(card);
+    this.usedCards.push(card);
   }
 }
 

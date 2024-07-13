@@ -60,11 +60,10 @@ export class RiskCard {
 export class RiskHand {
   readonly riskCards = RiskCardJson();
 
-  private _handCards: RiskCard[] = $state([]);
-  public get handCards(): RiskCard[] { return this._handCards; }
+  handCards: RiskCard[] = $state([]);
 
   createHand(amount: number, stage: number) {
-    this._handCards = []
+    this.handCards = []
 
     let filteredCards: RiskCard[] = [];
     const stageMap = {
@@ -84,10 +83,10 @@ export class RiskHand {
 
     for (let i = 0; i < amount; i++) {
       const randomIndex = Math.floor(Math.random() * filteredCards.length);
-      this._handCards.push(filteredCards[randomIndex]);
+      this.handCards.push(filteredCards[randomIndex]);
     }
 
-    this._handCards = shuffle(this._handCards);
+    this.handCards = shuffle(this.handCards);
   }
 }
 

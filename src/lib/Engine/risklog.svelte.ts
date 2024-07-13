@@ -44,6 +44,7 @@ export class RiskLog {
 export class RiskLogs {
   private _riskLogs: RiskLog[] = $state([]);
   get riskLogs(): RiskLog[] { return this._riskLogs; }
+  set riskLogs(value: RiskLog[]) { this._riskLogs = value }
 
   add(riskLog: RiskLog) {
     this._riskLogs.unshift(riskLog)

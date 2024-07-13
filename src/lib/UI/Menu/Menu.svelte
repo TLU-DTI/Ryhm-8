@@ -1,11 +1,12 @@
 <script>
   import Modal from '$lib/Components/Modal.svelte';
+  import { Engine } from '$lib/Engine';
   import MenuSVG from './MenuSVG.svelte';
 
   let showModal = $state(false);
 
   function restartGame() {
-    window.location.reload();
+    Engine.restart();
   }
 
   function goToMainMenu() {

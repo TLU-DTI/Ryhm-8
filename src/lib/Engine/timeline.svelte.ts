@@ -14,8 +14,8 @@ export const turns = 12
 export class Timeline {
   private _engine: Engine
 
-  private _stage: number = $state(1)
-  private _round: number = $state(0)
+  stage: number = $state(1)
+  round: number = $state(0)
 
   private _barPos: number = $state(0)
 
@@ -58,10 +58,7 @@ export class Timeline {
   set barPos(value: number) {
     this._barPos = clamp(this._barPos + (value / 100 * this._length), this._start, this._end)
   }
-
-  get stage(): number { return this._stage }
-  private set stage(value: number) { this._stage = value }
-
-  get round(): number { return this._round }
-  private set round(value: number) { this._round = value }
+  set barPosTo(value: number) {
+    this._barPos = value
+  }
 }
