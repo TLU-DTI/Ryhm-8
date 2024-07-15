@@ -51,8 +51,9 @@ export class Engine {
     this._status = 'Loading';
 
     this.componentStatusEventHandler();
-    this.event.on('status', (e) => {
+    this.event.on('status', async (e) => {
       if (e.status === 'Ready') {
+        await this.savegame.load();
         this.status = 'Running';
       }
     });
@@ -73,7 +74,11 @@ export class Engine {
 
   gameEnd() {
     this.status = 'Ended';
+    this.savegame.clear();
   }
 
-  restart() { }
+  restart() {
+    this.savegame.clear();
+    window.location.reload();
+  }
 }

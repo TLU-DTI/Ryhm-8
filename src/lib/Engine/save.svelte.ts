@@ -31,15 +31,23 @@ interface SaveData {
   notification?: Notification[];
 }
 
+interface Expiry {
+  expiry: number;
+}
+
 export class SaveGame {
   private _engine: Engine;
+
+  status: boolean = $state(false);
+
+  readonly SAVETIME = 1000 * 60 * 60; // 1 hour
 
   constructor(engine: Engine) {
     this._engine = engine;
   }
 
   save() {
-    const data: SaveData = {
+    const data: SaveData & Expiry = {
       objective: {
         scope: this._engine.objective.scope,
         quality: this._engine.objective.quality,
@@ -63,10 +71,48 @@ export class SaveGame {
       },
       logs: this._engine.risklog.riskLogs,
       notification: this._engine.notification.notifications,
+
+      expiry: new Date().getTime() + this.SAVETIME
     };
 
     localStorage.setItem('save', JSON.stringify(data));
+
+    this.status = true;
   }
 
-  load() { }
+  async load() {
+    const data = localStorage.getItem('save')
+
+    if (!data) {
+      return;
+    }
+
+    const parsedData: SaveData & Expiry = JSON.parse(data);
+    if (new Date().getTime() > parsedData.expiry) {
+      this.clear();
+      return;
+    }
+
+    this._engine.objective.scopeTo = parsedData.objective.scope;
+    this._engine.objective.qualityTo = parsedData.objective.quality;
+    this._engine.objective.timeTo = parsedData.objective.time;
+    this._engine.objective.costTo = parsedData.objective.cost;
+    this._engine.timeline.stage = parsedData.timeline.stage;
+    this._engine.timeline.round = parsedData.timeline.round;
+    this._engine.timeline.barPosTo = parsedData.timeline.barPos;
+    this._engine.turn.status = parsedData.turn.status;
+    this._engine.riskHand.handCards = parsedData.riskHand.handCards;
+    this._engine.mitihand.handCards = parsedData.mitiHand.handCards;
+    this._engine.mitihand.usedCards = parsedData.mitiHand.usedCards;
+    this._engine.risklog.riskLogs = parsedData.logs;
+    this._engine.notification.notifications = parsedData.notification;
+
+    this.status = true;
+  }
+
+  clear() {
+    localStorage.removeItem('save');
+
+    this.status = false;
+  }
 }

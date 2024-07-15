@@ -2,7 +2,7 @@
   import SimpleBar from '$lib/Components/SimpleBar.svelte';
   import { Engine } from '$lib/Engine';
   import { onMount } from 'svelte';
-  import { Notification } from '$lib/Engine/notification.svelte';
+  import { Notification, people } from '$lib/Engine/notification.svelte';
   import BackButton from './BackButton.svelte';
   import NextButton from './NextButton.svelte';
 
@@ -55,7 +55,8 @@
 </script>
 
 {#if notifictions}
-  {@const { name, message, icon } = notifictions[index]}
+  {@const { name, message, mood } = notifictions[index]}
+  {@const icon = people.find((p) => p.name === name)?.moods.find((m) => m.mood === mood)?.icon}
   <svg
     id="Manager"
     xmlns="http://www.w3.org/2000/svg"

@@ -20,17 +20,6 @@
 
   let turnStatus: TurnStatus = $derived(Engine.turn.status);
   let active = $derived(turnStatus === TurnStatus.ONGOING);
-
-  // let x = 0;
-  // setInterval(() => {
-  //   if (x == 1) {
-  //     Engine.turn.status = TurnStatus.ONGOING;
-  //     x = 0;
-  //   } else {
-  //     Engine.turn.status = TurnStatus.WAITING;
-  //     x = 1;
-  //   }
-  // }, 1e3);
 </script>
 
 <button
