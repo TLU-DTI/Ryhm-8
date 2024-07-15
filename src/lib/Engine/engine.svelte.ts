@@ -6,7 +6,7 @@ import { Objective } from './objective.svelte';
 import { RiskLogs } from './risklog.svelte';
 import { SaveGame } from './save.svelte';
 import { Timeline } from './timeline.svelte';
-import { Turn } from './turn.svelte';
+import { Turn, TurnStatus } from './turn.svelte';
 
 export interface GameStatusEvent {
   status: GameStatus;
@@ -47,14 +47,17 @@ export class Engine {
     this.event.emit('status', { status: value });
   }
 
+  get score() {
+    return (this.objective.cost + this.objective.quality + this.objective.scope + this.objective.time) / 4;
+  }
+
   constructor() {
     this._status = 'Loading';
 
     this.componentStatusEventHandler();
-    this.event.on('status', async (e) => {
+    this.event.on('status', (e) => {
       if (e.status === 'Ready') {
-        await this.savegame.load();
-        this.status = 'Running';
+        this.start();
       }
     });
   }
@@ -72,9 +75,36 @@ export class Engine {
     });
   }
 
-  gameEnd() {
+  start() {
+    if (this.savegame.status) {
+      this.savegame.load();
+      this.status = 'Running';
+      return;
+    }
+
+    this.notification.add({
+      name: 'Manager',
+      message: "Welcome to Mitigate Inc. I'm your boss and i will let you know how you will do managing the issues that will come your way.",
+      mood: 'Happy'
+    });
+
+    this.riskHand.createHand(1);
+    this.mitihand.createHand(this.riskHand.handCards);
+
+    this.turn.status = TurnStatus.ONGOING;
+    this.status = 'Running';
+  }
+
+  gameWon() {
     this.status = 'Ended';
     this.savegame.clear();
+    this.turn.status = TurnStatus.GAMEWON;
+  }
+
+  gameLost() {
+    this.status = 'Ended';
+    this.savegame.clear();
+    this.turn.status = TurnStatus.GAMEOVER;
   }
 
   restart() {

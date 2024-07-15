@@ -62,8 +62,10 @@ export class RiskHand {
 
   handCards: RiskCard[] = $state([]);
 
-  createHand(amount: number, stage: number) {
+  createHand(stage: number) {
     this.handCards = [];
+
+    const amount = riskCardAmount(stage);
 
     let filteredCards: RiskCard[] = [];
     const stageMap = {
@@ -122,4 +124,21 @@ function RiskCardJson(): RiskCard[] {
   }
 
   return cards;
+}
+
+function riskCardAmount(input: number): number {
+  switch (input) {
+    case 0:
+      return 0;
+    case 1:
+      return 1;
+    case 2:
+      return Math.random() < 0.5 ? 1 : 2;
+    case 3:
+      return Math.random() < 0.5 ? 2 : 3;
+    case 4:
+      return Math.random() < 0.5 ? 4 : 5;
+    default:
+      throw new Error('Input must be 0, 1, 2, or 3');
+  }
 }

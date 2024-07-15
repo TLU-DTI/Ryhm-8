@@ -56,7 +56,7 @@ export class MitiHand {
   handCards: MitiCard[] = $state([]);
   usedCards: MitiCard[] = $state([]);
 
-  createHand(amount: number, riskHand: RiskCard[]) {
+  createHand(riskHand: RiskCard[], amount: number = 3) {
     this.handCards = [];
 
     // have 1 correct card

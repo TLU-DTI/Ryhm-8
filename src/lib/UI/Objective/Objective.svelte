@@ -67,10 +67,10 @@
   });
 
   $effect(() => {
-    $scope = Engine.objective.scope;
-    $quality = Engine.objective.quality;
-    $time = Engine.objective.time;
-    $cost = Engine.objective.cost;
+    $scope = Engine.objective.scopeBarPos;
+    $quality = Engine.objective.qualityBarPos;
+    $time = Engine.objective.timeBarPos;
+    $cost = Engine.objective.costBarPos;
   });
 
   $effect(() => {

@@ -38,7 +38,9 @@ interface Expiry {
 export class SaveGame {
   private _engine: Engine;
 
-  status: boolean = $state(false);
+  get status() {
+    return !!localStorage.getItem('save')
+  }
 
   readonly SAVETIME = 1000 * 60 * 60; // 1 hour
 
@@ -76,11 +78,9 @@ export class SaveGame {
     };
 
     localStorage.setItem('save', JSON.stringify(data));
-
-    this.status = true;
   }
 
-  async load() {
+  load() {
     const data = localStorage.getItem('save')
 
     if (!data) {
@@ -106,13 +106,9 @@ export class SaveGame {
     this._engine.mitihand.usedCards = parsedData.mitiHand.usedCards;
     this._engine.risklog.riskLogs = parsedData.logs;
     this._engine.notification.notifications = parsedData.notification;
-
-    this.status = true;
   }
 
   clear() {
     localStorage.removeItem('save');
-
-    this.status = false;
   }
 }

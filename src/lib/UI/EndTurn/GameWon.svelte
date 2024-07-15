@@ -1,27 +1,13 @@
 <script lang="ts">
-  import { goto } from '$app/navigation';
-  import SaveGameState, { type IObjective } from '$lib/States/GameState.svelte';
-
-  let info = $state() as IObjective;
-  let score = $state();
+  import { Engine } from '$lib/Engine';
 
   function goToMainMenu() {
-    goto('/');
-
-    setTimeout(() => {
-      window.location.reload();
-    }, 100);
+    window.location.assign('/');
   }
 
   function restartGame() {
-    window.location.reload();
+    Engine.restart();
   }
-
-  $effect(() => {
-    info = SaveGameState.SaveGameState().stats;
-    console.log(info?.cost + ' gamewon');
-    score = ((info?.cost + info?.quality + info?.scope + info?.time) / 4 / 1.04).toFixed(1);
-  });
 </script>
 
 <div class="modal-overlay">
@@ -31,7 +17,7 @@
     </div>
     <div class="modal-body">
       <p>Congratulations! You have successfully managed all risks.</p>
-      <p>Score: {score} / 100</p>
+      <p>Score: {Engine.score} / 100</p>
     </div>
     <div class="modal-footer">
       <button class="main-menu-button" onclick={restartGame}>Restart</button>

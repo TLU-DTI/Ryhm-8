@@ -1,16 +1,12 @@
 <script>
-  import { goto } from '$app/navigation';
+  import { Engine } from '$lib/Engine';
 
   function goToMainMenu() {
-    goto('/');
-
-    setTimeout(() => {
-      window.location.reload();
-    }, 100);
+    window.location.assign('/');
   }
 
   function restartGame() {
-    window.location.reload();
+    Engine.restart();
   }
 </script>
 

@@ -11,6 +11,9 @@ export class Objective {
   get scope(): number {
     return this._scope.value;
   }
+  get scopeBarPos(): number {
+    return this._scope._barPos;
+  }
   set scope(value: number) {
     this._scope.value = value;
   }
@@ -26,6 +29,9 @@ export class Objective {
 
   get quality(): number {
     return this._quality.value;
+  }
+  get qualityBarPos(): number {
+    return this._quality._barPos;
   }
   set quality(value: number) {
     this._quality.value = value;
@@ -43,6 +49,9 @@ export class Objective {
   get time(): number {
     return this._time.value;
   }
+  get timeBarPos(): number {
+    return this._time._barPos;
+  }
   set time(value: number) {
     this._time.value = value;
   }
@@ -58,6 +67,9 @@ export class Objective {
 
   get cost(): number {
     return this._cost.value;
+  }
+  get costBarPos(): number {
+    return this._cost._barPos;
   }
   set cost(value: number) {
     this._cost.value = value;
@@ -75,6 +87,8 @@ export class Objective {
 
 class Component {
   _value: number = $state(0);
+  _barPos: number = $state(0);
+
   _start: number = 0;
   _end: number = 0;
   _length: number = 0;
@@ -86,7 +100,8 @@ class Component {
   set value(value: number) {
     // keeps value between start and end
     // value is a percentage
-    this._value = clamp(this._value + (value / 100 * this._length), this._start, this._end);
+    this._barPos = clamp(this._barPos + (value / 100 * this._length), this._start, this._end);
+    this._value = clamp(this._value + value, 0, 100);
   }
   set valueTo(value: number) {
     this._value = value;
@@ -97,7 +112,7 @@ class Component {
   }
   set start(value: number) {
     this._start = value;
-    this._value = value;
+    this._barPos = value;
     this._length = this._length + this.LENGHTPREFIX;
     this._end = value + this._length;
   }

@@ -26,7 +26,6 @@
   class="flex size-full select-none items-center justify-center"
   onclick={() => {
     Engine.turn.next();
-    Engine.savegame.save();
   }}
   disabled={!active}
 >
