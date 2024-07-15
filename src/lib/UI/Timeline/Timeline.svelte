@@ -35,10 +35,6 @@
   $effect(() => {
     SVG(bar).width($timeline);
   });
-
-  // setInterval(() => {
-  //   Engine.timeline.next();
-  // }, 1e3);
 </script>
 
 <svg

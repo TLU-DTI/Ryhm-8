@@ -61,7 +61,7 @@ export class Timeline {
     return this._barPos;
   }
   set barPos(value: number) {
-    this._barPos = clamp(this._barPos + (value / 100 * this._length), this._start, this._end);
+    this._barPos = clamp(this._barPos + (value / 100) * this._length, this._start, this._end);
   }
   set barPosTo(value: number) {
     this._barPos = value;

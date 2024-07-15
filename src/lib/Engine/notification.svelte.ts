@@ -1,4 +1,3 @@
-import type { Component } from 'svelte';
 import Manager_Happy from '$lib/UI/Notification/People/Manager/Happy.svelte';
 import Manager_UnHappy from '$lib/UI/Notification/People/Manager/Unhappy.svelte';
 import Manager_Mad from '$lib/UI/Notification/People/Manager/Mad.svelte';

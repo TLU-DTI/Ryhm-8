@@ -48,7 +48,10 @@ export class Engine {
   }
 
   get score() {
-    return (this.objective.cost + this.objective.quality + this.objective.scope + this.objective.time) / 4;
+    return (
+      (this.objective.cost + this.objective.quality + this.objective.scope + this.objective.time) /
+      4
+    );
   }
 
   constructor() {
@@ -84,7 +87,8 @@ export class Engine {
 
     this.notification.add({
       name: 'Manager',
-      message: "Welcome to Mitigate Inc. I'm your boss and i will let you know how you will do managing the issues that will come your way.",
+      message:
+        "Welcome to Mitigate Inc. I'm your boss and i will let you know how you will do managing the issues that will come your way.",
       mood: 'Happy'
     });
 

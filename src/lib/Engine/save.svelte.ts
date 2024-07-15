@@ -39,7 +39,7 @@ export class SaveGame {
   private _engine: Engine;
 
   get status() {
-    return !!localStorage.getItem('save')
+    return !!localStorage.getItem('save');
   }
 
   readonly SAVETIME = 1000 * 60 * 60; // 1 hour
@@ -54,12 +54,12 @@ export class SaveGame {
         scope: this._engine.objective.scope,
         quality: this._engine.objective.quality,
         time: this._engine.objective.time,
-        cost: this._engine.objective.cost,
+        cost: this._engine.objective.cost
       },
       timeline: {
         stage: this._engine.timeline.stage,
         round: this._engine.timeline.round,
-        barPos: this._engine.timeline.barPos,
+        barPos: this._engine.timeline.barPos
       },
       turn: {
         status: this._engine.turn.status
@@ -69,7 +69,7 @@ export class SaveGame {
       },
       mitiHand: {
         handCards: this._engine.mitihand.handCards,
-        usedCards: this._engine.mitihand.usedCards,
+        usedCards: this._engine.mitihand.usedCards
       },
       logs: this._engine.risklog.riskLogs,
       notification: this._engine.notification.notifications,
@@ -81,7 +81,7 @@ export class SaveGame {
   }
 
   load() {
-    const data = localStorage.getItem('save')
+    const data = localStorage.getItem('save');
 
     if (!data) {
       return;
