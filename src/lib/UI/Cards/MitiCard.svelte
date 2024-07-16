@@ -1,11 +1,8 @@
 <script lang="ts">
   import { Category } from '$lib/Engine';
   import type { MitiCard } from '$lib/Engine/Cards/MitiCard.svelte';
-  let {
-    card
-  }: {
-    card: MitiCard;
-  } = $props();
+
+  let { card }: { card: MitiCard } = $props();
 
   let color: string = $state('#43466e');
 

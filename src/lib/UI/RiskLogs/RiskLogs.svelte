@@ -22,11 +22,31 @@
 
   setTimeout(() => {
     Engine.risklog.add(
-      new RiskLog('Risk Log', 'Commercial', 'Category', {
-        scope: 0,
-        quality: 2,
-        time: 3,
-        cost: -1
+      new RiskLog('Too Strong Currency', 'Management', 'Crisis Meeting', {
+        scope: 5,
+        quality: 5,
+        time: 5,
+        cost: 5
+      })
+    );
+  }, 1e3);
+  setTimeout(() => {
+    Engine.risklog.add(
+      new RiskLog('Lawsuits', 'Management', 'Crisis Meeting', {
+        scope: -5,
+        quality: -5,
+        time: 5,
+        cost: 5
+      })
+    );
+  }, 1e3);
+  setTimeout(() => {
+    Engine.risklog.add(
+      new RiskLog('Pandemic', 'Management', 'Crisis Meeting', {
+        scope: -5,
+        quality: -10,
+        time: -10,
+        cost: -5
       })
     );
   }, 1e3);

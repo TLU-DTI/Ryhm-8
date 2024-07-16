@@ -6,7 +6,7 @@ export class RiskLog {
   respond: string;
   attributes: Attributes;
 
-  impact: Impact;
+  impact!: Impact;
   private _color!: Color;
   get colorText(): string {
     return this._color;
@@ -37,9 +37,31 @@ export class RiskLog {
     this.respond = respond;
     this.attributes = attributes;
 
-    // TODO calculate
-    this.impact = 'Low';
-    this.color = 'Plain';
+    const total = this.attributes.cost + this.attributes.quality + this.attributes.scope + this.attributes.time;
+
+    const IHIGH = 9;
+    const IMEDIUM = 4;
+
+    const RED = -9;
+    const GREEN = 9;
+
+    const totalABS = Math.abs(total)
+
+    if (totalABS >= IHIGH) {
+      this.impact = 'High';
+    } else if (totalABS >= IMEDIUM) {
+      this.impact = 'Medium';
+    } else {
+      this.impact = 'Low';
+    }
+
+    if (total < RED) {
+      this.color = 'Red';
+    } else if (total > GREEN) {
+      this.color = 'Green';
+    } else {
+      this.color = 'Yellow';
+    }
   }
 }
 
@@ -56,5 +78,5 @@ export class RiskLogs {
     this._riskLogs.unshift(riskLog);
   }
 
-  constructor() {}
+  constructor() { }
 }

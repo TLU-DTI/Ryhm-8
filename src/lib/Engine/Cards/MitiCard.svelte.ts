@@ -7,8 +7,8 @@ import type { RiskCard } from './RiskCard.svelte';
 interface MitiData {
   '#': string;
   Mitigation: string;
-  Category: Category;
-  RND: string;
+  Category: string;
+  RND?: string;
   S: number;
   Q: number;
   T: number;
@@ -23,31 +23,14 @@ interface Attributes {
   cost: number;
 }
 
-export class MitiCard {
+export interface MitiCard {
   id: string;
   title: string;
   description: string;
-  category: Category;
+  category: Category[];
   attributes: Attributes;
   rng: boolean;
   used: boolean;
-
-  constructor(
-    id: string,
-    title: string,
-    description: string,
-    category: Category,
-    attributes: Attributes,
-    rng: boolean
-  ) {
-    this.id = id;
-    this.title = title;
-    this.description = description;
-    this.category = category;
-    this.attributes = attributes;
-    this.rng = rng;
-    this.used = false;
-  }
 }
 
 export class MitiHand {
@@ -60,16 +43,19 @@ export class MitiHand {
     this.handCards = [];
 
     // have 1 correct card
-    riskHand.forEach((element) => {
-      const foundElement = this.mitiCards.find(
-        (card) =>
-          card.id === element.mitigation[Math.floor(Math.random() * element.mitigation.length)]
-      );
+    loop:
+    for (const risk of riskHand) {
+      for (const miti of this.mitiCards) {
+        if (!risk.mitigation) return;
 
-      if (foundElement) {
-        this.handCards.push(foundElement);
+        for (const id of risk.mitigation) {
+          if (miti.id === id) {
+            this.handCards.push(miti);
+            break loop;
+          }
+        }
       }
-    });
+    }
 
     // fill in rest
     if (this.handCards.length < amount) {
@@ -80,6 +66,8 @@ export class MitiHand {
     }
 
     this.handCards = shuffle(this.handCards);
+    console.log(this.mitiCards);
+
   }
 
   addUsed(card: MitiCard) {
@@ -94,20 +82,20 @@ export class MitiHand {
 
 function MitiCardJson(): MitiCard[] {
   const cards: MitiCard[] = [];
-  const data = MitiCardsJson as MitiData[];
+  const data: MitiData[] = MitiCardsJson;
 
   for (let i = 0; i < data.length; i++) {
     const card = {
       id: data[i]['#'],
       rng: data[i].RND === 'RND',
-      category: data[i].Category,
+      category: data[i].Category.split(' & ') as Category[],
       title: data[i].Mitigation,
       description: data[i].Description,
       attributes: {
         scope: data[i].S,
         quality: data[i].Q,
-        time: data[i].T,
-        cost: data[i].C
+        time: data[i].T * -1,
+        cost: data[i].C * -1
       },
       used: false
     };
