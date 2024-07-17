@@ -6,13 +6,13 @@
 
   let color: string = $state('#43466e');
 
-  if (card.category === Category.Technical) {
+  if (card.category[0] === Category.Technical) {
     color = '#3e97ff';
-  } else if (card.category === Category.Management) {
+  } else if (card.category[0] === Category.Management) {
     color = '#38963b';
-  } else if (card.category === Category.Commercial) {
+  } else if (card.category[0] === Category.Commercial) {
     color = '#f07d3a';
-  } else if (card.category === Category.External) {
+  } else if (card.category[0] === Category.External) {
     color = '#a152ad';
   }
 </script>

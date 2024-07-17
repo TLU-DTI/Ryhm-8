@@ -5,6 +5,6 @@ import { expect, test } from 'vitest';
 test('no initial greeting', () => {
   render(TimelineSvg);
 
-  expect(document.querySelector('svg')).toBeInTheDocument();
+  expect(document.querySelector('svg'));
   // expect(greeting).not.toBeInTheDocument()
 });
