@@ -3,13 +3,14 @@
   import SimpleBar from '$lib/Components/SimpleBar.svelte';
   import type { Category } from '$lib/Engine';
   import { cardState as cardState2 } from '$lib/UI/CardConnect/states.svelte.js';
-  import MitiCard from '$lib/UI/Cards/MitiCard.svelte';
+  import MitiCardComponent from '$lib/UI/Cards/MitiCard.svelte';
   import { draggable } from '@neodrag/svelte';
   import ActionCardsSvg from './ActionCardsSVG.svelte';
+  import type { MitiCard } from '$lib/Engine/Cards/MitiCard.svelte';
 
-  let mitigation = $state([]) as IMitigationCard[];
-  let usedMitigations = $state([]) as IMitigationCard[];
-  let cards = $state([]) as IMitigationCard[];
+  let mitigation = $state([]) as MitiCard[];
+  let usedMitigations = $state([]) as MitiCard[];
+  let cards = $state([]) as MitiCard[];
 
   let cardState = $state(cardState2);
 
@@ -30,14 +31,14 @@
     id: '1',
     title: 'asd',
     description: 'dfgdfg',
-    category: 'Technical' as Category,
+    category: ['Technical'] as Category[],
     attributes: {
       scope: 0,
       quality: 0,
       time: 0,
       cost: 0
     },
-    rng: 0,
+    rng: false,
     used: false
   };
 </script>
@@ -47,7 +48,7 @@
     <SimpleBar>
       <div class="flex h-[240px] w-[570px] gap-4">
         <div class="size-60" use:draggable>
-          <MitiCard card={testCard} />
+          <MitiCardComponent card={testCard} />
         </div>
         {#each cards as card, mCardIndex (card)}
           <div
@@ -61,13 +62,13 @@
             {#if card.used}
               <div class="card-old">
                 <div class="w-[165px]">
-                  <MitiCard {card} />
+                  <MitiCardComponent {card} />
                 </div>
               </div>
             {:else}
               <div class="card">
                 <div class="w-[165px]">
-                  <MitiCard {card} />
+                  <MitiCardComponent {card} />
                 </div>
               </div>
             {/if}

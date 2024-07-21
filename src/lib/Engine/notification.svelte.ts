@@ -2,6 +2,9 @@ import Manager_Happy from '$lib/UI/Notification/People/Manager/Happy.svelte';
 import Manager_UnHappy from '$lib/UI/Notification/People/Manager/Unhappy.svelte';
 import Manager_Mad from '$lib/UI/Notification/People/Manager/Mad.svelte';
 import Manager_Evil from '$lib/UI/Notification/People/Manager/Evil.svelte';
+import Daisy_Mad from '$lib/UI/Notification/People/Daisy/Mad.svelte';
+import Daisy_Happy from '$lib/UI/Notification/People/Daisy/Happy.svelte';
+import Daisy_UnHappy from '$lib/UI/Notification/People/Daisy/Unhappy.svelte';
 
 export const people = <const>[
   {
@@ -22,6 +25,23 @@ export const people = <const>[
       {
         mood: 'Evil',
         icon: Manager_Evil
+      }
+    ]
+  },
+  {
+    name: 'Daisy',
+    moods: [
+      {
+        mood: 'Happy',
+        icon: Daisy_Happy
+      },
+      {
+        mood: 'UnHappy',
+        icon: Daisy_UnHappy
+      },
+      {
+        mood: 'Mad',
+        icon: Daisy_Mad
       }
     ]
   }
