@@ -1,5 +1,5 @@
 <script lang="ts">
-  // import CardHand from '$lib/UI/CardHand/CardHand.svelte';
+  import CardHand from '$lib/UI/CardHand/CardHand_New.svelte';
   import EndTurn from '$lib/UI/EndTurn/EndTurn.svelte';
   import MenuRestart from '$lib/UI/Menu/Menu.svelte';
   // import ActionCards from '$lib/UI/ActionCards/ActionCards.svelte';
@@ -57,7 +57,7 @@
       <div class="h-[1vh]"></div>
 
       <div class="relative h-[44vh]">
-        <!-- <CardHand /> -->
+        <CardHand />
       </div>
 
       <div class="h-[4vh]"></div>

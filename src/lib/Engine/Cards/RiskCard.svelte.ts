@@ -65,7 +65,7 @@ export class RiskHand {
       );
     }
 
-    for (let i = 0; i < amount; i++) {
+    for (let i = 0; i < amount!; i++) {
       const randomIndex = Math.floor(Math.random() * filteredCards.length);
       this.handCards.push(filteredCards[randomIndex]);
     }
@@ -106,7 +106,7 @@ function RiskCardJson(): RiskCard[] {
   return cards;
 }
 
-function riskCardAmount(input: number): number {
+function riskCardAmount(input: number): number | undefined {
   switch (input) {
     case 0:
       return 0;
@@ -119,6 +119,6 @@ function riskCardAmount(input: number): number {
     case 4:
       return Math.random() < 0.5 ? 4 : 5;
     default:
-      throw new Error('Input must be 0, 1, 2, or 3');
+      console.error('Input must be 0, 1, 2, or 3');
   }
 }
