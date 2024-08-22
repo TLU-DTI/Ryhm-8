@@ -3,6 +3,7 @@
   import EndTurn from '$lib/UI/EndTurn/EndTurn.svelte';
   import MenuRestart from '$lib/UI/Menu/Menu.svelte';
   // import ActionCards from '$lib/UI/ActionCards/ActionCards.svelte';
+  import ActionCards from '$lib/UI/ActionCards/ActionCards_New.svelte';
   import Notification from '$lib/UI/Notification/Notification.svelte';
   import Objective from '$lib/UI/Objective/Objective.svelte';
   import RiskLogs from '$lib/UI/RiskLogs/RiskLogs.svelte';
@@ -63,7 +64,7 @@
       <div class="h-[4vh]"></div>
 
       <div class="relative h-[39vh]">
-        <!-- <ActionCards /> -->
+        <ActionCards />
       </div>
     </div>
 

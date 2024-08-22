@@ -4,28 +4,28 @@
   import type { Category } from '$lib/Engine';
   import { cardState as cardState2 } from '$lib/UI/CardConnect/states.svelte.js';
   import MitiCardComponent from '$lib/UI/Cards/MitiCard.svelte';
-  import { draggable } from '@neodrag/svelte';
+
   import ActionCardsSvg from './ActionCardsSVG.svelte';
   import type { MitiCard } from '$lib/Engine/Cards/MitiCard.svelte';
 
-  let mitigation = $state([]) as MitiCard[];
-  let usedMitigations = $state([]) as MitiCard[];
-  let cards = $state([]) as MitiCard[];
+  // let mitigation = $state([]) as MitiCard[];
+  // let usedMitigations = $state([]) as MitiCard[];
+  // let cards = $state([]) as MitiCard[];
 
-  let cardState = $state(cardState2);
+  // let cardState = $state(cardState2);
 
-  function handleCardDragStart(event: DragEvent, cardId: number) {
-    event.dataTransfer?.setData('text/plain', cardId.toString());
-    cardState = {
-      selectedActionCardId: cardId
-    };
-  }
+  // function handleCardDragStart(event: DragEvent, cardId: number) {
+  //   event.dataTransfer?.setData('text/plain', cardId.toString());
+  //   cardState = {
+  //     selectedActionCardId: cardId
+  //   };
+  // }
 
-  $effect(() => {
-    mitigation = MitigateCards.MitigatCardState.mitigateCardsHand;
-    usedMitigations = MitigateCards.MitigatCardState.usedCardsHand;
-    cards = [...usedMitigations, ...mitigation];
-  });
+  // $effect(() => {
+  //   mitigation = MitigateCards.MitigatCardState.mitigateCardsHand;
+  //   usedMitigations = MitigateCards.MitigatCardState.usedCardsHand;
+  //   cards = [...usedMitigations, ...mitigation];
+  // });
 
   let testCard = {
     id: '1',
@@ -47,7 +47,7 @@
   <ActionCardsSvg>
     <SimpleBar>
       <div class="flex h-[240px] w-[570px] gap-4">
-        <div class="size-60" use:draggable>
+        <div class="size-60">
           <MitiCardComponent card={testCard} />
         </div>
         {#each cards as card, mCardIndex (card)}

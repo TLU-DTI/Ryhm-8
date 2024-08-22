@@ -65,7 +65,7 @@ export class SaveGame {
         status: this._engine.turn.status
       },
       riskHand: {
-        handCards: this._engine.riskHand.handCards
+        handCards: this._engine.riskhand.handCards
       },
       mitiHand: {
         handCards: this._engine.mitihand.handCards,
@@ -101,7 +101,7 @@ export class SaveGame {
     this._engine.timeline.round = parsedData.timeline.round;
     this._engine.timeline.barPosTo = parsedData.timeline.barPos;
     this._engine.turn.status = parsedData.turn.status;
-    this._engine.riskHand.handCards = parsedData.riskHand.handCards;
+    this._engine.riskhand.handCards = parsedData.riskHand.handCards;
     this._engine.mitihand.handCards = parsedData.mitiHand.handCards;
     this._engine.mitihand.usedCards = parsedData.mitiHand.usedCards;
     this._engine.risklog.riskLogs = parsedData.logs;

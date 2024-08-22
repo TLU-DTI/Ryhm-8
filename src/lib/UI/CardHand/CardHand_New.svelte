@@ -2,11 +2,7 @@
   import { Engine } from '$lib/Engine';
   import RiskCard from '../Cards/RiskCard.svelte';
 
-  let cards = $derived(Engine.riskHand.handCards);
-
-  setTimeout(() => {
-    Engine.riskHand.createHand(4);
-  }, 1e3);
+  let cards = $derived(Engine.riskhand.handCards);
 </script>
 
 <div id="card-hand" class="handbg absolute flex size-full pb-4 pl-4 pr-4 pt-4">

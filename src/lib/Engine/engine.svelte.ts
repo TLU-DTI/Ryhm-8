@@ -29,7 +29,7 @@ export class Engine {
   readonly turn = new Turn(this);
 
   readonly mitihand = new MitiHand();
-  readonly riskHand = new RiskHand();
+  readonly riskhand = new RiskHand();
 
   readonly event = new Event();
   readonly savegame = new SaveGame(this);
@@ -92,8 +92,8 @@ export class Engine {
       mood: 'Happy'
     });
 
-    this.riskHand.createHand(1);
-    this.mitihand.createHand(this.riskHand.handCards);
+    this.riskhand.createHand(1);
+    this.mitihand.createHand(this.riskhand.handCards);
 
     this.turn.status = TurnStatus.ONGOING;
     this.status = 'Running';

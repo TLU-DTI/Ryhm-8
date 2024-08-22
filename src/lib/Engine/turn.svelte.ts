@@ -37,8 +37,8 @@ export class Turn {
       return;
     }
 
-    this._engine.riskHand.createHand(this._engine.timeline.stage);
-    this._engine.mitihand.createHand(this._engine.riskHand.handCards);
+    this._engine.riskhand.createHand(this._engine.timeline.stage);
+    this._engine.mitihand.createHand(this._engine.riskhand.handCards);
 
     this._engine.savegame.save();
 
