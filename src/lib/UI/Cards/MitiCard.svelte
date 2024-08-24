@@ -104,7 +104,7 @@
           width="1024"
           height="1024"
           transform="translate(21.93 29.14) scale(.07)"
-          xlink:href="/assets/Pictures/MitigationCards/{card.id}.jpg"
+          xlink:href="/assets/Webp/MitigationCards/{card.id}.webp"
         />
       </g>
     </g>

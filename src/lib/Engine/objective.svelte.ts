@@ -105,6 +105,7 @@ class Component {
   }
   set valueTo(value: number) {
     this._value = value;
+    this._barPos = clamp(this._start + (value / 100) * this._length, this._start, this._end);
   }
 
   get start(): number {

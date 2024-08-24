@@ -95,6 +95,11 @@ export class Engine {
     this.riskhand.createHand(1);
     this.mitihand.createHand(this.riskhand.handCards);
 
+    this.objective.scopeTo = 66;
+    this.objective.qualityTo = 66;
+    this.objective.timeTo = 66;
+    this.objective.costTo = 66;
+
     this.turn.status = TurnStatus.ONGOING;
     this.status = 'Running';
   }

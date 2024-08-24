@@ -19,7 +19,9 @@
   });
 
   let turnStatus: TurnStatus = $derived(Engine.turn.status);
-  let active = $derived(turnStatus === TurnStatus.ONGOING);
+  let active = $derived(
+    turnStatus === TurnStatus.ONGOING && Engine.riskhand.handCards.length === 0
+  );
 </script>
 
 <button
