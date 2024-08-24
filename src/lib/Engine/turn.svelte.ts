@@ -1,11 +1,11 @@
 import type { Engine } from './engine.svelte';
 
 export enum TurnStatus {
-  ONGOING = 'ONGOING',
-  WAITING = 'WAITING',
-  ENDED = 'ENDED',
-  GAMEOVER = 'GAMEOVER',
-  GAMEWON = 'GAMEWON'
+  ONGOING   = 'ONGOING',
+  WAITING   = 'WAITING',
+  ENDED     = 'ENDED',
+  GAMEOVER  = 'GAMEOVER',
+  GAMEWON   = 'GAMEWON'
 }
 
 export class Turn {
@@ -13,7 +13,7 @@ export class Turn {
   private _status: TurnStatus = $state() as TurnStatus;
 
   constructor(engine: Engine) {
-    this.status = TurnStatus.ONGOING;
+    this.status  = TurnStatus.ONGOING;
     this._engine = engine;
   }
 
@@ -27,15 +27,9 @@ export class Turn {
   next() {
     this._engine.timeline.next();
 
-    if (this._engine.timeline.stage === 5) {
-      this._engine.gameWon();
-      return;
-    }
-
-    if (this.isGameOver()) {
-      this._engine.gameLost();
-      return;
-    }
+    if (this._engine.timeline.stage === 5) return this._engine.gameWon();
+    
+    if (this.isGameOver()) return this._engine.gameLost();
 
     this._engine.riskhand.createHand(this._engine.timeline.stage);
     this._engine.mitihand.createHand(this._engine.riskhand.handCards);
@@ -47,10 +41,10 @@ export class Turn {
 
   isGameOver() {
     if (
-      this._engine.objective.cost < 33 ||
-      this._engine.objective.quality < 33 ||
-      this._engine.objective.scope < 33 ||
-      this._engine.objective.time < 33
+      this._engine.objective.cost     < 33 ||
+      this._engine.objective.quality  < 33 ||
+      this._engine.objective.scope    < 33 ||
+      this._engine.objective.time     < 33
     ) {
       return true;
     }

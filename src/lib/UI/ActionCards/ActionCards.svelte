@@ -8,24 +8,24 @@
   import ActionCardsSvg from './ActionCardsSVG.svelte';
   import type { MitiCard } from '$lib/Engine/Cards/MitiCard.svelte';
 
-  // let mitigation = $state([]) as MitiCard[];
-  // let usedMitigations = $state([]) as MitiCard[];
-  // let cards = $state([]) as MitiCard[];
+  let mitigation = $state([]) as MitiCard[];
+  let usedMitigations = $state([]) as MitiCard[];
+  let cards = $state([]) as MitiCard[];
 
-  // let cardState = $state(cardState2);
+  let cardState = $state(cardState2);
 
-  // function handleCardDragStart(event: DragEvent, cardId: number) {
-  //   event.dataTransfer?.setData('text/plain', cardId.toString());
-  //   cardState = {
-  //     selectedActionCardId: cardId
-  //   };
-  // }
+  function handleCardDragStart(event: DragEvent, cardId: number) {
+    event.dataTransfer?.setData('text/plain', cardId.toString());
+    cardState = {
+      selectedActionCardId: cardId
+    };
+  }
 
-  // $effect(() => {
-  //   mitigation = MitigateCards.MitigatCardState.mitigateCardsHand;
-  //   usedMitigations = MitigateCards.MitigatCardState.usedCardsHand;
-  //   cards = [...usedMitigations, ...mitigation];
-  // });
+  $effect(() => {
+    mitigation = MitigateCards.MitigatCardState.mitigateCardsHand;
+    usedMitigations = MitigateCards.MitigatCardState.usedCardsHand;
+    cards = [...usedMitigations, ...mitigation];
+  });
 
   let testCard = {
     id: '1',

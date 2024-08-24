@@ -11,7 +11,7 @@
   <ActionCardsSvg>
     <SimpleBar>
       <div class="flex h-[240px] w-[570px] gap-4">
-        {#each cards as card, mCardIndex (card)}
+        {#each cards as card}
           <div class="card-wrapper size-60">
             {#if card.used}
               <div class="card-old">

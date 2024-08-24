@@ -55,7 +55,7 @@
         </div>
       </div>
 
-      <div class="h-[1vh]"></div>
+      <div class="h-[3vh]"></div>
 
       <div class="relative h-[44vh]">
         <CardHand />
