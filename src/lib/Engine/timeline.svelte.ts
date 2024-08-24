@@ -19,9 +19,9 @@ export class Timeline {
 
   private _barPos: number = $state(0);
 
-  private _start: number  = 0;
+  private _start: number = 0;
   private _length: number = 0;
-  private _end: number    = 0;
+  private _end: number = 0;
 
   readonly SPEED = 800;
   private STARTPREFIX = -3.3;
