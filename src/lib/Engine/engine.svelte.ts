@@ -7,6 +7,7 @@ import { RiskLogs } from './risklog.svelte';
 import { SaveGame } from './save.svelte';
 import { Timeline } from './timeline.svelte';
 import { Turn, TurnStatus } from './turn.svelte';
+import { Drag } from './drag.svelte';
 
 export interface GameStatusEvent {
   status: GameStatus;
@@ -27,6 +28,7 @@ export class Engine {
   readonly risklog = new RiskLogs();
   readonly notification = new Notifications();
   readonly turn = new Turn(this);
+  readonly drag = new Drag();
 
   readonly mitihand = new MitiHand();
   readonly riskhand = new RiskHand();

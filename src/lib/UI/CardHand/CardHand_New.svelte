@@ -7,7 +7,8 @@
 
 <div id="card-hand" class="handbg absolute flex size-full pb-4 pl-4 pr-4 pt-4">
   {#each cards as card}
-    <div class="card-container">
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
+    <div class="card-container" onmouseup={Engine.drag.onMouseUp}>
       <div class="hitbox"></div>
       <div class="card">
         <RiskCard riskCard={card} />
@@ -70,11 +71,11 @@
     z-index: 2;
     cursor: pointer;
     transform: scale(1.2);
-    rotate: 3deg;
+    rotate: 2deg;
   }
 
   .card-container:nth-child(even):hover .card {
-    rotate: -3deg;
+    rotate: -2deg;
   }
   /* .card-container:hover + .card-container {
     transform: translateX(5vw);
