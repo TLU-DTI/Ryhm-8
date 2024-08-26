@@ -19,7 +19,7 @@
 
 <svg
   id="ActionCard_{card.id}"
-  class="select-none"
+  class="pointer pointer-events-none select-none"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   viewBox="0 0 119.02 172.82"
@@ -83,10 +83,16 @@
       {card.title}
     </div>
   </foreignObject>
-  <foreignObject x="10" y="110" width="100" height="60">
-    <div class="size-full text-center font-['Lato'] text-[7px] text-white">
-      {card.description}
-    </div>
+  <foreignObject x="10" y="110" width="100" height="58">
+    {#if card.description.length < 130}
+      <div class="size-full text-center font-['Lato'] text-[7px] text-white">
+        {card.description}
+      </div>
+    {:else}
+      <div class="size-full text-center font-['Lato'] text-[6.5px] text-white">
+        {card.description}
+      </div>
+    {/if}
   </foreignObject>
   <g id="Frame">
     <path

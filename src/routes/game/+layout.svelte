@@ -4,9 +4,17 @@
   import { Engine } from '$lib/Engine';
   let { children }: { children: Snippet } = $props();
 
+  function handleMouseMove(e: MouseEvent) {
+    Engine.drag.onMouseMove(e);
+  }
+
+  function handleMouseUp(e: MouseEvent) {
+    Engine.drag.onMouseUp(e);
+  }
+
   onMount(() => {
-    window.addEventListener('mousemove', Engine.drag.onMouseMove, false);
-    window.addEventListener('mouseup', Engine.drag.onMouseUp, false);
+    window.addEventListener('mousemove', handleMouseMove, false);
+    window.addEventListener('mouseup', handleMouseUp, false);
   });
 </script>
 
