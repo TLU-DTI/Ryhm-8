@@ -48,7 +48,13 @@
 
 <div class="size-full">
   <!-- svelte-ignore a11y_no_static_element_interactions -->
-  <div class="fixed" id="hoverCard" bind:this={hoverCardDiv} onmouseleave={handleCardLeave}>
+  <div
+    class="fixed"
+    id="hoverCard"
+    bind:this={hoverCardDiv}
+    onmouseleave={handleCardLeave}
+    onmousedown={handleMouseDown}
+  >
     {#if hoverCard}
       <MitiCardComponent card={hoverCard} />
     {/if}
@@ -59,7 +65,7 @@
       <div class="flex h-[240px] w-[570px] gap-4">
         {#each cards as card}
           <!-- svelte-ignore a11y_no_static_element_interactions -->
-          <div class="card-wrapper size-60" onmousedown={handleMouseDown}>
+          <div class="card-wrapper size-60">
             {#if card.used}
               <!-- Not using this -->
               <!-- <div class="card-old">

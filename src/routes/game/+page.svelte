@@ -9,6 +9,8 @@
   import RiskLogs from '$lib/UI/RiskLogs/RiskLogs.svelte';
   import Timeline from '$lib/UI/Timeline/Timeline.svelte';
   import { Engine } from '$lib/Engine';
+  import Debug from '$lib/UI/Debug/debug.svelte';
+  import Drag from '$lib/Components/Drag.svelte';
 
   let status = $derived(Engine.status);
 </script>
@@ -22,6 +24,8 @@
     </div>
   </div>
 {/if}
+
+<Drag />
 
 <div class="wrapper">
   <div class="flex">
@@ -87,7 +91,9 @@
         </div>
       </div>
 
-      <div class="h-[42vh]"></div>
+      <div class="h-[42vh]">
+        <Debug />
+      </div>
       <div class="h-[2vh]"></div>
 
       <div class="relative flex h-[7vh]">

@@ -66,8 +66,6 @@ export class MitiHand {
     }
 
     this.handCards = shuffle(this.handCards);
-    console.log(this.mitiCards);
-
   }
 
   addUsed(card: MitiCard) {

@@ -1,18 +1,23 @@
 <script lang="ts">
   import { Engine } from '$lib/Engine';
+  import { onMount } from 'svelte';
   import RiskCard from '../Cards/RiskCard.svelte';
 
   let cards = $derived(Engine.riskhand.handCards);
 
-  function handleMouseDown(e: MouseEvent) {
-    Engine.drag.dragStart(e);
+  function handleMouseUp(e: MouseEvent) {
+    Engine.drag.onMouseUp(e);
   }
+
+  setTimeout(() => {
+    Engine.riskhand.createHand(4);
+  }, 1e3);
 </script>
 
 <div id="card-hand" class="handbg absolute flex size-full pb-4 pl-4 pr-4 pt-4">
   {#each cards as card}
     <!-- svelte-ignore a11y_no_static_element_interactions -->
-    <div class="card-container" onmouseup={handleMouseDown}>
+    <div class="card-container" onmouseup={handleMouseUp}>
       <div class="hitbox"></div>
       <div class="card">
         <RiskCard riskCard={card} />

@@ -9,3 +9,7 @@
     --scrollbar-track: #4d4f6b;
   }
 }
+
+body {
+  user-select: none;
+}
