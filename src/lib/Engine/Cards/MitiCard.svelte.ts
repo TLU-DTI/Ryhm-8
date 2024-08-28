@@ -1,7 +1,7 @@
 import { shuffle } from '$lib';
 import MitiCardsJson from '$lib/Data/miticards.json';
 
-import type { Category } from '..';
+import { Category } from '..';
 import type { RiskCard } from './RiskCard.svelte';
 
 interface MitiData {
@@ -23,7 +23,7 @@ interface Attributes {
   cost: number;
 }
 
-export interface MitiCard {
+export class MitiCard {
   id: string;
   title: string;
   description: string;
@@ -31,13 +31,56 @@ export interface MitiCard {
   attributes: Attributes;
   rng: boolean;
   used: boolean;
+
+  color: string = $state('#43466e');;
+
+  constructor(id: string, title: string, description: string, category: Category[], attributes: Attributes, rng: boolean) {
+    this.id = id;
+    this.title = title;
+    this.description = description;
+    this.category = category;
+    this.attributes = attributes;
+    this.rng = rng;
+    this.used = false;
+
+    if (this.category[0] === "Technical") {
+      this.color = '#3e97ff';
+    } else if (this.category[0] === "Management") {
+      this.color = '#38963b';
+    } else if (this.category[0] === "Commercial") {
+      this.color = '#f07d3a';
+    } else if (this.category[0] === "External") {
+      this.color = '#a152ad';
+    }
+  }
 }
 
 export class MitiHand {
   readonly mitiCards = MitiCardJson();
 
-  handCards: MitiCard[] = $state([]);
-  usedCards: MitiCard[] = $state([]);
+  _handCards: MitiCard[] = $state([]);
+  get handCards(): MitiCard[] {
+    return this._handCards;
+  }
+  set handCards(cards: MitiCard[]) {
+    this._handCards = []
+
+    for (const card of cards) {
+      this._handCards.push(new MitiCard(card.id, card.title, card.description, card.category, card.attributes, card.rng));
+    }
+  }
+
+  _usedCards: MitiCard[] = $state([]);
+  get usedCards(): MitiCard[] {
+    return this._usedCards;
+  }
+  set usedCards(cards: MitiCard[]) {
+    this._usedCards = []
+
+    for (const card of cards) {
+      this._usedCards.push(new MitiCard(card.id, card.title, card.description, card.category, card.attributes, card.rng));
+    }
+  }
 
   createHand(riskHand: RiskCard[], amount: number = 3) {
     this.handCards = [];
@@ -103,9 +146,9 @@ function MitiCardJson(): MitiCard[] {
         time: data[i].T * -1,
         cost: data[i].C * -1
       },
-      used: false
+      used: false,
     };
-    cards.push(card);
+    cards.push(new MitiCard(card.id, card.title, card.description, card.category, card.attributes, card.rng));
   }
 
   return cards;

@@ -13,6 +13,13 @@ export class RiskLog {
   }
 
   private _colorHex!: string;
+  get colorHex(): string {
+    return this._colorHex
+  }
+  set colorHex(colorHex: string) {
+    this._colorHex = colorHex;
+  }
+
   get color(): string {
     return this._colorHex;
   }
@@ -71,7 +78,11 @@ export class RiskLogs {
     return this._riskLogs;
   }
   set riskLogs(value: RiskLog[]) {
-    this._riskLogs = value;
+    this._riskLogs = []
+
+    for (const log of value) {
+      this._riskLogs.push(new RiskLog(log.title, log.category, log.respond, log.attributes));
+    }
   }
 
   add(riskLog: RiskLog) {

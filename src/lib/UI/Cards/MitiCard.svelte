@@ -1,20 +1,9 @@
 <script lang="ts">
   import { Category } from '$lib/Engine';
   import type { MitiCard } from '$lib/Engine/Cards/MitiCard.svelte';
+  import { Engine } from '$lib/Engine/';
 
   let { card }: { card: MitiCard } = $props();
-
-  let color: string = $state('#43466e');
-
-  if (card.category[0] === Category.Technical) {
-    color = '#3e97ff';
-  } else if (card.category[0] === Category.Management) {
-    color = '#38963b';
-  } else if (card.category[0] === Category.Commercial) {
-    color = '#f07d3a';
-  } else if (card.category[0] === Category.External) {
-    color = '#a152ad';
-  }
 </script>
 
 <svg
@@ -60,10 +49,18 @@
     height="107.34"
     rx="3.09"
     ry="3.09"
-    fill={color}
+    fill={card.color}
     stroke-width="0"
   />
-  <rect y="37.63" width="18.56" height="107.34" rx="3.09" ry="3.09" fill={color} stroke-width="0" />
+  <rect
+    y="37.63"
+    width="18.56"
+    height="107.34"
+    rx="3.09"
+    ry="3.09"
+    fill={card.color}
+    stroke-width="0"
+  />
   <rect
     x="3.65"
     y=".89"

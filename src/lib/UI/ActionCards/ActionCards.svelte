@@ -9,7 +9,7 @@
   // let usedCards = $derived(Engine.mitihand.usedCards);
 
   // let cards = $derived([...usedCards, ...mitiCards]);
-  let cards = $derived(mitiCards);
+  // let cards = $derived(mitiCards);
 
   let hoverCard: MitiCard | undefined = $state();
   let hoverCardDiv = $state() as HTMLDivElement;
@@ -63,7 +63,7 @@
   <ActionCardsSvg>
     <SimpleBar>
       <div class="flex h-[240px] w-[570px] gap-4">
-        {#each cards as card}
+        {#each mitiCards as card}
           <!-- svelte-ignore a11y_no_static_element_interactions -->
           <div class="card-wrapper size-60">
             {#if card.used}

@@ -1,5 +1,7 @@
 import type { Engine } from "./engine.svelte";
 import { RiskLog } from "./risklog.svelte";
+import { mount, unmount } from "svelte";
+import RiskAnimation from "$lib/Components/RiskAnimation.svelte";
 
 export class Drag {
   private _engine: Engine;
@@ -157,6 +159,17 @@ export class Drag {
 
     riskhand.handCards = riskhand.handCards.filter(card => card.id !== riskCard.id);
     mitihand.handCards = mitihand.handCards.filter(card => card.id !== mitiCard.id);
+
+    const props = $state({ riskCard: riskCard, self: this });
+    const a = mount(RiskAnimation, {
+      target: document.getElementById("riskanimation")!,
+      props: { riskCard, current: this.mousePos }
+    });
+
+    // race condition go brr
+    setTimeout(() => {
+      unmount(a);
+    }, 550);
 
     this.reset();
   }
