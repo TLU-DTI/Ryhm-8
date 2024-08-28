@@ -28,7 +28,7 @@ export class Engine {
   readonly risklog = new RiskLogs();
   readonly notification = new Notifications();
   readonly turn = new Turn(this);
-  readonly drag = new Drag();
+  readonly drag = new Drag(this);
 
   readonly mitihand = new MitiHand();
   readonly riskhand = new RiskHand();

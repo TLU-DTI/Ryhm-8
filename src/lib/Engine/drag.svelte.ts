@@ -1,5 +1,8 @@
+import type { Engine } from "./engine.svelte";
 
 export class Drag {
+  private _engine: Engine;
+
   dragging: boolean = $state(false);
 
   mitiCard: Node | undefined = $state();
@@ -8,7 +11,8 @@ export class Drag {
   mousePos = $state({ x: 0, y: 0 });
 
 
-  constructor() {
+  constructor(engine: Engine) {
+    this._engine = engine;
   }
 
   onMouseMove(e: MouseEvent) {
@@ -39,6 +43,7 @@ export class Drag {
     }
 
     this.dragging = false;
+    this.handleDrag();
   }
 
   dragStart(e: MouseEvent) {
@@ -56,6 +61,10 @@ export class Drag {
     this.dragging = false;
     this.mitiCard = undefined;
     this.riskCard = undefined;
+  }
+
+  handleDrag() {
+
   }
 }
 

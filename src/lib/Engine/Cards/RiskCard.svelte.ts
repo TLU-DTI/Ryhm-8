@@ -65,8 +65,17 @@ export class RiskHand {
       );
     }
 
-    for (let i = 0; i < amount!; i++) {
+    // fill in rest
+    outer: for (let i = 0; i < amount!; i++) {
       const randomIndex = Math.floor(Math.random() * filteredCards.length);
+
+      // no duplicate
+      for (const card of this.handCards) {
+        if (card.id === filteredCards[randomIndex].id) {
+          continue outer
+        }
+      }
+
       this.handCards.push(filteredCards[randomIndex]);
     }
 

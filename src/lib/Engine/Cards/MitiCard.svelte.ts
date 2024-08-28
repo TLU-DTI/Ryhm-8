@@ -59,8 +59,16 @@ export class MitiHand {
 
     // fill in rest
     if (this.handCards.length < amount) {
-      while (this.handCards.length < amount) {
+      outer: while (this.handCards.length < amount) {
         const randomIndex = Math.floor(Math.random() * this.mitiCards.length);
+
+        // no duplicate
+        for (const card of this.handCards) {
+          if (card.id === this.mitiCards[randomIndex].id) {
+            continue outer
+          }
+        }
+
         this.handCards.push(this.mitiCards[randomIndex]);
       }
     }
