@@ -2,8 +2,8 @@
 
 ## Pildid
 
-![image](./image1.png)
 ![image](./image2.png)
+![image](./image1.png)
 Mitigate Online on veebipõhine projektijuhtimise mäng, mis on loodud Tallinna Ülikooli DTI suvepraktika raames. Projekti tellis: Martin Sillaots.
 
 Projekti peamine eesmärk on anda mängijale esmane projektijuhtimise kogemus, kus ta näeb millised riskid võivad projektidega kaasneda.
