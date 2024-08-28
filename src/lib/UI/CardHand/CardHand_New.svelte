@@ -1,6 +1,5 @@
 <script lang="ts">
   import { Engine } from '$lib/Engine';
-  import { onMount } from 'svelte';
   import RiskCard from '../Cards/RiskCard.svelte';
 
   let cards = $derived(Engine.riskhand.handCards);
@@ -8,10 +7,6 @@
   function handleMouseUp(e: MouseEvent) {
     Engine.drag.onMouseUp(e);
   }
-
-  setTimeout(() => {
-    Engine.riskhand.createHand(4);
-  }, 1e3);
 </script>
 
 <div id="card-hand" class="handbg absolute flex size-full pb-4 pl-4 pr-4 pt-4">

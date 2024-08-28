@@ -37,21 +37,6 @@
   function nextButton() {
     index = (index + 1) % notifictions!.length;
   }
-
-  setTimeout(() => {
-    Engine.notification.add(new Notification('Manager', '1', 'Happy'));
-  });
-
-  setTimeout(() => {
-    Engine.notification.add(new Notification('Manager', '3', 'UnHappy'));
-    Engine.notification.add(
-      new Notification(
-        'Manager',
-        'lorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolor',
-        'Evil'
-      )
-    );
-  }, 2e3);
 </script>
 
 {#if notifictions}
@@ -80,7 +65,7 @@
       <SimpleBar>
         <div class="select-none font-['Lato'] text-white">
           <span class="mr-1 font-['Changa_One'] text-xl">{name}:</span>
-          {message}
+          {@html message}
         </div>
       </SimpleBar>
     </foreignObject>

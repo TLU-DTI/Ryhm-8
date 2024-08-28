@@ -19,37 +19,6 @@
   });
 
   let logs: RiskLog[] = $derived(Engine.risklog.riskLogs);
-
-  setTimeout(() => {
-    Engine.risklog.add(
-      new RiskLog('Too Strong Currency', 'Management', 'Crisis Meeting', {
-        scope: 5,
-        quality: 5,
-        time: 5,
-        cost: 5
-      })
-    );
-  }, 1e3);
-  setTimeout(() => {
-    Engine.risklog.add(
-      new RiskLog('Lawsuits', 'Management', 'Crisis Meeting', {
-        scope: -5,
-        quality: -5,
-        time: 5,
-        cost: 5
-      })
-    );
-  }, 1e3);
-  setTimeout(() => {
-    Engine.risklog.add(
-      new RiskLog('Pandemic', 'Management', 'Crisis Meeting', {
-        scope: -5,
-        quality: -10,
-        time: -10,
-        cost: -5
-      })
-    );
-  }, 1e3);
 </script>
 
 <div class="size-full content-center text-center">

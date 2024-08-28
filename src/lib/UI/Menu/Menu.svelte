@@ -46,6 +46,7 @@
     justify-content: space-between;
     overflow: hidden;
     color: #f3edf7;
+    z-index: 3;
   }
 
   .button {
