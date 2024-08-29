@@ -8,6 +8,7 @@ import { SaveGame } from './save.svelte';
 import { Timeline } from './timeline.svelte';
 import { Turn, TurnStatus } from './turn.svelte';
 import { Drag } from './drag.svelte';
+import { Tutorial } from './tutorial.svelte';
 
 export interface GameStatusEvent {
   status: GameStatus;
@@ -35,6 +36,8 @@ export class Engine {
 
   readonly event = new Event();
   readonly savegame = new SaveGame(this);
+
+  readonly tutorial = new Tutorial();
 
   _componentStatus: ComponentStatusEvent[] = [];
 

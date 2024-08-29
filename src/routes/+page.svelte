@@ -1,8 +1,10 @@
 <script lang="ts">
+  import { Engine } from '$lib/Engine';
   import Credit from '$lib/UI/Credits/Credit.svelte';
   import Logo from '$lib/UI/Main/Logo.svelte';
   import Start from '$lib/UI/Main/Start.svelte';
   import Tutorial from '$lib/UI/Tutorial/Tutorial.svelte';
+  import TutorialBtn from '$lib/UI/Tutorial/TutorialBtn.svelte';
   import Version from '../../version?raw';
 
   const handleStartClick = () => {
@@ -19,7 +21,17 @@
       <Start />
     </button>
     <div class="w-44">
-      <Tutorial />
+      <div class="size-full content-center text-center">
+        <button
+          type="button"
+          class="tutorial-button size-full"
+          onclick={() => {
+            window.location.href = '/tutorial';
+          }}
+        >
+          <TutorialBtn />
+        </button>
+      </div>
     </div>
     <div class="w-44">
       <Credit />

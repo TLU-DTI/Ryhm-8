@@ -66,6 +66,10 @@ export class Drag {
     this.riskCard = undefined;
   }
 
+  // this function handles everything do to with card dragging
+  // it's big, ugly and inefficient
+  // currently not sure about all the requirements need for calculating objective values
+  // also notifications need rework
   handleDrag() {
     const objective = this._engine.objective;
     const notification = this._engine.notification;

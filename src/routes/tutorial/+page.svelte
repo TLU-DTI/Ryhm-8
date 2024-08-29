@@ -25,6 +25,7 @@
   </div>
 {/if}
 
+<Tutorial />
 <Drag />
 
 <div class="wrapper">

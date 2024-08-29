@@ -1,143 +1,235 @@
 <script>
-  import TutorialBtn from './TutorialBtn.svelte';
-  let isPopupOpen = $state(false);
+  import { Category, Engine } from '$lib/Engine/';
+  import { Notification as Noti } from '$lib/Engine/notification.svelte';
+  import { RiskLog } from '$lib/Engine/risklog.svelte';
+  import Notification from '$lib/UI/Notification/Notification.svelte';
+  import { onMount } from 'svelte';
+
+  let tutorial = $derived(Engine.tutorial.tutorial);
+  let stage = $derived(Engine.tutorial.stage);
+
+  function notiBack() {
+    Engine.tutorial.stage = -1;
+  }
+
+  function notiNext() {
+    Engine.tutorial.stage = +1;
+  }
+
+  onMount(() => {
+    Engine.risklog.add(
+      new RiskLog('Pandemic', Category.External, 'Crisis Communication Planning', {
+        scope: 5,
+        cost: 0,
+        quality: 5,
+        time: 0
+      })
+    );
+
+    Engine.risklog.add(
+      new RiskLog('Ignoring stakeholders', Category.Management, 'PR Campaign', {
+        scope: 0,
+        cost: -10,
+        quality: 0,
+        time: -10
+      })
+    );
+
+    Engine.risklog.add(
+      new RiskLog('Vendor Fails', Category.Commercial, 'Pay', {
+        scope: 2,
+        cost: 0,
+        quality: 2,
+        time: 0
+      })
+    );
+
+    setTimeout(() => {
+      Engine.riskhand.createHand(3);
+    }, 1e3);
+
+    setTimeout(() => {
+      Engine.timeline.next();
+      Engine.timeline.next();
+      Engine.timeline.next();
+      Engine.timeline.next();
+      Engine.timeline.next();
+      Engine.timeline.next();
+      Engine.timeline.next();
+      Engine.timeline.next();
+      Engine.timeline.next();
+      Engine.timeline.next();
+    }, 1e3);
+  });
 </script>
 
-<div class="size-full content-center text-center">
-  <button type="button" class="tutorial-button size-full" onclick={() => (isPopupOpen = true)}>
-    <TutorialBtn />
-  </button>
-</div>
-
-{#if isPopupOpen}
-  <!-- svelte-ignore a11y_click_events_have_key_events -->
-  <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
-  <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-  <div
-    class="popup-overlay"
-    role="dialog"
-    aria-modal="true"
-    tabindex="0"
-    onclick={() => (isPopupOpen = false)}
-  >
-    <div class="popup" role="document" onclick={(e) => e.stopPropagation()} tabindex="0">
-      <h2>Tutorial</h2>
-      <div class="content">
-        <div class="tutorial-grid">
-          <div class="tutorial-column">
-            <h3>Premise</h3>
-            <p>
-              You are put into the shoes of a project risk manager. Your goal is to successfully
-              manage the risks, by utilizing the cards given to you.
-            </p>
-          </div>
-          <div class="tutorial-column">
-            <h3>How to Play?</h3>
-            <p>
-              In the middle of the screen there are 1-5 risk cards, that need to be dealt with. The
-              amount of risks increases as the game goes on, so be careful.
-            </p>
-            <br />
-            <p>
-              During each turn you get new "ideas" on how to manage the risks, we'll call them
-              "Action cards". Your responsibility is to use the action cards to manage the risks, by
-              dragging them on top of the risk card you wish to mitigate.
-            </p>
-            <br />
-            <p>
-              If any of your projects objectives fall below 25%, you'll lose. So keep a watchful eye
-              them.
-            </p>
-            <br />
-            <p>
-              If you see, that you shouldn't take any action just press on the finish turn button
-              and go on to the next round.
-            </p>
-            <br />
-            <h1 class="font-bold">The rest is up to you, to figure out!</h1>
-          </div>
-        </div>
+{#if tutorial}
+  {#if stage == 0}
+    <div class="osd absolute z-10 h-full w-full">
+      <div class="relative left-[50%] top-[50%] w-[40vw] -translate-x-1/2 -translate-y-1/2">
+        <Notification
+          {notiBack}
+          {notiNext}
+          noti={new Noti(
+            'Manager',
+            'Welcome to Mitigate Online! This is a Tutorial, do start click Next.',
+            'Happy'
+          )}
+        />
       </div>
-      <button type="button" class="close-button" onclick={() => (isPopupOpen = false)}>Close</button
-      >
     </div>
-  </div>
+  {:else if stage == 1}
+    <div class="absolute z-10 h-full w-full">
+      <div class="asd fixed left-[0px] top-[0px] z-20 block h-[54vh] w-[22vw]"></div>
+      <div class="fixed left-[24vw] top-[10vh] z-20 w-[30vw]">
+        <Notification
+          {notiBack}
+          {notiNext}
+          noti={new Noti(
+            'Manager',
+            "This is the <b>Objectives</b> panel; it shows statistic about your current project. If any of them go to the red, then your project has failed and it's game over.",
+            'Happy'
+          )}
+        />
+      </div>
+    </div>
+  {:else if stage == 2}
+    <div class="absolute z-10 h-full w-full">
+      <div class="asd fixed left-[0px] top-[50vh] z-20 block h-[53vh] w-[21vw]"></div>
+      <div class="fixed left-[24vw] top-[50vh] z-20 w-[30vw]">
+        <Notification
+          {notiBack}
+          {notiNext}
+          noti={new Noti(
+            'Manager',
+            'This is the <b>Risk Log</b>. Any actions that you have taken will show here.',
+            'Happy'
+          )}
+        />
+      </div>
+    </div>
+  {:else if stage == 3}
+    <div class="absolute z-10 h-full w-full">
+      <div class="asd fixed left-[2vw] top-[58vh] z-20 block h-[9vh] w-[16vw]"></div>
+      <div class="fixed left-[20vw] top-[50vh] z-20 w-[30vw]">
+        <Notification
+          {notiBack}
+          {notiNext}
+          noti={new Noti(
+            'Manager',
+            'Here you can see 1 log; on top left is the Risk Card <b>name</b>; on top right is the Risk Card <b>category</b>; on the bottom left is the <b>response</b>; and on the bottom right is the <b>impact</b>.',
+            'Happy'
+          )}
+        />
+      </div>
+    </div>
+  {:else if stage == 4}
+    <div class="absolute z-10 h-full w-full">
+      <div class="asd fixed left-[32vw] top-[0vh] z-20 block h-[12vh] w-[36vw]"></div>
+      <div class="fixed left-[34vw] top-[20vh] z-20 w-[30vw]">
+        <Notification
+          {notiBack}
+          {notiNext}
+          noti={new Noti(
+            'Manager',
+            'This is the Project Timeline, there are 4 stages; if you manage to get to the end without any of the objectives going to the red, you win.',
+            'Happy'
+          )}
+        />
+      </div>
+    </div>
+  {:else if stage == 5}
+    <div class="absolute z-10 h-full w-full">
+      <div class="asd fixed left-[25vw] top-[11vh] z-20 block h-[48vh] w-[50vw]"></div>
+      <div class="fixed left-[34vw] top-[64vh] z-20 w-[30vw]">
+        <Notification
+          {notiBack}
+          {notiNext}
+          noti={new Noti(
+            'Manager',
+            'Here you see risks that you have to deal with; after every project stage, you start to get more and more risks.',
+            'Happy'
+          )}
+        />
+      </div>
+    </div>
+  {:else if stage == 6}
+    <div class="absolute z-10 h-full w-full">
+      <div class="asd fixed left-[31vw] top-[60vh] z-20 block h-[40vh] w-[38vw]"></div>
+      <div class="fixed left-[34vw] top-[25vh] z-20 w-[30vw]">
+        <Notification
+          {notiBack}
+          {notiNext}
+          noti={new Noti(
+            'Manager',
+            'Here are your Action Cards you can use to mitigate risks.',
+            'Happy'
+          )}
+        />
+      </div>
+    </div>
+  {:else if stage == 7}
+    <div class="pointer-events-none absolute z-10 h-full w-full">
+      <div class="asd fixed left-[25vw] top-[11vh] z-20 block h-[89vh] w-[50vw]"></div>
+      <div class="pointer-events-auto fixed left-[70vw] top-[40vh] z-20 w-[30vw]">
+        <Notification
+          {notiBack}
+          {notiNext}
+          noti={new Noti(
+            'Manager',
+            'Do mitigate the risk; <b>drag</b> the Action Card to the Risk Card.',
+            'Happy'
+          )}
+        />
+      </div>
+    </div>
+  {:else if stage == 8}
+    <div class="absolute z-10 h-full w-full">
+      <div class="asd fixed left-[75vw] top-[13vh] z-20 block h-[30vh] w-[25vw]"></div>
+      <div class="fixed left-[39vw] top-[15vh] z-20 w-[30vw]">
+        <Notification
+          {notiBack}
+          {notiNext}
+          noti={new Noti('Manager', 'Here you see any notifications you have.', 'Happy')}
+        />
+      </div>
+    </div>
+  {:else if stage == 9}
+    <div class="absolute z-10 h-full w-full">
+      <div class="asd fixed left-[80vw] top-[82vh] z-20 block h-[10vh] w-[15vw]"></div>
+      <div class="fixed left-[50vw] top-[50vh] z-20 w-[30vw]">
+        <Notification
+          {notiBack}
+          {notiNext}
+          noti={new Noti(
+            'Manager',
+            'After you have dealt with all the risk, this button goes green, and you can go to the next round.',
+            'Happy'
+          )}
+        />
+      </div>
+    </div>
+  {:else if stage == 10}
+    <div class="osd absolute z-10 h-full w-full">
+      <div class="relative left-[50%] top-[50%] w-[40vw] -translate-x-1/2 -translate-y-1/2">
+        <Notification
+          {notiBack}
+          notiNext={() => {
+            window.location.href = '/game';
+          }}
+          noti={new Noti('Manager', "That's it; now click next to go to the game.", 'Happy')}
+        />
+      </div>
+    </div>
+  {/if}
 {/if}
 
 <style>
-  .size-full {
-    width: 100%;
-    height: 100%;
+  .asd {
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7);
   }
-  .content-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .text-center {
-    text-align: center;
-  }
-  .tutorial-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    outline: none;
-  }
-  .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .popup {
-    background: #282844;
-    border: 3px solid #40406b;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    width: 80%;
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    overflow: hidden;
-    color: #f3edf7;
-  }
-  h2 {
-    margin: 0 0 1rem;
-    font-size: 1.5rem;
-    color: #f7ffec;
-    text-align: center;
-  }
-  .content {
-    width: 100%;
-  }
-  .tutorial-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  .close-button {
-    background: #67ff7d;
-    border: 3px solid #bdf8c7;
-    color: #282844;
-    font-size: 1rem;
-    cursor: pointer;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    margin-top: 1rem;
-    transition: background-color 0.3s ease;
-    outline: none;
-  }
-  .close-button:hover {
-    background-color: #5aeb71;
+
+  .osd {
+    background-color: rgba(0, 0, 0, 0.7);
   }
 </style>
