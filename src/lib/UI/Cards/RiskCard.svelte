@@ -203,7 +203,7 @@
       width="1515"
       height="906"
       transform="translate(-68 44) scale(.31 .24)"
-      xlink:href="/assets/Webp/RiskCards/{riskCard.id}.webp"
+      xlink:href="assets/Webp/RiskCards/{riskCard.id}.webp"
     />
   </g>
 </svg>
