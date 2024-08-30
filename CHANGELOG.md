@@ -8,7 +8,7 @@ because a lot of backend was unmaintainable and consisted of many hacks, i rewro
 
 ### Added
 
-- Notifictations are now in array and can be viewd with next and back button
+- Notifictations are now in array and can be viewed with next and back button
 - added notification counter, that show how many notifications you have (needs proper UI element)
 - Save game after every turn, save lasts for 1 hour
 - Interactive Tutorial
