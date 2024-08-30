@@ -25,7 +25,7 @@ because a lot of backend was unmaintainable and consisted of many hacks, i rewro
 - Reworked some UI elements to use svelte components directly instead of using html IDs
 - Made most animations more reliable
 - all sliders are now tweened which make them more smooth and pretty
-
+- Optimized all images to webp
 
 
 - Reenabled players to avoid risks by finishing turn
