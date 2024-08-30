@@ -215,7 +215,7 @@
         <Notification
           {notiBack}
           notiNext={() => {
-            window.location.href = '/game';
+            window.location.href = 'game';
           }}
           noti={new Noti('Manager', "That's it. Now click next to go to the game.", 'Happy')}
         />

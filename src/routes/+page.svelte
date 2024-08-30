@@ -8,7 +8,7 @@
   import Version from '../../version?raw';
 
   const handleStartClick = () => {
-    window.location.href = '/game';
+    window.location.href = 'game';
   };
 </script>
 
@@ -26,7 +26,7 @@
           type="button"
           class="tutorial-button size-full"
           onclick={() => {
-            window.location.href = '/tutorial';
+            window.location.href = 'tutorial';
           }}
         >
           <TutorialBtn />
