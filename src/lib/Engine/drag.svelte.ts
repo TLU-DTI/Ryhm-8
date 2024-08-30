@@ -128,7 +128,6 @@ export class Drag {
         time = mitiCard.attributes.time;
         cost = mitiCard.attributes.cost;
       }
-
     }
     else {
       notification.add({
@@ -164,7 +163,9 @@ export class Drag {
     riskhand.handCards = riskhand.handCards.filter(card => card.id !== riskCard.id);
     mitihand.handCards = mitihand.handCards.filter(card => card.id !== mitiCard.id);
 
-    const props = $state({ riskCard: riskCard, self: this });
+    riskCard.timeout = this._engine.riskhand.RISKCARDTIMEOUTROUNDS;
+    riskhand.usedCards.push(riskCard);
+
     const a = mount(RiskAnimation, {
       target: document.getElementById("riskanimation")!,
       props: { riskCard, current: this.mousePos }

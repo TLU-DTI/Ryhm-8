@@ -203,7 +203,7 @@
           {notiNext}
           noti={new Noti(
             'Manager',
-            'After you have dealt with all the risk, this button goes green, and you can go to the next round.',
+            'You can finish the turn at any time. For every risk card still on the board you avoid it.',
             'Happy'
           )}
         />
@@ -217,7 +217,7 @@
           notiNext={() => {
             window.location.href = '/game';
           }}
-          noti={new Noti('Manager', "That's it; now click next to go to the game.", 'Happy')}
+          noti={new Noti('Manager', "That's it. Now click next to go to the game.", 'Happy')}
         />
       </div>
     </div>

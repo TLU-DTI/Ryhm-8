@@ -35,6 +35,7 @@ export interface RiskCard {
   attributes: Attributes;
   mitigation?: string[];
   gameStage: GameStage;
+  timeout?: number;
 }
 
 export class RiskHand {
@@ -42,8 +43,20 @@ export class RiskHand {
 
   handCards: RiskCard[] = $state([]);
 
+  usedCards: RiskCard[] = $state([]);
+
+  RISKCARDTIMEOUTROUNDS = 3;
+
   createHand(stage: number) {
     this.handCards = [];
+
+    for (const usedCard of this.usedCards) {
+      if (usedCard.timeout === 0) {
+        this.usedCards = this.usedCards.filter((card) => card.id !== usedCard.id);
+      }
+
+      usedCard.timeout! -= 1;
+    }
 
     const amount = riskCardAmount(stage);
 
@@ -65,11 +78,15 @@ export class RiskHand {
       );
     }
 
-    // fill in rest
-    outer: for (let i = 0; i < amount!; i++) {
+    outer: while (this.handCards.length < amount!) {
       const randomIndex = Math.floor(Math.random() * filteredCards.length);
 
-      // no duplicate
+      for (const usedCard of this.usedCards) {
+        if (usedCard.id === filteredCards[randomIndex].id) {
+          continue outer
+        }
+      }
+
       for (const card of this.handCards) {
         if (card.id === filteredCards[randomIndex].id) {
           continue outer

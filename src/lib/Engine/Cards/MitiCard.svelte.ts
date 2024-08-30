@@ -85,16 +85,20 @@ export class MitiHand {
   createHand(riskHand: RiskCard[], amount: number = 3) {
     this.handCards = [];
 
+    console.log(riskHand);
+
+
     // have 1 correct card
     loop:
     for (const risk of riskHand) {
       for (const miti of this.mitiCards) {
-        if (!risk.mitigation) return;
+        if (risk.mitigation === undefined) continue;
 
         for (const id of risk.mitigation) {
           if (miti.id === id) {
             this.handCards.push(miti);
-            break loop;
+
+            continue loop;
           }
         }
       }
