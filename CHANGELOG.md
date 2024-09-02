@@ -1,6 +1,6 @@
 # Changelog
 
-This contains all changes from Germo Tael after group project end in june.
+This contains all changes after group project end in june.
 
 ### Rework
 
