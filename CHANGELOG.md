@@ -4,7 +4,7 @@ This contains all changes after group project end in june.
 
 ### Rework
 
-because a lot of backend was unmaintainable and consisted of many hacks, i rewrote most backend to more maintainable and extendable state for future developers.
+because a lot of backend was unmaintainable and consisted of many hacks, i (Germo) rewrote most backend to more maintainable and extendable state for future developers.
 
 ### Added
 
