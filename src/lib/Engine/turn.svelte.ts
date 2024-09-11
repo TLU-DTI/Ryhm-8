@@ -39,7 +39,7 @@ export class Turn {
         scopeTotal += element.attributes.scope;
         timeTotal += element.attributes.time;
 
-        element.timeout = this._engine.riskhand.RISKCARDTIMEOUTROUNDS;
+        element.timeout = this._engine.riskhand.RISKCARD_TIMEOUT_ROUNDS;
         this._engine.riskhand.usedCards.push(element);
 
         this._engine.notification.add(new Notification("Manager", `You decided to avoid the following risk: <b>${element.title}</b>`, "Happy"));

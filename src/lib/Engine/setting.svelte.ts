@@ -1,0 +1,1 @@
+export let enable_auto_lose = $state(true);

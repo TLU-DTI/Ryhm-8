@@ -10,7 +10,6 @@
   import { Engine } from '$lib/Engine';
   import Debug from '$lib/UI/Debug/debug.svelte';
   import Drag from '$lib/Components/Drag.svelte';
-  import Tutorial from '$lib/UI/Tutorial/Tutorial.svelte';
 
   let status = $derived(Engine.status);
 </script>

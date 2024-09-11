@@ -1,6 +1,7 @@
-import { shuffle } from '$lib';
+import { randomInt, shuffle } from '$lib';
 import RiskCardsJson from '$lib/Data/riskcards.json';
 import type { Attributes, Category } from '..';
+import { enable_auto_lose } from '../setting.svelte';
 
 interface RiskData {
   '#': string;
@@ -45,7 +46,10 @@ export class RiskHand {
 
   usedCards: RiskCard[] = $state([]);
 
-  RISKCARDTIMEOUTROUNDS = 3;
+  RISKCARD_TIMEOUT_ROUNDS = 3;
+
+  // less chance
+  AUTOLOSE_RISKCARD_CHANCE_MULTIPLIER = 10;
 
   createHand(stage: number) {
     this.handCards = [];
@@ -81,19 +85,35 @@ export class RiskHand {
     outer: while (this.handCards.length < amount!) {
       const randomIndex = Math.floor(Math.random() * filteredCards.length);
 
+      const currentCard = filteredCards[randomIndex];
+
       for (const usedCard of this.usedCards) {
-        if (usedCard.id === filteredCards[randomIndex].id) {
+        if (usedCard.id === currentCard.id) {
           continue outer
         }
       }
 
       for (const card of this.handCards) {
-        if (card.id === filteredCards[randomIndex].id) {
+        if (card.id === currentCard.id) {
           continue outer
         }
       }
 
-      this.handCards.push(filteredCards[randomIndex]);
+      // X## riskcards have scope -100
+      if (currentCard.attributes.scope === -100) {
+        if (enable_auto_lose === true) {
+          const random = randomInt(0, this.AUTOLOSE_RISKCARD_CHANCE_MULTIPLIER);
+
+          if (random === 0) {
+            this.handCards.push(currentCard);
+            continue outer
+          }
+        } else {
+          continue outer
+        }
+      }
+
+      this.handCards.push(currentCard);
     }
 
     this.handCards = shuffle(this.handCards);
