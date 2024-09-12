@@ -3,13 +3,13 @@ import type { Engine } from './engine.svelte';
 import { TurnStatus } from './turn.svelte';
 
 const stages = <const>{
-  1: [4.1, 7.7, 8.3, 8.3, 8.5],
-  2: [10, 7.8, 8.2],
-  3: [10.4, 7.5, 8.2],
+  1: [5.3, 9.8, 9.5],
+  2: [12.4, 9.7, 9.5],
+  3: [12.4, 9.5, 9.5],
   4: [99]
 };
 
-export const turns = 12;
+export const turns = 10;
 
 export class Timeline {
   private _engine: Engine;

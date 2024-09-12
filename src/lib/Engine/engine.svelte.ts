@@ -108,6 +108,8 @@ export class Engine {
     this.objective.timeTo = 66;
     this.objective.costTo = 66;
 
+    this.timeline.next();
+
     this.turn.status = TurnStatus.ONGOING;
     this.status = 'Running';
   }

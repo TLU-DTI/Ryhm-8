@@ -49,7 +49,7 @@ export class RiskHand {
   RISKCARD_TIMEOUT_ROUNDS = 3;
 
   // less chance
-  AUTOLOSE_RISKCARD_CHANCE_MULTIPLIER = 10;
+  AUTOLOSE_RISKCARD_CHANCE_MULTIPLIER = 40;
 
   createHand(stage: number) {
     this.handCards = [];
@@ -106,6 +106,8 @@ export class RiskHand {
 
           if (random === 0) {
             this.handCards.push(currentCard);
+            continue outer
+          } else {
             continue outer
           }
         } else {
