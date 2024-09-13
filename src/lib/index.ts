@@ -29,3 +29,7 @@ export function stopPropagation(fn: any) {
 export function randomInt(min: number, max: number) { // min and max included 
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+export function areAllUnique(arr: any[]) {
+  return new Set(arr).size === arr.length;
+}

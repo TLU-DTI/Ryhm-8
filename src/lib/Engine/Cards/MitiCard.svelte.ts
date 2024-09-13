@@ -1,4 +1,4 @@
-import { shuffle } from '$lib';
+import { areAllUnique, shuffle } from '$lib';
 import MitiCardsJson from '$lib/Data/miticards.json';
 
 import { Category } from '..';
@@ -85,23 +85,9 @@ export class MitiHand {
   createHand(riskHand: RiskCard[], amount: number = 3) {
     this.handCards = [];
 
-    console.log(riskHand);
-
-
-    // have 1 correct card
-    loop:
-    for (const risk of riskHand) {
-      for (const miti of this.mitiCards) {
-        if (risk.mitigation === undefined) continue;
-
-        for (const id of risk.mitigation) {
-          if (miti.id === id) {
-            this.handCards.push(miti);
-
-            continue loop;
-          }
-        }
-      }
+    this.createCards(riskHand);
+    while (this.isValid() === false) {
+      this.createCards(riskHand);
     }
 
     // fill in rest
@@ -121,6 +107,32 @@ export class MitiHand {
     }
 
     this.handCards = shuffle(this.handCards);
+  }
+
+  isValid() {
+    let ids = [];
+    for (const card of this.handCards) {
+      ids.push(card.id);
+    }
+
+    return areAllUnique(ids);
+  }
+
+  createCards(riskHand: RiskCard[]) {
+    this.handCards = [];
+
+    outer: for (const risk of riskHand) {
+      if (risk.mitigation?.length) {
+        const randomIndex = Math.floor(Math.random() * risk.mitigation.length);
+
+        for (const miti of this.mitiCards) {
+          if (miti.id === risk.mitigation[randomIndex]) {
+            this.handCards.push(miti);
+            continue outer;
+          }
+        }
+      }
+    }
   }
 
   addUsed(card: MitiCard) {

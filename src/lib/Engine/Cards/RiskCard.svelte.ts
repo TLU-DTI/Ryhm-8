@@ -82,6 +82,15 @@ export class RiskHand {
       );
     }
 
+    this.loopCards(amount!, filteredCards);
+    while (this.isValid() === false) {
+      this.loopCards(amount!, filteredCards);
+    }
+
+    this.handCards = shuffle(this.handCards);
+  }
+
+  loopCards(amount: number, filteredCards: RiskCard[]) {
     outer: while (this.handCards.length < amount!) {
       const randomIndex = Math.floor(Math.random() * filteredCards.length);
 
@@ -117,8 +126,66 @@ export class RiskHand {
 
       this.handCards.push(currentCard);
     }
+  }
 
-    this.handCards = shuffle(this.handCards);
+  isValid() {
+    const a = [];
+
+    for (const card of this.handCards) {
+      if (card.attributes.scope === -100) {
+        return true;
+      }
+
+      a.push(card.mitigation);
+    }
+
+    const b: string[] = ["", "", "", ""];
+
+    let result = false;
+
+    outer: for (const x1 of a[0]!) {
+      b[0] = x1;
+      result = true;
+
+      if (a[1] !== undefined) {
+        inn1: for (const x2 of a[1]) {
+          if (b.includes(x2)) {
+            result = false;
+            continue inn1;
+          }
+          b[1] = x2;
+          result = true;
+
+          if (a[2] !== undefined) {
+            inn2: for (const x3 of a[2]) {
+              if (b.includes(x3)) {
+                result = false;
+                continue inn2;
+              }
+              b[2] = x3;
+              result = true;
+
+              if (a[3] !== undefined) {
+                inn3: for (const x4 of a[3]) {
+                  if (b.includes(x4)) {
+                    result = false;
+                    continue inn3;
+                  }
+                  b[3] = x4;
+                  result = true;
+                  break outer;
+                }
+              }
+              break outer;
+            }
+          }
+          break outer;
+        }
+      }
+      break outer;
+    }
+
+    return result;
   }
 }
 
@@ -139,7 +206,7 @@ function RiskCardJson(): RiskCard[] {
         time: data[i].T ? data[i].T! * -1 : 0,
         cost: data[i].C ? data[i].C! * -1 : 0
       },
-      mitigation: data[i].Mitigation ? data[i].Mitigation?.split(', ') : [],
+      mitigation: data[i].Mitigation ? data[i].Mitigation?.split(',').map((x) => x.trim()) : [],
       gameStage: {
         initation: !!data[i].I,
         planning: !!data[i].P,

@@ -42,10 +42,10 @@ export class Turn {
         element.timeout = this._engine.riskhand.RISKCARD_TIMEOUT_ROUNDS;
         this._engine.riskhand.usedCards.push(element);
 
-        this._engine.notification.add(new Notification("Manager", `You decided to avoid the following risk: <b>${element.title}</b>`, "Happy"));
+        this._engine.notification.add(new Notification("Manager", `You decided to ignore the following risk: <b>${element.title}</b>`, "Happy"));
 
         this._engine.risklog.add(
-          new RiskLog(element.title, element.category, "Avoided", {
+          new RiskLog(element.title, element.category, "Ignored", {
             scope: element.attributes.scope,
             quality: element.attributes.quality,
             time: element.attributes.time,
