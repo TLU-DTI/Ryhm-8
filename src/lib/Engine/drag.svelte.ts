@@ -163,7 +163,7 @@ export class Drag {
     riskhand.handCards = riskhand.handCards.filter(card => card.id !== riskCard.id);
     mitihand.handCards = mitihand.handCards.filter(card => card.id !== mitiCard.id);
 
-    riskCard.timeout = this._engine.riskhand.RISKCARDTIMEOUTROUNDS;
+    riskCard.timeout = this._engine.riskhand.RISKCARD_TIMEOUT_ROUNDS;
     riskhand.usedCards.push(riskCard);
 
     const a = mount(RiskAnimation, {

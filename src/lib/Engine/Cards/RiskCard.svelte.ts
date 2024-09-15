@@ -27,16 +27,54 @@ interface GameStage {
   closing: boolean;
 }
 
-export interface RiskCard {
-  id: string;
-  title: string;
-  description: string;
-  category: Category;
+export class RiskCard {
+  id!: string;
+  title!: string;
+  description!: string;
+  category!: Category;
   subcategory?: string;
-  attributes: Attributes;
+  attributes!: Attributes;
   mitigation?: string[];
-  gameStage: GameStage;
+  gameStage!: GameStage;
   timeout?: number;
+  impact?: number;
+  probability?: number;
+
+  get probabilityText() {
+    if (this.probability === undefined) {
+      return 'None';
+    }
+
+    if (this.probability > 66) {
+      return 'High';
+    } else if (this.probability > 33) {
+      return 'Medium';
+    } else {
+      return 'Low';
+    }
+  }
+
+  constructor(data: RiskData) {
+
+    this.id = data['#'];
+    this.title = data.Risk;
+    this.description = data.Description;
+    this.category = data.Category as Category;
+    this.subcategory = data['Sub-category'];
+    this.attributes = {
+      scope: data.S || 0,
+      quality: data.Q || 0,
+      time: data.T ? data.T! * -1 : 0,
+      cost: data.C ? data.C! * -1 : 0
+    };
+    this.mitigation = data.Mitigation ? data.Mitigation?.split(',').map((x) => x.trim()) : [];
+    this.gameStage = {
+      initation: !!data.I,
+      planning: !!data.P,
+      execution: !!data.E,
+      closing: !!data.X
+    };
+  }
 }
 
 export class RiskHand {
@@ -49,7 +87,7 @@ export class RiskHand {
   RISKCARD_TIMEOUT_ROUNDS = 3;
 
   // less chance
-  AUTOLOSE_RISKCARD_CHANCE_MULTIPLIER = 40;
+  AUTOLOSE_RISKCARD_CHANCE_MULTIPLIER = 20;
 
   createHand(stage: number) {
     this.handCards = [];
@@ -93,8 +131,10 @@ export class RiskHand {
   loopCards(amount: number, filteredCards: RiskCard[]) {
     outer: while (this.handCards.length < amount!) {
       const randomIndex = Math.floor(Math.random() * filteredCards.length);
+      const randomChance = randomInt(0, 100);
 
       const currentCard = filteredCards[randomIndex];
+
 
       for (const usedCard of this.usedCards) {
         if (usedCard.id === currentCard.id) {
@@ -114,6 +154,7 @@ export class RiskHand {
           const random = randomInt(0, this.AUTOLOSE_RISKCARD_CHANCE_MULTIPLIER);
 
           if (random === 0) {
+            // currentCard.probability = randomChance;
             this.handCards.push(currentCard);
             continue outer
           } else {
@@ -124,6 +165,7 @@ export class RiskHand {
         }
       }
 
+      currentCard.probability = randomChance;
       this.handCards.push(currentCard);
     }
   }
@@ -194,26 +236,7 @@ function RiskCardJson(): RiskCard[] {
   const data: RiskData[] = RiskCardsJson;
 
   for (let i = 0; i < data.length; i++) {
-    const card = {
-      id: data[i]['#'],
-      title: data[i].Risk,
-      description: data[i].Description,
-      category: data[i].Category as Category,
-      subcategory: data[i]['Sub-category'],
-      attributes: {
-        scope: data[i].S || 0,
-        quality: data[i].Q || 0,
-        time: data[i].T ? data[i].T! * -1 : 0,
-        cost: data[i].C ? data[i].C! * -1 : 0
-      },
-      mitigation: data[i].Mitigation ? data[i].Mitigation?.split(',').map((x) => x.trim()) : [],
-      gameStage: {
-        initation: !!data[i].I,
-        planning: !!data[i].P,
-        execution: !!data[i].E,
-        closing: !!data[i].X
-      }
-    };
+    const card = new RiskCard(data[i])
 
     cards.push(card);
   }

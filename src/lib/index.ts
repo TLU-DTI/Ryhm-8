@@ -12,20 +12,6 @@ export function shuffle<T>(a: T[]): T[] {
   return array;
 }
 
-export function preventDefault(fn: any) {
-  return function (event: any) {
-    event.preventDefault();
-    fn.call(this, event);
-  };
-}
-
-export function stopPropagation(fn: any) {
-  return function (event: any) {
-    event.stopPropagation();
-    fn.call(this, event);
-  };
-}
-
 export function randomInt(min: number, max: number) { // min and max included 
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
