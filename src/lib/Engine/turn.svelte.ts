@@ -1,3 +1,4 @@
+import { handleCardOnCard } from './Cards';
 import type { Engine } from './engine.svelte';
 import { Notification } from './notification.svelte';
 import { RiskLog } from './risklog.svelte';
@@ -27,37 +28,10 @@ export class Turn {
   }
 
   next() {
-    let costTotal = 0;
-    let qualityTotal = 0;
-    let scopeTotal = 0;
-    let timeTotal = 0;
-
     if (this._engine.riskhand.handCards.length > 0) {
-      for (const element of this._engine.riskhand.handCards) {
-        costTotal += element.attributes.cost;
-        qualityTotal += element.attributes.quality;
-        scopeTotal += element.attributes.scope;
-        timeTotal += element.attributes.time;
-
-        element.timeout = this._engine.riskhand.RISKCARD_TIMEOUT_ROUNDS;
-        this._engine.riskhand.usedCards.push(element);
-
-        this._engine.notification.add(new Notification("Manager", `You decided to ignore the following risk: <b>${element.title}</b>`, "Happy"));
-
-        this._engine.risklog.add(
-          new RiskLog(element.title, element.category, "Ignored", {
-            scope: element.attributes.scope,
-            quality: element.attributes.quality,
-            time: element.attributes.time,
-            cost: element.attributes.cost
-          })
-        );
+      for (const riskCard of this._engine.riskhand.handCards) {
+        handleCardOnCard(this._engine, riskCard.id, undefined, true);
       }
-
-      this._engine.objective.cost = costTotal
-      this._engine.objective.quality = qualityTotal
-      this._engine.objective.scope = scopeTotal
-      this._engine.objective.time = timeTotal
     }
 
     this._engine.timeline.next();

@@ -4,16 +4,17 @@ import type { MitiCard } from "./MitiCard.svelte";
 import type { RiskCard } from "./RiskCard.svelte";
 import RiskAnimation from "$lib/Components/RiskAnimation.svelte";
 import { RiskLog } from "../risklog.svelte";
+import { Notification } from '../notification.svelte';
 
-function handleCardOnCard(engine: Engine, risk: RiskCard, miti: MitiCard) {
+export function handleCardOnCard(engine: Engine, riskID: string, mitiID?: string, ignored = false) {
   const objective = engine.objective;
   const notification = engine.notification;
   const risklog = engine.risklog;
   const mitihand = engine.mitihand;
   const riskhand = engine.riskhand;
 
-  const riskCard = riskhand.riskCards.find(card => card.id === risk?.id)!;
-  const mitiCard = mitihand.mitiCards.find(card => card.id === miti?.id)!;
+  const riskCard = riskhand.riskCards.find(card => card.id === riskID)!;
+  const mitiCard = mitihand.mitiCards.find(card => card.id === mitiID)!;
 
   let scope = 0;
   let quality = 0;
@@ -23,12 +24,19 @@ function handleCardOnCard(engine: Engine, risk: RiskCard, miti: MitiCard) {
   // if miticard beats riskcard
   let correct = false;
   riskCard.mitigation?.forEach(id => {
-    if (mitiCard.id === id) {
+    if (mitiCard?.id === id) {
       correct = true;
     }
   })
 
-  if (correct) {
+  if (ignored) {
+    notification.add(new Notification("Manager", `You decided to ignore the following risk: <b>${riskCard.title}</b>`, "Happy"));
+
+    scope = riskCard.attributes.scope;
+    quality = riskCard.attributes.quality;
+    time = riskCard.attributes.time;
+    cost = riskCard.attributes.cost;
+  } else if (correct) {
     notification.add({
       name: 'Manager',
       message: `Your choice to use the card <b>${mitiCard.title}</b> on the <b>${riskCard.title}</b> was perfect!`,
@@ -40,7 +48,7 @@ function handleCardOnCard(engine: Engine, risk: RiskCard, miti: MitiCard) {
     time = mitiCard.attributes.time;
     cost = mitiCard.attributes.cost;
 
-  } else if (mitiCard.category.includes(riskCard.category)) {
+  } else if (false) {
     const rng = Math.random() < 0.5;
 
     notification.add({
@@ -63,8 +71,7 @@ function handleCardOnCard(engine: Engine, risk: RiskCard, miti: MitiCard) {
       time = mitiCard.attributes.time;
       cost = mitiCard.attributes.cost;
     }
-  }
-  else {
+  } else {
     notification.add({
       name: 'Manager',
       message: `Your choice of <b>${mitiCard.title}</b> to risk <b>${riskCard.title}</b> was terrible! What have you done!`,
@@ -78,7 +85,7 @@ function handleCardOnCard(engine: Engine, risk: RiskCard, miti: MitiCard) {
   }
 
   risklog.add(
-    new RiskLog(riskCard.title, riskCard.category, mitiCard.title, {
+    new RiskLog(riskCard.title, riskCard.category, ignored ? "Ignored" : mitiCard.title, {
       scope: scope,
       quality: quality,
       time: time,
@@ -91,23 +98,28 @@ function handleCardOnCard(engine: Engine, risk: RiskCard, miti: MitiCard) {
   objective.time = time;
   objective.cost = cost;
 
-  if (mitihand.usedCards.filter(card => card.id === mitiCard.id).length == 0) {
+  if (mitihand.usedCards.filter(card => card.id === mitiCard?.id).length == 0 && ignored === false) {
     mitihand.addUsed(mitiCard);
   }
 
   riskhand.handCards = riskhand.handCards.filter(card => card.id !== riskCard.id);
-  mitihand.handCards = mitihand.handCards.filter(card => card.id !== mitiCard.id);
+
+  if (ignored === false) {
+    mitihand.handCards = mitihand.handCards.filter(card => card.id !== mitiCard.id);
+  }
 
   riskCard.timeout = engine.riskhand.RISKCARD_TIMEOUT_ROUNDS;
   riskhand.usedCards.push(riskCard);
 
-  const a = mount(RiskAnimation, {
-    target: document.getElementById("riskanimation")!,
-    props: { riskCard, current: engine.drag.mousePos }
-  });
+  if (ignored === false) {
+    const a = mount(RiskAnimation, {
+      target: document.getElementById("riskanimation")!,
+      props: { riskCard, current: engine.drag.mousePos }
+    });
 
-  // race condition go brr
-  setTimeout(() => {
-    unmount(a);
-  }, 550);
+    // race condition go brr
+    setTimeout(() => {
+      unmount(a);
+    }, 550);
+  }
 }
