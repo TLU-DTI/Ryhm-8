@@ -3,6 +3,7 @@ import type { Engine } from "../engine.svelte";
 import RiskAnimation from "$lib/Components/RiskAnimation.svelte";
 import { RiskLog } from "../risklog.svelte";
 import { Notification } from '../notification.svelte';
+import { randomInt } from "$lib";
 
 export function handleCardOnCard(engine: Engine, riskID: string, mitiID?: string, ignored = false) {
   const objective = engine.objective;
@@ -13,6 +14,17 @@ export function handleCardOnCard(engine: Engine, riskID: string, mitiID?: string
 
   const riskCard = riskhand.riskCards.find(card => card.id === riskID)!;
   const mitiCard = mitihand.mitiCards.find(card => card.id === mitiID)!;
+
+  if (randomInt(0, 100) <= riskCard.probability) {
+    notification.add(new Notification("Manager", `The following risk: <b>${riskCard.title}</b>, didn't materialize`, "Happy"));
+
+    riskhand.handCards = riskhand.handCards.filter(card => card.id !== riskCard.id);
+
+    riskCard.timeout = engine.riskhand.RISKCARD_TIMEOUT_ROUNDS;
+    riskhand.usedCards.push(riskCard);
+
+    return;
+  }
 
   let scope = 0;
   let quality = 0;

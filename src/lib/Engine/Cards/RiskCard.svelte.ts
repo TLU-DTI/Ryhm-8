@@ -38,7 +38,7 @@ export class RiskCard {
   gameStage!: GameStage;
   timeout?: number;
   impact?: number;
-  probability?: number;
+  probability!: number;
 
   get probabilityText() {
     if (this.probability === undefined) {
@@ -52,6 +52,38 @@ export class RiskCard {
     } else {
       return 'Low';
     }
+  }
+
+  get probabilityNumber() {
+    if (this.probability === undefined) {
+      return 0;
+    }
+
+    if (this.probability > 66) {
+      return 3;
+    } else if (this.probability > 33) {
+      return 2;
+    } else {
+      return 1;
+    }
+  }
+
+  get impactNumber() {
+    if (this.impact === undefined) {
+      return 0;
+    }
+
+    if (this.impact > 15) {
+      return 3;
+    } else if (this.impact > 9) {
+      return 2;
+    } else {
+      return 1;
+    }
+  }
+
+  get compinedImpactProbability() {
+    return this.impactNumber * this.probabilityNumber;
   }
 
   constructor(data: RiskData) {
@@ -154,7 +186,7 @@ export class RiskHand {
           const random = randomInt(0, this.AUTOLOSE_RISKCARD_CHANCE_MULTIPLIER);
 
           if (random === 0) {
-            // currentCard.probability = randomChance;
+            currentCard.probability = 100;
             this.handCards.push(currentCard);
             continue outer
           } else {
@@ -166,6 +198,7 @@ export class RiskHand {
       }
 
       currentCard.probability = randomChance;
+      currentCard.impact = -(currentCard.attributes.scope) + -(currentCard.attributes.quality) + -(currentCard.attributes.cost) + -(currentCard.attributes.time);
       this.handCards.push(currentCard);
     }
   }
