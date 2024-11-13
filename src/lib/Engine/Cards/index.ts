@@ -15,16 +15,16 @@ export function handleCardOnCard(engine: Engine, riskID: string, mitiID?: string
   const riskCard = riskhand.riskCards.find(card => card.id === riskID)!;
   const mitiCard = mitihand.mitiCards.find(card => card.id === mitiID)!;
 
-  if (randomInt(0, 100) <= riskCard.probability) {
-    notification.add(new Notification("Manager", `The following risk: <b>${riskCard.title}</b>, didn't materialize`, "Happy"));
+  // if (randomInt(0, 100) <= riskCard.probability) {
+  //   notification.add(new Notification("Manager", `The following risk: <b>${riskCard.title}</b>, didn't materialize`, "Happy"));
 
-    riskhand.handCards = riskhand.handCards.filter(card => card.id !== riskCard.id);
+  //   riskhand.handCards = riskhand.handCards.filter(card => card.id !== riskCard.id);
 
-    riskCard.timeout = engine.riskhand.RISKCARD_TIMEOUT_ROUNDS;
-    riskhand.usedCards.push(riskCard);
+  //   riskCard.timeout = engine.riskhand.RISKCARD_TIMEOUT_ROUNDS;
+  //   riskhand.usedCards.push(riskCard);
 
-    return;
-  }
+  //   return;
+  // }
 
   let scope = 0;
   let quality = 0;
@@ -32,7 +32,18 @@ export function handleCardOnCard(engine: Engine, riskID: string, mitiID?: string
   let cost = 0;
 
   if (ignored) {
-    notification.add(new Notification("Manager", `You decided to ignore the following risk: <b>${riskCard.title}</b>`, "Happy"));
+    if (randomInt(0, 100) <= riskCard.probability) {
+      notification.add(new Notification("Manager", `You decided to ignore the following risk: <b>${riskCard.title}</b>, luckily the risk didn't materialize`, "Happy"));
+
+      riskhand.handCards = riskhand.handCards.filter(card => card.id !== riskCard.id);
+
+      riskCard.timeout = engine.riskhand.RISKCARD_TIMEOUT_ROUNDS;
+      riskhand.usedCards.push(riskCard);
+
+      return;
+    }
+
+    notification.add(new Notification("Manager", `You decided to ignore the following risk: <b>${riskCard.title}</b>, sadly the risk materialized`, "UnHappy"));
 
     scope = riskCard.attributes.scope;
     quality = riskCard.attributes.quality;
@@ -72,7 +83,6 @@ export function handleCardOnCard(engine: Engine, riskID: string, mitiID?: string
 
     return;
   }
-
 
   // if miticard beats riskcard
   let correct = false;
@@ -118,6 +128,22 @@ export function handleCardOnCard(engine: Engine, riskID: string, mitiID?: string
       cost = mitiCard.attributes.cost;
     }
   } else {
+    if (randomInt(0, 100) <= riskCard.probability) {
+      notification.add(new Notification("Manager", `Your choice of <b>${mitiCard.title}</b> to risk <b>${riskCard.title}</b> was terrible! luckily the risk didn't materialize`, "Happy"));
+
+      riskhand.handCards = riskhand.handCards.filter(card => card.id !== riskCard.id);
+      mitihand.handCards = mitihand.handCards.filter(card => card.id !== mitiCard.id);
+
+      riskCard.timeout = engine.riskhand.RISKCARD_TIMEOUT_ROUNDS;
+      riskhand.usedCards.push(riskCard);
+
+      if (mitihand.usedCards.filter(card => card.id === mitiCard?.id).length == 0) {
+        mitihand.addUsed(mitiCard);
+      }
+
+      return;
+    }
+
     notification.add({
       name: 'Manager',
       message: `Your choice of <b>${mitiCard.title}</b> to risk <b>${riskCard.title}</b> was terrible! What have you done!`,
