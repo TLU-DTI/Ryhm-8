@@ -124,8 +124,7 @@
 
   .credits-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: 0.5fr 1fr;
     margin-top: 1rem;
   }
 
