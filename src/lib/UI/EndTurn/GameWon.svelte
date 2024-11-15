@@ -2,7 +2,7 @@
   import { Engine } from '$lib/Engine';
 
   function goToMainMenu() {
-    window.location.assign('/');
+    window.location.assign('.');
   }
 
   function restartGame() {

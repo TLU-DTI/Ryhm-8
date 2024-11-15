@@ -5,10 +5,11 @@
   import Start from '$lib/UI/Main/Start.svelte';
   import Tutorial from '$lib/UI/Tutorial/Tutorial.svelte';
   import TutorialBtn from '$lib/UI/Tutorial/TutorialBtn.svelte';
-  import Version from '../../version?raw';
+  import Version from '$src/../version?raw';
+  import { base } from '$app/paths';
 
   const handleStartClick = () => {
-    window.location.href = 'game';
+    window.location.href = base + '/game';
   };
 </script>
 
@@ -26,7 +27,7 @@
           type="button"
           class="tutorial-button size-full"
           onclick={() => {
-            window.location.href = 'tutorial';
+            window.location.href = base + '/tutorial';
           }}
         >
           <TutorialBtn />

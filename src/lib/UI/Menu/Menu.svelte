@@ -10,7 +10,7 @@
   }
 
   function goToMainMenu() {
-    window.location.assign('/');
+    window.location.assign('.');
   }
 </script>
 

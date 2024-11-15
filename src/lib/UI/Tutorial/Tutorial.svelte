@@ -16,6 +16,10 @@
     Engine.tutorial.stage = +1;
   }
 
+  function notiClose() {
+    window.location.href = '.';
+  }
+
   onMount(() => {
     Engine.risklog.add(
       new RiskLog('Pandemic', Category.External, 'Crisis Communication Planning', {
@@ -68,7 +72,7 @@
     <div class="osd absolute z-10 h-full w-full">
       <div class="relative left-[50%] top-[50%] w-[40vw] -translate-x-1/2 -translate-y-1/2">
         <Notification
-          {notiBack}
+          notiBack={notiClose}
           {notiNext}
           noti={new Noti(
             'Manager',
