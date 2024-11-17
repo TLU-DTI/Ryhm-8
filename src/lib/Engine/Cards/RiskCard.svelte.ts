@@ -152,25 +152,33 @@ export class RiskHand {
       );
     }
 
+    const maxLoop = 100;
+    let iter = 0;
+
     this.loopCards(amount!, filteredCards);
     while (this.isValid() === false) {
-      this.loopCards(amount!, filteredCards);
+      if (iter++ > maxLoop) {
+        this.loopCards(amount!, filteredCards, true);
+      } else {
+        this.loopCards(amount!, filteredCards);
+      }
     }
 
     this.handCards = shuffle(this.handCards);
   }
 
-  loopCards(amount: number, filteredCards: RiskCard[]) {
+  loopCards(amount: number, filteredCards: RiskCard[], useUsedCards = false) {
     outer: while (this.handCards.length < amount!) {
       const randomIndex = Math.floor(Math.random() * filteredCards.length);
       const randomChance = randomInt(0, 100);
 
       const currentCard = filteredCards[randomIndex];
 
-
-      for (const usedCard of this.usedCards) {
-        if (usedCard.id === currentCard.id) {
-          continue outer
+      if (useUsedCards === false) {
+        for (const usedCard of this.usedCards) {
+          if (usedCard.id === currentCard.id) {
+            continue outer
+          }
         }
       }
 
