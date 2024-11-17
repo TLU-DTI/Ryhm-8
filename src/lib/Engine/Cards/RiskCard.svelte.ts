@@ -168,6 +168,7 @@ export class RiskHand {
   }
 
   loopCards(amount: number, filteredCards: RiskCard[], useUsedCards = false) {
+    this.handCards = [];
     outer: while (this.handCards.length < amount!) {
       const randomIndex = Math.floor(Math.random() * filteredCards.length);
       const randomChance = randomInt(0, 100);
