@@ -207,7 +207,7 @@
           {notiNext}
           noti={new Noti(
             'Manager',
-            'You can finish the turn at any time. For every risk card still on the board you avoid it.',
+            'You can finish the turn at any time. Leaving risk on the board means you accept them.',
             'Happy'
           )}
         />
